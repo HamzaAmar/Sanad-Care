@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/tourism"
   return {
     title: t("title"),
     description: t("description"),
-    keywords: t("keywords"),
+    // keywords: t("keywords"),
     openGraph: {
       title: t("og_title"),
       description: t("description"),
