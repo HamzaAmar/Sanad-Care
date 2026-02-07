@@ -1,0 +1,52 @@
+
+.glass{
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.ac-I{
+  border:1px solid var(--B4);
+  background-color: var(--B2);
+}
+
+
+.section{
+  padding: 5vmin 5vw;
+  background: var(--B1);
+}
+
+.pros{
+  & hr{
+    height: 1px;
+    background-color: var(--B4); 
+    border: none;
+  }
+}
+
+.article-page {
+  width: 100%;
+  max-width: 860px;
+  margin: auto;
+  position: relative;
+}
+
+.bottom-fixed {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+
+.flag-dropdown {
+  background-color: var(--B1) !important;
+  border-color: var(--B7) !important;
+
+  & .selected-flag:hover {
+    background-color: var(--B5) !important;
+  }
+}
+
+.dots-background{
+  background: url('/dots.png') 0 0 repeat;
+}

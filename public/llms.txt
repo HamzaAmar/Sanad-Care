@@ -1,0 +1,28 @@
+# Taouafi Luxury Rent Car
+
+> Premium luxury car rental service in Marrakech, Morocco. Providing an exclusive fleet of high-end vehicles with VIP services.
+
+## Services
+
+- **Self-Drive Rentals**: Rent luxury cars (Mercedes, Range Rover, Porsche, etc.) for personal use.
+- **Chauffeur Service**: Professional drivers for VIP transport, airport transfers, and tours.
+- **Nationwide Delivery**: Delivery of vehicles to any location in Morocco (Marrakech, Casablanca, Tangier, etc.).
+
+## Navigation
+
+- **Home**: `/` - The main landing page showcasing the fleet and core services.
+- **Our Cars**: `/cars` - Browse the complete fleet of available luxury vehicles.
+- **About Us**: `/about-us` - Information about the company, mission, and values.
+- **Contact**: `/contact-us` - Contact details, including phone, email, and location.
+- **Blog**: `/blogs` - Travel tips, guides, and insights about luxury travel in Morocco.
+- **FAQ**: `/faq` - Answers to common questions about rentals, insurance, and deposits.
+
+## Key Features
+
+- **Multilingual Support**: Website available in English (`en`), French (`fr`), and Arabic (`ar`).
+- **Premium Fleet**: Includes top brands like Mercedes-Benz, Range Rover, Porsche, Bentley, and Audi.
+- **24/7 Support**: Dedicated customer service for all rental needs.
+
+## Context
+
+Taouafi Rent Car acts as a premier provider for tourists and business travelers seeking high-quality transportation in Marrakech and beyond. The platform emphasizes ease of booking, vehicle quality, and exceptional customer service.

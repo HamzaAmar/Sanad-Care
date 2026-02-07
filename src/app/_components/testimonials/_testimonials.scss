@@ -1,0 +1,39 @@
+.testimonials__container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.testimonials__header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-right: auto;
+}
+
+.testimonials__title {
+  margin-bottom: 1rem;
+}
+
+.testimonials__subtitle {
+  line-height: 1.6;
+}
+
+
+.testimonial-icon {
+  stroke: var(--B5);
+  stroke-width: 1px;
+}
+
+.testimonials__card {
+  background: var(--B2);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px -2px var(--B2);
+  border: 1px solid var(--B3);
+}
+
+.testimonials__author {
+  border-top: 1px solid var(--B2);
+  padding-top: 1rem;
+}
+
+

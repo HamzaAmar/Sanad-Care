@@ -1,0 +1,11 @@
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr 2.5fr;
+  }
+}

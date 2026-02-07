@@ -1,0 +1,35 @@
+.qr-code_item {
+    text-decoration: none;
+    color: currentColor;
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+
+    &:hover {
+        transform: translateY(-1px) scale(1.02);
+        background: var(--B2);
+        .qr-code_arrow{
+            animation:check .2s ease-in-out;
+        }
+    }
+}
+.qr-code_container{
+    box-shadow: 0 0 10px rgba(48, 48, 48, 0.1);
+    width:100%;
+    max-width: 300px; 
+}
+
+.qr-code{
+    height: 100vh;   
+}
+
+@keyframes check {
+    0% {
+        translate:-5px;
+    }
+    75% {
+        translate:2.5px;
+    }
+     100% {
+        translate:5px;
+    }
+}

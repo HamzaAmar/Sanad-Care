@@ -1,0 +1,507 @@
+
+
+section {
+  width: 100%;
+}
+
+// Tourism Hero
+.tourism-hero {
+  background-color: var(--B11);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+
+  .dark & {
+    background-color: var(--B1);
+  }
+
+  @media (min-width: 1024px) {
+    padding: 8rem 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 3rem;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-title {
+    line-height: 1.25;
+    color: var(--B1); 
+
+    .dark & {
+      color: #fff;
+    }
+  }
+
+  .hero-subtitle {
+    max-width: 36rem; // max-w-xl
+    line-height: 1.625;
+    opacity: 0.8;
+  }
+
+  .hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); // shadow-xl
+    aspect-ratio: 16 / 9;
+
+    @media (min-width: 1024px) {
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  .hero-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e8f0; 
+    color: #94a3b8; 
+
+    .dark & {
+      background-color: var(--B2); 
+    }
+  }
+}
+
+// Why Tourism Section
+.why-tourism {
+  padding: 4rem 0;
+  background-color: #fff;
+
+  .dark & {
+    background-color: var(--B1); 
+  }
+
+  @media (min-width: 1024px) {
+    padding: 6rem 0;
+  }
+
+  .section-header {
+    text-align: center;
+  }
+
+  .why-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #f1f5f9; 
+    background-color: #f8fafc; 
+
+    .dark & {
+      border-color: var(--B2); 
+      background-color: var(--B2);
+    }
+  }
+}
+
+// Tourism Services Section
+.tourism-services {
+  padding: 4rem 0;
+  background-color: var(--B11); 
+
+  .dark & {
+    background-color: var(--B1); 
+  }
+
+  @media (min-width: 1024px) {
+    padding: 6rem 0;
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // shadow-lg
+    }
+
+    .dark & {
+      background-color: var(--B1); 
+    }
+  }
+
+  .service-title {
+    font-weight: 600;
+    color: var(--B2); 
+
+    .dark & {
+      color: var(--B12); 
+    }
+  }
+
+}
+
+// Tourism Locations Section
+.tourism-locations {
+  padding: 4rem 0;
+  background-color: #fff;
+  border-top: 1px solid #f1f5f9; 
+
+  .dark & {
+    background-color: var(--B1); 
+    border-color: var(--B2); 
+  }
+
+  .locations-grid {
+    display: grid;
+    gap: 3rem;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+  }
+
+  .locations-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .locations-list {
+    display: grid;
+    gap: 1rem;
+    padding-top: 1rem;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .location-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: var(--B11); 
+    border-radius: 0.5rem;
+
+    .dark & {
+      background-color: var(--B1); 
+    }
+  }
+
+  .location-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--P9); // emerald-500
+  }
+
+  .location-text {
+    font-weight: 500;
+    color: #334155; 
+
+    .dark & {
+      color: #e2e8f0; 
+    }
+  }
+
+  .map-placeholder {
+    position: relative;
+    height: 16rem;
+    min-height: 300px;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: var(--B12); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .dark & {
+      background-color: var(--B2); 
+    }
+
+    @media (min-width: 1024px) {
+      height: 100%;
+    }
+  }
+}
+
+// Tourism Journey Section
+.tourism-journey {
+  padding: 4rem 0;
+  background-color: var(--B11); 
+
+  .dark & {
+    background-color: var(--B1); 
+  }
+
+  @media (min-width: 1024px) {
+    padding: 6rem 0;
+  }
+
+  .journey-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .journey-container {
+    position: relative;
+    max-width: 56rem; // max-w-4xl
+    margin: 0 auto;
+  }
+
+  .timeline-line {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e2e8f0; 
+    transform: translateX(-50%);
+
+    @media (min-width: 768px) {
+      display: block;
+      left: 15px;
+    }
+
+    @media (min-width: 1024px) {
+      left: 50%;
+    }
+
+    .dark & {
+      background-color: var(--B2); 
+    }
+  }
+
+  .journey-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .step-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    // Alternating layout for timeline
+    &.step-reverse {
+       @media (min-width: 768px) {
+        flex-direction: row-reverse;
+       }
+    }
+  }
+
+  .step-content {
+    flex: 1;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    border: 1px solid #f1f5f9; 
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); // shadow-sm
+
+    .dark & {
+      background-color: var(--B1); 
+      border-color: var(--B2); 
+    }
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background-color: #d1fae5; // emerald-100
+    color: #047857; // emerald-700
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .step-title {
+    color: var(--B1); 
+
+    .dark & {
+      color: #fff;
+    }
+  }
+
+  .step-desc {
+    opacity: 0.75;
+    padding-left: 3rem;
+  }
+
+  .step-marker {
+    display: none;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    background-color: var(--P9);
+    border: 4px solid #fff;
+    transform: translateX(-50%);
+
+    @media (min-width: 768px) {
+      display: block;
+      left: 15px;
+    }
+
+    @media (min-width: 1024px) {
+      left: 50%;
+    }
+
+    .dark & {
+      border-color: #020617; 
+    }
+  }
+}
+
+// Tourism Pricing Section
+.tourism-pricing {
+  padding: 4rem 0;
+  background-color: #fff;
+
+  .dark & {
+    background-color: var(--B1); 
+  }
+
+  .pricing-card {
+    background-color: #ecfdf5; // emerald-50
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    max-width: 56rem; // max-w-4xl
+    margin: 0 auto;
+    border: 1px solid #d1fae5; // emerald-100
+
+    @media (min-width: 1024px) {
+      padding: 3rem;
+    }
+
+    .dark & {
+      background-color: rgba(2, 44, 34, 0.3); // emerald-950/30
+      border-color: rgba(6, 78, 59, 0.5); // emerald-900/50
+    }
+  }
+
+  .pricing-title {
+    margin-bottom: 1.5rem;
+    color: #064e3b; // emerald-900
+
+    .dark & {
+      color: #d1fae5; // emerald-100
+    }
+  }
+
+  .pricing-desc {
+    margin-bottom: 2rem;
+    color: #065f46; // emerald-800
+    line-height: 1.625;
+    max-width: 42rem; // max-w-2xl
+    margin-left: auto;
+    margin-right: auto;
+
+    .dark & {
+      color: rgba(167, 243, 208, 0.8); // emerald-200/80
+    }
+  }
+}
+
+// Tourism Trust Section
+.tourism-trust {
+  padding: 4rem 0;
+  background-color: var(--B1); 
+  color: #fff;
+
+  @media (min-width: 1024px) {
+    padding: 6rem 0;
+  }
+
+  .trust-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .trust-title {
+    color: #fff;
+  }
+
+
+
+  .trust-text {
+    font-weight: 500;
+    font-size: 1.125rem; // text-lg
+  }
+}
+
+// Tourism CTA Section
+.tourism-service-card, .why-card{
+  flex-direction: column;
+}
+.tourism-cta {
+  padding: 5rem 0;
+  background-color: #fff;
+  text-align: center;
+
+  .dark & {
+    background-color: var(--B1);
+  }
+
+  .cta-container {
+    max-width: 48rem; // max-w-3xl
+    margin: 0 auto;
+    padding: 0 1rem;
+    
+    @media (min-width: 768px) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .cta-title {
+    margin-bottom: 1.5rem;
+    color: var(--B1); 
+
+    .dark & {
+      color: #fff;
+    }
+  }
+
+  .cta-desc {
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+    line-height: 1.625;
+  }
+}

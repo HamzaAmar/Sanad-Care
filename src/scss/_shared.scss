@@ -1,0 +1,109 @@
+.main-page {
+  padding: var(--S6);
+}
+
+body,
+html,
+#main {
+  min-height: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul, li{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+body {
+  display: grid;
+  flex-direction: auto 1fr;
+  background: var(--B1);
+  color: var(--B12);
+}
+
+
+.heading-stroke {
+  font-size: 6vmax;
+  // color: transparent;
+  // -webkit-text-stroke-width: 2px;
+  // -webkit-text-stroke-color: var(--B11);
+
+  -webkit-text-stroke: 1px var(--B11);
+  color: var(--B1);
+  text-shadow:
+    3px 3px 0 var(--B11),
+    -1px -1px 0 var(--B11),
+    1px -1px 0 var(--B11),
+    -1px 1px 0 var(--B11),
+    1px 1px 0 var(--B11);
+}
+
+.secondary-heading {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--Se11);
+
+  &::after {
+    content: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTAxIDM0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBjbGFzcz0ic2MtMmM1MmVjNWUtNSBzYy0yYzUyZWM1ZS04IGRMSlpETCBrSkJaZlkiPjxwYXRoIGQ9Ik00OTMgNi41MDAwMkM0OTUgMTAuNSA0OTIuNSAxMiA0OTAgMTEuNUM0ODcuNSAxMSA0ODcgMTAuMjYxNCA0ODcgNy41MDAwMkM0ODcgNC41IDQ4OC4yODMgMi41NjIxMiA0OTIgMS41MDAwMkM0OTUuNSAwLjQ5OTk5NiA0OTkuMjM3IDMuMjA3MDEgNDk5LjUgOS4wMDAwMkM0OTkuNzA0IDEzLjQ4MjcgNDk1LjM3NyAxNi44NzI1IDQ5Mi44MTkgMTguNDc2MUM0OTEuNjM4IDE5LjIxNjggNDkwLjM4NyAxOS44MjQxIDQ4OS4xMjYgMjAuNDE4QzQ4Mi42NDkgMjMuNDY2OCA0NjAuMjUzIDMzLjAwNyA0MzUuNSAzMkM0MDQuNzQzIDMwLjc0ODggMzc1Ljc3OCAxNC41MTkzIDM0NSAxNEMzMTkuMDMzIDEzLjU2MTkgMzA1LjQwOSAyMy43MTI4IDI3OS41IDI1LjVDMjMzLjM5OCAyOC42ODAxIDIwOC4yMTEgMTEuMzkxOCAxNjIgMTEuNUMxMTIuNzYxIDExLjYxNTQgODUuNjA3OCAzNS44NTg3IDM3IDI4QzIyLjY5NDIgMjUuNjg3MSAxMCAxOS41IDEgMTkiIHN0cm9rZT0iI2U1NDg0ZCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjwvcGF0aD48L3N2Zz4=");
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -0.75rem;
+  }
+}
+
+.group-article {
+  background-color: var(--B2);
+  border: 1px solid var(--B5);
+  border-radius: 2rem;
+}
+
+.group-articles {
+  position: sticky;
+  top: 6rem;
+  height: fit-content;
+}
+
+.form-control {
+  background-color: var(--B1) !important;
+  width: 100% !important;
+  display: inline-flex;
+  border-color: var(--B7) !important;
+}
+
+
+.country-list {
+  background-color: var(--B1) !important;
+
+  &:hover {
+    background-color: var(--B2) !important;
+  }
+
+  & :is(li:hover, li.active, li.highlight) {
+    background-color: var(--B6) !important;
+  }
+}
+
+
+
+.G_card{
+    padding: 1.5rem;
+    background-color: var(--B2);
+    border: 1px solid var(--B4); 
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+
