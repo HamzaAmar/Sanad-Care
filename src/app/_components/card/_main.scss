@@ -1,15 +1,17 @@
 
-.car-container{
+.service-container{
   position: relative;
   z-index: 1;
+  box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.2);
+  background-color: var(--B2);
+  border: 1px solid var(--B3);
 }
 
 .test-only-1{
   direction: ltr !important;
 }
 
-.car-card {
-  box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.2);
+.service-card {
   transition: 0.3s;
   overflow: hidden;
 }
@@ -32,7 +34,7 @@
   font-size: 1.2em;
 }
 
-.car-features {
+.service-features {
   & > * {
     padding-inline: 0.5rem;
     & + * {

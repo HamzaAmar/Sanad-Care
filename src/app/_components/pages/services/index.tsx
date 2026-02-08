@@ -1,10 +1,13 @@
 import { Heading, Paper, Text } from "@pillar-ui/core";
-import { useTranslations } from "next-intl";
-import { SERVICES } from "@/constants/services";
+import { useLocale, useTranslations } from "next-intl";
+import { getAllServices } from "@/api/services";
+import type { LocaleKey } from "@/types/localeProps.interface";
 import ServiceCard from "../../card";
 
 const Services = () => {
   const t = useTranslations();
+  const locale = useLocale() as LocaleKey;
+  const services = getAllServices(locale);
   return (
     <Paper flow="7" className="section">
       <div>
@@ -16,7 +19,7 @@ const Services = () => {
         </Heading>
       </div>
       <div className="services">
-        {SERVICES.map((service) => (
+        {services.map((service) => (
           <ServiceCard key={service.id} {...service} />
         ))}
       </div>
