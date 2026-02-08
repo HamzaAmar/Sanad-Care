@@ -42,20 +42,20 @@ const AnimatedSection = ({
 
       if (!container || !design || !content || !textElements) return;
 
-      // Initial States
-      gsap.set(container, { x: -50, opacity: 0 }); // Container translated left & hidden
-      gsap.set(design, { y: "-100%", opacity: 0 }); // Design div above view
-      gsap.set(content, { y: "100%", opacity: 0 }); // Content below view
-      gsap.set(textElements, { y: 20, opacity: 0 }); // Text staggered hidden
+      gsap.set(container, { x: 10, opacity: 0 });
+      gsap.set(design, { y: "-100%", opacity: 0 });
+      gsap.set(content, { y: "100%", opacity: 0 });
+      gsap.set(textElements, { y: 20, opacity: 0 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
-          start: "top center+=100",
+          start: "top center+=50",
           end: "bottom center",
           toggleActions: "play none none reverse",
         },
       });
+      //
 
       tl.to(container, { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" })
         .to(design, { y: 0, duration: 0.8, ease: "bounce.out", opacity: 1 }, "-=0.4")
@@ -69,23 +69,22 @@ const AnimatedSection = ({
     <section ref={containerRef} className={`patient-section ${className}`}>
       <div ref={designRef} className="patient-design" />
 
-      {/* Content Wrapper */}
       <div ref={contentRef} className="patient-container patient-content-wrapper">
         <Paper flow="4" ref={textElementsRef}>
           <div>
-            <Heading as="h2" size="7" className="patient-title">
+            <Heading as="h2" size="7" weight="5">
               {title}
             </Heading>
             <Text size="4" color="b" low className="patient-subtitle">
               {subtitle}
             </Text>
-          </div>
 
-          {description && (
-            <Text size="5" color="b" className="patient-description">
-              {description}
-            </Text>
-          )}
+            {description && (
+              <Text size="5" color="b" low className="patient-description">
+                {description}
+              </Text>
+            )}
+          </div>
 
           {children}
 

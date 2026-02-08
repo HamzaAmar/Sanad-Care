@@ -3,64 +3,33 @@
   overflow: hidden;
   border-radius: 1rem;
   margin-bottom: 2rem;
-  background-color: var(--B11);
-  
-  .dark & {
-    background-color: var(--B1);
-  }
 
-  // Flex centering for content
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .patient-container {
-  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
   position: relative;
-  z-index: 2; // Above the red design div
+  z-index: 1;
 }
 
-// The Red Bubble Design Element
-// opacity 0 and translated left initially (handled by GSAP)
 .patient-design {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: var(--B3);
   z-index: 1;
   border-radius: 1rem;
-  // GSAP will animate this from y: -100% to y: 0
 }
 
 .patient-content-wrapper {
   position: relative;
   z-index: 3;
-  // GSAP will animate this from y: 100% (bottom)
 }
 
-// Text Elements
-.patient-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
 
 .patient-description {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: var(--B2); // darker grey
   max-width: 800px;
-  margin-bottom: 2rem;
-
-  .dark & {
-    color: var(--B11);
-  }
 }
 
 .patient-cta {
