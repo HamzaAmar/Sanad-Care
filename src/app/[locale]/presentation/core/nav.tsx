@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import Logo from "@/app/logo";
 
 interface NavProps {
   slides: { chapter: string; title: string }[];
@@ -25,8 +26,7 @@ export default function Nav({ slides, current, visible, onNavigate }: NavProps) 
   return (
     <nav id="nav" className={visible ? "" : "hidden"}>
       <div className="nav-logo">
-        <div className="nav-logo-text">SANAD CARE</div>
-        <div className="nav-logo-sub">Pitch Deck · 2025</div>
+        <Logo width={120} />
       </div>
 
       <div id="chapter-nav">
