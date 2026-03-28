@@ -330,6 +330,76 @@
     flex-shrink: 0;
   }
   
+  .step-list {
+    list-style: none;
+    counter-reset: pitch-step;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .step-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: clamp(14px, 1.6vw, 17px);
+    color: var(--text);
+    line-height: 1.5;
+    font-weight: 300;
+    counter-increment: pitch-step;
+  }
+  
+  .step-list li::before {
+    content: counter(pitch-step) '.';
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    min-width: 1.6em;
+  }
+  
+  .pitch-prose {
+    margin-top: 18px;
+    font-size: clamp(14px, 1.6vw, 17px);
+    color: var(--text);
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 720px;
+  }
+  
+  .pitch-prose:first-of-type {
+    margin-top: 12px;
+  }
+  
+  .pitch-callout {
+    margin-top: 24px;
+    padding: 18px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    font-size: clamp(15px, 1.7vw, 18px);
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 720px;
+  }
+  
+  .closing-verse {
+    margin: 0;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(18px, 2.8vw, 26px);
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--white);
+  }
+  
+  .closing-verse + .closing-verse {
+    margin-top: 20px;
+    color: var(--accent);
+  }
+  
   /* ── PILL ── */
   .pill {
     display: inline-flex;

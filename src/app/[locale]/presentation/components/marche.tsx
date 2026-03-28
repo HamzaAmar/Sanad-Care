@@ -13,7 +13,7 @@ export default function Marche() {
         <StatCard value="+148%" label="de personnes 60+<br/>d'ici 2050" />
       </div>
       <div className="pill" style={{ marginTop: 24 }}>
-        Transition démographique : de 4.3M à 10.7M de seniors (2020→2050)
+        Transition démographique : de 4.3M à 10.7M de seniors (2020 → 2050)
       </div>
     </div>
   );

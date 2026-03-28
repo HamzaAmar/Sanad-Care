@@ -12,7 +12,7 @@ export default function Cover() {
       </h1>
 
       <p className="cover-tagline">
-        Structurer les soins à domicile grâce à l'humain, au protocole et à la technologie
+        Structurer et sécuriser les soins à domicile au Maroc
       </p>
 
       <div className="stat-row" style={{ marginTop: 36 }}>
