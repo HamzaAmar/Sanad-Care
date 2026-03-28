@@ -2,13 +2,19 @@ export type SlideSection =
   | { type: "p"; text: string }
   | { type: "bullets"; items: string[] }
   | { type: "numbered"; items: string[] }
-  | { type: "highlight"; text: string };
+  | { type: "highlight"; text: string }
+  | { type: "stats"; items: { value: string; label: string }[] }
+  | { type: "cards"; items: { icon: string; title: string; body: string }[] }
+  | { type: "flow"; items: { icon: string; label: string }[] }
+  | {
+      type: "revenue";
+      items: { icon: string; title: string; subtitle: string; badge: string }[];
+    };
 
 export interface SlideConfig {
   chapter: string;
   navTitle: string;
   variant: "cover" | "content" | "closing";
-  /** Cover: shown under H1. Content: H2. Closing: unused */
   heading?: string;
   tagline?: string;
   label?: string;
@@ -22,6 +28,14 @@ export const SLIDE_DEFS: SlideConfig[] = [
     variant: "cover",
     tagline: "Structurer les soins à domicile",
     sections: [
+      {
+        type: "stats",
+        items: [
+          { value: "2,7M+", label: "adultes diabétiques (MA)" },
+          { value: "4,2M", label: "projection 2050" },
+          { value: ">50%", label: "amputations liées au diabète" },
+        ],
+      },
       {
         type: "p",
         text: "Une solution de suivi et de coordination qui transforme la prise en charge des patients chroniques à domicile en un parcours continu, traçable et mieux piloté.",
@@ -47,7 +61,7 @@ export const SLIDE_DEFS: SlideConfig[] = [
         text: "Le vrai problème n’est pas l’absence de soins.",
       },
       {
-        type: "p",
+        type: "highlight",
         text: "C’est l’absence de continuité et de structure.",
       },
     ],
@@ -83,20 +97,16 @@ export const SLIDE_DEFS: SlideConfig[] = [
       { type: "p", text: "Sanad Care structure les soins à domicile." },
       {
         type: "p",
-        text: "Nous ne proposons pas seulement une visite infirmière.",
+        text: "Nous ne proposons pas seulement une visite infirmière — nous mettons en place un système complet de prise en charge.",
       },
       {
-        type: "p",
-        text: "Nous mettons en place un système complet de prise en charge :",
-      },
-      {
-        type: "bullets",
+        type: "cards",
         items: [
-          "protocoles standardisés",
-          "suivi continu des patients",
-          "coordination entre infirmiers, médecins et familles",
-          "traçabilité des soins",
-          "alertes précoces basées sur les données",
+          { icon: "📋", title: "Protocoles", body: "Standards homogènes pour chaque parcours." },
+          { icon: "📈", title: "Suivi continu", body: "Visibilité sur l’évolution du patient." },
+          { icon: "🤝", title: "Coordination", body: "Infirmiers, médecins et familles alignés." },
+          { icon: "✳️", title: "Traçabilité", body: "Chaque acte documenté, exploitable." },
+          { icon: "🔔", title: "Alertes", body: "Signaux précoces à partir des données." },
         ],
       },
       {
@@ -112,15 +122,15 @@ export const SLIDE_DEFS: SlideConfig[] = [
     heading: "Fonctionnement",
     sections: [
       {
-        type: "numbered",
+        type: "flow",
         items: [
-          "Évaluation initiale du patient",
-          "Attribution d’un protocole adapté",
-          "Planification des interventions",
-          "Suivi des constantes et de l’observance",
-          "Documentation de chaque visite",
-          "Détection précoce des risques",
-          "Communication avec la famille et les professionnels de santé",
+          { icon: "🔍", label: "Évaluation initiale" },
+          { icon: "📑", label: "Protocole adapté" },
+          { icon: "📅", label: "Planification" },
+          { icon: "💓", label: "Suivi & observance" },
+          { icon: "📝", label: "Documentation" },
+          { icon: "⚡", label: "Détection des risques" },
+          { icon: "💬", label: "Communication proches & pros" },
         ],
       },
       { type: "p", text: "Chaque patient devient suivi." },
@@ -176,11 +186,26 @@ export const SLIDE_DEFS: SlideConfig[] = [
         text: "Notre modèle économique repose sur trois sources de revenus :",
       },
       {
-        type: "bullets",
+        type: "revenue",
         items: [
-          "abonnement mensuel B2C pour les familles",
-          "commission par service ou intervention",
-          "partenariats B2B/B2B2C avec cliniques, assurances et associations",
+          {
+            icon: "🏠",
+            title: "Abonnement B2C",
+            subtitle: "Mensuel pour les familles, accès au suivi structuré.",
+            badge: "Récurrent",
+          },
+          {
+            icon: "⚕️",
+            title: "Commission",
+            subtitle: "Par service ou intervention réalisée sur la plateforme.",
+            badge: "À l’acte",
+          },
+          {
+            icon: "🏢",
+            title: "Partenariats",
+            subtitle: "Cliniques, assurances, associations — B2B / B2B2C.",
+            badge: "Scale",
+          },
         ],
       },
       {
@@ -202,13 +227,13 @@ export const SLIDE_DEFS: SlideConfig[] = [
       { type: "p", text: "Sanad Care propose un système." },
       { type: "p", text: "Nos différenciateurs :" },
       {
-        type: "bullets",
+        type: "cards",
         items: [
-          "protocoles standardisés",
-          "suivi continu du patient",
-          "coordination entre acteurs de santé",
-          "traçabilité digitale",
-          "logique préventive, pas seulement corrective",
+          { icon: "📋", title: "Protocoles", body: "Standardisés, reproductibles." },
+          { icon: "🔗", title: "Continuité", body: "Suivi dans la durée, pas ponctuel." },
+          { icon: "🌐", title: "Coordination", body: "Tous les acteurs sur le même fil." },
+          { icon: "💾", title: "Digital", body: "Traçabilité et preuves de suivi." },
+          { icon: "🛡️", title: "Prévention", body: "Anticiper, pas seulement corriger." },
         ],
       },
       {
@@ -229,10 +254,18 @@ export const SLIDE_DEFS: SlideConfig[] = [
     sections: [
       { type: "p", text: "Notre équipe réunit :" },
       {
-        type: "bullets",
+        type: "cards",
         items: [
-          "un profil infirmier avec une expérience terrain en soins chroniques",
-          "un profil technique et gestion pour développer la plateforme et structurer les partenariats",
+          {
+            icon: "🩺",
+            title: "Terrain infirmier",
+            body: "Expérience directe des soins chroniques et du domicile.",
+          },
+          {
+            icon: "⚙️",
+            title: "Tech & gestion",
+            body: "Produit, structuration des partenariats et exécution.",
+          },
         ],
       },
       {
@@ -278,7 +311,7 @@ export const SLIDE_DEFS: SlideConfig[] = [
         text: "Demain, ils doivent reposer sur un système.",
       },
       {
-        type: "p",
+        type: "highlight",
         text: "Sanad Care construit ce système pour améliorer la qualité des soins, réduire les complications et rassurer les familles.",
       },
     ],
@@ -301,7 +334,6 @@ export const SLIDE_DEFS: SlideConfig[] = [
   },
 ];
 
-/** Nav + keyboard range */
 export const SLIDES = SLIDE_DEFS.map((s) => ({
   chapter: s.chapter,
   title: s.navTitle,

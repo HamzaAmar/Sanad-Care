@@ -6,8 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { routing } from "@/i18n/routing";
 import { baseMetadata } from "@/lib/seo";
-import Footer from "../_components/footer";
-import Header from "../_components/header";
+import LocaleChrome from "./locale-chrome";
 
 import "@pillar-ui/core/main.css";
 import "@/scss/_main.scss";
@@ -72,9 +71,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
       <body suppressHydrationWarning>
         <ThemeProvider attribute="class">
           <NextIntlClientProvider>
-            <Header />
-            <main className="main">{children}</main>
-            <Footer />
+            <LocaleChrome>{children}</LocaleChrome>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
