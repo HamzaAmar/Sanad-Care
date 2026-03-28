@@ -1,5 +1,7 @@
+import type { ReactNode } from "react";
+
 interface RevenueCardProps {
-  icon: string;
+  icon: ReactNode;
   title: string;
   subtitle: string;
   badge: string;

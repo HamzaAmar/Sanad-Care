@@ -1,14 +1,16 @@
+import type { PitchIconId } from "./core/pitch-icons";
+
 export type SlideSection =
   | { type: "p"; text: string }
   | { type: "bullets"; items: string[] }
   | { type: "numbered"; items: string[] }
   | { type: "highlight"; text: string }
   | { type: "stats"; items: { value: string; label: string }[] }
-  | { type: "cards"; items: { icon: string; title: string; body: string }[] }
-  | { type: "flow"; items: { icon: string; label: string }[] }
+  | { type: "cards"; items: { icon: PitchIconId; title: string; body: string }[] }
+  | { type: "flow"; items: { icon: PitchIconId; label: string }[] }
   | {
       type: "revenue";
-      items: { icon: string; title: string; subtitle: string; badge: string }[];
+      items: { icon: PitchIconId; title: string; subtitle: string; badge: string }[];
     };
 
 export interface SlideConfig {
@@ -102,11 +104,11 @@ export const SLIDE_DEFS: SlideConfig[] = [
       {
         type: "cards",
         items: [
-          { icon: "📋", title: "Protocoles", body: "Standards homogènes pour chaque parcours." },
-          { icon: "📈", title: "Suivi continu", body: "Visibilité sur l’évolution du patient." },
-          { icon: "🤝", title: "Coordination", body: "Infirmiers, médecins et familles alignés." },
-          { icon: "✳️", title: "Traçabilité", body: "Chaque acte documenté, exploitable." },
-          { icon: "🔔", title: "Alertes", body: "Signaux précoces à partir des données." },
+          { icon: "clipboard", title: "Protocoles", body: "Standards homogènes pour chaque parcours." },
+          { icon: "chartLine", title: "Suivi continu", body: "Visibilité sur l’évolution du patient." },
+          { icon: "users", title: "Coordination", body: "Infirmiers, médecins et familles alignés." },
+          { icon: "listCheck", title: "Traçabilité", body: "Chaque acte documenté, exploitable." },
+          { icon: "bell", title: "Alertes", body: "Signaux précoces à partir des données." },
         ],
       },
       {
@@ -124,13 +126,13 @@ export const SLIDE_DEFS: SlideConfig[] = [
       {
         type: "flow",
         items: [
-          { icon: "🔍", label: "Évaluation initiale" },
-          { icon: "📑", label: "Protocole adapté" },
-          { icon: "📅", label: "Planification" },
-          { icon: "💓", label: "Suivi & observance" },
-          { icon: "📝", label: "Documentation" },
-          { icon: "⚡", label: "Détection des risques" },
-          { icon: "💬", label: "Communication proches & pros" },
+          { icon: "search", label: "Évaluation initiale" },
+          { icon: "checkList", label: "Protocole adapté" },
+          { icon: "calendar", label: "Planification" },
+          { icon: "heartMonitor", label: "Suivi & observance" },
+          { icon: "fileText", label: "Documentation" },
+          { icon: "circleWarning", label: "Détection des risques" },
+          { icon: "messages", label: "Communication proches & pros" },
         ],
       },
       { type: "p", text: "Chaque patient devient suivi." },
@@ -189,19 +191,19 @@ export const SLIDE_DEFS: SlideConfig[] = [
         type: "revenue",
         items: [
           {
-            icon: "🏠",
+            icon: "home",
             title: "Abonnement B2C",
             subtitle: "Mensuel pour les familles, accès au suivi structuré.",
             badge: "Récurrent",
           },
           {
-            icon: "⚕️",
+            icon: "cash",
             title: "Commission",
             subtitle: "Par service ou intervention réalisée sur la plateforme.",
             badge: "À l’acte",
           },
           {
-            icon: "🏢",
+            icon: "building",
             title: "Partenariats",
             subtitle: "Cliniques, assurances, associations — B2B / B2B2C.",
             badge: "Scale",
@@ -229,11 +231,11 @@ export const SLIDE_DEFS: SlideConfig[] = [
       {
         type: "cards",
         items: [
-          { icon: "📋", title: "Protocoles", body: "Standardisés, reproductibles." },
-          { icon: "🔗", title: "Continuité", body: "Suivi dans la durée, pas ponctuel." },
-          { icon: "🌐", title: "Coordination", body: "Tous les acteurs sur le même fil." },
-          { icon: "💾", title: "Digital", body: "Traçabilité et preuves de suivi." },
-          { icon: "🛡️", title: "Prévention", body: "Anticiper, pas seulement corriger." },
+          { icon: "clipboard", title: "Protocoles", body: "Standardisés, reproductibles." },
+          { icon: "repeat", title: "Continuité", body: "Suivi dans la durée, pas ponctuel." },
+          { icon: "globe", title: "Coordination", body: "Tous les acteurs sur le même fil." },
+          { icon: "database", title: "Digital", body: "Traçabilité et preuves de suivi." },
+          { icon: "shield", title: "Prévention", body: "Anticiper, pas seulement corriger." },
         ],
       },
       {
@@ -257,12 +259,12 @@ export const SLIDE_DEFS: SlideConfig[] = [
         type: "cards",
         items: [
           {
-            icon: "🩺",
+            icon: "stethoscope",
             title: "Terrain infirmier",
             body: "Expérience directe des soins chroniques et du domicile.",
           },
           {
-            icon: "⚙️",
+            icon: "settings",
             title: "Tech & gestion",
             body: "Produit, structuration des partenariats et exécution.",
           },

@@ -1,5 +1,7 @@
+import type { ReactNode } from "react";
+
 interface FlowStepProps {
-  icon: string;
+  icon: ReactNode;
   label: string;
 }
 export default function FlowStep({ icon, label }: FlowStepProps) {

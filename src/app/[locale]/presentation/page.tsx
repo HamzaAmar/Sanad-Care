@@ -1,11 +1,11 @@
 "use client";
 
 import PitchSlide from "./components/pitch-slide";
-import { SLIDE_DEFS, SLIDES } from "./slide-data";
 import Nav from "./core/nav";
 import NavigationButtons from "./core/navigation-buttons";
 import TopBar from "./core/top-bar";
 import useSlideNavigation from "./core/useSlideNavigation";
+import { SLIDE_DEFS, SLIDES } from "./slide-data";
 
 export default function App() {
   const { current, total, navVisible, goTo, goNext, goPrev, toggleNav } = useSlideNavigation(SLIDES.length);

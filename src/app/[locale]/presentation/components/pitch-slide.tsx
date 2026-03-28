@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { Separator } from "@pillar-ui/core";
 import Card from "../core/card";
 import FlowStep from "../core/flow-step";
+import { PitchIcon } from "../core/pitch-icons";
 import PointList from "../core/point-list";
 import RevenueCard from "../core/revenue-card";
 import StatCard from "../core/stat-card";
@@ -169,7 +170,12 @@ export default function PitchSlide({ config }: { config: SlideConfig }) {
             <Reveal key={i} i={nextR()}>
               <div className={cols}>
                 {block.items.map((c, j) => (
-                  <Card key={j} icon={c.icon} title={c.title} body={c.body} />
+                  <Card
+                    key={j}
+                    icon={<PitchIcon id={c.icon} size={24} />}
+                    title={c.title}
+                    body={c.body}
+                  />
                 ))}
               </div>
             </Reveal>
@@ -180,7 +186,7 @@ export default function PitchSlide({ config }: { config: SlideConfig }) {
             <Reveal key={i} i={nextR()}>
               <div className="pitch-flow-grid">
                 {block.items.map((step, j) => (
-                  <FlowStep key={j} icon={step.icon} label={step.label} />
+                  <FlowStep key={j} icon={<PitchIcon id={step.icon} size={22} />} label={step.label} />
                 ))}
               </div>
             </Reveal>
@@ -193,7 +199,7 @@ export default function PitchSlide({ config }: { config: SlideConfig }) {
                 {block.items.map((rc, j) => (
                   <RevenueCard
                     key={j}
-                    icon={rc.icon}
+                    icon={<PitchIcon id={rc.icon} size={28} />}
                     title={rc.title}
                     subtitle={rc.subtitle}
                     badge={rc.badge}
