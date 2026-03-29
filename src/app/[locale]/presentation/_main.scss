@@ -230,6 +230,7 @@
   
   /* Staggered content on active slide */
   .reveal {
+    margin-top: 15px;
     opacity: 0;
     transform: translateY(22px);
     filter: blur(4px);
