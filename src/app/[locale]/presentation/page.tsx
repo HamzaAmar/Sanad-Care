@@ -634,7 +634,7 @@ export default function PresentationPage() {
                 <Paper background="B2" border p="5" corner="3">
                   <Flex gap="3" items="start">
                     <CircuitBulb width={28} height={28} strokeWidth={1.35} aria-hidden style={{ flexShrink: 0 }} />
-                    <Text size="5" weight="7" color="d">
+                    <Text size="5" weight="7" color="p" low>
                       Résultat : 30% des réhospitalisations au Maroc sont évitables avec un suivi structuré à domicile.
                     </Text>
                   </Flex>
@@ -698,7 +698,7 @@ export default function PresentationPage() {
               </Reveal>
               <Reveal i={5}>
                 <Paper background="B2" border p="5" corner="3">
-                  <Text size="5" weight="7" color="d">
+                  <Text size="5" weight="7" color="p" low>
                     Nous faisons passer le soin d'un acte isolé → à un parcours organisé et intelligent.
                   </Text>
                 </Paper>
@@ -754,7 +754,7 @@ export default function PresentationPage() {
                   <Flex direction="col" gap="2">
                     <Flex gap="2" items="center">
                       <ChartLine width={24} height={24} strokeWidth={1.35} aria-hidden />
-                      <Text size="5" weight="7" color="d">
+                      <Text size="5" weight="7" color="p" low>
                         Résultat attendu
                       </Text>
                     </Flex>
@@ -986,7 +986,7 @@ export default function PresentationPage() {
               </Reveal>
               <Reveal i={4}>
                 <Paper background="B2" border p="5" corner="3">
-                  <Text size="4" color="d">
+                  <Text size="4" color="d" >
                     ✅ Une équipe qui <strong>comprend le patient</strong>, <strong>maîtrise la technologie</strong> et{" "}
                     <strong>connaît le marché marocain</strong>.
                   </Text>
@@ -1088,7 +1088,7 @@ export default function PresentationPage() {
                       aria-hidden
                       style={{ flexShrink: 0, marginTop: 2 }}
                     />
-                    <Text size="4" color="d">
+                    <Text size="4" color="d" >
                       <strong>Pourquoi Marrakech d'abord ?</strong> — Forte concentration de patients âgés, hub du
                       tourisme médical, et réseau infirmier déjà en place.
                     </Text>
@@ -1183,7 +1183,7 @@ export default function PresentationPage() {
                       aria-hidden
                       style={{ flexShrink: 0, marginTop: 2 }}
                     />
-                    <Text size="4" color="d">
+                    <Text size="4" color="d" >
                       <strong>Notre avantage</strong> : Nous ne sommes pas une agence d'infirmiers. Nous sommes une{" "}
                       <strong>plateforme de santé intelligente</strong> qui structure, coordonne et optimise les soins à
                       domicile.
@@ -1283,7 +1283,7 @@ export default function PresentationPage() {
                   <Flex direction="col" gap="2">
                     <Flex gap="2" items="center">
                       <ChartArrows width={22} height={22} strokeWidth={1.35} aria-hidden />
-                      <Text size="4" weight="7" color="d">
+                      <Text size="4" weight="7" color="p" low>
                         Retour attendu
                       </Text>
                     </Flex>
@@ -1332,7 +1332,7 @@ export default function PresentationPage() {
               <Reveal i={4}>
                 <Paper background="B2" border p="5" corner="4">
                   <Flex direction="col" gap="2" items="center">
-                    <Text size="4" weight="7" color="d">
+                    <Text size="4" weight="7" color="p" low>
                       Construisons ensemble l'avenir des soins à domicile au Maroc.
                     </Text>
                     <Flex gap="2">
