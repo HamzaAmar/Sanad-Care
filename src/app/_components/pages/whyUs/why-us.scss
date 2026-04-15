@@ -1,22 +1,22 @@
-.why-us-section{
-  min-height:calc(80vh - 8rem);
-   background-color:var(--B2);
-   padding:2rem;
-   border-radius: 1rem;
-   animation: ab 1.5s ease-out;
-   transform-origin: left;
-   display: flex;
-   align-items: center;
+.why-us-section {
+  min-height: calc(80vh - 8rem);
+  background-color: var(--B2);
+  padding: 2rem;
+  border-radius: 1rem;
+  animation: ab 1.5s ease-out;
+  transform-origin: left;
+  display: flex;
+  align-items: center;
 }
 
 @keyframes ab {
   0% {
     opacity: 0;
-    transform:scale(.9) translateX(-5rem);
+    transform: scale(0.9) translateX(-5rem);
   }
   100% {
     opacity: 1;
-    transform:none;
+    transform: none;
   }
 }
 .why-us-page {
@@ -32,6 +32,5 @@
     align-items: center;
     gap: var(--space-4);
     padding: var(--space-4);
-    
   }
 }

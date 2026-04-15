@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/security/noDangerouslySetInnerHtml: TODO: FIX later */
 import Home from "../_components/pages/home";
 
 export default async function HomePage() {

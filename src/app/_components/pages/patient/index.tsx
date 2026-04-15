@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: TODO: Fix it later */
 import { Grid, Paper, Text } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
 import PatientSection from "./components/AnimatedSection";

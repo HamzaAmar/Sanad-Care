@@ -8,14 +8,15 @@ html,
   min-height: 100%;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-ul, li{
+ul,
+li {
   list-style: none;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -24,7 +25,6 @@ body {
   background: var(--B1);
   color: var(--B12);
 }
-
 
 .heading-stroke {
   font-size: 6vmax;
@@ -78,7 +78,6 @@ body {
   border-color: var(--B7) !important;
 }
 
-
 .country-list {
   background-color: var(--B1) !important;
 
@@ -91,19 +90,13 @@ body {
   }
 }
 
-
-
-.G_card{
-    padding: 1.5rem;
-    background-color: var(--B2);
-    border: 1px solid var(--B4); 
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.G_card {
+  padding: 1.5rem;
+  background-color: var(--B2);
+  border: 1px solid var(--B4);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-
-
-
-

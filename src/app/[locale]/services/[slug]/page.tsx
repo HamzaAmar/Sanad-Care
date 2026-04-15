@@ -1,5 +1,3 @@
-/** biome-ignore-all lint/security/noDangerouslySetInnerHtml: TODO: Figure a way to fix this */
-
 // export async function generateMetadata({ params }: PageProps<"/[locale]/services/[slug]">): Promise<Metadata> {
 //   const { slug, locale } = await params;
 //   const local = locale as LocaleKey;

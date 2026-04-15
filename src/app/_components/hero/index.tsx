@@ -31,8 +31,7 @@ const HeroSection = () => {
           <Flex gap="4" className="hero-likes hero-animation">
             <AvatarGroup size="2">
               {Array.from({ length: 4 }, (_, i) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: Remove this after
-                <Avatar key={i} src={`https://picsum.photos/id/${5 + i}/200/200`} />
+                <Avatar key={`hero-avatar-${5 + i}`} src={`https://picsum.photos/id/${5 + i}/200/200`} />
               ))}
             </AvatarGroup>
             <Flex gap="1" items="center">

@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: TODO: Fix it later */
 import { Flex, Grid, Heading, Paper, Separator, Text } from "@pillar-ui/core";
 import { CircleCheck } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";

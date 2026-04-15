@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: TODO: Fix it later */
 import { useTranslations } from "next-intl";
 import AnimatedSection from "../../../patient/components/AnimatedSection";
 

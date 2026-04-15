@@ -3,7 +3,6 @@
   overflow: hidden;
   border-radius: 1rem;
   margin-bottom: 2rem;
-
 }
 
 .patient-container {
@@ -27,22 +26,21 @@
   z-index: 3;
 }
 
-
 .patient-description {
   max-width: 800px;
 }
 
 .patient-cta {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 // grid layouts for specific sections
 .patient-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: 1fr;
-    
-    @media (min-width: 1024px) {
-        grid-template-columns: 1fr 1fr;
-    }
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }

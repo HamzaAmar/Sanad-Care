@@ -2,15 +2,15 @@
   height: calc(100vh - 6rem);
   overflow: hidden;
   position: relative;
-  animation: shows .75s ease-in-out forwards;
+  animation: shows 0.75s ease-in-out forwards;
   background-color: var(--B2);
   border-radius: 2rem;
-  margin:1rem;
+  margin: 1rem;
 }
 
-.hero-call-mail{
+.hero-call-mail {
   box-shadow: inset 0 0 16px var(--B4);
-  border-color:var(--B6);
+  border-color: var(--B6);
 }
 
 @keyframes shows {
@@ -24,25 +24,21 @@
 
 .hero-animation {
   opacity: 0;
-  animation: moves 1s calc(var(--id, 1) * 80ms) cubic-bezier(0, -0.35, 0.1, 1)
-    forwards;
+  animation: moves 1s calc(var(--id, 1) * 80ms) cubic-bezier(0, -0.35, 0.1, 1) forwards;
 }
 
-.hero-chips{
-  padding-inline: .75rem;
+.hero-chips {
+  padding-inline: 0.75rem;
 }
 
-
-
-
-.hero-navigation-actions{
+.hero-navigation-actions {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding:1rem;
+  padding: 1rem;
   cursor: pointer;
 }
 
@@ -58,9 +54,9 @@
 .luxury-hero__glow--left {
   left: -25vmin;
   top: 20%;
-  background:   var(--P8);
+  background: var(--P8);
   // animation: moves-hero 5s infinite alternate cubic-bezier(0.16, 1, 0.3, 1.5);
-  --translate:translate(50%, 50%);
+  --translate: translate(50%, 50%);
 }
 
 .luxury-hero__glow--right {
@@ -68,91 +64,82 @@
   bottom: 20%;
   background: var(--P7);
   // animation: moves-hero 5s 2s infinite alternate ease-out;
-
 }
-
 
 @keyframes moves-hero {
-  0%{
-    transform:var(--translate, translate(-50%, -50%)) rotate(0deg) scale(.75) ;
+  0% {
+    transform: var(--translate, translate(-50%, -50%)) rotate(0deg) scale(0.75);
   }
-  100%{
-    transform:translate(0, 0) rotate(360deg)  scale(1.3);
+  100% {
+    transform: translate(0, 0) rotate(360deg) scale(1.3);
   }
 }
 
-.hero-image{
-  width:100%;
-  height:16/9;
+.hero-image {
+  width: 100%;
+  height: 16/9;
 
-  & img{
-    width:100%;
-    height:100%;
+  & img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 }
 
 .hero-content {
   max-width: 800px;
-  padding:1rem;
+  padding: 1rem;
 }
 
 .hero-title {
-  --id:1;
+  --id: 1;
   font-size: clamp(2rem, 3vw, 5rem);
   letter-spacing: 2px;
-  color: var(--B12); 
+  color: var(--B12);
 }
 
 .hero-description {
   font-size: clamp(1rem, 2vw, 1.25rem);
-  color: var(--B11); 
+  color: var(--B11);
   max-width: 600px;
-  --id:2;
-  --moves:translateX(-2rem);
-
+  --id: 2;
+  --moves: translateX(-2rem);
 }
-.hero-action{
-  --id:3;
-  --moves: scale(.95) translateY(10px);
-  &:nth-child(2){
-    --id:4;
-    --moves: translateY(-10px) scale(.95);
+.hero-action {
+  --id: 3;
+  --moves: scale(0.95) translateY(10px);
+  &:nth-child(2) {
+    --id: 4;
+    --moves: translateY(-10px) scale(0.95);
   }
 }
 
-.hero-likes{
+.hero-likes {
   background-color: var(--B1);
-  border:1px solid var(--B2);
-  width:fit-content;
-  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.3), inset 0 0 20px var(--B2);
-  padding:.5rem;
+  border: 1px solid var(--B2);
+  width: fit-content;
+  box-shadow:
+    0 4px 8px -2px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px var(--B2);
+  padding: 0.5rem;
   border-radius: 6px;
-  --id:5;
+  --id: 5;
 }
 
-
-
-.hero-numbers{
-  --moves:translateX(-5px) scale(.95);
+.hero-numbers {
+  --moves: translateX(-5px) scale(0.95);
   transform-origin: left;
-  --id:6;
+  --id: 6;
 }
-
 
 .hero-information {
-  --moves:translateY(-2rem);
-  --id:7;
+  --moves: translateY(-2rem);
+  --id: 7;
 
-
-  &:first-child{
-  --moves:translateY(2rem);
+  &:first-child {
+    --moves: translateY(2rem);
   }
-  
 }
-
-
-
 
 .brand-bar {
   display: flex;
@@ -162,7 +149,7 @@
   padding: 2rem;
   width: 100%;
   overflow-x: auto;
-  
+
   // Hide scrollbar
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -178,7 +165,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   &:hover {
     opacity: 0.7;
   }
@@ -188,7 +175,6 @@
     transform: scale(1.1);
   }
 }
-
 
 @keyframes moves {
   0% {
@@ -202,11 +188,11 @@
   }
 }
 
-.call-action{
+.call-action {
   display: block;
-  padding:.5rem;
+  padding: 0.5rem;
   border-radius: 4px;
-  &:hover{
+  &:hover {
     background-color: var(--B3);
   }
 }

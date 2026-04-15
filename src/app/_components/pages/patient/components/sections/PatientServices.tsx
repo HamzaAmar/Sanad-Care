@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: TODO: Fix it later */
 import { Chips, Flex, Grid, Heading, Paper } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
 import AnimatedSection from "../AnimatedSection";

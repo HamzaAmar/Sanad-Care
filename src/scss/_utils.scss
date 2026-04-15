@@ -1,25 +1,23 @@
-
-.glass{
+.glass {
   background: rgba(20, 20, 20, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
-.ac-I{
-  border:1px solid var(--B4);
+.ac-I {
+  border: 1px solid var(--B4);
   background-color: var(--B2);
 }
 
-
-.section{
+.section {
   padding: 5vmin 5vw;
   background: var(--B1);
 }
 
-.pros{
-  & hr{
+.pros {
+  & hr {
     height: 1px;
-    background-color: var(--B4); 
+    background-color: var(--B4);
     border: none;
   }
 }
@@ -37,7 +35,6 @@
   right: 0.5rem;
 }
 
-
 .flag-dropdown {
   background-color: var(--B1) !important;
   border-color: var(--B7) !important;
@@ -47,6 +44,6 @@
   }
 }
 
-.dots-background{
-  background: url('/dots.png') 0 0 repeat;
+.dots-background {
+  background: url("/dots.png") 0 0 repeat;
 }

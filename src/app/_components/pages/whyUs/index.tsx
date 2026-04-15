@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: TODO: Fix This Later */
 import { Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import { Check, Clock, Globe, Heart, Shield, Users } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";

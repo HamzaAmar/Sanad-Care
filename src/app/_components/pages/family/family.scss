@@ -6,8 +6,8 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-//   opacity: 0;
-//   transform: translateX(-50px);
+  //   opacity: 0;
+  //   transform: translateX(-50px);
 
   @media (min-width: 768px) {
     padding: 4rem;
@@ -19,7 +19,7 @@
   z-index: 10;
   max-width: 600px;
   width: 100%;
-  
+
   .text-bubble {
     padding: 2rem;
     border-radius: 1rem;
@@ -48,13 +48,19 @@
 }
 
 // Utility for specific section content
-.burden-grid, .services-grid, .steps-grid, .trust-grid {
+.burden-grid,
+.services-grid,
+.steps-grid,
+.trust-grid {
   display: grid;
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
-.burden-item, .service-item, .step-item, .trust-item {
+.burden-item,
+.service-item,
+.step-item,
+.trust-item {
   background: white;
   padding: 1.5rem;
   border-radius: 0.5rem;

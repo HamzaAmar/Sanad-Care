@@ -1,5 +1,4 @@
-
-.service-container{
+.service-container {
   position: relative;
   z-index: 1;
   box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.2);
@@ -7,7 +6,7 @@
   border: 1px solid var(--B3);
 }
 
-.test-only-1{
+.test-only-1 {
   direction: ltr !important;
 }
 
@@ -15,8 +14,6 @@
   transition: 0.3s;
   overflow: hidden;
 }
-
-
 
 .card--image-container {
   aspect-ratio: 12 / 8;
@@ -42,5 +39,3 @@
     }
   }
 }
-
-
