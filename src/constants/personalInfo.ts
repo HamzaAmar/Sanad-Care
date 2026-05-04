@@ -16,7 +16,7 @@ export const PERSONAL_INFO = {
     email: "mailto:health.sanadcare@gmail.com",
     phone: "tel:+212704-524625",
     personal: "tel:+212627-207633",
-    whatsapp: "https://wa.me/212704-524625",
+    whatsapp: "https://wa.me/212704524625",
   },
   information: {
     address: "Domicilié au N° 3 Immeuble Palmier 104 Lotissement IGUIDER 2 ROUIDATE MARRAKECH",
