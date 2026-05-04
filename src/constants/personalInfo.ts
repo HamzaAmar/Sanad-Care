@@ -1,36 +1,27 @@
 export const PERSONAL_INFO = {
   name: "Sanad Care",
-  phone: "+212 701 002 008",
-  hotline: "+212 626 480 963",
-  email: "helps@sanad-care.com",
-  domain: "https://www.sanad-care.ma",
+  phone: "+212 704 524 625",
+  personal: "+212 627 207 633",
+  email: "health.sanadcare@gmail.com",
+  domain: "https://www.sanadcare.ma",
 
   socialMedia: {
-    instagram: "https://www.instagram.com/sanad_care",
+    instagram: "https://www.instagram.com/health_sanadcare/",
     whatsapp: "https://wa.me/212627-207633",
     call: "tel:+212627-207633",
+    linkedin: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
+    tiktok: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
   },
   contact: {
-    email: "mailto:helps@sanad-care.com",
-    phone: "tel:+212627-207633",
-    whatsapp: "https://wa.me/212627-207633",
+    email: "mailto:health.sanadcare@gmail.com",
+    phone: "tel:+212704-524625",
+    personal: "tel:+212627-207633",
+    whatsapp: "https://wa.me/212704-524625",
   },
-  en: {
-    address: "10 Avenue Mali Magasin N12 Ocean RABAT",
+  information: {
+    address: "Domicilié au N° 3 Immeuble Palmier 104 Lotissement IGUIDER 2 ROUIDATE MARRAKECH",
     name: "Sanad Care",
-    workingDays: "Monday - Sunday",
-    workingHours: "8:00 AM - 5:00 PM",
-  },
-  fr: {
-    name: "Sanad Care",
-    address: "10 Avenue Mali Magasin N12 Océan RABAT",
-    workingDays: "Lundi - Dimanche",
-    workingHours: "08h00 - 17h00",
-  },
-  ar: {
-    name: "تاوافـي لتأجير السيارات الفاخرة",
-    address: "10 شارع مالي، محل رقم 12، أوشيان، الرباط",
-    workingDays: "الإثنين - الأحد",
-    workingHours: "8:00 صباحًا - 5:00 مساءً",
+    workingDays: "Everyday",
+    workingHours: "7/7 - 24/24",
   },
 };

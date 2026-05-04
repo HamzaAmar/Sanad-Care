@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 
 import Logo from "../../logo";
 import { LINKS } from "./qr-code.data";
+import { PERSONAL_INFO } from "@/constants/personalInfo";
 
 function Item({ link, title, icon }: { link: string; title: string; icon: React.ReactNode }) {
   return (
@@ -28,7 +29,7 @@ function QrCode() {
         <Paper flow="2" p="2" as={Flex} direction="col" items="center">
           <Logo width={180} />
           <Text color="b" low size="3">
-            Taouafi Luxury Rent Car in Marrakech
+            {PERSONAL_INFO.name} in Marrakech
           </Text>
         </Paper>
         <Paper flow="2">
