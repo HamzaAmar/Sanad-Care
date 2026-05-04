@@ -11,6 +11,7 @@ export const PERSONAL_INFO = {
     call: "tel:+212627-207633",
     linkedin: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
     tiktok: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
+    facebook: "https://www.facebook.com/profile.php?id=61570753594073",
   },
   contact: {
     email: "mailto:health.sanadcare@gmail.com",
