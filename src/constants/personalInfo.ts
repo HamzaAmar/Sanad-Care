@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
     whatsapp: "https://wa.me/212627-207633",
     call: "tel:+212627-207633",
     linkedin: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
-    tiktok: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
+    tiktok: "https://www.tiktok.com/@sanad.care?_r=1&_t=ZS-964txIrcY1i",
     facebook: "https://www.facebook.com/profile.php?id=61570753594073",
   },
   contact: {
