@@ -2,16 +2,14 @@
 
 import { Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import type { Metadata } from "next";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
 
-import type { LocaleKey } from "@/types/localeProps.interface";
 import SocialMedia from "../../socialMedia";
 import ContactForm from "./form";
 
 const Contact = () => {
   const t = useTranslations("contact");
-  const locale = useLocale() as LocaleKey;
 
   return (
     <Grid cols={{ default: "1fr", lg: "1fr 1fr" }} gap="9" className="section">
@@ -31,7 +29,7 @@ const Contact = () => {
         <Grid gap="8" cols={{ default: "1fr", md: "1fr 1fr" }}>
           <Paper flow="4">
             <Text weight="6">{t("addressLabel")}</Text>
-            <Text>{PERSONAL_INFO[locale].address}</Text>
+            <Text>{PERSONAL_INFO.information.address}</Text>
           </Paper>
 
           <Paper flow="4">

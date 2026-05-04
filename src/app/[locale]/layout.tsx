@@ -5,7 +5,6 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { routing } from "@/i18n/routing";
-import { baseMetadata } from "@/lib/seo";
 import LocaleChrome from "./locale-chrome";
 
 import "@pillar-ui/core/main.css";
@@ -17,11 +16,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "seo" });
 
   return {
-    ...baseMetadata,
     title: t("metaTitle"),
     description: t("metaDescription"),
     openGraph: {
-      ...baseMetadata.openGraph,
       title: t("ogTitle"),
       description: t("ogDescription"),
       locale: locale,
@@ -36,7 +33,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ],
     },
     twitter: {
-      ...baseMetadata.twitter,
       title: t("ogTitle"),
       description: t("ogDescription"),
       images: ["/og-image.jpg"],

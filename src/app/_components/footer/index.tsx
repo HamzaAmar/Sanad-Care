@@ -1,16 +1,14 @@
 import { Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Logo from "@/app/logo";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
 import { Link } from "@/i18n/navigation";
 
-import type { LocaleKey } from "@/types/localeProps.interface";
 import { useMenuLinks } from "../header/header.data";
 import SocialMedia from "../socialMedia";
 
 const Footer = () => {
   const t = useTranslations("footer");
-  const locale = useLocale() as LocaleKey;
   const Menu = useMenuLinks();
 
   return (
