@@ -2,6 +2,7 @@ import { Avatar, AvatarGroup, Button, Chips, Flex, Heading, Paper, Text } from "
 import { Star } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 const HeroSection = () => {
   const t = useTranslations();
@@ -60,6 +61,7 @@ const HeroSection = () => {
           </Chips>
         </Flex>
       </Paper>
+      <Image src="/abc.webp" alt="Hero" width={580} height={800} />
     </Flex>
   );
 };

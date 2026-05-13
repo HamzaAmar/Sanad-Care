@@ -4,7 +4,7 @@ export const verifyToken = async (token: string) => {
 
     body: JSON.stringify({
       token,
-      secret: process.env.SECRET_KEY,
+      secret: process.env.SECRET_KEY!,
     }),
     headers: {
       "content-type": "application/json",
@@ -12,7 +12,7 @@ export const verifyToken = async (token: string) => {
   });
 
   if (!res.ok) {
-    throw new Error("Captcha verification failed!");
+    throw new Error("Captcha verification failed");
   }
 
   return await res.json();

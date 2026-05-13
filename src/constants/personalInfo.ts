@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
 
   socialMedia: {
     instagram: "https://www.instagram.com/health_sanadcare/",
-    whatsapp: "https://wa.me/212627-207633",
+    whatsapp: "https://wa.me/+212627207633",
     call: "tel:+212627-207633",
     linkedin: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
     tiktok: "https://www.tiktok.com/@sanad.care?_r=1&_t=ZS-964txIrcY1i",

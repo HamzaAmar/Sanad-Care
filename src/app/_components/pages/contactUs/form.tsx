@@ -5,7 +5,7 @@ import { Alert, Button, FormController, Input, Textarea } from "@pillar-ui/core"
 import { Envelop, Message, Send, User } from "@pillar-ui/icons";
 import { useLocale, useTranslations } from "next-intl";
 import React, { useActionState, useEffect } from "react";
-import { sendMail } from "@/api/contact";
+import { sendMail } from "@/app/_components/pages/contactUs/action/contact";
 import type { LocaleKey } from "@/types/localeProps.interface";
 import type { FormState, StatusProps } from "./contact.type";
 

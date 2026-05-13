@@ -10,6 +10,9 @@ import LocaleChrome from "./locale-chrome";
 import "@pillar-ui/core/main.css";
 import "@/scss/_main.scss";
 import { BASE_URL } from "@/constants/domain";
+import { IconButton } from "@pillar-ui/core";
+import { Whatsapp } from "@pillar-ui/icons";
+import { PERSONAL_INFO } from "@/constants/personalInfo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -70,6 +73,8 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
             <LocaleChrome>{children}</LocaleChrome>
           </NextIntlClientProvider>
         </ThemeProvider>
+
+        <IconButton size='7' className='whatsapp-button' title='whatsapp call' color="su" icon={<Whatsapp  stroke='var(--Su9)' />} href={PERSONAL_INFO.contact.whatsapp} as='a' target="_blank" />
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
     </html>
