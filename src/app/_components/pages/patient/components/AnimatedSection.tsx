@@ -1,7 +1,7 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import { Heading, Link, Paper, Text } from "@pillar-ui/core";
+import { Flex, Heading, Link, Paper, Text } from "@pillar-ui/core";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { type ReactNode, useRef } from "react";
@@ -17,6 +17,7 @@ interface PatientSectionProps {
   children?: ReactNode;
   className?: string;
   subtitle?: string;
+  direction?: "col" | "row";
 }
 
 const AnimatedSection = ({
@@ -27,6 +28,7 @@ const AnimatedSection = ({
   ctaLink,
   children,
   className = "",
+  direction = "col",
 }: PatientSectionProps) => {
   const containerRef = useRef<HTMLElement>(null);
   const designRef = useRef<HTMLDivElement>(null);
@@ -57,9 +59,9 @@ const AnimatedSection = ({
       });
       //
 
-      tl.to(container, { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" })
-        .to(design, { y: 0, duration: 0.8, ease: "bounce.out", opacity: 1 }, "-=0.4")
-        .to(content, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.6")
+      tl.to(container, { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" })
+        .to(design, { y: 0, duration: 0.5, ease: "bounce.out", opacity: 1 }, "-=0.4")
+        .to(content, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, "-=0.6")
         .to(textElements, { y: 0, opacity: 1, duration: 0.5, stagger: 0.2 }, "-=0.4");
     },
     { scope: containerRef },
@@ -70,7 +72,7 @@ const AnimatedSection = ({
       <div ref={designRef} className="patient-design" />
 
       <div ref={contentRef} className="patient-container patient-content-wrapper">
-        <Paper flow="4" ref={textElementsRef}>
+        <Paper as={Flex} justify="between" direction={direction} gap="4" ref={textElementsRef}>
           <div>
             <Heading as="h2" size="7" weight="5">
               {title}
@@ -84,15 +86,13 @@ const AnimatedSection = ({
                 {description}
               </Text>
             )}
+            {cta && (
+              <div className="patient-cta">
+                <Link href={ctaLink || "/contact"}>{cta}</Link>
+              </div>
+            )}
           </div>
-
           {children}
-
-          {cta && (
-            <div className="patient-cta">
-              <Link href={ctaLink || "/contact"}>{cta}</Link>
-            </div>
-          )}
         </Paper>
       </div>
     </section>

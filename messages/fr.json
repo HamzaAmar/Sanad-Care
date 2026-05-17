@@ -449,6 +449,24 @@
         "description": "Élargissez votre portée. Améliorez les résultats. Protégez votre temps et votre énergie.",
         "cta": "Connectons-Nous"
       }
+    },
+   "benefits": {
+      "noTransportation": {
+        "title": "Zéro Charge de Transport",
+        "description": "Évitez la fatigue physique et los risques liés au transport en ambulance ou en voiture, tout en évitant les salles d'attente bondées."
+      },
+      "timeSavings": {
+        "title": "Gain de Temps Précieux",
+        "description": "Éliminez la logistique des déplacements et les longues attentes en clinique. Les soins s'intègrent parfaitement à votre emploi du temps."
+      },
+      "painManagement": {
+        "title": "Confort et Soulagement du Pain",
+        "description": "Évitez l'aggravation de la douleur, des nausées ou des vertiges causés par les trajets. Reposez-vous confortablement chez vous."
+      },
+      "familiarEnvironment": {
+        "title": "Soins dans un Cadre Familier",
+        "description": "Bénéficiez d'une évaluation médicale complète dans la sécurité et le confort psychologique de votre foyer, réduisant le stress et l'anxiété."
+      }
     }
   },
   "family": {
@@ -614,6 +632,26 @@
         "subtitle": "Maintenant c'est votre tour — et nous sommes là pour aider.",
         "description": "Donnez-leur la dignité, le confort et les soins de qualité qu'ils méritent. Sans sacrifier votre propre vie, santé ou santé mentale.",
         "cta": "Commencez Leur Parcours de Soins Aujourd'hui"
+      }
+    },
+ 
+
+     "features": {
+      "peaceOfMind": {
+        "title": "Tranquillité d'Esprit",
+        "description": "Sachez que votre proche est entre des mains sûres et professionnelles."
+      },
+      "stayInformed": {
+        "title": "Restez Informé",
+        "description": "Nous vous tenons au courant à chaque étape du processus."
+      },
+      "emotionalSupport": {
+        "title": "Soutien Émotionnel",
+        "description": "Nous soutenons votre famille autant que votre proche."
+      },
+      "timeForWhatMatters": {
+        "title": "Plus de Temps pour l'Essentiel",
+        "description": "Nous gérons les soins pour vous permettre de vous concentrer sur vos moments ensemble."
       }
     }
   },
@@ -785,6 +823,24 @@
         "title": "Vous Méritez des Soins Qui Honorent Qui Vous Êtes",
         "description": "Vous n'êtes pas juste votre maladie. Vous n'êtes pas un fardeau. Laissez-nous vous aider à guérir — corps, cœur et esprit.",
         "button": "Parlez à Quelqu'un Qui Écoute"
+      }
+    },
+    "benefits": {
+      "strictHygiene": {
+        "title": "Protocoles d'Hygiène Stricts",
+        "description": "Nous appliquons des normes rigoureuses de désinfection médicale pour maintenir votre environnement domestique totalement stérile et sûr."
+      },
+      "personalizedCare": {
+        "title": "Plans de Soins Personnalisés",
+        "description": "Chaque intervention est adaptée exclusivement à votre profil de santé unique, garantissant une exécution médicale précise et sécurisée."
+      },
+      "maximumComfort": {
+        "title": "Confort Centré sur le Patient",
+        "description": "Éliminez l'anxiété liée aux cliniques. Recevez des soins médicaux professionnels tout en restant détendu dans votre espace privé."
+      },
+      "privacyConfidentiality": {
+        "title": "Confidentialité & Sécurité Totale",
+        "description": "Vos traitements et consultations se déroulent discrètement à domicile, garantissant le respect absolu de votre dignité et de votre vie privée."
       }
     }
   },

@@ -63,7 +63,13 @@ export const MobileHeader = () => {
 
   return (
     <Flex as={Paper} gap="4" justify="between" items="center">
-      <IconButton variant="soft" size="4" title={t("header.openMenu")} onClick={openMenu} icon={<Menu />} />
+      <IconButton
+        variant="soft"
+        size="4"
+        title={t("header.openMenu")}
+        onClick={openMenu}
+        icon={<Menu />}
+      />
 
       <Paper
         className="mobile-menu-header menu-mobile-animation"

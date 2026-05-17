@@ -433,7 +433,26 @@
         "description": "Expand your reach. Improve outcomes. Protect your time and energy.",
         "cta": "Let's Connect"
       }
+    },
+    "benefits": {
+      "noTransportation": {
+        "title": "Zero Travel Burden",
+        "description": "Avoid the physical strain, exhaustion, and risks of ambulance or car transit, while completely skipping crowded clinic waiting rooms."
+      },
+      "timeSavings": {
+        "title": "Significant Time Savings",
+        "description": "Eliminate travel logistics and long clinic delays. Care fits seamlessly into your schedule without disrupting your day."
+      },
+      "painManagement": {
+        "title": "Immediate Comfort & Pain Relief",
+        "description": "Prevent the aggravation of pain, nausea, or dizziness caused by movement and transport. Rest comfortably while the doctor comes to you."
+      },
+      "familiarEnvironment": {
+        "title": "Care in a Familiar Space",
+        "description": "Receive a comprehensive medical assessment in the safety and psychological comfort of your own home, reducing stress and anxiety."
+      }
     }
+  
   },
   "family": {
     "seo": {
@@ -607,6 +626,24 @@
         "description": "Give them the dignity, comfort, and quality care they deserve. Without sacrificing your own life, health, or sanity.",
         "cta": "Start Their Care Journey Today"
       }
+    },
+      "features": {
+      "peaceOfMind": {
+        "title": "Peace of Mind",
+        "description": "Know your loved one is in safe, professional hands."
+      },
+      "stayInformed": {
+        "title": "Stay Informed",
+        "description": "We keep you updated every step of the way."
+      },
+      "emotionalSupport": {
+        "title": "Emotional Support",
+        "description": "We support your family as much as your loved one."
+      },
+      "timeForWhatMatters": {
+        "title": "More Time for What Matters",
+        "description": "We handle the care, so you can focus on being together."
+      }
     }
   },
   "patient": {
@@ -762,6 +799,24 @@
         "title": "You Deserve Care That Honors Who You Are",
         "description": "You are not just your illness. You are not a burden. Let us help you heal—body, heart, and mind.",
         "button": "Speak to Someone Who Listens"
+      }
+    },
+    "benefits": {
+      "strictHygiene": {
+        "title": "Strict Hygiene Protocols",
+        "description": "We enforce rigorous medical sanitization standards and protective protocols to keep your home environment completely sterile and safe."
+      },
+      "personalizedCare": {
+        "title": "Personalized Care Plans",
+        "description": "Every procedure and routine is tailored exclusively to your unique health profile, ensuring precise and safe medical execution."
+      },
+      "maximumComfort": {
+        "title": "Patient-Centered Comfort",
+        "description": "Eliminate clinic anxiety and white-coat hypertension. Receive medical attention while relaxed in your own private space."
+      },
+      "privacyConfidentiality": {
+        "title": "Absolute Privacy & Security",
+        "description": "Your medical treatments and consultations happen discreetly at home, ensuring maximum confidentiality and patient dignity."
       }
     }
   },

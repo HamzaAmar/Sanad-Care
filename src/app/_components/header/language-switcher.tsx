@@ -59,7 +59,12 @@ const LanguageMenu = ({ language }: LanguageProps) => {
           {LOCALES.filter((lang) => lang !== locale).map((lang) => {
             return (
               <DropdownMenu.Item key={lang} asChild>
-                <Flex as="button" onClick={() => onSelectChange(lang)} gap="2" className="menu-button--item">
+                <Flex
+                  as="button"
+                  onClick={() => onSelectChange(lang)}
+                  gap="2"
+                  className="menu-button--item"
+                >
                   <Image width="22" height="15" src={`/flags/${lang}.svg`} alt={`${lang} Flag`} />
                   <Text size="3" weight="5">
                     {language[lang]}

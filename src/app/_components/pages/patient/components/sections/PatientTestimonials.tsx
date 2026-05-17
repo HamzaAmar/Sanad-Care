@@ -4,10 +4,17 @@ import PatientSection from "../AnimatedSection";
 
 const PatientTestimonials = () => {
   const t = useTranslations();
-  const list = t.raw("patient.page.testimonials.list") as Array<{ name: string; before: string; after: string }>;
+  const list = t.raw("patient.page.testimonials.list") as Array<{
+    name: string;
+    before: string;
+    after: string;
+  }>;
 
   return (
-    <PatientSection title={t("patient.page.testimonials.title")} description={t("patient.page.testimonials.subtitle")}>
+    <PatientSection
+      title={t("patient.page.testimonials.title")}
+      description={t("patient.page.testimonials.subtitle")}
+    >
       <Grid cols={{ default: "1fr", lg: "1fr 1fr" }} gap="6">
         {list.map((item, index) => (
           <Paper key={index} background="B1" p="6" corner="4" flow="4">

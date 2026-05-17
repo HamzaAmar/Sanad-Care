@@ -3,7 +3,14 @@ import { useTranslations } from "next-intl";
 
 const TourismServices = () => {
   const t = useTranslations("tourism.page.services");
-  const services = ["postOp", "medication", "assistance", "equipment", "physio", "chronic"] as const;
+  const services = [
+    "postOp",
+    "medication",
+    "assistance",
+    "equipment",
+    "physio",
+    "chronic",
+  ] as const;
 
   return (
     <section className="tourism-services">

@@ -35,7 +35,10 @@ const mailContent = (name: string, text: string) => `<!DOCTYPE html>
 </body>
 </html>`;
 
-export async function sendMail(_state: FormState, formData: FormData): Promise<Required<FormState>> {
+export async function sendMail(
+  _state: FormState,
+  formData: FormData,
+): Promise<Required<FormState>> {
   const token = formData.get("cf-turnstile-response") as string;
   const data = (Object.fromEntries(formData) as unknown as ContactProps) ?? {};
   const { email, message, name, subject } = data;

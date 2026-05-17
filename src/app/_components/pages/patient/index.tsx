@@ -12,11 +12,19 @@ const PatientPage = () => {
 
   return (
     <section className="section">
-      <PatientSection title={t("struggle.title")} description={t("struggle.description")} cta={t("philosophy.cta")}>
+      <PatientSection
+        title={t("struggle.title")}
+        description={t("struggle.description")}
+        cta={t("philosophy.cta")}
+      >
         <Text size="4" className="italic opacity-80 mb-4 block">
           {t("struggle.affirmation")}
         </Text>
-        <Grid cols={{ default: "1fr", sm: "1fr 1fr" }} gap="3" className="list-disc pl-5 space-y-2 opacity-90">
+        <Grid
+          cols={{ default: "1fr", sm: "1fr 1fr" }}
+          gap="3"
+          className="list-disc pl-5 space-y-2 opacity-90"
+        >
           {(t.raw("struggle.points") as string[]).map((point, i) => (
             <Paper as="li" background="B1" p="3" corner="2" key={i}>
               <Text color="b" low weight="4">

@@ -21,10 +21,20 @@ const HeroSection = () => {
         </Heading>
         <Text className="hero-description hero-animation">{t("hero.subtitle")}</Text>
         <Flex gap="5" className="hero-actions">
-          <Button variant="shadow" as={Link} href="/services" className="hero-action hero-animation">
+          <Button
+            variant="shadow"
+            as={Link}
+            href="/services"
+            className="hero-action hero-animation"
+          >
             {t("hero.browseBtn")}
           </Button>
-          <Button as={Link} variant="soft" href="/contact-us" className="hero-action hero-animation">
+          <Button
+            as={Link}
+            variant="soft"
+            href="/contact-us"
+            className="hero-action hero-animation"
+          >
             {t("contact.title")}
           </Button>
         </Flex>
@@ -32,7 +42,10 @@ const HeroSection = () => {
           <Flex gap="4" className="hero-likes hero-animation">
             <AvatarGroup size="2">
               {Array.from({ length: 4 }, (_, i) => (
-                <Avatar key={`hero-avatar-${5 + i}`} src={`https://picsum.photos/id/${5 + i}/200/200`} />
+                <Avatar
+                  key={`hero-avatar-${5 + i}`}
+                  src={`https://picsum.photos/id/${5 + i}/200/200`}
+                />
               ))}
             </AvatarGroup>
             <Flex gap="1" items="center">

@@ -80,25 +80,25 @@ const WhyUs = () => {
   const FEATURES = [
     {
       slug: "competence",
-      icon: <User width={32} />,
+      icon: <User width={32} stroke="var(--P9)" strokeWidth={1.5} />,
       title: t("whyUs.features.competence.title"),
       description: t("whyUs.features.competence.description"),
     },
     {
       slug: "availability",
-      icon: <Clock width={32} />,
+      icon: <Clock width={32} stroke="var(--P9)" strokeWidth={1.5} />,
       title: t("whyUs.features.availability.title"),
       description: t("whyUs.features.availability.description"),
     },
     {
       slug: "trust",
-      icon: <Shield width={32} />,
+      icon: <Shield width={32} stroke="var(--P9)" strokeWidth={1.5} />,
       title: t("whyUs.features.trust.title"),
       description: t("whyUs.features.trust.description"),
     },
     {
       slug: "multilingual",
-      icon: <Location width={32} />, // Using Location/Globe as placeholder
+      icon: <Location width={32} stroke="var(--P9)" strokeWidth={1.5} />, // Using Location/Globe as placeholder
       title: t("whyUs.features.multilingual.title"),
       description: t("whyUs.features.multilingual.description"),
     },

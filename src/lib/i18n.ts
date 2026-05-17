@@ -27,7 +27,8 @@ const messages: Record<Locale, Messages> = {
   en: {
     meta: {
       title: "Moroccan Caftans - Artisan Showcase",
-      description: "Discover authentic Moroccan caftans and traditional clothing crafted with passion",
+      description:
+        "Discover authentic Moroccan caftans and traditional clothing crafted with passion",
     },
     nav: {
       home: "Home",
@@ -49,7 +50,8 @@ const messages: Record<Locale, Messages> = {
   fr: {
     meta: {
       title: "Caftans Marocains - Galerie Artisanale",
-      description: "Découvrez les authentiques caftans marocains et vêtements traditionnels confectionnés avec passion",
+      description:
+        "Découvrez les authentiques caftans marocains et vêtements traditionnels confectionnés avec passion",
     },
     nav: {
       home: "Accueil",

@@ -42,7 +42,13 @@ const ContactForm = () => {
           <Input name="name" prefixInput={<User width="24" />} required autoComplete="name" />
         </FormController>
         <FormController label={t("email")} required>
-          <Input name="email" type="email" required prefixInput={<Envelop width="24" />} autoComplete="email" />
+          <Input
+            name="email"
+            type="email"
+            required
+            prefixInput={<Envelop width="24" />}
+            autoComplete="email"
+          />
         </FormController>
         <FormController label={t("subject")} required>
           <Input name="subject" required prefixInput={<Message width="24" />} />

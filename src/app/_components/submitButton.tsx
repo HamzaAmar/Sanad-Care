@@ -2,7 +2,15 @@ import { Button } from "@pillar-ui/core";
 import type { ReactElement } from "react";
 import { useFormStatus } from "react-dom";
 
-export function SubmitButton({ title, icon, disabled }: { title: string; icon: ReactElement; disabled?: boolean }) {
+export function SubmitButton({
+  title,
+  icon,
+  disabled,
+}: {
+  title: string;
+  icon: ReactElement;
+  disabled?: boolean;
+}) {
   const { pending } = useFormStatus();
 
   return (

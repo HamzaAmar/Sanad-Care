@@ -29,15 +29,20 @@ const MedicalTourism = () => {
         </Paper>
         <Paper
           className="medical-tourism-image"
-          corner="4"
+          corner="5"
           border
-          style={{ minHeight: "300px", background: "var(--B3)" }}
+          style={{ minHeight: "300px", background: "var(--B3)", overflow: "hidden" }}
         >
-          <Flex justify="center" items="center" style={{ height: "100%" }}>
+          {/* <Flex justify="center" items="center" style={{ height: "100%" }}>
             <Text size="7" color="b" low>
               Medical Assistance
             </Text>
-          </Flex>
+          </Flex> */}
+          <img
+            src="/tourism.jpg"
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
         </Paper>
       </Grid>
     </Paper>

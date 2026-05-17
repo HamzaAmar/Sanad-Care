@@ -94,7 +94,10 @@ const FamilySection: React.FC<FamilySectionProps> = ({
   // );
 
   return (
-    <section ref={sectionRef} className={`family-section ${reverse ? "section-reverse" : ""} ${className}`}>
+    <section
+      ref={sectionRef}
+      className={`family-section ${reverse ? "section-reverse" : ""} ${className}`}
+    >
       <div ref={designRef} className="family-design" />
 
       <div ref={textRef} className="family-content">

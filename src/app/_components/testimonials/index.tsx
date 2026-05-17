@@ -7,7 +7,12 @@ const Testimonial = ({ testimonial }: { testimonial: TestimonialProps }) => {
   return (
     <Paper p="4" flow="4" key={testimonial.id} className="testimonials__card" as="article">
       <Text size="4">{testimonial.quote}</Text>
-      <Grid gap="4" cols={{ default: "auto 1fr auto" }} items="center" className="testimonials__author">
+      <Grid
+        gap="4"
+        cols={{ default: "auto 1fr auto" }}
+        items="center"
+        className="testimonials__author"
+      >
         <Avatar src={testimonial.avatar} size="4" title={testimonial.name} />
         <Text weight="5">{testimonial.name}</Text>
         <Flex justify="end" items="center" gap="1">

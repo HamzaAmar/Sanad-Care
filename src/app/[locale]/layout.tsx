@@ -14,7 +14,11 @@ import { IconButton } from "@pillar-ui/core";
 import { Whatsapp } from "@pillar-ui/icons";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo" });
 
@@ -74,7 +78,16 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
           </NextIntlClientProvider>
         </ThemeProvider>
 
-        <IconButton size='7' className='whatsapp-button' title='whatsapp call' color="su" icon={<Whatsapp  stroke='var(--Su9)' />} href={PERSONAL_INFO.contact.whatsapp} as='a' target="_blank" />
+        <IconButton
+          size="7"
+          className="whatsapp-button"
+          title="whatsapp call"
+          color="su"
+          icon={<Whatsapp stroke="var(--Su9)" />}
+          href={PERSONAL_INFO.contact.whatsapp}
+          as="a"
+          target="_blank"
+        />
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
     </html>

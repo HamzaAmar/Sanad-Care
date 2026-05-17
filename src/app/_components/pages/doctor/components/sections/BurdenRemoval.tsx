@@ -7,7 +7,10 @@ const BurdenRemoval = () => {
   const list = t.raw("doctor.page.section3.list") as Array<{ before: string; after: string }>;
 
   return (
-    <AnimatedSection title={t("doctor.page.section3.title")} description={t("doctor.page.section3.subtitle")}>
+    <AnimatedSection
+      title={t("doctor.page.section3.title")}
+      description={t("doctor.page.section3.subtitle")}
+    >
       <Grid cols={{ default: "1fr", lg: "1fr 1fr" }} gap="6">
         {list.map((item, index) => (
           <Paper border p="6" corner="4" flow="4" key={index} className="delivery-feature">

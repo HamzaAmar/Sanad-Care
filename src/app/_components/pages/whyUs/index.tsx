@@ -20,22 +20,26 @@ const WhatWeDid = [
   {
     icon: <Globe />,
     label: "Vital signs monitoring",
-    description: "Regular measurement and tracking of vital signs to detect changes early and prevent complications.",
+    description:
+      "Regular measurement and tracking of vital signs to detect changes early and prevent complications.",
   },
   {
     icon: <Users />,
     label: "Psychological support",
-    description: "Providing emotional reassurance, reducing anxiety, and supporting the patient’s mental well-being.",
+    description:
+      "Providing emotional reassurance, reducing anxiety, and supporting the patient’s mental well-being.",
   },
   {
     icon: <Users />,
     label: "Clear, respectful communication",
-    description: "Maintaining transparent, respectful communication with patients and families at every step of care.",
+    description:
+      "Maintaining transparent, respectful communication with patients and families at every step of care.",
   },
   {
     icon: <Shield />,
     label: "Feeling safe at home",
-    description: "Creating a secure, supervised home environment that promotes comfort, trust, and peace of mind.",
+    description:
+      "Creating a secure, supervised home environment that promotes comfort, trust, and peace of mind.",
   },
 ];
 
@@ -109,7 +113,12 @@ const WhyUs = () => {
           </div>
           <Grid gap="6" cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }}>
             {WhatWeDid.map((item) => (
-              <ServiceCard key={item.label} icon={item.icon} title={item.label} description={item.description} />
+              <ServiceCard
+                key={item.label}
+                icon={item.icon}
+                title={item.label}
+                description={item.description}
+              />
             ))}
           </Grid>
         </Paper>
@@ -132,7 +141,15 @@ const WhyUs = () => {
               <Paper flow="5" className="bg-surface-2 p-6 rounded-lg">
                 <Flex gap="2">
                   {[0, 1, 2].map((i) => (
-                    <Flex key={i} items="center" p="4" corner="3" as={Paper} background="B1" gap="2">
+                    <Flex
+                      key={i}
+                      items="center"
+                      p="4"
+                      corner="3"
+                      as={Paper}
+                      background="B1"
+                      gap="2"
+                    >
                       <Check width={20} className="text-success" />
                       <Text>{t(`whyUs.page.global.list.${i}`)}</Text>
                     </Flex>

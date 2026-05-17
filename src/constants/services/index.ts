@@ -478,7 +478,11 @@ export const SERVICES: NursingService[] = [
       "wound-care-dressing-changes",
       "urinary-venous-catheter-care",
     ],
-    notIncluded: ["prescribed-medications", "medical-consumables", "medical-diagnosis-treatment-modification"],
+    notIncluded: [
+      "prescribed-medications",
+      "medical-consumables",
+      "medical-diagnosis-treatment-modification",
+    ],
   },
 
   {
@@ -503,7 +507,11 @@ export const SERVICES: NursingService[] = [
       "rapid-home-tests",
       "results-follow-up",
     ],
-    notIncluded: ["laboratory-analysis-fees", "advanced-imaging-tests", "emergency-laboratory-services"],
+    notIncluded: [
+      "laboratory-analysis-fees",
+      "advanced-imaging-tests",
+      "emergency-laboratory-services",
+    ],
   },
 
   {

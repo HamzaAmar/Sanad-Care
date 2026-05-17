@@ -26,7 +26,7 @@ const Header = () => {
         href="/"
         className="h-e-logo slide-down-animation"
       >
-        <Logo width="120" dir="ar" />
+        <Logo width="130" />
       </Flex>
       <DesktopMenu />
       <Flex gap="1" items="center" className="slide-down-animation">

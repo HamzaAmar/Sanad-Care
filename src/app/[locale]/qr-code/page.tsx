@@ -9,7 +9,16 @@ import { PERSONAL_INFO } from "@/constants/personalInfo";
 function Item({ link, title, icon }: { link: string; title: string; icon: React.ReactNode }) {
   return (
     <Flex as={Link} href={link} className="qr-code_item" target="_blank" rel="noopener noreferrer">
-      <Paper as={Flex} justify="between" gap="2" border corner="3" p="3" width="100%" style={{ width: "100%" }}>
+      <Paper
+        as={Flex}
+        justify="between"
+        gap="2"
+        border
+        corner="3"
+        p="3"
+        width="100%"
+        style={{ width: "100%" }}
+      >
         <Flex gap="2">
           {icon}
           <Text size="4" weight="5">
