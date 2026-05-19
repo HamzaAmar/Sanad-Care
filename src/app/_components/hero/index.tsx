@@ -8,11 +8,11 @@ const HeroSection = () => {
   const t = useTranslations();
 
   return (
-    <Flex as={Paper} items="center" className="hero" aria-label="Hero Car Carousel">
+    <Flex as={Paper} items="center" justify="center" className="hero" aria-label="Hero Car Carousel">
       <div className="luxury-hero__noise" />
       <div className="luxury-hero__glow luxury-hero__glow--left" />
       <div className="luxury-hero__glow luxury-hero__glow--right" />
-      <Paper flow="6" className="hero-content">
+      <Paper flow="5" className="hero-content">
         <Chips variant="outline" color="b" corner="2" className="hero-chips hero-animation">
           {t("hero.ranking")}
         </Chips>
@@ -58,7 +58,7 @@ const HeroSection = () => {
               </Text>
             </Flex>
           </Flex>
-          <Text className="hero-numbers hero-animation" size="3" color="b" low>
+          <Text className="hero-numbers hero-animation" size="1" color="b" low>
             {t("hero.usersCount")}
           </Text>
         </Paper>
@@ -74,7 +74,6 @@ const HeroSection = () => {
           </Chips>
         </Flex>
       </Paper>
-      <Image src="/abc.webp" alt="Hero" width={580} height={800} />
     </Flex>
   );
 };
