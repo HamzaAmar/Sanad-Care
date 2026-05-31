@@ -31,13 +31,8 @@ const MedicalTourism = () => {
           className="medical-tourism-image"
           corner="5"
           border
-          style={{ minHeight: "300px", background: "var(--B3)", overflow: "hidden" }}
+          style={{ height: "300px", background: "var(--B3)", overflow: "hidden" }}
         >
-          {/* <Flex justify="center" items="center" style={{ height: "100%" }}>
-            <Text size="7" color="b" low>
-              Medical Assistance
-            </Text>
-          </Flex> */}
           <img
             src="/tourism.jpg"
             alt=""

@@ -20,6 +20,8 @@
   &:hover {
     color: var(--P11);
     transform: scale(1.02) translateY(-1px);
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
 }
 

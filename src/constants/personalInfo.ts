@@ -27,12 +27,5 @@ export const PERSONAL_INFO = {
   },
 };
 
-// Your job is to helps me ny making an application for one of my nutrition experts that will helps his client doing the following.
 
-// the owner of the app have this ideas about what the application must have.
 
-// - Must have 2 areas a public, and a private area, a public area everybody who has installed the application has the right to see the public area.
-// - the private area only for people that have an account.
-// - The account must be created only by the admin and sent to the client via the most simple, easy, and secure way for the client.
-// - the public area must contain a general infomation about some
-// - the private must contain dashboard for (weight, KCAL,
