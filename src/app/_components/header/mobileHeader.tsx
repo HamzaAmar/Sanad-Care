@@ -62,7 +62,7 @@ export const MobileHeader = () => {
   }
 
   return (
-    <Flex as={Paper} gap="4" justify="between" items="center">
+    <Flex as={Paper} gap="4" justify="between" items="center" className="mobile-header">
       <IconButton
         variant="soft"
         size="4"

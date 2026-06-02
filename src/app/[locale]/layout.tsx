@@ -83,8 +83,8 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
           className="whatsapp-button"
           title="whatsapp call"
           color="su"
-          corner='3'
-          variant='solid'
+          corner="3"
+          variant="solid"
           icon={<Whatsapp stroke="white" />}
           href={PERSONAL_INFO.contact.whatsapp}
           as="a"

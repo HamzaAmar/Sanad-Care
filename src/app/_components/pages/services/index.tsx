@@ -1,151 +1,167 @@
-import { Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import {
-  Check,
-  Location,
-  User,
-} from "@pillar-ui/icons";
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+  Chips,
+  Flex,
+  Grid,
+  Heading,
+  Paper,
+  Text,
+  Badge,
+} from "@pillar-ui/core";
+import { Check } from "@pillar-ui/icons";
 import { useLocale } from "next-intl";
-import { PERSONAL_INFO } from "@/constants/personalInfo";
 import type { LocaleKey } from "@/types/localeProps.interface";
 import "./services.scss";
-import { Plan, ServiceLocaleContent } from "./service.type";
-import { contentByLocale, faqByLocale, plansByLocale, trustCardsByLocale } from "./service.data";
+import { Prestation } from "./service.type";
+import {
+  contentByLocale,
+  faqByLocale,
+  prestationsInfirmieres,
+  trustCardsByLocale,
+} from "./service.data";
 import { ServiceCard } from "../../service-card";
 
+const PriceItem = ({ item, locale }: { item: Prestation; locale: LocaleKey }) => {
+  return (
+    <Paper
+      background="B2"
+      as="article"
+      p="2"
+      padding="5"
+      border
+      corner="4"
+      className="presentation-price-item"
+    >
+      <Grid
+        cols={{ default: "1fr", md: "2fr 3fr 1fr" }}
+        className="price-item"
+        gap="4"
+        items="center"
+      >
+        <Heading as="h3" size="4" weight="5">
+          {item.title[locale]}
+        </Heading>
 
-const PricingCard = ({ plan, content }: { plan: Plan; content: ServiceLocaleContent }) => {
+        <Paper as="ul" flow="2">
+          {item.inclus[locale].map((feature, index) => (
+            <Flex as="li" gap="2" key={index}>
+              <Badge size="1" variant="soft" type="icon" icon={<Check strokeWidth={1.5} />} />
+              <Text size="3" color="b" low>
+                {feature}
+              </Text>
+            </Flex>
+          ))}
+        </Paper>
 
-return(     <article
-              key={plan.name}
-              className={`pricing-card${plan.featured ? " pricing-card--featured" : ""}`}
-            >
-              {plan.featured ? (
-                <span className="pricing-card__popular">{content.popularLabel}</span>
-              ) : null}
-
-              <div className="pricing-card__icon">{plan.icon}</div>
-              <div className="pricing-card__content">
-                <Text as="p" className="pricing-card__name">
-                  {plan.name}
-                </Text>
-                <Text as="p" className="pricing-card__tagline" color="b" low>
-                  {plan.tagline}
-                </Text>
-              </div>
-
-              <div className="pricing-card__price-wrap">
-                <div className="pricing-card__price">{plan.price}</div>
-                <span className="pricing-card__period">{content.monthLabel}</span>
-              </div>
-
-              <div className="pricing-card__divider" />
-
-              <ul className="pricing-card__features">
-                {plan.features.map((feature) => (
-                  <li key={feature}>
-                    <span className="pricing-card__check">
-                      <Check width={14} strokeWidth={2.3} />
-                    </span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="pricing-card__actions">
-                <a
-                  className={`pricing-card__cta${plan.featured ? " pricing-card__cta--featured" : ""}`}
-                  href={plan.featured ? PERSONAL_INFO.contact.whatsapp : PERSONAL_INFO.contact.phone}
-                >
-                  <span>{plan.featured ? content.ctaPrimary : content.ctaSecondary}</span>
-                </a>
-                <p className="pricing-card__note">
-                  <strong>{content.trustNoteLabel}</strong> {plan.trustNote}
-                </p>
-              </div>
-            </article>)
-}
+        <Flex justify="center" items="center" direction="col">
+          <div>
+            <Chips transform="lowercase" variant="shadow" color="p">
+              A partir de
+            </Chips>
+            {/* <Text size="3" weight="3">
+              A partir de
+            </Text> */}
+            <Flex gap="2" items="center">
+              <Text size="5" weight="5">
+                {item.price}.00
+              </Text>
+              <Text size="5" weight="5" color="p" low>
+                MAD
+              </Text>
+            </Flex>
+          </div>
+        </Flex>
+      </Grid>
+    </Paper>
+  );
+};
 
 const Services = () => {
   const locale = useLocale() as LocaleKey;
   const content = contentByLocale[locale] ?? contentByLocale.en;
-  const plans = plansByLocale[locale] ?? plansByLocale.en;
   const trustCards = trustCardsByLocale[locale] ?? trustCardsByLocale.en;
   const faqItems = faqByLocale[locale] ?? faqByLocale.en;
 
   return (
-    <Paper as="section" className="services-pricing section">
-      <div className="services-pricing__orbs">
-        <span className="services-pricing__orb services-pricing__orb--primary" />
-        <span className="services-pricing__orb services-pricing__orb--secondary" />
-      </div>
+    <Paper as="section" flow="9" className="section services-pricing__shell">
+      <header className="services-pricing__hero">
+        <div className="services-pricing__eyebrow">
+          <span className="services-pricing__badge">{content.badge}</span>
+        </div>
+      </header>
 
-      <div className="services-pricing__shell">
-        <header className="services-pricing__hero">
-          <div className="services-pricing__eyebrow">
-            <span className="services-pricing__badge">{content.badge}</span>
-          </div>
-        </header>
+      <Flex justify="center" gap="3" aria-label="trust indicators">
+        {content.trustIndicators.map((item) => (
+          <Chips color="b" variant="soft">
+            <Check strokeWidth={2} />
+            {item}
+          </Chips>
+        ))}
+      </Flex>
 
-        <Paper>
-          <Flex justify='center' gap='3' aria-label="trust indicators">
-            {content.trustIndicators.map((item) => (
-              <span key={item} className="services-pricing__trustpill">
-                <Check width={16} strokeWidth={2} />
-                {item}
-              </span>
-            ))}
-          </Flex>
-          <Grid cols={{default:'1fr', md:'1fr 1fr', lg:'repeat(4, 1fr)'}} gap='5'>
-          {plans.map((plan) => (
-             <PricingCard key={plan.name} plan={plan} content={content} />
+      <Paper as="section" flow="2">
+        <Flex items="center" gap="2">
+          <Badge type="dot" translate="no" />
+          <Text size="2">
+            The price of the service is not fixed, it depends on the amount of the time we will
+            spend with you.
+          </Text>
+        </Flex>
+
+        <Paper flow="4">
+          {prestationsInfirmieres.map((item) => {
+            return <PriceItem item={item} locale={locale} />;
+          })}
+        </Paper>
+      </Paper>
+
+      <Paper
+        as="section"
+        flow="6"
+        className="services-pricing__trust"
+        aria-labelledby="trust-title"
+      >
+        <div>
+          <Heading as="h2" size="6" id="trust-title">
+            {content.trustTitle}
+          </Heading>
+          <Text as="p" size="4" color="b" low>
+            {content.trustSubtitle}
+          </Text>
+        </div>
+
+        <Grid cols={{ default: "1fr", md: "repeat(3, 1fr)" }} gap="5">
+          {trustCards.map((card) => (
+            <ServiceCard key={card.title} {...card} />
           ))}
         </Grid>
-        </Paper>
+      </Paper>
 
-        <section className="services-pricing__trust" aria-labelledby="trust-title">
-          <div className="services-pricing__section-heading">
-            <Heading as="h2" size="6" id="trust-title">
-              {content.trustTitle}
-            </Heading>
-            <Text as="p" size="4" color="b" low>
-              {content.trustSubtitle}
-            </Text>
-          </div>
+      <Paper as="section" flow="6" className="services-pricing__faq" aria-labelledby="faq-title">
+        <div>
+          <Chips color="b" variant="soft">
+            {content.faqKicker}
+          </Chips>
+          <Heading as="h2" size="6" id="faq-title">
+            {content.faqTitle}
+          </Heading>
+          <Text as="p" size="4" color="b" low>
+            {content.faqSubtitle}
+          </Text>
+        </div>
 
-          <Grid cols={{default:'1fr', md:'repeat(3, 1fr)'}} gap='5'>
-            {trustCards.map((card) => (
-              <ServiceCard key={card.title} {...card} />
-            ))}
-          </Grid>
-        </section>
-
-        <section className="services-pricing__faq" aria-labelledby="faq-title">
-          <div className="services-pricing__section-heading">
-            <Text as="p" className="services-pricing__section-kicker">
-              <User width={16} strokeWidth={2} />
-              {content.faqKicker}
-            </Text>
-            <Heading as="h2" size="6" id="faq-title">
-              {content.faqTitle}
-            </Heading>
-            <Text as="p" size="4" color="b" low>
-              {content.faqSubtitle}
-            </Text>
-          </div>
-
-          <div className="faq-list">
-            {faqItems.map((item) => (
-              <details key={item.question} className="faq-item">
-                <summary>
-                  <span>{item.question}</span>
-                  <span className="faq-item__plus" aria-hidden="true" />
-                </summary>
-                <p>{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-      </div>
+        <Accordion collapsible separate corner="4">
+          {faqItems.map(({ answer, question }) => (
+            <AccordionItem key={question} value={question}>
+              <AccordionButton className="faq--button">{question}</AccordionButton>
+              <AccordionPanel className="faq--answer">{answer}</AccordionPanel>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Paper>
     </Paper>
   );
 };

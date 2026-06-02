@@ -163,7 +163,11 @@
         "h2": "Our Promise in Marrakech",
         "subtitle": "Home Nursing, Done Right",
         "description": "This service was born in Marrakech with a clear promise. We don't just provide home nursing. We build trust, clarity, and peace of mind.",
-        "list": ["Care based on science", "Managed with conscience", "Inspired by real human experience"]
+        "list": [
+          "Care based on science",
+          "Managed with conscience",
+          "Inspired by real human experience"
+        ]
       }
     }
   },
@@ -334,11 +338,26 @@
             "before": "Patients calling you for basic nursing tasks",
             "after": "Our nurses handle in-home care under your protocol"
           },
-          { "before": "Lost follow-ups after consultation", "after": "Structured nurse-led follow-up and reporting" },
-          { "before": "Patients refusing hospitalization", "after": "Safe, monitored home care solutions" },
-          { "before": "Unclear treatment adherence", "after": "Daily nurse feedback and compliance tracking" },
-          { "before": "Administrative overload", "after": "We coordinate scheduling and care logistics" },
-          { "before": "Limited capacity to take new patients", "after": "Expanded reach through remote nursing care" }
+          {
+            "before": "Lost follow-ups after consultation",
+            "after": "Structured nurse-led follow-up and reporting"
+          },
+          {
+            "before": "Patients refusing hospitalization",
+            "after": "Safe, monitored home care solutions"
+          },
+          {
+            "before": "Unclear treatment adherence",
+            "after": "Daily nurse feedback and compliance tracking"
+          },
+          {
+            "before": "Administrative overload",
+            "after": "We coordinate scheduling and care logistics"
+          },
+          {
+            "before": "Limited capacity to take new patients",
+            "after": "Expanded reach through remote nursing care"
+          }
         ]
       },
 
@@ -388,10 +407,19 @@
             "title": "Initial Discussion",
             "description": "We understand your specialty, workflow, and patient types."
           },
-          { "title": "Care Protocol Alignment", "description": "We follow your medical instructions strictly." },
-          { "title": "Patient Assignment", "description": "You refer patients who need home or remote care." },
+          {
+            "title": "Care Protocol Alignment",
+            "description": "We follow your medical instructions strictly."
+          },
+          {
+            "title": "Patient Assignment",
+            "description": "You refer patients who need home or remote care."
+          },
           { "title": "Ongoing Reporting", "description": "Clear, structured nurse feedback." },
-          { "title": "Flexible Adjustment", "description": "Care adapts to patient evolution and your guidance." }
+          {
+            "title": "Flexible Adjustment",
+            "description": "Care adapts to patient evolution and your guidance."
+          }
         ]
       },
 
@@ -452,7 +480,6 @@
         "description": "Receive a comprehensive medical assessment in the safety and psychological comfort of your own home, reducing stress and anxiety."
       }
     }
-  
   },
   "family": {
     "seo": {
@@ -627,7 +654,7 @@
         "cta": "Start Their Care Journey Today"
       }
     },
-      "features": {
+    "features": {
       "peaceOfMind": {
         "title": "Peace of Mind",
         "description": "Know your loved one is in safe, professional hands."
@@ -710,7 +737,12 @@
         "categories": {
           "comfort": {
             "title": "For Your Daily Comfort",
-            "items": ["Dignified bathing & dressing", "Mobility assistance", "Meal support", "Respectful personal care"]
+            "items": [
+              "Dignified bathing & dressing",
+              "Mobility assistance",
+              "Meal support",
+              "Respectful personal care"
+            ]
           },
           "medical": {
             "title": "For Your Medical Needs",
@@ -724,11 +756,21 @@
           },
           "recovery": {
             "title": "For Your Recovery",
-            "items": ["Post-surgery care", "Physiotherapy support", "Chronic disease management", "Pain management"]
+            "items": [
+              "Post-surgery care",
+              "Physiotherapy support",
+              "Chronic disease management",
+              "Pain management"
+            ]
           },
           "peace": {
             "title": "For Your Peace of Mind",
-            "items": ["24/7 availability", "Doctor coordination", "Medical equipment setup", "Emergency support"]
+            "items": [
+              "24/7 availability",
+              "Doctor coordination",
+              "Medical equipment setup",
+              "Emergency support"
+            ]
           }
         }
       },
@@ -875,7 +917,9 @@
       "instagram": "Go to Instagram",
       "whatsapp": "Go to Whatsapp",
       "twitter": "Go to Twitter"
-    }
+    },
+    "contactWhatsapp": "Contact Us on WhatsApp",
+    "contactPhone": "Call us Now"
   },
   "faq": {
     "heading": "Frequently Asked Questions",

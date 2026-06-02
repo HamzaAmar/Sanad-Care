@@ -1,6 +1,6 @@
 import { Chips, Flex, Grid, Heading, Paper } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
-import AnimatedSection from "../AnimatedSection";
+import AnimatedSection from "@/app/_components/AnimatedSection";
 
 const AnimatedServices = () => {
   const t = useTranslations("patient.page.services");

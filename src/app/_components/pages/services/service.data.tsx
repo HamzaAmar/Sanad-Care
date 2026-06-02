@@ -1,17 +1,6 @@
 import { LocaleKey } from "@/types/localeProps.interface";
 import { FaqItem, Plan, ServiceLocaleContent, TrustCard } from "./service.type";
-import {
-  Check,
-  Clock,
-  HeartBeat,
-  Location,
-  Shield,
-  Star,
-  User,
-  UserCheck,
-  Users,
-} from "@pillar-ui/icons";
-
+import { Clock, HeartBeat, Shield, Star, UserCheck, Users } from "@pillar-ui/icons";
 
 export const contentByLocale: Record<LocaleKey, ServiceLocaleContent> = {
   en: {
@@ -35,8 +24,7 @@ export const contentByLocale: Record<LocaleKey, ServiceLocaleContent> = {
     trustSubtitle:
       "Built to feel safe, responsive, and exceptionally personal from the first visit onward.",
     faqTitle: "Questions families ask before subscribing",
-    faqSubtitle:
-      "Clear answers to help you choose the right level of support for your loved one.",
+    faqSubtitle: "Clear answers to help you choose the right level of support for your loved one.",
     ctaPrimary: "Book a care consultation",
     ctaSecondary: "Talk to a nurse",
     monthLabel: "/month",
@@ -52,7 +40,11 @@ export const contentByLocale: Record<LocaleKey, ServiceLocaleContent> = {
     title: "Des soins de confiance a domicile, penses pour votre serenite.",
     subtitle:
       "Choisissez un accompagnement mensuel professionnel concu pour la recuperation, le suivi chronique et la tranquillite des familles a Marrakech.",
-    trustIndicators: ["Infirmiers diplomes", "Disponibles 24h/24", "Visites a domicile a Marrakech"],
+    trustIndicators: [
+      "Infirmiers diplomes",
+      "Disponibles 24h/24",
+      "Visites a domicile a Marrakech",
+    ],
     comparisonTitle: "Comparer les forfaits",
     comparisonSubtitle:
       "Une lecture claire pour distinguer le soutien essentiel d'un suivi clinique complet a domicile.",
@@ -65,8 +57,7 @@ export const contentByLocale: Record<LocaleKey, ServiceLocaleContent> = {
       "Infirmier referent dedie",
     ],
     trustTitle: "Pourquoi les familles choisissent Sanad Care",
-    trustSubtitle:
-      "Une experience de soins sure, reactive et tres humaine des la premiere visite.",
+    trustSubtitle: "Une experience de soins sure, reactive et tres humaine des la premiere visite.",
     faqTitle: "Questions frequentes avant de souscrire",
     faqSubtitle:
       "Des reponses claires pour choisir le niveau d'accompagnement adapte a votre proche.",
@@ -306,7 +297,8 @@ export const trustCardsByLocale: Record<LocaleKey, TrustCard[]> = {
   en: [
     {
       title: "Certified Nurses",
-      description: "Each visit is delivered by trained professionals aligned with safe home-care protocols.",
+      description:
+        "Each visit is delivered by trained professionals aligned with safe home-care protocols.",
       icon: <Shield width={24} strokeWidth={1.8} />,
     },
     {
@@ -323,24 +315,28 @@ export const trustCardsByLocale: Record<LocaleKey, TrustCard[]> = {
   fr: [
     {
       title: "Infirmiers certifies",
-      description: "Chaque visite est assuree par des professionnels formes aux protocoles de soins a domicile.",
+      description:
+        "Chaque visite est assuree par des professionnels formes aux protocoles de soins a domicile.",
       icon: <Shield width={24} strokeWidth={1.8} />,
     },
     {
       title: "Reponse rapide en urgence",
-      description: "Des circuits de coordination prioritaires pour reagir vite en cas d'evolution clinique.",
+      description:
+        "Des circuits de coordination prioritaires pour reagir vite en cas d'evolution clinique.",
       icon: <Clock width={24} strokeWidth={1.8} />,
     },
     {
       title: "Compte rendu famille inclus",
-      description: "Les proches recoivent des nouvelles claires et un vrai suivi apres chaque intervention.",
+      description:
+        "Les proches recoivent des nouvelles claires et un vrai suivi apres chaque intervention.",
       icon: <Users width={24} strokeWidth={1.8} />,
     },
   ],
   ar: [
     {
       title: "Certified Nurses",
-      description: "Each visit is delivered by trained professionals aligned with safe home-care protocols.",
+      description:
+        "Each visit is delivered by trained professionals aligned with safe home-care protocols.",
       icon: <Shield width={24} strokeWidth={1.8} />,
     },
     {
@@ -424,3 +420,306 @@ export const faqByLocale: Record<LocaleKey, FaqItem[]> = {
     },
   ],
 };
+
+export const prestationsInfirmieres = [
+  {
+    title: {
+      fr: "Visite Infirmière Standard",
+      ar: "زيارة تمريضية قياسية",
+      en: "Standard Nursing Visit",
+    },
+    inclus: {
+      fr: [
+        "Mesure tension + température + oxygène",
+        "Evaluation clinique générale",
+        "Vérification de l'observance médicamenteuse",
+        "Compte-rendu WhatsApp à la famille",
+      ],
+      ar: [
+        "قياس ضغط الدم + درجة الحرارة + الأكسجين",
+        "تقييم سريري عام",
+        "التحقق من الالتزام بالأدوية",
+        "تقرير عبر واتساب للعائلة",
+      ],
+      en: [
+        "Blood pressure + temperature + oxygen check",
+        "General clinical assessment",
+        "Medication adherence verification",
+        "WhatsApp report to the family",
+      ],
+    },
+    price: "220",
+  },
+  {
+    title: {
+      fr: "Prélèvement Sanguin",
+      ar: "سحب الدم",
+      en: "Blood Sampling",
+    },
+    inclus: {
+      fr: [
+        "Prélèvement sanguin au domicile",
+        "Préparation des tubes et envoi au laboratoire",
+        "Information de la famille sur les résultats",
+        "Les analyses de laboratoire ne sont pas incluses",
+      ],
+      ar: [
+        "سحب الدم في المنزل",
+        "تحضير الأنابيب وإرسالها للمختبر",
+        "إبلاغ العائلة بالنتائج",
+        "تحاليل المختبر غير مشمولة",
+      ],
+      en: [
+        "Home blood collection",
+        "Tube preparation and delivery to the lab",
+        "Informing the family of results",
+        "Lab tests are not included",
+      ],
+    },
+    price: "220",
+  },
+  {
+    title: {
+      fr: "Pansement Simple",
+      ar: "ضمادة بسيطة",
+      en: "Simple Dressing",
+    },
+    inclus: {
+      fr: [
+        "Nettoyage et désinfection de la plaie",
+        "Changement de pansement",
+        "Evaluation de l'état de la plaie",
+        "Compte-rendu WhatsApp à la famille",
+      ],
+      ar: ["تنظيف وتطهير الجرح", "تغيير الضمادة", "تقييم حالة الجرح", "تقرير عبر واتساب للعائلة"],
+      en: [
+        "Cleaning and disinfection of the wound",
+        "Changing the dressing",
+        "Wound status evaluation",
+        "WhatsApp report to the family",
+      ],
+    },
+    price: "230",
+  },
+  {
+    title: {
+      fr: "Pansement Complexe / Escarre",
+      ar: "ضمادة معقدة / قرحة الفراش",
+      en: "Complex Dressing / Bedsore",
+    },
+    inclus: {
+      fr: [
+        "Nettoyage profond + détersion des tissus nécrotiques",
+        "Pansement spécialisé selon le stade",
+        "Evaluation et classification de la plaie",
+        "Rapport médical détaillé pour le médecin",
+      ],
+      ar: [
+        "تنظيف عميق + إزالة الأنسجة الميتة",
+        "ضمادة متخصصة حسب المرحلة",
+        "تقييم وتصنيف الجرح",
+        "تقرير طبي مفصل للطبيب",
+      ],
+      en: [
+        "Deep cleaning + debridement of necrotic tissue",
+        "Specialized dressing according to stage",
+        "Wound evaluation and classification",
+        "Detailed medical report for the doctor",
+      ],
+    },
+    price: "330",
+  },
+  {
+    title: {
+      fr: "Injection Intramusculaire (IM)",
+      ar: "حقن عضلي (IM)",
+      en: "Intramuscular Injection (IM)",
+    },
+    inclus: {
+      fr: [
+        "Préparation du médicament + Injection IM",
+        "Surveillance 10 min après l'injection",
+        "Compte-rendu WhatsApp",
+        "Le médicament n'est pas inclus",
+      ],
+      ar: [
+        "تحضير الدواء + الحقن العضلي",
+        "مراقبة لمدة 10 دقائق بعد الحقن",
+        "تقرير عبر واتساب",
+        "الدواء غير مشمول",
+      ],
+      en: [
+        "Medication preparation + IM injection",
+        "10-minute post-injection monitoring",
+        "WhatsApp report",
+        "Medication is not included",
+      ],
+    },
+    price: "170",
+  },
+  {
+    title: {
+      fr: "Injection Sous-Cutanée (SC)",
+      ar: "حقن تحت الجلد (SC)",
+      en: "Subcutaneous Injection (SC)",
+    },
+    inclus: {
+      fr: [
+        "Préparation du médicament + Injection SC",
+        "Surveillance après l'injection",
+        "Compte-rendu WhatsApp",
+        "Le médicament n'est pas inclus",
+      ],
+      ar: [
+        "تحضير الدواء + الحقن تحت الجلد",
+        "مراقبة بعد الحقن",
+        "تقرير عبر واتساب",
+        "الدواء غير مشمول",
+      ],
+      en: [
+        "Medication preparation + SC injection",
+        "Post-injection monitoring",
+        "WhatsApp report",
+        "Medication is not included",
+      ],
+    },
+    price: "160",
+  },
+  {
+    title: {
+      fr: "Pose de Perfusion IV",
+      ar: "تركيب محلول وريدي (IV)",
+      en: "IV Infusion Setup",
+    },
+    inclus: {
+      fr: [
+        "Pose du cathéter veineux périphérique",
+        "Branchement de la perfusion + surveillance complète",
+        "Ablation du cathéter + rapport détaillé",
+        "La solution et le médicament ne sont pas inclus",
+      ],
+      ar: [
+        "تركيب قسطرة وريدية محيطية",
+        "ربط المحلول + مراقبة كاملة",
+        "إزالة القسطرة + تقرير مفصل",
+        "المحلول والدواء غير مشمولين",
+      ],
+      en: [
+        "Peripheral venous catheter placement",
+        "Infusion setup + full monitoring",
+        "Catheter removal + detailed report",
+        "Solution and medication are not included",
+      ],
+    },
+    price: "280",
+  },
+  {
+    title: {
+      fr: "Retrait Points / Agrafes",
+      ar: "إزالة الغرز / الدبابيس",
+      en: "Stitch / Staple Removal",
+    },
+    inclus: {
+      fr: [
+        "Ablation des fils ou agrafes de suture",
+        "Nettoyage + évaluation de la cicatrisation",
+        "Compte-rendu WhatsApp à la famille",
+      ],
+      ar: [
+        "إزالة خيوط أو دبابيس الجراحة",
+        "تنظيف + تقييم التئام الجروح",
+        "تقرير عبر واتساب للعائلة",
+      ],
+      en: [
+        "Removal of stitches or surgical staples",
+        "Cleaning + healing evaluation",
+        "WhatsApp report to the family",
+      ],
+    },
+    price: "180",
+  },
+  {
+    title: {
+      fr: "Surveillance Glycémie + Insuline",
+      ar: "مراقبة مستوى السكر + الأنسولين",
+      en: "Blood Glucose Monitoring + Insulin",
+    },
+    inclus: {
+      fr: [
+        "Mesure de la glycémie capillaire",
+        "Enregistrement et alerte en cas de valeur anormale",
+        "Injection d'insuline si prescrite",
+        "L'insuline n'est pas incluse",
+      ],
+      ar: [
+        "قياس سكر الدم الشعيري",
+        "تسجيل وتنبيه في حالة وجود قيمة غير طبيعية",
+        "حقن الأنسولين إذا وُصف",
+        "الأنسولين غير مشمول",
+      ],
+      en: [
+        "Capillary blood glucose measurement",
+        "Recording and alerting for abnormal values",
+        "Insulin injection if prescribed",
+        "Insulin is not included",
+      ],
+    },
+    price: "200",
+  },
+  {
+    title: {
+      fr: "Vaccination à Domicile",
+      ar: "تلقيح منزلي",
+      en: "Home Vaccination",
+    },
+    inclus: {
+      fr: [
+        "Préparation du vaccin + injection",
+        "Surveillance 15 à 20 minutes après le vaccin",
+        "Compte-rendu WhatsApp",
+        "Le vaccin n'est pas inclus",
+      ],
+      ar: [
+        "تحضير اللقاح + الحقن",
+        "مراقبة لمدة 15 إلى 20 دقيقة بعد اللقاح",
+        "تقرير عبر واتساب",
+        "اللقاح غير مشمول",
+      ],
+      en: [
+        "Vaccine preparation + injection",
+        "15-20 minute post-vaccine monitoring",
+        "WhatsApp report",
+        "Vaccine is not included",
+      ],
+    },
+    price: "180",
+  },
+  {
+    title: {
+      fr: "Surveillance Cardio-Tensionnelle",
+      ar: "مراقبة القلب وضغط الدم",
+      en: "Cardio-Tensional Monitoring",
+    },
+    inclus: {
+      fr: [
+        "Mesure tension (x2) + pouls + saturation en oxygène",
+        "Enregistrement des symptômes du patient",
+        "Rapport structuré envoyé au médecin traitant",
+        "Alerte immédiate en cas de Red Flag",
+      ],
+      ar: [
+        "قياس ضغط الدم (مرتين) + النبض + تشبع الأكسجين",
+        "تسجيل أعراض المريض",
+        "تقرير منظم يُرسل للطبيب المعالج",
+        "تنبيه فوري في حالة الخطر",
+      ],
+      en: [
+        "Blood pressure (x2) + pulse + oxygen saturation",
+        "Recording patient symptoms",
+        "Structured report sent to attending physician",
+        "Immediate alert in case of Red Flag",
+      ],
+    },
+    price: "169",
+  },
+];

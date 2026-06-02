@@ -163,7 +163,11 @@
         "h2": "Notre Promesse à Marrakech",
         "subtitle": "Soins Infirmiers à Domicile, Bien Faits",
         "description": "Ce service est né à Marrakech avec une promesse claire. Nous ne fournissons pas juste des soins infirmiers à domicile. Nous construisons la confiance, la clarté et la tranquillité d'esprit.",
-        "list": ["Soins basés sur la science", "Gérés avec conscience", "Inspirés par l'expérience humaine réelle"]
+        "list": [
+          "Soins basés sur la science",
+          "Gérés avec conscience",
+          "Inspirés par l'expérience humaine réelle"
+        ]
       }
     }
   },
@@ -407,7 +411,10 @@
             "title": "Attribution des Patients",
             "description": "Vous référez les patients nécessitant des soins à domicile ou à distance."
           },
-          { "title": "Rapportage Continu", "description": "Retour clair et structuré de l'infirmier." },
+          {
+            "title": "Rapportage Continu",
+            "description": "Retour clair et structuré de l'infirmier."
+          },
           {
             "title": "Ajustement Flexible",
             "description": "Les soins s'adaptent à l'évolution du patient et à votre guidance."
@@ -450,7 +457,7 @@
         "cta": "Connectons-Nous"
       }
     },
-   "benefits": {
+    "benefits": {
       "noTransportation": {
         "title": "Zéro Charge de Transport",
         "description": "Évitez la fatigue physique et los risques liés au transport en ambulance ou en voiture, tout en évitant les salles d'attente bondées."
@@ -634,9 +641,8 @@
         "cta": "Commencez Leur Parcours de Soins Aujourd'hui"
       }
     },
- 
 
-     "features": {
+    "features": {
       "peaceOfMind": {
         "title": "Tranquillité d'Esprit",
         "description": "Sachez que votre proche est entre des mains sûres et professionnelles."
@@ -899,7 +905,9 @@
       "instagram": "Aller sur Instagram",
       "whatsapp": "Aller sur Whatsapp",
       "twitter": "Aller sur Twitter"
-    }
+    },
+    "contactWhatsapp": "Contactez-nous sur WhatsApp",
+    "contactPhone": "Appelez-nous maintenant"
   },
   "faq": {
     "heading": "Questions Fréquemment Posées",

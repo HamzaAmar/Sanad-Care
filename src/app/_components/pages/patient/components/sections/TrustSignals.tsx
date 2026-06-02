@@ -1,14 +1,14 @@
 import { Flex, Grid, Paper, Text } from "@pillar-ui/core";
-import { Check } from "@pillar-ui/icons";
+import { CircleCheck } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import PatientSection from "../AnimatedSection";
+import AnimatedSection from "@/app/_components/AnimatedSection";
 
 const TrustSignals = () => {
   const t = useTranslations("patient.page.trust");
   const signals = t.raw("signals") as string[];
 
   return (
-    <PatientSection title={t("title")} className="text-center">
+    <AnimatedSection title={t("title")} className="text-center">
       <Grid cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }} gap="6">
         {signals.map((signal, index) => (
           <Flex
@@ -20,14 +20,14 @@ const TrustSignals = () => {
             corner="2"
             background="B1"
           >
-            <Check width="24" />
+            <CircleCheck width="24" stroke="var(--P11)" strokeWidth="1.5" />
             <Text size="4" weight="5" align="center">
               {signal}
             </Text>
           </Flex>
         ))}
       </Grid>
-    </PatientSection>
+    </AnimatedSection>
   );
 };
 

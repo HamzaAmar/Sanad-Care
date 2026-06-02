@@ -1,7 +1,7 @@
 import { Flex, Grid, Heading, Paper, Separator, Text } from "@pillar-ui/core";
 import { CircleCheck } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import AnimatedSection from "../../../patient/components/AnimatedSection";
+import AnimatedSection from "@/app/_components/AnimatedSection";
 
 const FamilyServices = () => {
   const t = useTranslations("family.page.section4");

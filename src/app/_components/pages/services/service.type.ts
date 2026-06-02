@@ -21,7 +21,7 @@ export interface ServiceLocaleContent {
   comparisonKicker: string;
   faqKicker: string;
   featureColumnLabel: string;
-};
+}
 
 export interface Plan {
   name: string;
@@ -32,15 +32,21 @@ export interface Plan {
   featured?: boolean;
   icon: ReactNode;
   comparison: boolean[];
-};
+}
 
 export interface TrustCard {
   title: string;
   description: string;
   icon: ReactNode;
-};
+}
 
 export interface FaqItem {
   question: string;
   answer: string;
-};
+}
+
+export interface Prestation {
+  title: { fr: string; ar: string; en: string };
+  inclus: { fr: string[]; ar: string[]; en: string[] };
+  price: string;
+}

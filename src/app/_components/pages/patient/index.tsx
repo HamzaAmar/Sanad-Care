@@ -1,18 +1,18 @@
 import { Grid, Paper, Text } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
-import PatientSection from "./components/AnimatedSection";
 import DayInLife from "./components/sections/DayInLife";
 import HolisticDifference from "./components/sections/HolisticDifference";
 import PatientServices from "./components/sections/PatientServices";
 import PatientTestimonials from "./components/sections/PatientTestimonials";
 import TrustSignals from "./components/sections/TrustSignals";
+import AnimatedSection from "../../AnimatedSection";
 
 const PatientPage = () => {
   const t = useTranslations("patient.page");
 
   return (
     <section className="section">
-      <PatientSection
+      <AnimatedSection
         title={t("struggle.title")}
         description={t("struggle.description")}
         cta={t("philosophy.cta")}
@@ -33,9 +33,15 @@ const PatientPage = () => {
             </Paper>
           ))}
         </Grid>
-      </PatientSection>
+      </AnimatedSection>
 
-      <PatientSection title={t("philosophy.title")} description={t("philosophy.description")} />
+      <AnimatedSection
+        direction="row"
+        title={t("philosophy.title")}
+        description={t("philosophy.description")}
+      >
+        <img src="/sick.png" alt="" width="240" />
+      </AnimatedSection>
 
       <HolisticDifference />
 
@@ -45,7 +51,7 @@ const PatientPage = () => {
 
       <PatientTestimonials />
       <TrustSignals />
-      <PatientSection
+      <AnimatedSection
         title={t("cta.title")}
         description={t("cta.description")}
         cta={t("cta.button")}

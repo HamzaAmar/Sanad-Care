@@ -1,6 +1,7 @@
-import { Grid, Heading, Paper, Text } from "@pillar-ui/core";
+import { Grid } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
-import AnimatedSection from "../AnimatedSection";
+import AnimatedSection from "@/app/_components/AnimatedSection";
+import { ServiceCard } from "@/app/_components/service-card";
 
 const HolisticDifference = () => {
   const t = useTranslations("patient.page.difference");
@@ -10,12 +11,7 @@ const HolisticDifference = () => {
     <AnimatedSection title={t("title")}>
       <Grid cols={{ default: "1fr", md: "1fr 1fr" }} gap="4">
         {list.map((item, index) => (
-          <Paper key={index} background="B1" p="6" corner="4">
-            <Heading size="4">{item.not}</Heading>
-            <Text size="3" color="b" low>
-              {item.but}
-            </Text>
-          </Paper>
+          <ServiceCard variant="colored" key={index} title={item.not} description={item.but} />
         ))}
       </Grid>
     </AnimatedSection>

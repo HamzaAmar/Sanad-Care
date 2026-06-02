@@ -1,15 +1,14 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import { Flex, Grid, Heading, Link, Paper, Text } from "@pillar-ui/core";
+import { Grid, Heading, Link, Text } from "@pillar-ui/core";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { type ReactNode, useRef } from "react";
-import "./../patient.scss"; // Import styles locally
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface PatientSectionProps {
+interface AnimatedSectionProps {
   title: string;
   description?: string;
   cta?: string;
@@ -29,7 +28,7 @@ const AnimatedSection = ({
   children,
   className = "",
   direction = "col",
-}: PatientSectionProps) => {
+}: AnimatedSectionProps) => {
   const containerRef = useRef<HTMLElement>(null);
   const designRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -67,14 +66,14 @@ const AnimatedSection = ({
     { scope: containerRef },
   );
 
-  const grid = direction === "row" ? {cols:{default:'1fr', md:'2fr auto'}} : {};
+  const grid = direction === "row" ? { cols: { default: "1fr", md: "2fr auto" } } : {};
 
   return (
     <section ref={containerRef} className={`patient-section ${className}`}>
       <div ref={designRef} className="patient-design" />
 
       <div ref={contentRef} className="patient-container patient-content-wrapper">
-        <Grid {...grid} gap='6'  ref={textElementsRef}>
+        <Grid {...grid} gap="6" ref={textElementsRef}>
           <div className="patient-content">
             <Heading as="h2" size="7" weight="5">
               {title}

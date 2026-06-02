@@ -1,12 +1,12 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import AnimatedSection from "../patient/components/AnimatedSection";
 import Changes from "./components/sections/changes";
 import FamilyServices from "./components/sections/family-service";
 import HowItWorks from "./components/sections/how-it-work";
 import Testimonials from "./components/sections/Testimonials";
 import WhyChooseUs from "./components/sections/WhyChooseUs";
+import AnimatedSection from "../../AnimatedSection";
 
 const Family = () => {
   const t = useTranslations("family.page");

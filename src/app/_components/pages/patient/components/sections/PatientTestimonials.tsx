@@ -1,6 +1,6 @@
 import { Avatar, Flex, Grid, Paper, Separator, Text } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
-import PatientSection from "../AnimatedSection";
+import AnimatedSection from "@/app/_components/AnimatedSection";
 
 const PatientTestimonials = () => {
   const t = useTranslations();
@@ -11,7 +11,7 @@ const PatientTestimonials = () => {
   }>;
 
   return (
-    <PatientSection
+    <AnimatedSection
       title={t("patient.page.testimonials.title")}
       description={t("patient.page.testimonials.subtitle")}
     >
@@ -42,7 +42,7 @@ const PatientTestimonials = () => {
           </Paper>
         ))}
       </Grid>
-    </PatientSection>
+    </AnimatedSection>
   );
 };
 

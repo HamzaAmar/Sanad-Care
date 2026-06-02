@@ -1,14 +1,20 @@
 import { Avatar, AvatarGroup, Button, Chips, Flex, Heading, Paper, Text } from "@pillar-ui/core";
-import { Star } from "@pillar-ui/icons";
+import { PhoneCall, Star, Whatsapp } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
+import { PERSONAL_INFO } from "@/constants/personalInfo";
 
 const HeroSection = () => {
   const t = useTranslations();
 
   return (
-    <Flex as={Paper} items="center" justify="center" className="hero" aria-label="Hero Car Carousel">
+    <Flex
+      as={Paper}
+      items="center"
+      justify="center"
+      className="hero"
+      aria-label="Hero Car Carousel"
+    >
       <div className="luxury-hero__noise" />
       <div className="luxury-hero__glow luxury-hero__glow--left" />
       <div className="luxury-hero__glow luxury-hero__glow--right" />
@@ -24,18 +30,20 @@ const HeroSection = () => {
           <Button
             variant="shadow"
             as={Link}
-            href="/services"
+            href={PERSONAL_INFO.socialMedia.whatsapp}
             className="hero-action hero-animation"
+            icon={<Whatsapp />}
           >
-            {t("hero.browseBtn")}
+            {t("contact.contactWhatsapp")}
           </Button>
           <Button
             as={Link}
             variant="soft"
-            href="/contact-us"
+            href={PERSONAL_INFO.contact.phone}
             className="hero-action hero-animation"
+            icon={<PhoneCall />}
           >
-            {t("contact.title")}
+            {t("contact.contactPhone")}
           </Button>
         </Flex>
         <Paper flow="2">

@@ -1,42 +1,42 @@
 import { Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import { Check, Clock, Globe, Heart, Shield, Users } from "@pillar-ui/icons";
+import { Check, CircleCheck, Clock, Globe, Heart, Shield, Users } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import "./why-us.scss"; // Assuming we'll add some custom styles
 import { ServiceCard } from "../../service-card";
 
 const WhatWeDid = [
   {
-    icon: <Clock />,
+    icon: <Clock stroke="var(--P11)" strokeWidth={1.5} />,
     label: "Medication organization",
     description:
       "Ensuring medications are taken on time, in the correct dosage, with full adherence to medical prescriptions.",
   },
   {
-    icon: <Heart />,
+    icon: <Heart stroke="var(--P11)" strokeWidth={1.5} />,
     label: "Nutritional quality",
     description:
       "Monitoring and supporting balanced nutrition adapted to the patient’s health condition and medical needs.",
   },
   {
-    icon: <Globe />,
+    icon: <Globe stroke="var(--P11)" strokeWidth={1.5} />,
     label: "Vital signs monitoring",
     description:
       "Regular measurement and tracking of vital signs to detect changes early and prevent complications.",
   },
   {
-    icon: <Users />,
+    icon: <Users stroke="var(--P11)" strokeWidth={1.5} />,
     label: "Psychological support",
     description:
       "Providing emotional reassurance, reducing anxiety, and supporting the patient’s mental well-being.",
   },
   {
-    icon: <Users />,
+    icon: <Users stroke="var(--P11)" strokeWidth={1.5} />,
     label: "Clear, respectful communication",
     description:
       "Maintaining transparent, respectful communication with patients and families at every step of care.",
   },
   {
-    icon: <Shield />,
+    icon: <Shield stroke="var(--P11)" strokeWidth={1.5} />,
     label: "Feeling safe at home",
     description:
       "Creating a secure, supervised home environment that promotes comfort, trust, and peace of mind.",
@@ -228,7 +228,7 @@ const WhyUs = () => {
           <Grid gap="4" cols={{ default: "1fr", md: "1fr 1fr 1fr" }} className="mb-8">
             {[0, 1, 2].map((i) => (
               <Paper background="B1" as={Flex} gap="2" p="4" items="center" key={i}>
-                <Check width={20} />
+                <CircleCheck width={20} stroke="var(--P11)" strokeWidth={1.5} />
                 <Text>{t(`whyUs.page.promise.list.${i}`)}</Text>
               </Paper>
             ))}

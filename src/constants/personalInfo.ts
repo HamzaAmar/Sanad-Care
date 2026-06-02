@@ -26,6 +26,3 @@ export const PERSONAL_INFO = {
     workingHours: "7/7 - 24/24",
   },
 };
-
-
-

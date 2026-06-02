@@ -1,6 +1,6 @@
 import { Grid, Paper, Text } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
-import AnimatedSection from "../../../patient/components/AnimatedSection";
+import AnimatedSection from "@/app/_components/AnimatedSection";
 
 const Testimonials = () => {
   const t = useTranslations("doctor.page.section6");

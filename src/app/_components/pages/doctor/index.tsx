@@ -1,10 +1,10 @@
 import { useTranslations } from "next-intl";
-import AnimatedSection from "../patient/components/AnimatedSection";
 import BurdenRemoval from "./components/sections/BurdenRemoval";
 import FamilyServices from "./components/sections/FamilyServices";
 import HowItWorks from "./components/sections/HowItWorks";
 import Testimonials from "./components/sections/Testimonials";
 import WhyChooseUs from "./components/sections/WhyChooseUs";
+import AnimatedSection from "../../AnimatedSection";
 
 const Doctor = () => {
   const t = useTranslations("doctor.page");

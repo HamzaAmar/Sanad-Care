@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import AnimatedSection from "../../../patient/components/AnimatedSection";
+import AnimatedSection from "@/app/_components/AnimatedSection";
 
 const BurdenRemoval = () => {
   const t = useTranslations("family.page.section1");
