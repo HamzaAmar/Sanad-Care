@@ -10,6 +10,7 @@ const HeroSection = () => {
   return (
     <Flex
       as={Paper}
+      flow="4"
       items="center"
       justify="center"
       className="hero"
@@ -26,7 +27,7 @@ const HeroSection = () => {
           {t("hero.title")}
         </Heading>
         <Text className="hero-description hero-animation">{t("hero.subtitle")}</Text>
-        <Flex gap="5" className="hero-actions">
+        <Flex wrap gap="4" className="hero-actions">
           <Button
             variant="shadow"
             as={Link}
