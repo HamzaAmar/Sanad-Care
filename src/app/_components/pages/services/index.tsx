@@ -125,7 +125,7 @@ const Services = () => {
           <Chips color="b" variant="soft">
             {t("programs.badge")}
           </Chips>
-          <Heading as="h2" size="6" mt="2">
+          <Heading id="services-programs" as="h2" size="6">
             {t("programs.title")}
           </Heading>
           <Text as="p" size="4" color="b" low className="mt-1">
@@ -136,22 +136,12 @@ const Services = () => {
         <Grid cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }} gap="4">
           {Object.values(SERVICE_TREE)
             .filter((item) => item.category === "pillar" || item.category === "service")
-            .map((item) => (
-              <Paper
-                key={item.slug}
-                as="article"
-                border
-                corner="3"
-                p="5"
-                flow="3"
-                className="presentation-price-item"
+            .map((item, i) => (
+              <ServiceCard
+                key={i}
+                title={item.title[locale] || item.title.en}
+                description={item.subtitle[locale] || item.subtitle.en}
               >
-                <Heading as="h3" size="4" weight="6">
-                  {item.title[locale] || item.title.en}
-                </Heading>
-                <Text as="p" size="2" color="b" low leading="3">
-                  {item.subtitle[locale] || item.subtitle.en}
-                </Text>
                 <Button
                   as={Link}
                   href={`/services/${item.slug}`}
@@ -162,7 +152,7 @@ const Services = () => {
                 >
                   {t("programs.button")}
                 </Button>
-              </Paper>
+              </ServiceCard>
             ))}
         </Grid>
       </Paper>
@@ -172,7 +162,7 @@ const Services = () => {
           <Chips color="b" variant="soft">
             {t("conditions.badge")}
           </Chips>
-          <Heading as="h2" size="6" mt="2">
+          <Heading as="h2" size="6">
             {t("conditions.title")}
           </Heading>
           <Text as="p" size="4" color="b" low className="mt-1">

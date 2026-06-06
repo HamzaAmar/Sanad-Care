@@ -1,9 +1,11 @@
 import { Button, Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import { CircleCheck } from "@pillar-ui/icons";
+import { ArrowRight, CircleCheck } from "@pillar-ui/icons";
 import { Link } from "@/i18n/navigation";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ServiceCard } from "@/app/_components/service-card";
+import { SERVICE_TREE } from "@/constants/services/serviceTreeData";
+import { LocaleKey } from "@/types/localeProps.interface";
 
 type CareCard = {
   title: string;
@@ -12,36 +14,55 @@ type CareCard = {
 
 export function HomeNursingSeoSections() {
   const t = useTranslations("home");
-  const conditions = t.raw("conditions.items") as CareCard[];
+  const tService = useTranslations("services.page");
   const steps = t.raw("howItWorks.steps") as CareCard[];
   const emergencyBenefits = t.raw("emergencyCta.benefits") as string[];
+  const locale = useLocale() as LocaleKey;
 
   return (
     <>
       <Paper flow="6" className="section luxury-picnic-page__section">
-        <Paper flow="2" className="luxury-picnic-page__section-heading">
-          <div>
-            <Text as="p" className="luxury-picnic-page__eyebrow" color="p" low size="4">
-              {t("conditions.eyebrow")}
+        <Flex justify="between" items="center" gap="4">
+          <Paper flow="2" className="luxury-picnic-page__section-heading">
+            <div>
+              <Text as="p" className="luxury-picnic-page__eyebrow" color="p" low size="4">
+                {t("conditions.eyebrow")}
+              </Text>
+              <Heading as="h2" size="6">
+                {t("conditions.title")}
+              </Heading>
+            </div>
+            <Text color="b" low className="mx-w-75c">
+              {t("conditions.description")}
             </Text>
-            <Heading as="h2" size="6">
-              {t("conditions.title")}
-            </Heading>
-          </div>
-          <Text color="b" low className="mx-w-75c">
-            {t("conditions.description")}
-          </Text>
-        </Paper>
+          </Paper>
+          <Button as={Link} href="/services#services-programs">
+            See all
+          </Button>
+        </Flex>
 
-        <Grid cols={{ default: "1fr", md: "repeat(2, 1fr)", xl: "repeat(3, 1fr)" }} gap="4">
-          {conditions.map((item, i) => (
-            <ServiceCard
-              key={i}
-              title={item.title}
-              description={item.description}
-              icon={<CircleCheck width="24" stroke="var(--P11)" />}
-            />
-          ))}
+        <Grid cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }} gap="4">
+          {Object.values(SERVICE_TREE)
+            .filter((item) => item.category === "pillar" || item.category === "service")
+            .slice(0, 9)
+            .map((item, i) => (
+              <ServiceCard
+                key={i}
+                title={item.title[locale] || item.title.en}
+                description={item.subtitle[locale] || item.subtitle.en}
+              >
+                <Button
+                  as={Link}
+                  href={`/services/${item.slug}`}
+                  variant="text"
+                  icon={<ArrowRight />}
+                  iconPosition="end"
+                  size="2"
+                >
+                  {tService("programs.button")}
+                </Button>
+              </ServiceCard>
+            ))}
         </Grid>
       </Paper>
 

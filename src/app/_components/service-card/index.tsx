@@ -6,9 +6,16 @@ interface ServiceCardProps {
   title: string;
   description: string;
   variant?: "normal" | "colored";
+  children?: ReactNode;
 }
 
-export const ServiceCard = ({ icon, title, description, variant = "normal" }: ServiceCardProps) => {
+export const ServiceCard = ({
+  children,
+  icon,
+  title,
+  description,
+  variant = "normal",
+}: ServiceCardProps) => {
   const color: TypographyProps = variant === "normal" ? {} : { color: "p", low: true };
   return (
     <Paper p="4" corner="3" border className="delivery-feature">
@@ -21,6 +28,7 @@ export const ServiceCard = ({ icon, title, description, variant = "normal" }: Se
           <Text size="3" color="b" low>
             {description}
           </Text>
+          {children}
         </Paper>
       </Flex>
     </Paper>
