@@ -78,18 +78,18 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
           </NextIntlClientProvider>
         </ThemeProvider>
 
-        <IconButton
-          size="9"
-          className="whatsapp-button"
-          title="whatsapp call"
-          color="su"
-          corner="3"
-          variant="solid"
-          icon={<Whatsapp stroke="white" />}
-          href={PERSONAL_INFO.contact.whatsapp}
-          as="a"
-          target="_blank"
-        />
+        <div className="whatsapp-button-container">
+          <IconButton
+            className="whatsapp-button"
+            title="whatsapp call"
+            color="su"
+            variant="solid"
+            icon={<Whatsapp stroke="white" />}
+            href={PERSONAL_INFO.contact.whatsapp}
+            as="a"
+            target="_blank"
+          />
+        </div>
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
     </html>

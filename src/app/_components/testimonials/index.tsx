@@ -1,28 +1,34 @@
-import { Avatar, Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import { Happy, Star } from "@pillar-ui/icons";
+import { Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
+import { Google, Happy, Star } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import type { Testimonial as TestimonialProps } from "./testimonials.type";
 
 const Testimonial = ({ testimonial }: { testimonial: TestimonialProps }) => {
   return (
-    <Paper p="4" flow="4" key={testimonial.id} className="testimonials__card" as="article">
+    <Flex
+      as={Paper}
+      direction="col"
+      justify="between"
+      p="4"
+      flow="4"
+      key={testimonial.id}
+      className="testimonials__card"
+    >
       <Text size="4">{testimonial.quote}</Text>
-      <Grid
-        gap="4"
-        cols={{ default: "auto 1fr auto" }}
-        items="center"
-        className="testimonials__author"
-      >
-        <Avatar src={testimonial.avatar} size="4" title={testimonial.name} />
-        <Text weight="5">{testimonial.name}</Text>
-        <Flex justify="end" items="center" gap="1">
-          <Text size="3" weight="5">
-            4.9
-          </Text>
-          <Star fill="var(--W11)" stroke="var(--W11)" width="16" />
-        </Flex>
+      <Grid gap="4" cols={{ default: "1fr auto" }} items="center" className="testimonials__author">
+        <div>
+          <Text weight="5">{testimonial.name}</Text>
+          <Flex gap="1">
+            <Text size="3" weight="5">
+              4.9
+            </Text>
+            <Star fill="var(--W11)" stroke="var(--W11)" width="16" />
+          </Flex>
+        </div>
+
+        <Google width="24" strokeWidth="3" />
       </Grid>
-    </Paper>
+    </Flex>
   );
 };
 

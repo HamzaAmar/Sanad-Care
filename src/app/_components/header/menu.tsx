@@ -14,8 +14,8 @@ export default function DesktopMenu() {
     <nav className="luxury-nav slide-down-animation">
       <Flex as="ul" className="luxury-nav__list">
         {LINKS.map(({ href, label }) => {
-          const result = pathname.split("/").slice(2).join("/");
-          const isActive = `/${result}` === href;
+          const currentPath = `/${pathname.split("/").slice(2).join("/")}`;
+          const isActive = currentPath === href || currentPath.startsWith(`${href}/`);
           const data = isActive ? ({ "aria-current": "page" } as const) : undefined;
           return (
             <Flex key={href} className="luxury-nav__item">

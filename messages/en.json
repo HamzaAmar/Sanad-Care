@@ -44,6 +44,93 @@
     "fr": "French",
     "ar": "Arabic"
   },
+  "home": {
+    "conditions": {
+      "eyebrow": "Conditions We Support",
+      "title": "Professional Home Nursing Care for Medical Conditions in Marrakech",
+      "description": "Our qualified home nurses provide personalized healthcare services in Marrakech for elderly care, post-surgery recovery, chronic disease management, and medical assistance at home, hotel, or private residence.",
+      "items": [
+        {
+          "title": "Diabetes Management",
+          "description": "Blood sugar monitoring, insulin support, medication reminders, and daily nursing care for patients living with diabetes in Marrakech."
+        },
+        {
+          "title": "Post-Surgery Recovery",
+          "description": "Professional post-surgery nursing care at home after orthopedic, cosmetic, abdominal, or general medical procedures."
+        },
+        {
+          "title": "Elderly Care",
+          "description": "Compassionate elderly home care in Marrakech with medication supervision, hygiene support, mobility assistance, and daily monitoring."
+        },
+        {
+          "title": "Stroke Recovery Support",
+          "description": "Home nursing assistance for stroke recovery, mobility support, comfort care, and coordination with medical recommendations."
+        },
+        {
+          "title": "Cancer Support Care",
+          "description": "Respectful nursing support for cancer patients, including symptom monitoring, medication management, and comfort-focused care."
+        },
+        {
+          "title": "Hypertension Monitoring",
+          "description": "Regular blood pressure checks and home healthcare support for patients managing hypertension or cardiovascular conditions."
+        },
+        {
+          "title": "Respiratory Conditions",
+          "description": "Nursing care for asthma, COPD, respiratory infections, oxygen support, and breathing-related medical needs."
+        },
+        {
+          "title": "Mobility & Disability Support",
+          "description": "Personalized home care for patients with limited mobility, physical disability, or recovery needs."
+        },
+        {
+          "title": "Dementia & Alzheimer’s Care",
+          "description": "Safe, patient, and respectful home nursing care for people living with dementia, Alzheimer’s, or memory loss."
+        }
+      ]
+    },
+    "howItWorks": {
+      "eyebrow": "Simple Process",
+      "title": "How to Book a Home Nurse in Marrakech",
+      "description": "Getting professional home nursing care in Marrakech is simple. Contact us, explain your needs, and we help match you with the right healthcare professional.",
+      "steps": [
+        {
+          "title": "Contact Our Team",
+          "description": "Call, WhatsApp, or send a request and tell us what type of home nursing service you need."
+        },
+        {
+          "title": "Share Medical Needs",
+          "description": "We discuss the patient’s condition, location, schedule, and any special care requirements."
+        },
+        {
+          "title": "Get Matched",
+          "description": "We connect you with a qualified nurse experienced in the required type of care."
+        },
+        {
+          "title": "Receive Care at Home",
+          "description": "Your nurse comes to your home, hotel, or residence in Marrakech and starts the care plan."
+        },
+        {
+          "title": "Ongoing Follow-Up",
+          "description": "We stay available to adjust the service, answer questions, and support the family."
+        }
+      ]
+    },
+    "emergencyCta": {
+      "eyebrow": "Need Help Today?",
+      "title": "24/7 Home Nursing Care Available Across Marrakech",
+      "description": "Whether you need urgent elderly care, post-surgery nursing, chronic disease support, or medical assistance for tourists in Marrakech, our qualified nurses are ready to help at home, hotel, or residence.",
+      "benefits": [
+        "24/7 Availability",
+        "Licensed Home Nurses",
+        "Fast Response",
+        "Care at Home or Hotel",
+        "Tourist Medical Support",
+        "Personalized Care Plans"
+      ],
+      "primaryCta": "Request a Nurse Now",
+      "secondaryCta": "Chat on WhatsApp"
+    }
+  },
   "hero": {
     "title": "Home Nursing Marrakech | 24/7 Professional Care at Your Doorstep",
     "subtitle": "Professional, compassionate medical care in the comfort of your home. Serving Marrakech with registered nurses for elderly care, post-surgery recovery, and medical tourism support.",
@@ -1085,5 +1172,248 @@
     "coverageAnswer2": "Yes. We serve villas, farms, and residences on the outskirts of Marrakech. For locations significantly outside the urban area, a small travel surcharge may apply, which we communicate upfront before confirming your booking.",
     "coverageQuestion3": "Do you serve hotels and riads in the Medina?",
     "coverageAnswer3": "Yes. We are very familiar with navigating the Medina and regularly visit patients in riads and hotels within the old city. We coordinate arrival logistics so the nurse reaches you efficiently, even in areas inaccessible by car."
+  },
+  "venipuncture": {
+    "meta": {
+      "title": "Home Blood Test Marrakech | Private Blood Draw at Home & Hotel — 24h Results",
+      "description": "State-certified nurse for home blood tests in Marrakech. Trilingual EN/FR/AR service for locals, athletes (20% gym partner discount) and tourists. Hotel visits. Results in 24-48h.",
+      "ogTitle": "Home Blood Test Marrakech — Hotel & Home Blood Draw Service",
+      "ogDescription": "Professional home blood draw in Marrakech. 20% discount for gym members. English-speaking nurse. Hotel visits available. Results in 24-48h."
+    },
+    "schema": {
+      "businessName": "Home Blood Test Marrakech — State-Certified Nurse 24/7",
+      "serviceName": "Home Blood Draw Service Marrakech",
+      "testComplete": "Complete Blood Panel",
+      "testSports": "Sports Blood Panel",
+      "offerGymName": "20% Gym Partner Discount",
+      "offerGymDesc": "20% discount for members of partner gyms in Marrakech.",
+      "offerGymPriceDesc": "20% discount applied to blood draw service fee",
+      "offerTouristName": "Tourist Hotel Service",
+      "offerTouristDesc": "Home and hotel visits in Marrakech for tourists.",
+      "bloodTestName": "Home Blood Draw",
+      "bloodTestDesc": "Professional blood draw performed at home, hotel, or office in Marrakech.",
+      "prepPrescription": "Medical prescription required",
+      "prepFasting": "Fasting may be required depending on tests",
+      "normalRange": "Results within 24-48h",
+      "breadcrumbHome": "Home",
+      "breadcrumbPage": "Home Blood Test",
+      "eligibleGymMember": "Gym Member",
+      "eligibleTourist": "Tourist",
+      "validForGyms": "Partner Gyms in Marrakech",
+      "availableAtHotels": "Hotels and Riads in Marrakech",
+      "specialtyPhlebotomy": "Phlebotomy",
+      "serviceTypeHomeVisit": "Home Visit",
+      "contactTypeBooking": "Booking",
+      "contactTypeWhatsapp": "WhatsApp Booking",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "offerCatalogName": "Blood Draw Services"
+    },
+    "hero": {
+      "badge": "Home Blood Test Marrakech",
+      "title": "Home Blood Test Marrakech — State-Certified Nurse Available 24/7",
+      "subtitle": "Trilingual EN/FR/AR blood draw service at your home, hotel or office in Marrakech. For local patients, athletes (20% discount with partner gyms) and tourists. Results within 24-48h.",
+      "ctaWhatsapp": "Book via WhatsApp",
+      "ctaPhone": "Call Now",
+      "badges": {
+        "hours": "7 Days/Week — 7am to 10pm",
+        "gym": "20% Off Partner Gyms",
+        "tourism": "Hotel Visits for Tourists"
+      },
+      "trustText": "500+ blood draws completed across Marrakech"
+    },
+    "whyUs": {
+      "badge": "Why Choose Us",
+      "heading": "Excellence in Home Blood Collection",
+      "description": "A professional, human-centered blood draw service adapted to every patient profile in Marrakech.",
+      "features": {
+        "certified": {
+          "title": "State-Certified Nurse",
+          "description": "Diplômé d'État professional with single-use sterile equipment and strict hygiene protocols."
+        },
+        "hours": {
+          "title": "Available 24/7",
+          "description": "7 days a week from 7am to 10pm. Emergency and weekend appointments available."
+        },
+        "multilingual": {
+          "title": "Trilingual Service",
+          "description": "English, French and Arabic. Perfect for expats, tourists and international patients."
+        },
+        "hotel": {
+          "title": "Home & Hotel Visits",
+          "description": "We come to your home, hotel, riad or office anywhere in Marrakech."
+        },
+        "gym": {
+          "title": "20% Gym Partner Discount",
+          "description": "Official partner of Marrakech gyms. Exclusive discount on all blood draw services."
+        },
+        "results": {
+          "title": "Results in 24-48h",
+          "description": "Secure delivery via email or WhatsApp. Confidentiality guaranteed."
+        }
+      }
+    },
+    "gym": {
+      "badge": "Sports & Performance Program",
+      "heading": "Official Partner of Marrakech Gyms & Fitness Centers",
+      "description": "Training seriously in Marrakech? Optimize your performance with a tailored blood panel. Get 20% off all blood draw services as a member of a partner gym.",
+      "discountBadge": "20% OFF for partner gym members",
+      "panelsHeading": "Recommended Blood Panels for Athletes",
+      "panelsSub": "Key analyses to monitor your health and maximize your performance.",
+      "panels": {
+        "nfs": {
+          "title": "CBC + Ferritin",
+          "desc": "Anemia, fatigue and endurance capacity",
+          "freq": "Every 6 months"
+        },
+        "vitd": {
+          "title": "Vitamin D",
+          "desc": "Bone strength, immunity and injury prevention",
+          "freq": "Every 6 months"
+        },
+        "hormones": {
+          "title": "Testosterone / Cortisol",
+          "desc": "Hormonal balance and overtraining",
+          "freq": "Every 3-6 months"
+        },
+        "crp": {
+          "title": "CRP + CK",
+          "desc": "Inflammation and muscle recovery",
+          "freq": "Post-competition"
+        },
+        "lipids": { "title": "Lipid Profile", "desc": "Cardiovascular health", "freq": "Annual" },
+        "liver": {
+          "title": "Liver Panel",
+          "desc": "Supplement tolerance and organ function",
+          "freq": "Annual"
+        }
+      },
+      "howItWorks": "How the Gym Discount Works",
+      "steps": {
+        "show": { "title": "Show Your Card", "desc": "Present your partner gym membership card." },
+        "book": { "title": "Book", "desc": "Contact us by phone or WhatsApp to schedule." },
+        "save": {
+          "title": "Save 20%",
+          "desc": "Discount automatically applied to your blood draw service."
+        }
+      },
+      "cta": "Book with Discount"
+    },
+    "tourism": {
+      "badge": "Medical Tourism",
+      "heading": "Blood Test for Tourists in Marrakech",
+      "subheading": "Don't waste your vacation in a lab queue. We come to your hotel.",
+      "description": "Professional home blood draw service for tourists staying in Marrakech. English-speaking nurse, sterile equipment, results in 24-48h delivered to your email. We visit all hotels and riads.",
+      "reasons": {
+        "preTravel": "Pre-travel health check before a long trip",
+        "postTravel": "Post-travel screening after rural or desert visits",
+        "extended": "Routine monitoring during extended stay",
+        "medication": "Medication level checks (thyroid, anticoagulants)",
+        "illness": "Food poisoning or illness follow-up",
+        "visa": "Visa or travel insurance medical requirements"
+      },
+      "cta": "Book as a Tourist"
+    },
+    "profiles": {
+      "heading": "Who Is This For? — Our Blood Draw Services",
+      "description": "A service tailored to every patient, from seniors to athletes, pregnant women and tourists.",
+      "seniors": {
+        "title": "Home Patients & Seniors",
+        "description": "Post-operative blood draws, diabetes and cholesterol monitoring. No more waiting rooms."
+      },
+      "pregnant": {
+        "title": "Pregnant Women",
+        "description": "Prenatal blood monitoring at home in a calm, safe environment."
+      },
+      "athletes": {
+        "title": "Athletes & Gym Members",
+        "description": "Sports blood panels with 20% discount for partner gym members in Marrakech."
+      },
+      "tourists": {
+        "title": "Tourists & Travelers",
+        "description": "English service at your hotel or riad. Results by email for your doctor back home."
+      },
+      "busy": {
+        "title": "Professionals & Expats",
+        "description": "Flexible hours, discreet service. Early morning, evening or weekend appointments."
+      }
+    },
+    "howItWorks": {
+      "heading": "How It Works",
+      "description": "Your home blood test in Marrakech in 4 simple steps.",
+      "steps": {
+        "step1": {
+          "title": "Book",
+          "description": "By phone, WhatsApp or online form. Available 7 days a week."
+        },
+        "step2": {
+          "title": "Prepare",
+          "description": "Have your prescription and ID ready. Fast if required (we guide you)."
+        },
+        "step3": {
+          "title": "Nurse Arrives",
+          "description": "On time, in professional uniform, with single-use sterile equipment."
+        },
+        "step4": {
+          "title": "Results",
+          "description": "Samples transported to the lab. Results by email/WhatsApp within 24-48h."
+        }
+      }
+    },
+    "pricing": {
+      "heading": "Transparent Pricing",
+      "description": "No hidden fees. Fixed prices for central Marrakech areas.",
+      "tableHeading": "Our Prices",
+      "services": {
+        "simple": "Simple Blood Draw (1-2 tubes)",
+        "complete": "Complete Blood Panel",
+        "sport": "Advanced Sports Panel",
+        "prenatal": "Prenatal Blood Panel"
+      },
+      "note": "Travel included in Gueliz, Hivernage and Menara. Surcharge for Palmeraie and outer areas.",
+      "includesHeading": "All Packages Include",
+      "includes": {
+        "travel": "Nurse travel to your location",
+        "equipment": "Single-use sterile equipment",
+        "results": "Results delivery within 24-48h",
+        "languages": "Trilingual service EN/FR/AR",
+        "hotel": "Hotel visit option available"
+      },
+      "cta": "Book Now",
+      "disclaimer": "Laboratory analysis fees are your responsibility and depend on the chosen lab. Payment possible in cash, card or transfer. Detailed invoice provided for travel insurance claims."
+    },
+    "areas": {
+      "heading": "Service Areas in Marrakech",
+      "description": "We cover all neighborhoods of Marrakech and surrounding areas.",
+      "gueliz": "Gueliz",
+      "hivernage": "Hivernage",
+      "menara": "Menara",
+      "sidiGhanem": "Sidi Ghanem",
+      "palmeraie": "Palmeraie",
+      "targa": "Targa",
+      "massira": "Massira",
+      "daoudiate": "Daoudiate",
+      "medina": "Medina",
+      "kasbah": "Kasbah",
+      "hotelNote": "We also visit all hotels and riads in Marrakech on request."
+    },
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "q1": "How much does a home blood test cost in Marrakech?",
+      "a1": "Prices start at 200 MAD for partner gym members (250 MAD standard rate). Travel is included in Gueliz and Hivernage. Contact us for a personalized quote.",
+      "q2": "Do I need a prescription for a blood test in Morocco?",
+      "a2": "Yes, a medical prescription is mandatory for all blood draws in Morocco. It ensures the legality of the procedure and facilitates insurance reimbursement.",
+      "q3": "How do I get the 20% gym discount?",
+      "a3": "Simply present your partner gym membership card when booking. The 20% discount is automatically applied to your blood draw service.",
+      "q4": "Do you visit hotels in Marrakech?",
+      "a4": "Absolutely. We offer a dedicated service for tourists in hotels and riads across Marrakech. Available in English, French and Arabic.",
+      "q5": "How quickly will I receive my results?",
+      "a5": "Results are generally available within 24 to 48 business hours. We send them by email or WhatsApp according to your preference.",
+      "q6": "Does the nurse speak English?",
+      "a6": "Yes, our service is trilingual: English, French and Arabic. Ideal for expats and tourists in Marrakech.",
+      "q7": "Is the home blood test reimbursable?",
+      "a7": "In Morocco, home nursing care may be partially covered depending on your insurance. We provide a detailed care sheet for reimbursement. Tourists receive an invoice for travel insurance claims.",
+      "q8": "Which laboratories do you work with?",
+      "a8": "We transport your samples to the laboratory of your choice in Marrakech or to our trusted partner laboratories."
+    }
   }
 }

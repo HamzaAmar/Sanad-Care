@@ -82,6 +82,7 @@ const HeroSection = () => {
           </Chips>
         </Flex>
       </Paper>
+      <img src="/nurse.png" alt="" className="hero-bg" width="300" />
     </Flex>
   );
 };

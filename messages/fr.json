@@ -909,6 +909,93 @@
     "contactWhatsapp": "Contactez-nous sur WhatsApp",
     "contactPhone": "Appelez-nous maintenant"
   },
+  "home": {
+    "conditions": {
+      "eyebrow": "Pathologies prises en charge",
+      "title": "Soins infirmiers à domicile pour plusieurs besoins médicaux à Marrakech",
+      "description": "Nos infirmiers qualifiés assurent des soins à domicile personnalisés à Marrakech pour les personnes âgées, la récupération après chirurgie, les maladies chroniques et l’assistance médicale à domicile, à l’hôtel ou en résidence privée.",
+      "items": [
+        {
+          "title": "Suivi du diabète",
+          "description": "Contrôle de la glycémie, aide à l’insuline, rappels de médicaments et soins infirmiers quotidiens pour les patients diabétiques à Marrakech."
+        },
+        {
+          "title": "Récupération après chirurgie",
+          "description": "Soins infirmiers post-opératoires à domicile après une chirurgie orthopédique, esthétique, abdominale ou générale."
+        },
+        {
+          "title": "Soins aux personnes âgées",
+          "description": "Aide à domicile pour seniors à Marrakech avec suivi des médicaments, hygiène, mobilité et surveillance quotidienne."
+        },
+        {
+          "title": "Accompagnement après AVC",
+          "description": "Assistance infirmière à domicile pour la récupération après AVC, le confort, la mobilité et le suivi des recommandations médicales."
+        },
+        {
+          "title": "Soins de soutien en cancérologie",
+          "description": "Soutien infirmier respectueux pour les patients atteints de cancer, avec suivi des symptômes, médicaments et soins de confort."
+        },
+        {
+          "title": "Suivi de l’hypertension",
+          "description": "Contrôle régulier de la tension artérielle et accompagnement à domicile pour les patients souffrant d’hypertension."
+        },
+        {
+          "title": "Troubles respiratoires",
+          "description": "Soins pour l’asthme, la BPCO, les infections respiratoires, l’oxygénothérapie et les besoins respiratoires."
+        },
+        {
+          "title": "Mobilité réduite & handicap",
+          "description": "Assistance personnalisée à domicile pour les patients à mobilité réduite, en situation de handicap ou en phase de récupération."
+        },
+        {
+          "title": "Démence & Alzheimer",
+          "description": "Soins à domicile sûrs, patients et respectueux pour les personnes atteintes de démence, d’Alzheimer ou de troubles de mémoire."
+        }
+      ]
+    },
+    "howItWorks": {
+      "eyebrow": "Processus simple",
+      "title": "Comment réserver un infirmier à domicile à Marrakech",
+      "description": "Obtenir des soins infirmiers professionnels à domicile à Marrakech est simple. Contactez-nous, expliquez vos besoins, et nous vous orientons vers le professionnel adapté.",
+      "steps": [
+        {
+          "title": "Contactez notre équipe",
+          "description": "Appelez, envoyez un WhatsApp ou une demande en ligne et indiquez le type de soin souhaité."
+        },
+        {
+          "title": "Expliquez les besoins médicaux",
+          "description": "Nous discutons de l’état du patient, de l’adresse, des horaires et des besoins particuliers."
+        },
+        {
+          "title": "Mise en relation",
+          "description": "Nous vous orientons vers un infirmier qualifié et expérimenté dans le soin demandé."
+        },
+        {
+          "title": "Soins à domicile",
+          "description": "L’infirmier se déplace à votre domicile, hôtel ou résidence à Marrakech pour commencer les soins."
+        },
+        {
+          "title": "Suivi continu",
+          "description": "Nous restons disponibles pour adapter le service, répondre aux questions et accompagner la famille."
+        }
+      ]
+    },
+    "emergencyCta": {
+      "eyebrow": "Besoin d’aide aujourd’hui ?",
+      "title": "Soins infirmiers à domicile disponibles 24h/24 et 7j/7 à Marrakech",
+      "description": "Que vous ayez besoin de soins pour une personne âgée, d’un suivi post-opératoire, d’un accompagnement pour maladie chronique ou d’une assistance médicale pour touristes à Marrakech, nos infirmiers qualifiés sont prêts à intervenir à domicile, à l’hôtel ou en résidence.",
+      "benefits": [
+        "Disponible 24h/24",
+        "Infirmiers qualifiés",
+        "Réponse rapide",
+        "Soins à domicile ou hôtel",
+        "Assistance aux touristes",
+        "Plan de soins personnalisé"
+      ],
+      "primaryCta": "Demander un infirmier",
+      "secondaryCta": "Discuter sur WhatsApp"
+    }
+  },
   "faq": {
     "heading": "Questions Fréquemment Posées",
 
@@ -1073,5 +1160,255 @@
     "coverageAnswer2": "Oui. Nous intervenons dans les villas, fermes et résidences en périphérie de Marrakech. Pour les localisations significativement éloignées de la zone urbaine, un léger supplément de déplacement peut s'appliquer, que nous communiquons de manière transparente avant de confirmer votre réservation.",
     "coverageQuestion3": "Intervenez-vous dans les hôtels et riads de la Médina ?",
     "coverageAnswer3": "Oui. Nous connaissons parfaitement la Médina et rendons régulièrement visite à des patients dans les riads et hôtels de la vieille ville. Nous coordonnons la logistique d'arrivée pour que l'infirmier vous rejoigne efficacement, même dans les zones inaccessibles en voiture."
+  },
+  "venipuncture": {
+    "meta": {
+      "title": "Prise de Sang à Domicile Marrakech | Infirmier 24h/24 — Gym & Tourism",
+      "description": "Infirmier diplômé d'État pour prise de sang à domicile à Marrakech. Service. Partenaire salles de sport (-20%). Service touristes hôtel. Résultats 24-48h.",
+      "ogTitle": "Prise de Sang à Domicile Marrakech — Partenaire Gym & Tourism",
+      "ogDescription": "Prélèvement sanguin professionnel à domicile ou à l'hôtel à Marrakech. Réduction 20% pour les sportifs. Service disponible en français, arabe et anglais."
+    },
+    "schema": {
+      "businessName": "Prise de Sang à Domicile Marrakech — Infirmier Diplômé d'État",
+      "serviceName": "Prise de Sang à Domicile Marrakech",
+      "testComplete": "Bilan sanguin complet",
+      "testSports": "Bilan sportif",
+      "offerGymName": "Réduction 20% Salles de Sport",
+      "offerGymDesc": "20% de réduction pour les membres des salles de sport partenaires à Marrakech.",
+      "offerGymPriceDesc": "20% de réduction appliquée sur la prestation de prise de sang",
+      "offerTouristName": "Service Touriste Hôtel",
+      "offerTouristDesc": "Intervention à domicile et dans les hôtels de Marrakech pour les touristes.",
+      "bloodTestName": "Prélèvement sanguin à domicile",
+      "bloodTestDesc": "Prélèvement sanguin professionnel réalisé à domicile, à l'hôtel ou au bureau à Marrakech.",
+      "prepPrescription": "Ordonnance médicale obligatoire",
+      "prepFasting": "À jeun selon les analyses demandées",
+      "normalRange": "Résultats sous 24-48h",
+      "breadcrumbHome": "Accueil",
+      "breadcrumbPage": "Prise de Sang à Domicile",
+      "eligibleGymMember": "Membre salle de sport",
+      "eligibleTourist": "Touriste",
+      "validForGyms": "Salles de sport partenaires à Marrakech",
+      "availableAtHotels": "Hôtels et Riads de Marrakech",
+      "specialtyPhlebotomy": "Phlébotomie",
+      "serviceTypeHomeVisit": "Visite à domicile",
+      "contactTypeBooking": "Réservation",
+      "contactTypeWhatsapp": "Réservation WhatsApp",
+      "paymentAccepted": "Espèces, Carte bancaire, Virement",
+      "offerCatalogName": "Services de Prise de Sang"
+    },
+    "hero": {
+      "badge": "Prise de Sang à Domicile Marrakech",
+      "title": "Prise de Sang à Domicile Marrakech — Infirmier Diplômé d'État 24h/24",
+      "subtitle": "Service pour patients locaux, sportifs (-20% salles partenaires) et touristes. Intervention à domicile et à l'hôtel. Résultats en 24-48h.",
+      "ctaWhatsapp": "Réserver par WhatsApp",
+      "ctaPhone": "Appeler maintenant",
+      "badges": {
+        "hours": "7j/7 — 7h à 22h",
+        "gym": "-20% Salles de Sport",
+        "tourism": "Service Touristes Hôtel"
+      },
+      "trustText": "Plus de 500 prises de sang réalisées à Marrakech"
+    },
+    "whyUs": {
+      "badge": "Pourquoi Nous Choisir",
+      "heading": "L'Excellence du Prélèvement à Domicile",
+      "description": "Un service médical professionnel, humain et adapté à tous les profils à Marrakech.",
+      "features": {
+        "certified": {
+          "title": "Infirmier Diplômé d'État",
+          "description": "Professionnel de santé certifié avec matériel stérile à usage unique."
+        },
+        "hours": {
+          "title": "Disponible 24h/24",
+          "description": "Intervention 7j/7 de 7h à 22h. Urgences et week-end possibles."
+        },
+        "multilingual": {
+          "title": "Service Trilingue",
+          "description": "Français, Arabe et Anglais. Parfait pour les expats et les touristes."
+        },
+        "hotel": {
+          "title": "Hôtel & Domicile",
+          "description": "Nous nous déplaçons chez vous, à votre hôtel ou à votre bureau."
+        },
+        "gym": {
+          "title": "-20% Salles de Sport",
+          "description": "Partenaire officiel des salles de sport de Marrakech. Réduction exclusive."
+        },
+        "results": {
+          "title": "Résultats 24-48h",
+          "description": "Transmission sécurisée par email ou WhatsApp. Confidentialité garantie."
+        }
+      }
+    },
+    "gym": {
+      "badge": "Programme Sport & Performance",
+      "heading": "Partenaire Officiel des Salles de Sport de Marrakech",
+      "description": "Vous vous entraînez sérieusement ? Optimisez vos performances avec un bilan biologique adapté et bénéficiez de -20% en tant que membre d'une salle partenaire.",
+      "discountBadge": "🎉 -20% pour les membres de salles partenaires",
+      "panelsHeading": "Bilans Sanguins Recommandés pour les Sportifs",
+      "panelsSub": "Analyses clés pour surveiller votre santé et maximiser vos performances.",
+      "panels": {
+        "nfs": {
+          "title": "NFS + Ferritine",
+          "desc": "Anémie, fatigue et capacité d'endurance",
+          "freq": "Tous les 6 mois"
+        },
+        "vitd": {
+          "title": "Vitamine D",
+          "desc": "Force osseuse, immunité et prévention",
+          "freq": "Tous les 6 mois"
+        },
+        "hormones": {
+          "title": "Testostérone / Cortisol",
+          "desc": "Équilibre hormonal et surmenage",
+          "freq": "Tous les 3-6 mois"
+        },
+        "crp": {
+          "title": "CRP + CK",
+          "desc": "Inflammation et récupération musculaire",
+          "freq": "Post-compétition"
+        },
+        "lipids": {
+          "title": "Bilan Lipidique",
+          "desc": "Santé cardiovasculaire",
+          "freq": "Annuel"
+        },
+        "liver": {
+          "title": "Bilan Hépatique",
+          "desc": "Tolérance aux suppléments",
+          "freq": "Annuel"
+        }
+      },
+      "howItWorks": "Comment ça marche ?",
+      "steps": {
+        "show": {
+          "title": "Présentez votre carte",
+          "desc": "Montrez votre carte de membre d'une salle partenaire."
+        },
+        "book": { "title": "Réservez", "desc": "Contactez-nous par téléphone ou WhatsApp." },
+        "save": {
+          "title": "-20% appliqué",
+          "desc": "La réduction est automatique sur votre prise de sang."
+        }
+      },
+      "cta": "Réserver avec réduction"
+    },
+    "tourism": {
+      "badge": "Medical Tourism",
+      "heading": "Blood Test for Tourists in Marrakech",
+      "subheading": "Don't waste your vacation time in a lab queue. We come to your hotel.",
+      "description": "Professional home blood draw service for tourists staying in Marrakech. English-speaking nurse, sterile equipment, results in 24-48h delivered to your email.",
+      "reasons": {
+        "preTravel": "Pre-travel health check",
+        "postTravel": "Post-travel screening",
+        "extended": "Routine monitoring during extended stay",
+        "medication": "Medication level checks",
+        "illness": "Food poisoning or illness follow-up",
+        "visa": "Visa or insurance medical requirements"
+      },
+      "cta": "Book as a Tourist"
+    },
+    "profiles": {
+      "heading": "Pour Qui ? — Nos Services de Prélèvement",
+      "description": "Un service adapté à chaque patient, du senior au sportif, en passant par la femme enceinte et le touriste.",
+      "seniors": {
+        "title": "Patients & Seniors",
+        "description": "Prises de sang post-opératoires, suivi diabète et cholestérol. Fini les files d'attente."
+      },
+      "pregnant": {
+        "title": "Femmes Enceintes",
+        "description": "Suivi biologique prénatal à domicile, dans le calme et la sécurité."
+      },
+      "athletes": {
+        "title": "Sportifs & Athlètes",
+        "description": "Bilans sportifs avec -20% pour les membres de salles partenaires à Marrakech."
+      },
+      "tourists": {
+        "title": "Touristes & Voyageurs",
+        "description": "Service en anglais à votre hôtel ou riad. Résultats par email pour votre médecin."
+      },
+      "busy": {
+        "title": "Professionnels & Expatriés",
+        "description": "Horaires flexibles, service discret et trilingue pour les profils exigeants."
+      }
+    },
+    "howItWorks": {
+      "heading": "Comment Ça Marche ?",
+      "description": "Votre prise de sang à domicile en 4 étapes simples.",
+      "steps": {
+        "step1": {
+          "title": "Réservez",
+          "description": "Par téléphone, WhatsApp ou formulaire en ligne. Disponible 7j/7."
+        },
+        "step2": {
+          "title": "Préparez-vous",
+          "description": "Ayez votre ordonnance et pièce d'identité. À jeun si nécessaire."
+        },
+        "step3": {
+          "title": "L'infirmier arrive",
+          "description": "Ponctuel, en tenue professionnelle, avec matériel stérile à usage unique."
+        },
+        "step4": {
+          "title": "Résultats",
+          "description": "Échantillons transportés au labo. Résultats par email/WhatsApp sous 24-48h."
+        }
+      }
+    },
+    "pricing": {
+      "heading": "Tarifs Transparents",
+      "description": "Aucun frais caché. Prix fixes pour les zones centrales de Marrakech.",
+      "tableHeading": "Nos Tarifs",
+      "services": {
+        "simple": "Prise de sang simple",
+        "complete": "Bilan sanguin complet",
+        "sport": "Bilan sportif avancé",
+        "prenatal": "Bilan prénatal"
+      },
+      "note": "Déplacement inclus dans Guéliz, Hivernage, Ménara. Majoration pour Palmeraie et périphérie.",
+      "includesHeading": "Tous nos forfaits incluent",
+      "includes": {
+        "travel": "Déplacement infirmier",
+        "equipment": "Matériel stérile à usage unique",
+        "results": "Transmission résultats 24-48h",
+        "languages": "Service",
+        "hotel": "Intervention hôtel possible"
+      },
+      "cta": "Réserver maintenant",
+      "disclaimer": "Les frais d'analyse de laboratoire sont à votre charge et dépendent du labo choisi. Paiement possible en espèces, carte ou virement."
+    },
+    "areas": {
+      "heading": "Zones d'Intervention à Marrakech",
+      "description": "Nous couvrons tous les quartiers de Marrakech et sa périphérie.",
+      "gueliz": "Guéliz",
+      "hivernage": "Hivernage",
+      "menara": "Ménara",
+      "sidiGhanem": "Sidi Ghanem",
+      "palmeraie": "Palmeraie",
+      "targa": "Targa",
+      "massira": "Massira",
+      "daoudiate": "Daoudiate",
+      "medina": "Médina",
+      "kasbah": "Kasbah",
+      "hotelNote": "Intervention dans tous les hôtels et riads de Marrakech sur simple demande."
+    },
+    "faq": {
+      "heading": "Questions Fréquentes",
+      "q1": "Combien coûte une prise de sang à domicile à Marrakech ?",
+      "a1": "Nos tarifs commencent à 200 MAD pour les membres de salles partenaires (250 MAD tarif standard). Le déplacement est inclus dans Guéliz et Hivernage.",
+      "q2": "Faut-il une ordonnance ?",
+      "a2": "Oui, une ordonnance médicale est obligatoire pour tout prélèvement sanguin au Maroc. Elle garantit la légalité et le remboursement.",
+      "q3": "Comment obtenir la réduction de 20% ?",
+      "a3": "Présentez votre carte de membre d'une salle de sport partenaire lors de la réservation. La réduction s'applique automatiquement.",
+      "q4": "Intervenez-vous dans les hôtels ?",
+      "a4": "Absolument. Nous proposons un service dédié aux touristes dans les hôtels et riads de Marrakech. Service disponible en anglais.",
+      "q5": "Dans quel délai reçois-je mes résultats ?",
+      "a5": "Les résultats sont disponibles sous 24 à 48 heures ouvrées. Nous vous les transmettons par email ou WhatsApp.",
+      "q6": "L'infirmier parle-t-il anglais ?",
+      "a6": "Oui, notre service est trilingue : français, arabe et anglais. Idéal pour les expatriés et les touristes.",
+      "q7": "La prise de sang est-elle remboursée ?",
+      "a7": "Les soins à domicile peuvent être pris en charge partiellement selon votre mutuelle. Nous fournissons une feuille de soins détaillée.",
+      "q8": "Quels laboratoires analysez-vous ?",
+      "a8": "Nous acheminons vos échantillons vers le laboratoire de votre choix à Marrakech ou vers nos laboratoires partenaires de confiance."
+    }
   }
 }

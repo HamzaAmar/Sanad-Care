@@ -1,6 +1,38 @@
 .whatsapp-button {
+  width: 3.5rem;
+  aspect-ratio: 1 / 1;
+  border-radius: inherit;
+
+  & > svg {
+    width: 2rem;
+  }
+}
+
+.whatsapp-button-container {
   position: fixed;
-  z-index: 1000;
   right: 1rem;
   bottom: 1rem;
+  z-index: 1000;
+  border-radius: 0.5em;
+  scale: 1.2;
+  backdrop-filter: opacity(20%);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--Su1);
+    border-radius: inherit;
+    z-index: -1;
+    animation: whatsapp-button-animation 0.5s ease-in-out;
+  }
+}
+
+@keyframes whatsapp-button-animation {
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
 }

@@ -47,3 +47,19 @@
 .dots-background {
   background: url("/dots.png") 0 0 repeat;
 }
+
+.mx-w-75c {
+  max-width: 75ch;
+}
+
+.mx-w-55c {
+  max-width: 55ch;
+}
+
+.l_box {
+  box-shadow: 2px 4px 6px -2px var(--B3);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: var(--B1);
+  border: 1px solid var(--B5);
+}

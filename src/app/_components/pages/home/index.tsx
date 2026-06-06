@@ -2,6 +2,7 @@ import HeroSection from "../../hero";
 import Testimonials from "../../testimonials";
 import DoctorSection from "./components/doctor";
 import FamilySection from "./components/family";
+import { HomeNursingSeoSections } from "./components/homeNursing";
 import MedicalTourism from "./components/medicalTourism";
 import PatientSection from "./components/patient";
 // import Services from "./components/services";
@@ -17,6 +18,7 @@ export default function Home() {
       <DoctorSection />
       <FamilySection />
       <PatientSection />
+      <HomeNursingSeoSections />
       <Testimonials showAll={false} />
     </div>
   );

@@ -1,17 +1,18 @@
 import { Button, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import { ArrowRight, Check, Clock, Heart, Plus, Star, User } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const Services = () => {
   const t = useTranslations("services");
 
   const SERVICES = [
-    { key: "elderlyCare", icon: <User width={32} /> },
-    { key: "postSurgery", icon: <Plus width={32} /> },
-    { key: "palliative", icon: <Heart width={32} /> },
-    { key: "wounds", icon: <Check width={32} /> },
-    { key: "injections", icon: <Star width={32} /> },
-    { key: "diabetes", icon: <Clock width={32} /> },
+    { key: "elderlyCare", slug: "elderly-care-marrakech", icon: <User width={32} /> },
+    { key: "postSurgery", slug: "post-surgery-care-marrakech", icon: <Plus width={32} /> },
+    { key: "palliative", slug: "palliative-care-marrakech", icon: <Heart width={32} /> },
+    { key: "wounds", slug: "wound-care-marrakech", icon: <Check width={32} /> },
+    { key: "injections", slug: "injection-at-home-marrakech", icon: <Star width={32} /> },
+    { key: "diabetes", slug: "diabetes-care-marrakech", icon: <Clock width={32} /> },
   ];
 
   return (
@@ -26,7 +27,7 @@ const Services = () => {
       </Flex>
 
       <Grid cols={{ default: "1fr", md: "1fr 1fr 1fr" }} gap="6">
-        {SERVICES.map(({ key, icon }) => (
+        {SERVICES.map(({ key, slug, icon }) => (
           <Paper
             as={Flex}
             className="delivery-feature"
@@ -47,8 +48,14 @@ const Services = () => {
             <Text align="center" color="b" size="4" low>
               {t(`items.${key}.description`)}
             </Text>
-            <Button variant="text" icon={<ArrowRight />} iconPosition="end">
-              Learn More
+            <Button
+              as={Link}
+              href={`/services/${slug}`}
+              variant="text"
+              icon={<ArrowRight />}
+              iconPosition="end"
+            >
+              {t(`items.${key}.cta`) || "Learn More"}
             </Button>
           </Paper>
         ))}

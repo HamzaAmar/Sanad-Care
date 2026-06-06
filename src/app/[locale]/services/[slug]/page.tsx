@@ -1,75 +1,142 @@
-// export async function generateMetadata({ params }: PageProps<"/[locale]/services/[slug]">): Promise<Metadata> {
-//   const { slug, locale } = await params;
-//   const local = locale as LocaleKey;
-//   const CAR = CARS.find((car) => car.slug === slug);
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
+import { SERVICE_TREE } from "@/constants/services/serviceTreeData";
+import ServiceDetail from "@/app/_components/pages/serviceDetail";
+import type { LocaleKey } from "@/types/localeProps.interface";
+import { BASE_URL } from "@/constants/domain";
+import { PERSONAL_INFO } from "@/constants/personalInfo";
 
-//   if (!CAR) return { title: "Car Not Found" };
+interface PageProps {
+  params: Promise<{
+    locale: string;
+    slug: string;
+  }>;
+}
 
-//   // Fallback if you haven't updated DTO yet
-//   const title = CAR?.seo?.title[local] || `${CAR.model[local]} Rental Marrakech - Taouafi`;
-//   const description = CAR?.seo?.metaDescription[local] || CAR.description[local];
+export async function generateStaticParams() {
+  const paramsList: { locale: string; slug: string }[] = [];
+  const locales = ["en", "fr", "ar"];
+  const slugs = Object.keys(SERVICE_TREE);
 
-//   // Construct canonical URL (critical for avoiding duplicate content penalties)
-//   const canonicalUrl = `${BASE_URL}/${local}/services/${slug}`;
+  for (const locale of locales) {
+    for (const slug of slugs) {
+      paramsList.push({ locale, slug });
+    }
+  }
 
-//   return {
-//     title: title,
-//     description: description,
-//     keywords: CAR.seo?.keywords[local].join(", "),
-//     alternates: {
-//       canonical: canonicalUrl,
-//       languages: {
-//         en: `${BASE_URL}/en/services/${slug}`,
-//         fr: `${BASE_URL}/fr/services/${slug}`,
-//         ar: `${BASE_URL}/ar/services/${slug}`,
-//       },
-//     },
-//     openGraph: {
-//       title: title,
-//       description: description,
-//       images: [{ url: CAR.images[0].url, width: 1200, height: 630, alt: CAR.images[0].alt }],
-//       type: "website",
-//       locale: locale,
-//     },
-//   };
-// }
+  return paramsList;
+}
 
-const page = async () => {
-  // const locale = await getLocale();
-  // const { slug } = await params;
-  // const CAR = CARS.find((car) => car.slug === slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const item = SERVICE_TREE[slug];
 
-  // if (!CAR) {
-  //   return <div>Car not found</div>;
-  // }
+  if (!item) {
+    return {
+      title: "Service Not Found - Sanad Care",
+      description: "The requested medical care or nursing service was not found.",
+    };
+  }
 
-  // const jsonLd = {
-  //   "@context": "https://schema.org",
-  //   "@type": "Vehicle",
-  //   name: `Rental: ${CAR.model.en}`,
-  //   image: CAR.images.map((img) => `${BASE_URL}${img.url}`),
-  //   description: CAR.description.en,
-  //   sku: CAR.slug,
-  //   brand: {
-  //     "@type": "Brand",
-  //     name: "Land Rover",
-  //   },
-  //   offers: {
-  //     "@type": "Offer",
-  //     url: `${BASE_URL}/${locale}/services/${CAR.slug}`,
-  //     priceCurrency: "MAD",
-  //     price: CAR.price.day,
-  //     priceValidUntil: "2025-12-31",
-  //     itemCondition: "https://schema.org/UsedCondition",
-  //     availability: CAR.isAvailable ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-  //     seller: {
-  //       "@type": "Organization",
-  //       name: "Taouafi Rent Car",
-  //     },
-  //   },
-  // };
+  const loc = locale as LocaleKey;
+  const title = item.metaTitle[loc] || item.metaTitle.en;
+  const description = item.metaDescription[loc] || item.metaDescription.en;
+  const keywordsStr = (item.keywords[loc] || item.keywords.en).join(", ");
 
-  return <div className="section">hello</div>;
-};
+  const canonicalUrl = `${BASE_URL}/${locale}/services/${slug}`;
 
-export default page;
+  return {
+    title: title,
+    description: description,
+    keywords: keywordsStr,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        en: `${BASE_URL}/en/services/${slug}`,
+        fr: `${BASE_URL}/fr/services/${slug}`,
+        ar: `${BASE_URL}/ar/services/${slug}`,
+      },
+    },
+    openGraph: {
+      title: title,
+      description: description,
+      url: canonicalUrl,
+      images: [
+        {
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      type: "website",
+      locale: locale,
+    },
+    twitter: {
+      title: title,
+      description: description,
+      images: ["/og-image.jpg"],
+    },
+  };
+}
+
+export default async function Page({ params }: PageProps) {
+  const { locale, slug } = await params;
+  const item = SERVICE_TREE[slug];
+
+  if (!item) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+  const loc = locale as LocaleKey;
+
+  // Generate dynamic JSON-LD Schema
+  const title = item.title[loc] || item.title.en;
+  const description = item.description[loc] || item.description.en;
+
+  const jsonLd =
+    item.category === "condition"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "MedicalCondition",
+          name: title,
+          description: description,
+          possibleTreatment: [
+            {
+              "@type": "MedicalTherapy",
+              name: "Home Nursing Care & Continuous Monitoring",
+            },
+          ],
+        }
+      : {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: title,
+          description: description,
+          provider: {
+            "@type": "MedicalBusiness",
+            name: PERSONAL_INFO.name,
+            image: `${PERSONAL_INFO.domain}/og-image.jpg`,
+            priceRange: "150 MAD - 8000 MAD",
+            telephone: PERSONAL_INFO.phone,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: PERSONAL_INFO.information.address,
+              addressLocality: "Marrakech",
+              addressCountry: "MA",
+            },
+          },
+        };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ServiceDetail slug={slug} locale={loc} />
+    </>
+  );
+}

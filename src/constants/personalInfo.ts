@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
 
   socialMedia: {
     instagram: "https://www.instagram.com/health_sanadcare/",
-    whatsapp: "https://wa.me/+212627207633",
+    whatsapp: "https://wa.me/+212704524625",
     call: "tel:+212627-207633",
     linkedin: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
     tiktok: "https://www.tiktok.com/@sanad.care?_r=1&_t=ZS-964txIrcY1i",
@@ -15,9 +15,9 @@ export const PERSONAL_INFO = {
   },
   contact: {
     email: "mailto:health.sanadcare@gmail.com",
-    phone: "tel:+212704-524625",
+    phone: "tel:+212704524625",
     personal: "tel:+212627207633",
-    whatsapp: "https://wa.me/212704524625",
+    whatsapp: "https://wa.me/+212704524625",
   },
   information: {
     address: "Domicilié au N° 3 Immeuble Palmier 104 Lotissement IGUIDER 2 ROUIDATE MARRAKECH",
