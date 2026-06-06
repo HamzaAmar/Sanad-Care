@@ -13,21 +13,18 @@ import {
   Button,
 } from "@pillar-ui/core";
 import { Check, ArrowRight } from "@pillar-ui/icons";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import type { LocaleKey } from "@/types/localeProps.interface";
 import "./services.scss";
 import { Prestation } from "./service.type";
-import {
-  contentByLocale,
-  faqByLocale,
-  prestationsInfirmieres,
-  trustCardsByLocale,
-} from "./service.data";
+import { prestationsInfirmieres } from "./service.data";
 import { ServiceCard } from "../../service-card";
 import { SERVICE_TREE } from "@/constants/services/serviceTreeData";
 import { Link } from "@/i18n/navigation";
 
 const PriceItem = ({ item, locale }: { item: Prestation; locale: LocaleKey }) => {
+  const t = useTranslations("services.page");
+
   return (
     <Paper
       background="B2"
@@ -62,7 +59,7 @@ const PriceItem = ({ item, locale }: { item: Prestation; locale: LocaleKey }) =>
         <Flex justify="center" items="center" direction="col">
           <div>
             <Chips transform="lowercase" variant="shadow" color="p">
-              A partir de
+              {t("pricing.startingFrom")}
             </Chips>
             {/* <Text size="3" weight="3">
               A partir de
@@ -84,21 +81,25 @@ const PriceItem = ({ item, locale }: { item: Prestation; locale: LocaleKey }) =>
 
 const Services = () => {
   const locale = useLocale() as LocaleKey;
-  const content = contentByLocale[locale] ?? contentByLocale.en;
-  const trustCards = trustCardsByLocale[locale] ?? trustCardsByLocale.en;
-  const faqItems = faqByLocale[locale] ?? faqByLocale.en;
+  const t = useTranslations("services.page");
+  const trustIndicators = t.raw("trustIndicators") as unknown as string[];
+  const trustCards = t.raw("trust.cards") as unknown as Array<{
+    title: string;
+    description: string;
+  }>;
+  const faqItems = t.raw("faq.items") as unknown as Array<{ question: string; answer: string }>;
 
   return (
     <Paper as="section" flow="9" className="section services-pricing__shell">
       <header className="services-pricing__hero">
         <div className="services-pricing__eyebrow">
-          <span className="services-pricing__badge">{content.badge}</span>
+          <span className="services-pricing__badge">{t("badge")}</span>
         </div>
       </header>
 
       <Flex justify="center" gap="3" aria-label="trust indicators">
-        {content.trustIndicators.map((item) => (
-          <Chips color="b" variant="soft">
+        {trustIndicators.map((item, i) => (
+          <Chips color="b" key={i} variant="soft">
             <Check strokeWidth={2} />
             {item}
           </Chips>
@@ -108,10 +109,7 @@ const Services = () => {
       <Paper as="section" flow="2">
         <Flex items="center" gap="2">
           <Badge type="dot" translate="no" />
-          <Text size="2">
-            The price of the service is not fixed, it depends on the amount of the time we will
-            spend with you.
-          </Text>
+          <Text size="2">{t("priceNote")}</Text>
         </Flex>
 
         <Paper flow="4">
@@ -125,25 +123,13 @@ const Services = () => {
       <Paper as="section" flow="6" className="services-pricing__programs">
         <div>
           <Chips color="b" variant="soft">
-            {locale === "fr"
-              ? "Programmes de Soins"
-              : locale === "ar"
-                ? "برامج الرعاية"
-                : "Care Programs"}
+            {t("programs.badge")}
           </Chips>
           <Heading as="h2" size="6" mt="2">
-            {locale === "fr"
-              ? "Nos Programmes de Soins Spécialisés"
-              : locale === "ar"
-                ? "برامج الرعاية المنزلية المتخصصة لدينا"
-                : "Our Specialized Care Programs"}
+            {t("programs.title")}
           </Heading>
           <Text as="p" size="4" color="b" low className="mt-1">
-            {locale === "fr"
-              ? "Des solutions de suivi clinique et d'accompagnement à domicile conçues pour la convalescence et le confort à Marrakech."
-              : locale === "ar"
-                ? "حلول رعاية ومتابعة طبية منزلية مصممة للتعافي والراحة في مراكش."
-                : "Clinical follow-up and home assistance solutions designed for recovery and comfort in Marrakech."}
+            {t("programs.description")}
           </Text>
         </div>
 
@@ -174,11 +160,7 @@ const Services = () => {
                   iconPosition="end"
                   size="2"
                 >
-                  {locale === "fr"
-                    ? "Découvrir le programme"
-                    : locale === "ar"
-                      ? "اكتشف البرنامج"
-                      : "Explore Program"}
+                  {t("programs.button")}
                 </Button>
               </Paper>
             ))}
@@ -188,25 +170,13 @@ const Services = () => {
       <Paper as="section" flow="6" className="services-pricing__conditions">
         <div>
           <Chips color="b" variant="soft">
-            {locale === "fr"
-              ? "Accompagnement Pathologies"
-              : locale === "ar"
-                ? "رعاية الحالات الطبية"
-                : "Condition Support"}
+            {t("conditions.badge")}
           </Chips>
           <Heading as="h2" size="6" mt="2">
-            {locale === "fr"
-              ? "Soutien et Suivi pour Conditions Médicales"
-              : locale === "ar"
-                ? "رعاية ودعم الحالات الطبية المزمنة"
-                : "Medical Condition Care & Support"}
+            {t("conditions.title")}
           </Heading>
           <Text as="p" size="4" color="b" low className="mt-1">
-            {locale === "fr"
-              ? "Une surveillance et des soins infirmiers adaptés aux personnes souffrant de maladies chroniques."
-              : locale === "ar"
-                ? "مراقبة ورعاية تمريضية مخصصة للمرضى الذين يعانون من حالات صحية مزمنة."
-                : "Dedicated nursing care and monitoring tailored for patients managing chronic or acute medical conditions."}
+            {t("conditions.description")}
           </Text>
         </div>
 
@@ -237,11 +207,7 @@ const Services = () => {
                   iconPosition="end"
                   size="2"
                 >
-                  {locale === "fr"
-                    ? "Découvrir le programme"
-                    : locale === "ar"
-                      ? "اكتشف البرنامج"
-                      : "Explore Program"}
+                  {t("conditions.button")}
                 </Button>
               </Paper>
             ))}
@@ -256,10 +222,10 @@ const Services = () => {
       >
         <div>
           <Heading as="h2" size="6" id="trust-title">
-            {content.trustTitle}
+            {t("trust.title")}
           </Heading>
           <Text as="p" size="4" color="b" low>
-            {content.trustSubtitle}
+            {t("trust.subtitle")}
           </Text>
         </div>
 
@@ -273,13 +239,13 @@ const Services = () => {
       <Paper as="section" flow="6" className="services-pricing__faq" aria-labelledby="faq-title">
         <div>
           <Chips color="b" variant="soft">
-            {content.faqKicker}
+            {t("faq.kicker")}
           </Chips>
           <Heading as="h2" size="6" id="faq-title">
-            {content.faqTitle}
+            {t("faq.title")}
           </Heading>
           <Text as="p" size="4" color="b" low>
-            {content.faqSubtitle}
+            {t("faq.subtitle")}
           </Text>
         </div>
 

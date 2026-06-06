@@ -146,7 +146,69 @@
   },
   "services": {
     "heading": "Our Professional Nursing Services",
-    "subheading": "Comprehensive Care Tailored to Your Needs"
+    "subheading": "Comprehensive Care Tailored to Your Needs",
+    "page": {
+      "badge": "Premium home nursing plans",
+      "trustIndicators": ["Licensed nurses", "Available 24/7", "Home visits in Marrakech"],
+      "priceNote": "The price of the service is not fixed, it depends on the amount of the time we will spend with you.",
+      "pricing": {
+        "startingFrom": "Starting from",
+        "currency": "MAD"
+      },
+      "programs": {
+        "badge": "Care Programs",
+        "title": "Our Specialized Care Programs",
+        "description": "Clinical follow-up and home assistance solutions designed for recovery and comfort in Marrakech.",
+        "button": "Explore Program"
+      },
+      "conditions": {
+        "badge": "Condition Support",
+        "title": "Medical Condition Care & Support",
+        "description": "Dedicated nursing care and monitoring tailored for patients managing chronic or acute medical conditions.",
+        "button": "Explore Program"
+      },
+      "trust": {
+        "title": "Why families choose Sanad Care",
+        "subtitle": "Built to feel safe, responsive, and exceptionally personal from the first visit onward.",
+        "cards": [
+          {
+            "title": "Certified Nurses",
+            "description": "Each visit is delivered by trained professionals aligned with safe home-care protocols."
+          },
+          {
+            "title": "Fast Emergency Response",
+            "description": "Urgent coordination pathways help families act quickly when symptoms change."
+          },
+          {
+            "title": "Family Reporting Included",
+            "description": "Loved ones receive clear updates, care notes, and follow-up visibility."
+          }
+        ]
+      },
+      "faq": {
+        "kicker": "Care planning support",
+        "title": "Questions families ask before subscribing",
+        "subtitle": "Clear answers to help you choose the right level of support for your loved one.",
+        "items": [
+          {
+            "question": "How do I know which plan fits my family member?",
+            "answer": "We recommend starting with a consultation. Our nurse team reviews the patient condition, frequency of support needed, and family expectations before recommending the best plan."
+          },
+          {
+            "question": "Can the plan be adjusted if care needs change?",
+            "answer": "Yes. Families can move from Essential to Suivi or Intensif whenever recovery becomes more complex or more frequent nurse oversight is needed."
+          },
+          {
+            "question": "Are emergency visits included in every package?",
+            "answer": "All plans include care coordination, while faster emergency response and priority scheduling are strongest in Suivi, Intensif, and VIP tiers."
+          },
+          {
+            "question": "Do families receive updates after visits?",
+            "answer": "Yes. Care notes are available across all plans, and structured family reporting becomes more comprehensive in the highlighted Suivi plan and above."
+          }
+        ]
+      }
+    }
   },
   "whyUs": {
     "seo": {

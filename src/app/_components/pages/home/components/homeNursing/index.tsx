@@ -34,8 +34,9 @@ export function HomeNursingSeoSections() {
         </Paper>
 
         <Grid cols={{ default: "1fr", md: "repeat(2, 1fr)", xl: "repeat(3, 1fr)" }} gap="4">
-          {conditions.map((item) => (
+          {conditions.map((item, i) => (
             <ServiceCard
+              key={i}
               title={item.title}
               description={item.description}
               icon={<CircleCheck width="24" stroke="var(--P11)" />}

@@ -59,7 +59,73 @@
   },
   "services": {
     "heading": "Nos Services Infirmiers Professionnels",
-    "subheading": "Soins Complets Adaptés à Vos Besoins"
+    "subheading": "Soins Complets Adaptés à Vos Besoins",
+    "page": {
+      "badge": "Forfaits premium de soins a domicile",
+      "trustIndicators": [
+        "Infirmiers diplomes",
+        "Disponibles 24h/24",
+        "Visites a domicile a Marrakech"
+      ],
+      "priceNote": "Le prix du service n'est pas fixe, il depend du temps que nous passerons avec vous.",
+      "pricing": {
+        "startingFrom": "A partir de",
+        "currency": "MAD"
+      },
+      "programs": {
+        "badge": "Programmes de Soins",
+        "title": "Nos Programmes de Soins Spécialisés",
+        "description": "Des solutions de suivi clinique et d'accompagnement à domicile conçues pour la convalescence et le confort à Marrakech.",
+        "button": "Découvrir le programme"
+      },
+      "conditions": {
+        "badge": "Accompagnement Pathologies",
+        "title": "Soutien et Suivi pour Conditions Médicales",
+        "description": "Une surveillance et des soins infirmiers adaptés aux personnes souffrant de maladies chroniques.",
+        "button": "Découvrir le programme"
+      },
+      "trust": {
+        "title": "Pourquoi les familles choisissent Sanad Care",
+        "subtitle": "Une experience de soins sure, reactive et tres humaine des la premiere visite.",
+        "cards": [
+          {
+            "title": "Infirmiers certifies",
+            "description": "Chaque visite est assuree par des professionnels formes aux protocoles de soins a domicile."
+          },
+          {
+            "title": "Reponse rapide en urgence",
+            "description": "Des circuits de coordination prioritaires pour reagir vite en cas d'evolution clinique."
+          },
+          {
+            "title": "Compte rendu famille inclus",
+            "description": "Les proches recoivent des nouvelles claires et un vrai suivi apres chaque intervention."
+          }
+        ]
+      },
+      "faq": {
+        "kicker": "Accompagnement au choix du forfait",
+        "title": "Questions frequentes avant de souscrire",
+        "subtitle": "Des reponses claires pour choisir le niveau d'accompagnement adapte a votre proche.",
+        "items": [
+          {
+            "question": "Comment choisir le bon forfait pour mon proche ?",
+            "answer": "Le plus simple est de commencer par une consultation. Notre equipe evalue l'etat du patient, le rythme des soins et les attentes de la famille avant de recommander la meilleure formule."
+          },
+          {
+            "question": "Peut-on changer de forfait si les besoins evoluent ?",
+            "answer": "Oui. Il est possible de passer d'Essential a Suivi ou Intensif si la recuperation devient plus complexe ou demande davantage de supervision."
+          },
+          {
+            "question": "Les interventions urgentes sont-elles incluses ?",
+            "answer": "Chaque forfait inclut une coordination de soins, avec une prise en charge prioritaire plus forte dans les offres Suivi, Intensif et VIP."
+          },
+          {
+            "question": "La famille recoit-elle des nouvelles apres les visites ?",
+            "answer": "Oui. Des notes de suivi sont prevues dans toutes les offres, avec un reporting plus detaille des le forfait Suivi."
+          }
+        ]
+      }
+    }
   },
   "whyUs": {
     "seo": {
