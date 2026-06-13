@@ -9,15 +9,14 @@ const MedicalTourism = () => {
     <Paper as="section" flow="8" className="section medical-tourism-container">
       <Grid cols={{ default: "1fr", md: "1fr 1fr" }} gap="6" items="center">
         <Paper flow="5">
-          <Chips corner="2" color="su" size="3" variant="outline">
-            Tourism Support
-          </Chips>
-          <Heading as="h2" size="7" weight="6">
-            {t("heading")}
-          </Heading>
-          <Text size="5" color="b" low>
-            {t("subheading")}
-          </Text>
+          <div>
+            <Chips corner="2" color="su" size="3" variant="outline">
+              {t("heading")}
+            </Chips>
+            <Heading as="h2" size="7" weight="6">
+              {t("subheading")}
+            </Heading>
+          </div>
           <Text size="4" color="b" low>
             {t("description")}
           </Text>

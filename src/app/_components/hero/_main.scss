@@ -143,12 +143,22 @@
   --id: 5;
 }
 
-// .hero-bg {
-//   position: absolute;
-//   top: 0;
-//   right: -2rem;
-//   z-index: 1;
-// }
+.hero-bg {
+  animation: bounce-bg 3s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+@keyframes bounce-bg {
+  0% {
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.02) translateY(-6px) rotate(1deg);
+  }
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+}
 
 .hero-numbers {
   --moves: translateX(-5px) scale(0.95);

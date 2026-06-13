@@ -79,6 +79,79 @@ const PriceItem = ({ item, locale }: { item: Prestation; locale: LocaleKey }) =>
   );
 };
 
+const supplements = [
+  {
+    id: 1,
+    price: 80,
+    translations: {
+      ar: { name: "طارئ", condition: "تدخل خلال أقل من ساعتين" },
+      fr: { name: "Urgence", condition: "intervention en moins de 2 heures" },
+      en: { name: "Emergency", condition: "intervention in less than 2 hours" },
+    },
+  },
+  {
+    id: 2,
+    price: 100,
+    translations: {
+      ar: { name: "زيارة ليلية", condition: "رسوم إضافية بعد 21:00" },
+      fr: { name: "Visite nocturne", condition: "supplément après 21h00" },
+      en: { name: "Night visit", condition: "surcharge after 21:00" },
+    },
+  },
+  {
+    id: 3,
+    price: 50,
+    translations: {
+      ar: { name: "منطقة نائية", condition: "أكثر من 5 كيلومترات" },
+      fr: { name: "Zone éloignée", condition: "plus de 5 km" },
+      en: { name: "Remote area", condition: "more than 5 km" },
+    },
+  },
+  {
+    id: 4,
+    price: 50,
+    translations: {
+      ar: { name: "تقرير طبي مفصل", condition: null },
+      fr: { name: "Rapport médical détaillé", condition: null },
+      en: { name: "Detailed medical report", condition: null },
+    },
+  },
+];
+
+function PriceCard({ item, locale }: { item: any; locale: LocaleKey }) {
+  return (
+    <Paper
+      key={item.id}
+      as="article"
+      background="B2"
+      border
+      corner="4"
+      p="5"
+      className="presentation-price-item"
+    >
+      <Flex gap="2" items="center" justify="between">
+        <div>
+          <Heading as="h3" size="4" weight="6" color="p" low>
+            {item.translations[locale].name}
+          </Heading>
+          <Text size="3" color="b" low>
+            {item.translations[locale].condition}
+          </Text>
+        </div>
+
+        <Flex gap="2" items="center">
+          <Text size="5" weight="5">
+            {item.price}.00
+          </Text>
+          <Text size="5" weight="5" color="p" low>
+            MAD
+          </Text>
+        </Flex>
+      </Flex>
+    </Paper>
+  );
+}
+
 const Services = () => {
   const locale = useLocale() as LocaleKey;
   const t = useTranslations("services.page");
@@ -113,10 +186,26 @@ const Services = () => {
         </Flex>
 
         <Paper flow="4">
-          {prestationsInfirmieres.map((item) => {
-            return <PriceItem item={item} locale={locale} />;
+          {prestationsInfirmieres.map((item, index) => {
+            return <PriceItem key={index} item={item} locale={locale} />;
           })}
         </Paper>
+      </Paper>
+
+      <Paper as="section" flow="6" className="services-pricing__programs">
+        <Paper flow="3">
+          <Chips color="b" variant="soft">
+            {t("additional.badge")}
+          </Chips>
+          <Text id="services-programs" color="b" low size="4">
+            {t("additional.description")}
+          </Text>
+        </Paper>
+        <Grid cols={{ default: "1fr", md: "1fr 1fr" }} gap="4">
+          {supplements.map((item, index) => {
+            return <PriceCard key={index} item={item} locale={locale} />;
+          })}
+        </Grid>
       </Paper>
 
       {/* 2. Specialized Care & Condition Support Tree */}

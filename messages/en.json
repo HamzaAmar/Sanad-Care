@@ -148,12 +148,17 @@
     "heading": "Our Professional Nursing Services",
     "subheading": "Comprehensive Care Tailored to Your Needs",
     "page": {
+      "seeAll": "see all services",
       "badge": "Premium home nursing plans",
       "trustIndicators": ["Licensed nurses", "Available 24/7", "Home visits in Marrakech"],
       "priceNote": "The price of the service is not fixed, it depends on the amount of the time we will spend with you.",
       "pricing": {
         "startingFrom": "Starting from",
         "currency": "MAD"
+      },
+      "additional": {
+        "badge": "Supplementary Charges",
+        "description": "Additional fees depend on emergency response time, night visits, travel distance beyond 5 km, and administrative tasks like detailed medical reports. All prices are in Moroccan Dirhams (MAD)."
       },
       "programs": {
         "badge": "Care Programs",

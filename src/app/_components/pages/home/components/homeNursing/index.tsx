@@ -37,7 +37,7 @@ export function HomeNursingSeoSections() {
             </Text>
           </Paper>
           <Button as={Link} href="/services#services-programs">
-            See all
+            {tService("seeAll")}
           </Button>
         </Flex>
 

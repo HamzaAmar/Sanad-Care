@@ -13,14 +13,18 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <Grid cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }} className="footer-main">
+      <Grid
+        gap="6"
+        cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }}
+        className="footer-main"
+      >
         <Flex gap="6" direction="col">
           <Link href="/" className="logo">
             <Logo width={150} />
           </Link>
 
           <div className="address">
-            <Text size="4" color="b" low>
+            <Text size="3" color="b" low>
               {PERSONAL_INFO.information.address}
             </Text>
             <Text size="4" color="b" low>
@@ -38,11 +42,11 @@ const Footer = () => {
 
           <Flex direction="col" gap="2" as="ul" className="link_list">
             {Menu.map((item) => (
-              <li key={item.href}>
+              <Text size="3" color="b" low as="li" key={item.href}>
                 <Link href={item.href} className="link">
                   {item.label}
                 </Link>
-              </li>
+              </Text>
             ))}
           </Flex>
         </Paper>
