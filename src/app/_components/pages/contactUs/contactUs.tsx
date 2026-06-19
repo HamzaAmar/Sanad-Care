@@ -1,5 +1,3 @@
-"use client";
-
 import { Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";

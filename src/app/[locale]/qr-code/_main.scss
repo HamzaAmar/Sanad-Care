@@ -8,10 +8,16 @@
     transform: translateY(-1px) scale(1.02);
     background: var(--B2);
     .qr-code_arrow {
-      animation: check 0.2s ease-in-out;
+      transform: rotate(90deg) skewX(-20deg);
     }
   }
 }
+.qr-code_arrow {
+  transform: rotate(90deg);
+  transition: transform 0.2s ease-in-out;
+  perspective: 1000px;
+}
+
 .qr-code_container {
   box-shadow: 0 0 10px rgba(48, 48, 48, 0.1);
   width: 100%;
@@ -20,16 +26,4 @@
 
 .qr-code {
   height: 100vh;
-}
-
-@keyframes check {
-  0% {
-    translate: -5px;
-  }
-  75% {
-    translate: 2.5px;
-  }
-  100% {
-    translate: 5px;
-  }
 }

@@ -1,5 +1,5 @@
 import { Flex, Paper, Text } from "@pillar-ui/core";
-import { ArrowBarRight } from "@pillar-ui/icons";
+import { ChevronRight } from "@pillar-ui/icons";
 import { Link } from "@/i18n/navigation";
 
 import Logo from "../../logo";
@@ -25,7 +25,7 @@ function Item({ link, title, icon }: { link: string; title: string; icon: React.
             {title}
           </Text>
         </Flex>
-        <ArrowBarRight width="24" height="24" className="qr-code_arrow" />
+        <ChevronRight width="20" strokeWidth="2" className="qr-code_arrow" />
       </Paper>
     </Flex>
   );
@@ -48,6 +48,7 @@ function QrCode() {
         </Paper>
       </Paper>
     </Flex>
+    // <html>Hello</html>
   );
 }
 

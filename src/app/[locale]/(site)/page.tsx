@@ -1,5 +1,5 @@
 import { PERSONAL_INFO } from "@/constants/personalInfo";
-import Home from "../_components/pages/home";
+import Home from "../../_components/pages/home";
 
 export default async function HomePage() {
   const jsonLd = {

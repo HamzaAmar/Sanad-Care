@@ -1,13 +1,16 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { ThemeProvider } from "next-themes";
 import { routing } from "@/i18n/routing";
+import LocaleChrome from "./locale-chrome";
 
 import "@pillar-ui/core/main.css";
 import "@/scss/_main.scss";
 import { BASE_URL } from "@/constants/domain";
+import { IconButton } from "@pillar-ui/core";
+import { Whatsapp } from "@pillar-ui/icons";
+import { PERSONAL_INFO } from "@/constants/personalInfo";
 
 export async function generateMetadata({
   params,
@@ -54,22 +57,23 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function RootLayout({ children, params }: LayoutProps<"/[locale]">) {
-  const { locale } = await params;
-  const dir = locale === "ar" ? "rtl" : "ltr";
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
-
+export default async function RootLayout({ children }: LayoutProps<"/[locale]">) {
   return (
-    <html suppressHydrationWarning lang="en" dir={dir}>
-      <body suppressHydrationWarning>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
-      </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
-    </html>
+    <ThemeProvider attribute="class">
+      <LocaleChrome>{children}</LocaleChrome>
+
+      <div className="whatsapp-button-container">
+        <IconButton
+          className="whatsapp-button"
+          title="whatsapp call"
+          color="su"
+          variant="solid"
+          icon={<Whatsapp stroke="white" />}
+          href={PERSONAL_INFO.contact.whatsapp}
+          as="a"
+          target="_blank"
+        />
+      </div>
+    </ThemeProvider>
   );
 }

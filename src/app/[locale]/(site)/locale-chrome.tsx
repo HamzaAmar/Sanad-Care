@@ -2,8 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import Footer from "../_components/footer";
-import Header from "../_components/header";
+import Footer from "../../_components/footer";
+import Header from "../../_components/header";
 
 const PRESENTATION_SEGMENT = "presentation";
 
