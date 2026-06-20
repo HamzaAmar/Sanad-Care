@@ -41,7 +41,7 @@ export const LINKS = [
   {
     id: "6",
     title: "Facebook",
-    link: PERSONAL_INFO.contact.whatsapp,
+    link: PERSONAL_INFO.socialMedia.facebook,
     icon: <Whatsapp width="24" />,
   },
   {

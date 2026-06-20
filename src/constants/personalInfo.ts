@@ -6,12 +6,13 @@ export const PERSONAL_INFO = {
   domain: "https://www.sanadcare.ma",
 
   socialMedia: {
-    instagram: "https://www.instagram.com/health_sanadcare/",
+    instagram: "https://www.instagram.com/sanadcare.ma",
     whatsapp: "https://wa.me/+212704524625",
     call: "tel:+212627-207633",
     linkedin: "https://www.linkedin.com/in/anas-essaadi-b1518119b/",
     tiktok: "https://www.tiktok.com/@sanad.care?_r=1&_t=ZS-964txIrcY1i",
-    facebook: "https://www.facebook.com/profile.php?id=61570753594073",
+    facebook:
+      "https://www.facebook.com/profile.php?id=61570753594073&mibextid=wwXIfr&rdid=dPXwn5efvznVC03I&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17WUASusVz%2F%3Fmibextid%3DwwXIfr#",
   },
   contact: {
     email: "mailto:health.sanadcare@gmail.com",
