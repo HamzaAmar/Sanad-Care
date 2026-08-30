@@ -32,7 +32,9 @@
       "contact": "Contact",
       "faq": "FAQ"
     },
-    "copyright": "Sanad Care. All rights reserved."
+    "workingDays": "Everyday",
+    "copyright": "Sanad Care. All rights reserved.",
+    "developedBy": "Developed by"
   },
   "header": {
     "openMenu": "Open Menu Bar",
@@ -831,13 +833,7 @@
     "seo": {
       "title": "Patient-Centered Home Nursing Marrakech | Dignity & Comfort",
       "description": "Experience medical care that respects you. Personalized home nursing in Marrakech focused on your comfort, dignity, and recovery. You are not a burden.",
-      "keywords": [
-        "Patient dignity Marrakech",
-        "Compassionate care Morocco",
-        "Home recovery Marrakech",
-        "Personalized nursing care",
-        "Comfort care at home"
-      ],
+      "keywords": "Patient dignity Marrakech, Compassionate care Morocco, Home recovery Marrakech, Personalized nursing care, Comfort care at home",
       "og_title": "Sanad Care: Where Patients Are Treated With Dignity and Time"
     },
     "heading": "Patient-Centered Security",
@@ -951,29 +947,7 @@
       },
       "testimonials": {
         "title": "What Patients Tell Us",
-        "subtitle": "Real Stories of Transformation",
-        "list": [
-          {
-            "name": "Ahmed, 72",
-            "before": "I was afraid to move, afraid to sleep, afraid of being alone.",
-            "after": "Nurse Fatima didn't just help me heal—she helped me live again. She reminded me I'm still Ahmed."
-          },
-          {
-            "name": "Khadija, 68",
-            "before": "I felt invisible. My daughter helped me, but she was so busy.",
-            "after": "Nurse Samira stays for tea. She asks about my day. I feel like I matter again."
-          },
-          {
-            "name": "Jean, 55",
-            "before": "I was recovering alone in a hotel room. The loneliness was worse than the pain.",
-            "after": "Laila taught me Moroccan recipes and told me stories. I healed faster because I wasn't lonely."
-          },
-          {
-            "name": "Fatima, 81",
-            "before": "I was afraid of being a burden.",
-            "after": "Maryam holds my hand. She tells me I'm a blessing. I feel peaceful now."
-          }
-        ]
+        "subtitle": "Real Stories of Transformation"
       },
       "trust": {
         "title": "Why You Can Trust Us",
@@ -1018,39 +992,7 @@
   },
   "testimonials": {
     "heading": "What Our Patients Say",
-    "badge": "Testimonials",
-    "1": {
-      "quote": "The nurse was incredibly kind and professional with my mother. It was a relief to have such support during our holiday.",
-      "name": "Sarah Jenkins"
-    },
-    "2": {
-      "quote": "Fast and efficient service to our hotel. The nurse spoke perfect English and really helped me recover quickly.",
-      "name": "Michael Ross"
-    },
-    "3": {
-      "quote": "Professional team. They took excellent care of my father post-surgery. Highly recommended.",
-      "name": "Ahmed Benali"
-    },
-    "4": {
-      "quote": "I needed daily injections and they were punctual and gentle every time. Great service.",
-      "name": "Laura Dubois"
-    },
-    "5": {
-      "quote": "Excellent wound care and follow-up. The nurse was well-trained and made me feel completely at ease during my recovery.",
-      "name": "James Patterson"
-    },
-    "6": {
-      "quote": "My grandmother received outstanding elderly care. The compassion and dedication of your team is truly remarkable.",
-      "name": "Fatima Alaoui"
-    },
-    "7": {
-      "quote": "When I fell ill during my vacation, Sanad Care was a lifesaver. Professional, responsive, and caring. Couldn't ask for better.",
-      "name": "Elena Rossi"
-    },
-    "8": {
-      "quote": "The multilingual staff made communication so easy. They monitored my diabetes with such expertise and attention to detail.",
-      "name": "Hassan Bennani"
-    }
+    "badge": "Testimonials"
   },
   "contact": {
     "title": "Contact Us",

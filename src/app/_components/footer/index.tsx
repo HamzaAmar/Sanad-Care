@@ -60,7 +60,7 @@ const Footer = () => {
           <Paper flow="3">
             <Paper flow="1">
               <Text size="3" color="b" low>
-                {PERSONAL_INFO.information.workingDays}
+                {t("workingDays")}
               </Text>
               <Text size="4">{PERSONAL_INFO.information.workingHours}</Text>
             </Paper>
@@ -85,11 +85,17 @@ const Footer = () => {
       </Grid>
 
       {/* Copyright */}
-      <Paper p="4" className="copyright">
+      <Flex justify="between" items="center" as={Paper} p="4" className="copyright">
         <Text align="center" size="2" color="b" low>
           &copy; {new Date().getFullYear()} {PERSONAL_INFO.information.name}. {t("copyright")}
         </Text>
-      </Paper>
+
+        <Text size="2" color="b" low>
+          <Link href="https://www.miloudamar.com/" target="_blank" className="link">
+            {t("developedBy")} Miloud Amar
+          </Link>
+        </Text>
+      </Flex>
     </footer>
   );
 };

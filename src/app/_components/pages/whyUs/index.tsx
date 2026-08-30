@@ -1,5 +1,5 @@
 import { Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import { Check, CircleCheck, Clock, Globe, Heart, Shield, Users } from "@pillar-ui/icons";
+import { CircleCheck, Clock, Globe, Heart, Shield, Users } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import "./why-us.scss"; // Assuming we'll add some custom styles
 import { ServiceCard } from "../../service-card";
@@ -51,16 +51,17 @@ const WhyUs = () => {
       <section className="why-us-section section-exist">
         <Paper>
           <Grid gap="6" cols={{ default: "1fr", md: "1fr 1fr" }} items="center">
-            <div>
-              <Chips size="4">{t("whyUs.page.story.subtitle")}</Chips>
-              <Heading size="8" weight="8" className="section-title">
-                {t("whyUs.page.story.h2")}
-              </Heading>
-              <Text size="5" color="b" low leading="3" className="section-desc">
+            <Paper flow="6">
+              <div>
+                <Chips size="4">{t("whyUs.page.story.subtitle")}</Chips>
+                <Heading size="8" weight="8" className="section-title">
+                  {t("whyUs.page.story.h2")}
+                </Heading>
+              </div>
+              <Text size="7" weight="3" color="b" low className="section-desc">
                 {t("whyUs.page.story.description")}
               </Text>
-            </div>
-            {/* Placeholder for visual/image if needed */}
+            </Paper>
             <div className="section-visual visual-exist" />
           </Grid>
         </Paper>
@@ -70,15 +71,17 @@ const WhyUs = () => {
         <Paper>
           <Grid gap="6" cols={{ default: "1fr", md: "1fr 1fr" }} items="center">
             <div className="section-visual visual-patient" />
-            <div>
-              <Chips size="4">{t("whyUs.page.patient.subtitle")}</Chips>
-              <Heading size="7" weight="7" className="section-title">
-                {t("whyUs.page.patient.h2")}
-              </Heading>
-              <Text size="5" color="b" low leading="3">
+            <Paper flow="6">
+              <div>
+                <Chips size="4">{t("whyUs.page.patient.subtitle")}</Chips>
+                <Heading size="8" weight="8" className="section-title">
+                  {t("whyUs.page.patient.h2")}
+                </Heading>
+              </div>
+              <Text size="7" weight="3" color="b" low>
                 {t("whyUs.page.patient.description")}
               </Text>
-            </div>
+            </Paper>
           </Grid>
         </Paper>
       </section>
@@ -86,15 +89,17 @@ const WhyUs = () => {
       <section className="why-us-section section-question text-center">
         <Paper>
           <Grid gap="6" cols={{ default: "1fr", md: "1fr 1fr" }} items="center">
-            <div className="flex flex-col gap-4">
-              <Chips size="4">{t("whyUs.page.question.subtitle")}</Chips>
-              <Heading size="9" weight="9" className="big-question">
-                {t("whyUs.page.question.h2")}
-              </Heading>
-              <Text size="6" color="b" low leading="3" className="mt-4">
+            <Paper flow="6">
+              <div>
+                <Chips size="4">{t("whyUs.page.question.subtitle")}</Chips>
+                <Heading size="9" weight="9" className="big-question">
+                  {t("whyUs.page.question.h2")}
+                </Heading>
+              </div>
+              <Text size="7" weight="3" color="b" low>
                 {t("whyUs.page.question.description")}
               </Text>
-            </div>
+            </Paper>
             <div className="section-visual visual-patient" />
           </Grid>
         </Paper>
@@ -104,10 +109,10 @@ const WhyUs = () => {
         <Paper flow="8">
           <div>
             <Chips size="4"> {t("whyUs.page.details.subtitle")}</Chips>
-            <Heading size="7" weight="7">
+            <Heading size="8" weight="8">
               {t("whyUs.page.details.h2")}
             </Heading>
-            <Text size="4" color="b" low>
+            <Text size="7" weight="3" color="b" low>
               {t("whyUs.page.details.description")}
             </Text>
           </div>
@@ -129,29 +134,38 @@ const WhyUs = () => {
           <Grid gap="6" cols={{ default: "1fr", md: "1fr 1.5fr" }} items="center">
             <div className="section-visual visual-patient" />
             <Paper flow="4">
-              <div>
-                <Chips size="4">{t("whyUs.page.global.subtitle")}</Chips>
-                <Heading size="7" weight="7">
-                  {t("whyUs.page.global.h2")}
-                </Heading>
-                <Text size="5" color="b" low leading="3">
+              <Paper flow="6">
+                <div>
+                  <Chips size="4">{t("whyUs.page.global.subtitle")}</Chips>
+                  <Heading leading="1" size="8" weight="8">
+                    {t("whyUs.page.global.h2")}
+                  </Heading>
+                </div>
+                <Text size="7" weight="3" color="b" low>
                   {t("whyUs.page.global.description")}
                 </Text>
-              </div>
+              </Paper>
               <Paper flow="5" className="bg-surface-2 p-6 rounded-lg">
-                <Flex gap="2">
+                <Flex gap="5">
                   {[0, 1, 2].map((i) => (
                     <Flex
                       key={i}
                       items="center"
-                      p="4"
+                      p="2"
                       corner="3"
                       as={Paper}
-                      background="B1"
+                      background="B3"
                       gap="2"
                     >
-                      <Check width={20} className="text-success" />
-                      <Text>{t(`whyUs.page.global.list.${i}`)}</Text>
+                      <CircleCheck
+                        stroke="var(--P11)"
+                        strokeWidth={2}
+                        width={20}
+                        className="text-success"
+                      />
+                      <Text color="p" low size="4">
+                        {t(`whyUs.page.global.list.${i}`)}
+                      </Text>
                     </Flex>
                   ))}
                 </Flex>
@@ -165,7 +179,7 @@ const WhyUs = () => {
         <Paper flow="6">
           <div>
             <Chips size="4">{t("whyUs.page.measurement.subtitle")}</Chips>
-            <Heading size="7" weight="7" className="text-center mb-6" color="b">
+            <Heading size="8" weight="8" className="text-center mb-6" color="b">
               {t("whyUs.page.measurement.h2")}
             </Heading>
           </div>
@@ -184,12 +198,14 @@ const WhyUs = () => {
       <section className="why-us-section section-visible">
         <Grid gap="6" cols={{ default: "1fr", md: "1fr 1fr" }} items="center">
           <div className="section-visual visual-patient" />
-          <Paper className="text-center">
-            <Chips size="4">{t("whyUs.page.visible.subtitle")}</Chips>
-            <Heading size="7" weight="7">
-              {t("whyUs.page.visible.h2")}
-            </Heading>
-            <Text size="4" color="b" low className="mt-4">
+          <Paper flow="6">
+            <div>
+              <Chips size="4">{t("whyUs.page.visible.subtitle")}</Chips>
+              <Heading size="8" weight="8">
+                {t("whyUs.page.visible.h2")}
+              </Heading>
+            </div>
+            <Text size="7" weight="3" color="b" low>
               {t("whyUs.page.visible.description")}
             </Text>
           </Paper>
@@ -199,15 +215,17 @@ const WhyUs = () => {
       <section className="why-us-section section-families">
         <Paper>
           <Grid gap="6" cols={{ default: "1fr", md: "1fr 1fr" }} items="center">
-            <div>
-              <Chips size="4">{t("whyUs.page.grow.subtitle")}</Chips>
-              <Heading size="7" weight="7">
-                {t("whyUs.page.grow.h2")}
-              </Heading>
-              <Text size="5" color="b" low>
+            <Paper flow="6">
+              <div>
+                <Chips size="4">{t("whyUs.page.grow.subtitle")}</Chips>
+                <Heading leading="1" size="8" weight="8">
+                  {t("whyUs.page.grow.h2")}
+                </Heading>
+              </div>
+              <Text size="7" weight="3" color="b" low>
                 {t("whyUs.page.grow.description")}
               </Text>
-            </div>
+            </Paper>
             <div className="section-visual visual-families" />
           </Grid>
         </Paper>
@@ -215,15 +233,17 @@ const WhyUs = () => {
 
       <section className="why-us-section section-promise text-center">
         <Paper flow="6">
-          <div>
-            <Chips size="4">{t("whyUs.page.promise.subtitle")}</Chips>
-            <Heading size="8" weight="8">
-              {t("whyUs.page.promise.h2")}
-            </Heading>
-            <Text size="5" color="b" low>
+          <Paper flow="6">
+            <div>
+              <Chips size="4">{t("whyUs.page.promise.subtitle")}</Chips>
+              <Heading size="8" weight="8">
+                {t("whyUs.page.promise.h2")}
+              </Heading>
+            </div>
+            <Text size="7" weight="3" color="b" low>
               {t("whyUs.page.promise.description")}
             </Text>
-          </div>
+          </Paper>
 
           <Grid gap="4" cols={{ default: "1fr", md: "1fr 1fr 1fr" }} className="mb-8">
             {[0, 1, 2].map((i) => (

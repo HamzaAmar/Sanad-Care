@@ -349,7 +349,7 @@ export default async function HomePage() {
           name: "Book a Nurse",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://wa.me/212XXXXXXXXX?text=Hello%20Sanad%20Care", // Replace
+            urlTemplate: `${PERSONAL_INFO.contact.whatsapp}?text=Hello%20Sanad%20Care`, // Replace
             actionPlatform: [
               "http://schema.org/DesktopWebPlatform",
               "http://schema.org/MobileWebPlatform",

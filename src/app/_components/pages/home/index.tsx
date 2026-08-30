@@ -1,5 +1,5 @@
 import HeroSection from "../../hero";
-import Testimonials from "../../testimonials";
+// import Testimonials from "../../testimonials";
 import DoctorSection from "./components/doctor";
 import FamilySection from "./components/family";
 import { HomeNursingSeoSections } from "./components/homeNursing";
@@ -19,7 +19,7 @@ export default function Home() {
       <FamilySection />
       <PatientSection />
       <HomeNursingSeoSections />
-      <Testimonials showAll={false} />
+      {/* <Testimonials showAll={false} /> */}
     </div>
   );
 }

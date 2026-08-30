@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 import DayInLife from "./components/sections/DayInLife";
 import HolisticDifference from "./components/sections/HolisticDifference";
 import PatientServices from "./components/sections/PatientServices";
-import PatientTestimonials from "./components/sections/PatientTestimonials";
 import TrustSignals from "./components/sections/TrustSignals";
 import AnimatedSection from "../../AnimatedSection";
 
@@ -49,7 +48,7 @@ const PatientPage = () => {
 
       <DayInLife />
 
-      <PatientTestimonials />
+      {/* <PatientTestimonials /> */}
       <TrustSignals />
       <AnimatedSection
         title={t("cta.title")}

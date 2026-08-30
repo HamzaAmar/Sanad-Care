@@ -32,7 +32,9 @@
       "contact": "Contact",
       "faq": "FAQ"
     },
-    "copyright": "Sanad Care. Tous droits réservés."
+    "workingDays": "Tous les jours",
+    "copyright": "Sanad Care. Tous droits réservés.",
+    "developedBy": "Développé par"
   },
   "header": {
     "openMenu": "Ouvrir la Barre de Menu",
@@ -736,13 +738,7 @@
     "seo": {
       "title": "Soins infirmiers à Domicile Centrés sur le Patient à Marrakech | Dignité et Confort",
       "description": "Des soins médicaux qui vous respectent. soins infirmiers personnalisés à domicile à Marrakech, axés sur votre confort, votre dignité et votre rétablissement. Vous n'êtes pas un fardeau.",
-      "keywords": [
-        "Dignité du patient Marrakech",
-        "Soins bienveillants Maroc",
-        "Convalescence à domicile Marrakech",
-        "Soins infirmiers personnalisés",
-        "Soins de confort à domicile"
-      ],
+      "keywords": "Dignité du patient Marrakech, Soins bienveillants Maroc, Convalescence à domicile Marrakech, Soins infirmiers personnalisés, Soins de confort à domicile",
       "og_title": "Sanad Care : Là Où Chaque Patient Est Traité avec Dignité et Attention"
     },
     "heading": "Sécurité Centrée sur le Patient",
