@@ -12,6 +12,7 @@ export const useMenuLinks = () => {
     { href: "/patient", label: t("patient"), icon: <News width="20" strokeWidth="1.5" /> },
     { href: "/family", label: t("family"), icon: <Envelop width="20" strokeWidth="1.5" /> },
     { href: "/tourism", label: t("tourism"), icon: <Envelop width="20" strokeWidth="1.5" /> },
+    { href: "/document", label: t("document"), icon: <Envelop width="20" strokeWidth="1.5" /> },
     { href: "/contact-us", label: t("contact"), icon: <Envelop width="20" strokeWidth="1.5" /> },
   ];
 };

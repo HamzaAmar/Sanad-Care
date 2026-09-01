@@ -1,0 +1,380 @@
+//
+// Pre-travel health questionnaire ( /[locale]/document )
+//
+// Every colour, radius and space comes from the Pillar token scale, and every
+// direction-sensitive rule uses logical properties so the Arabic (RTL) locale
+// mirrors correctly without a second stylesheet.
+
+.document-page {
+  --doc-accent-fg: #fff;
+  --doc-radius: 0.75rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.document-page__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S6);
+  inline-size: 100%;
+  max-inline-size: 56rem;
+  margin-inline: auto;
+}
+
+.document-page__header {
+  border: 1px solid var(--B5);
+  border-radius: var(--doc-radius);
+  background: linear-gradient(180deg, var(--P3), var(--B1));
+}
+
+// ---------------------------------------------------------------- form shell
+
+.doc-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S5);
+  min-inline-size: 0;
+}
+
+.doc-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S3);
+}
+
+// ------------------------------------------------------------------ sections
+
+.doc-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S5);
+  margin: 0;
+  padding: var(--S5);
+  min-inline-size: 0;
+  border: 1px solid var(--B5);
+  border-radius: var(--doc-radius);
+  background: var(--B1);
+}
+
+.doc-section__legend {
+  display: flex;
+  align-items: center;
+  gap: var(--S3);
+  padding: 0;
+}
+
+.doc-section__step {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: var(--R-full, 100000px);
+  background: var(--P4);
+  color: var(--P11);
+}
+
+// Keeps the phone input full width on desktop without breaking the single
+// column layout on mobile.
+.doc-field-wide {
+  min-inline-size: 0;
+
+  @media (min-width: 768px) {
+    grid-column: 1 / -1;
+  }
+}
+
+// ------------------------------------------------------- health questionnaire
+
+.doc-question {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S3);
+  padding: var(--S4);
+  min-inline-size: 0;
+  border: 1px solid var(--B5);
+  border-radius: var(--R3, 0.5rem);
+  background: var(--B2);
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--S5);
+  }
+
+  &--error {
+    border-color: var(--D8);
+    background: var(--D2);
+  }
+}
+
+.doc-question__body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--S3);
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.doc-question__index {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  border-radius: var(--R-full, 100000px);
+  background: var(--P4);
+  color: var(--P12);
+  font-size: var(--F2);
+  font-weight: 600;
+}
+
+.doc-question__text {
+  margin: 0;
+}
+
+.doc-question__error {
+  margin: 0;
+}
+
+.doc-question__answers {
+  display: flex;
+  flex: none;
+  gap: var(--S2);
+}
+
+.doc-answer {
+  display: flex;
+  cursor: pointer;
+}
+
+.doc-answer__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 4.5rem;
+  padding: 0.45rem 1.15rem;
+  border: 1px solid var(--B6);
+  border-radius: var(--R2, 0.35rem);
+  background: var(--B1);
+  color: var(--B11);
+  font-size: var(--F3);
+  font-weight: 500;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+
+  &:hover {
+    border-color: var(--P8);
+  }
+}
+
+.doc-answer__input:checked + .doc-answer__label {
+  border-color: var(--P9);
+  background: var(--P9);
+  color: var(--doc-accent-fg);
+}
+
+.doc-answer__input:focus-visible + .doc-answer__label {
+  outline: 2px dashed var(--P9);
+  outline-offset: 2px;
+}
+
+// ------------------------------------------------------------------- consent
+
+.doc-consent__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S3);
+  margin: 0;
+  padding: 0;
+}
+
+.doc-consent__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--S3);
+  padding: var(--S4);
+  border: 1px solid var(--B5);
+  border-radius: var(--R3, 0.5rem);
+  background: var(--B2);
+}
+
+.doc-consent__tick {
+  flex: none;
+  color: var(--Su10);
+  margin-block-start: 0.15rem;
+}
+
+.doc-consent__check {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--S3);
+  padding: var(--S4);
+  border: 1px solid var(--B6);
+  border-radius: var(--R3, 0.5rem);
+  background: var(--B2);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--P8);
+  }
+}
+
+.doc-consent__input {
+  position: absolute;
+  inset-block-start: var(--S4);
+  inset-inline-start: var(--S4);
+  inline-size: 1.375rem;
+  block-size: 1.375rem;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.doc-consent__box {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  inline-size: 1.375rem;
+  block-size: 1.375rem;
+  border: 1px solid var(--B7);
+  border-radius: var(--R2, 0.35rem);
+  background: var(--B1);
+  color: var(--doc-accent-fg);
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
+}
+
+.doc-consent__box svg {
+  opacity: 0;
+}
+
+.doc-consent__input:checked + .doc-consent__box {
+  border-color: var(--P9);
+  background: var(--P9);
+}
+
+.doc-consent__input:checked + .doc-consent__box svg {
+  opacity: 1;
+}
+
+.doc-consent__input:focus-visible + .doc-consent__box {
+  outline: 2px dashed var(--P9);
+  outline-offset: 2px;
+}
+
+// ------------------------------------------------------------------- preview
+
+.doc-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S3);
+}
+
+.doc-preview__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--S3);
+  inline-size: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.doc-preview__chevron {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+
+  &--open {
+    transform: rotate(180deg);
+  }
+}
+
+.doc-preview__body,
+.doc-success__message {
+  margin: 0;
+  padding: var(--S4);
+  border: 1px solid var(--B5);
+  border-radius: var(--R3, 0.5rem);
+  background: var(--B1);
+  color: var(--B12);
+  font-family: var(--mono-font);
+  font-size: var(--F2);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-block-size: 22rem;
+  overflow: auto;
+}
+
+// ------------------------------------------------------------ submit + notes
+
+.doc-submit {
+  gap: var(--S4);
+}
+
+.doc-submit__note {
+  flex: 1;
+  min-inline-size: 12rem;
+  margin: 0;
+}
+
+.doc-disclaimer {
+  gap: var(--S3);
+  margin: 0;
+}
+
+.doc-disclaimer__icon {
+  flex: none;
+  color: var(--Su10);
+  margin-block-start: 0.1rem;
+}
+
+.doc-disclaimer p {
+  margin: 0;
+}
+
+// ------------------------------------------------------------------- success
+
+.doc-success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S5);
+  border-color: var(--Su7);
+  background: var(--B1);
+}
+
+.doc-success__head {
+  gap: var(--S4);
+}
+
+.doc-success__icon {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: var(--R-full, 100000px);
+  background: var(--Su9);
+  color: var(--doc-accent-fg);
+}
+
+.doc-success__notice {
+  color: var(--W12);
+}
+
+.doc-success__cta {
+  inline-size: 100%;
+}
