@@ -12,7 +12,7 @@ export const LABEL_PREFIX = "q-label-";
 export const UNANSWERED: AnswerValue = "-";
 
 /** Text fields + the consent tick. Used to compute completion progress. */
-const TEXT_FIELD_COUNT = 7;
+const TEXT_FIELD_COUNT = 5;
 const CONSENT_STEP_COUNT = 1;
 
 const orDash = (value: string) => (value.trim() ? value : "-");
@@ -49,8 +49,6 @@ export const readDocumentFormData = (formData: FormData): DocumentValues => {
     arrivalDate: readString(formData, "arrivalDate"),
     hotel: readString(formData, "hotel"),
     phone: readString(formData, "phone"),
-    signature: readString(formData, "signature"),
-    date: readString(formData, "date"),
     consent: formData.get("consent") === "on",
   };
 };
@@ -63,10 +61,37 @@ export const emptyDocumentValues = (questions: string[]): DocumentValues => ({
   arrivalDate: "",
   hotel: "",
   phone: "",
-  signature: "",
-  date: "",
   consent: false,
 });
+
+/**
+ * Restores a normalised value object back into the live form controls.
+ *
+ * The form's inputs are uncontrolled, so on a normal (non-reset) re-render they
+ * would keep their typed values — but writing them back explicitly guarantees
+ * the entries survive a server-action submission that may reset the controls,
+ * and keeps the live preview / progress in sync after a validation error.
+ */
+export const writeDocumentFormData = (form: HTMLFormElement, values: DocumentValues): void => {
+  const setText = (name: string, value: string) => {
+    const el = form.elements.namedItem(name);
+    if (el instanceof HTMLInputElement) el.value = value;
+  };
+
+  setText("fullName", values.fullName);
+  setText("age", values.age);
+  setText("arrivalDate", values.arrivalDate);
+  setText("hotel", values.hotel);
+  setText("phone", values.phone);
+
+  const consentEl = form.elements.namedItem("consent");
+  if (consentEl instanceof HTMLInputElement) consentEl.checked = values.consent;
+
+  values.answers.forEach((answer, index) => {
+    const group = form.elements.namedItem(`${ANSWER_PREFIX}${index}`);
+    if (group instanceof RadioNodeList) group.value = answer === UNANSWERED ? "" : answer;
+  });
+};
 
 export const buildDocumentMessage = (values: DocumentValues, labels: MessageLabels): string => {
   const answerLabel = (answer: AnswerValue | undefined) => {
@@ -103,8 +128,6 @@ export const countCompletedSteps = (values: DocumentValues): number => {
     values.arrivalDate,
     values.hotel,
     values.phone,
-    values.signature,
-    values.date,
   ].filter((value) => value.trim().length > 0).length;
 
   const answered = values.answers.filter((answer) => answer !== UNANSWERED).length;

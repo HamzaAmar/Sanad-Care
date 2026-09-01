@@ -13,20 +13,10 @@ export type DocumentValues = {
   arrivalDate: string;
   hotel: string;
   phone: string;
-  signature: string;
-  date: string;
   consent: boolean;
 };
 
-export type DocumentFieldName =
-  | "fullName"
-  | "age"
-  | "arrivalDate"
-  | "hotel"
-  | "phone"
-  | "signature"
-  | "date"
-  | "consent";
+export type DocumentFieldName = "fullName" | "age" | "arrivalDate" | "hotel" | "phone" | "consent";
 
 /**
  * Validation failures travel as codes (not sentences) so the client can
@@ -64,8 +54,6 @@ export type MessageLabels = {
   healthHeading: string;
   consentHeading: string;
   agreed: string;
-  signature: string;
-  date: string;
   yes: string;
   no: string;
   unanswered: string;

@@ -1,11 +1,16 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import DocumentPage from "@/app/_components/pages/document";
 
 const page = async ({ params }: PageProps<"/[locale]/document">) => {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <DocumentPage />;
+  // Resolve the health questions on the server (in the active locale) and pass
+  // them down. This keeps the client form free of any `t.raw()` array reliance.
+  const t = await getTranslations({ locale, namespace: "document" });
+  const questions = t.raw("questions") as string[];
+
+  return <DocumentPage questions={questions} />;
 };
 
 export default page;

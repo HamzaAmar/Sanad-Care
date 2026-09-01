@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 import DocumentForm from "./form";
 
-const DocumentPage = () => {
+const DocumentPage = ({ questions }: { questions: string[] }) => {
   const t = useTranslations("document");
 
   return (
@@ -23,7 +23,7 @@ const DocumentPage = () => {
           </Text>
         </Paper>
 
-        <DocumentForm />
+        <DocumentForm questions={questions} />
       </div>
     </main>
   );

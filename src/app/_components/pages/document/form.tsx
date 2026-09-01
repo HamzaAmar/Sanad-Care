@@ -16,19 +16,20 @@ import {
   Calendar,
   Check,
   ChevronDown,
+  Copy,
   Heart,
   Phone,
   Send,
   Shield,
-  Signature,
   User,
+  Whatsapp,
+  X,
 } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import { useActionState, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { submitDocument } from "./action/document";
 import QuestionCard from "./components/question-card";
-import SuccessPanel from "./components/success-panel";
 import type {
   DocumentFieldName,
   DocumentFormState,
@@ -42,7 +43,9 @@ import {
   countTotalSteps,
   emptyDocumentValues,
   readDocumentFormData,
+  writeDocumentFormData,
 } from "./document.utils";
+import { validateDocument } from "./document.validation";
 
 const initialState: DocumentFormState = {
   status: "idle",
@@ -51,15 +54,16 @@ const initialState: DocumentFormState = {
   submittedAt: 0,
 };
 
+type SendResult = { url: string; opened: boolean };
+
 /** `YYYY-MM-DD` in the visitor's own timezone (toISOString would shift the day). */
 const toDateInputValue = (date: Date): string =>
   `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(
     date.getDate(),
   ).padStart(2, "0")}`;
 
-const DocumentForm = () => {
+const DocumentForm = ({ questions }: { questions: string[] }) => {
   const t = useTranslations("document");
-  const questions = t.raw("questions") as string[];
   const consentPoints = [t("consentItem1"), t("consentItem2"), t("consentItem3")];
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -68,10 +72,13 @@ const DocumentForm = () => {
 
   const [values, setValues] = useState<DocumentValues>(() => emptyDocumentValues(questions));
   const [showPreview, setShowPreview] = useState(false);
-  const [autoOpenBlocked, setAutoOpenBlocked] = useState(false);
   const [dismissedAt, setDismissedAt] = useState(0);
+  const [sendResult, setSendResult] = useState<SendResult | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const [state, formAction, pending] = useActionState(submitDocument, initialState);
+
+  const copyTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const labels = useMemo<MessageLabels>(
     () => ({
@@ -84,8 +91,6 @@ const DocumentForm = () => {
       healthHeading: t("healthHeading"),
       consentHeading: t("consentHeading"),
       agreed: t("consentAgree"),
-      signature: t("signature"),
-      date: t("date"),
       yes: t("yes"),
       no: t("no"),
       unanswered: t("unanswered"),
@@ -111,32 +116,96 @@ const DocumentForm = () => {
     if (!form) return;
 
     const today = toDateInputValue(new Date());
-    const dateInput = form.elements.namedItem("date");
     const arrivalInput = form.elements.namedItem("arrivalDate");
 
-    if (dateInput instanceof HTMLInputElement && !dateInput.value) dateInput.value = today;
     if (arrivalInput instanceof HTMLInputElement) arrivalInput.min = today;
 
     syncValues();
   }, [syncValues, dismissedAt]);
 
   // Runs exactly once per submission (guarded by the action's timestamp).
+  // WhatsApp is opened by the submit handler below — inside the click gesture —
+  // so by the time this runs the new tab is already open. Here we only reset the
+  // form back to a clean state (the "same page" the visitor started from).
   useEffect(() => {
     if (state.status === "idle" || handledRef.current === state.submittedAt) return;
     handledRef.current = state.submittedAt;
 
     if (state.status === "error") {
+      // Keep the visitor's entries intact after a validation error: re-sync our
+      // React state with the values the server echoed back, and write them onto
+      // the actual form controls so the typed data is guaranteed to survive
+      // (the live preview + progress bar stay accurate, and the inputs are never
+      // reset). This is the "persist fields on error" behaviour.
+      if (state.values) {
+        setValues(state.values);
+        if (formRef.current) writeDocumentFormData(formRef.current, state.values);
+      }
       errorRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
 
     if (!state.values) return;
 
-    const url = buildWhatsAppUrl(buildDocumentMessage(state.values, labels));
-    // If the browser blocks the popup the success panel surfaces a manual link.
+    // Return the visitor to a fresh form, ready for the next submission.
+    // `sendResult` is left exactly as the click handler set it (so a blocked
+    // popup still shows the manual fallback rather than a false "opened").
+    setShowPreview(false);
+    setValues(emptyDocumentValues(questions));
+    setDismissedAt(state.submittedAt);
+    formRef.current?.reset();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [state, questions]);
+
+  // The "opened" confirmation disappears on its own; the blocked fallback stays
+  // until the visitor opens WhatsApp or dismisses it manually.
+  useEffect(() => {
+    if (!sendResult || !sendResult.opened) return;
+    const id = setTimeout(() => setSendResult(null), 12000);
+    return () => clearTimeout(id);
+  }, [sendResult]);
+
+  useEffect(
+    () => () => {
+      if (copyTimeout.current) clearTimeout(copyTimeout.current);
+    },
+    [],
+  );
+
+  const handleCopy = useCallback(async () => {
+    if (!sendResult) return;
+    try {
+      await navigator.clipboard.writeText(sendResult.url);
+      setCopied(true);
+      if (copyTimeout.current) clearTimeout(copyTimeout.current);
+      copyTimeout.current = setTimeout(() => setCopied(false), 2500);
+    } catch {
+      // Clipboard unavailable — the link above still works.
+    }
+  }, [sendResult]);
+
+  /**
+   * Fired synchronously inside the click gesture. We validate on the client,
+   * build the WhatsApp link, and open it right away — no extra "send" step for
+   * the visitor. The form then submits to the server action for the authoritative
+   * check and to reset the form.
+   */
+  const handleSubmit = () => {
+    const form = formRef.current;
+    if (!form) return;
+
+    const current = readDocumentFormData(new FormData(form));
+    const result = validateDocument(current);
+
+    if (!result.ok) {
+      // Invalid: don't open WhatsApp. The server action will surface the errors.
+      return;
+    }
+
+    const url = buildWhatsAppUrl(buildDocumentMessage(current, labels));
     const opened = window.open(url, "_blank", "noopener,noreferrer");
-    setAutoOpenBlocked(!opened);
-  }, [state, labels]);
+    setSendResult({ url, opened: Boolean(opened) });
+  };
 
   const completed = countCompletedSteps(values);
   const total = countTotalSteps(values);
@@ -150,39 +219,81 @@ const DocumentForm = () => {
 
   const problemCount = Object.keys(state.fieldErrors).length + state.unansweredQuestions.length;
 
-  const isSuccess =
-    state.status === "success" && Boolean(state.values) && state.submittedAt !== dismissedAt;
-
-  if (isSuccess && state.values) {
-    const successMessage = buildDocumentMessage(state.values, labels);
-
-    return (
-      <SuccessPanel
-        title={t("successTitle")}
-        description={t("successDescription")}
-        previewLabel={t("previewLabel")}
-        message={successMessage}
-        whatsappUrl={buildWhatsAppUrl(successMessage)}
-        openLabel={t("openWhatsapp")}
-        copyLabel={t("copy")}
-        copiedLabel={t("copied")}
-        newFormLabel={t("newForm")}
-        autoOpenBlocked={autoOpenBlocked}
-        blockedLabel={t("popupBlocked")}
-        onNewForm={() => {
-          // Clear everything the previous submission left behind; the form
-          // element itself remounts empty, so state has to catch up.
-          setValues(emptyDocumentValues(questions));
-          setAutoOpenBlocked(false);
-          setShowPreview(false);
-          setDismissedAt(state.submittedAt);
-        }}
-      />
-    );
-  }
-
   return (
-    <form ref={formRef} action={formAction} onChange={syncValues} className="doc-form">
+    <form
+      ref={formRef}
+      action={formAction}
+      onChange={syncValues}
+      onSubmit={handleSubmit}
+      noValidate
+      className="doc-form"
+    >
+      {sendResult && (
+        <Paper
+          as="section"
+          flow="3"
+          p="4"
+          corner="3"
+          border
+          background={sendResult.opened ? "Su3" : "W4"}
+          className="doc-send-banner"
+          aria-live="polite"
+        >
+          <button
+            type="button"
+            className="doc-send-banner__close"
+            onClick={() => setSendResult(null)}
+            aria-label={t("dismiss")}
+          >
+            <X width="16" />
+          </button>
+
+          {sendResult.opened ? (
+            <>
+              <Text as="p" size="3" weight="6">
+                {t("whatsappOpenedTitle")}
+              </Text>
+              <Text as="p" size="3" color="b" low>
+                {t("whatsappOpened")}
+              </Text>
+            </>
+          ) : (
+            <>
+              <Text as="p" size="3" weight="6">
+                {t("popupBlockedTitle")}
+              </Text>
+              <Text as="p" size="3" color="b" low>
+                {t("popupBlocked")}
+              </Text>
+              <Flex gap="3" wrap className="doc-send-banner__actions">
+                <Button
+                  as="a"
+                  href={sendResult.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="3"
+                  color="su"
+                  variant="solid"
+                  icon={<Whatsapp stroke="currentColor" />}
+                >
+                  {t("openWhatsapp")}
+                </Button>
+                <Button
+                  type="button"
+                  variant="soft"
+                  color="p"
+                  size="3"
+                  icon={copied ? <Check width="16" /> : <Copy width="16" />}
+                  onClick={handleCopy}
+                >
+                  {copied ? t("copied") : t("copy")}
+                </Button>
+              </Flex>
+            </>
+          )}
+        </Paper>
+      )}
+
       {state.status === "error" && problemCount > 0 && (
         <div ref={errorRef}>
           <Alert

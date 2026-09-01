@@ -212,6 +212,13 @@
   margin-block-start: 0.15rem;
 }
 
+// A thin rule that separates the consent points list from the agreement tick,
+// keeping the section readable now that the signature/date fields are gone.
+.doc-consent__list {
+  padding-block-end: var(--S4);
+  border-block-end: 1px solid var(--B5);
+}
+
 .doc-consent__check {
   position: relative;
   display: flex;
@@ -302,8 +309,7 @@
   }
 }
 
-.doc-preview__body,
-.doc-success__message {
+.doc-preview__body {
   margin: 0;
   padding: var(--S4);
   border: 1px solid var(--B5);
@@ -346,35 +352,41 @@
   margin: 0;
 }
 
-// ------------------------------------------------------------------- success
+// ------------------------------------------------------------ send feedback
 
-.doc-success {
+.doc-send-banner {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--S5);
-  border-color: var(--Su7);
-  background: var(--B1);
+  gap: var(--S2);
+  // Leave room for the dismiss button on the trailing edge (mirrors in RTL).
+  padding-inline-end: var(--S7);
 }
 
-.doc-success__head {
-  gap: var(--S4);
-}
-
-.doc-success__icon {
+.doc-send-banner__close {
+  position: absolute;
+  inset-block-start: var(--S3);
+  inset-inline-end: var(--S3);
   display: inline-grid;
   place-items: center;
-  flex: none;
-  inline-size: 2.5rem;
-  block-size: 2.5rem;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  padding: 0;
+  border: 0;
   border-radius: var(--R-full, 100000px);
-  background: var(--Su9);
-  color: var(--doc-accent-fg);
+  background: transparent;
+  color: var(--B10);
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+
+  &:hover {
+    background: var(--B4);
+    color: var(--B12);
+  }
 }
 
-.doc-success__notice {
-  color: var(--W12);
-}
-
-.doc-success__cta {
-  inline-size: 100%;
+.doc-send-banner__actions {
+  margin-block-start: var(--S2);
 }
