@@ -1,0 +1,68 @@
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --reveal-duration: 450ms;
+  --reveal-item-duration: 300ms;
+  --reveal-image-duration: 500ms;
+  --reveal-stagger: 60ms;
+}
+
+// Visible by default: content is never withheld without JS or before hydration.
+// The pre-reveal hidden state only applies once JS opts in (see Reveal component).
+.reveal {
+  opacity: 1;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  pointer-events: none;
+  transition:
+    opacity var(--reveal-duration) var(--ease-out),
+    transform var(--reveal-duration) var(--ease-out);
+  transition-delay: calc(var(--reveal-index, 0) * var(--reveal-stagger));
+}
+
+// Grid cards: shorter entrance, same stagger budget.
+.js .reveal-item {
+  transform: translateY(16px);
+  transition-duration: var(--reveal-item-duration), var(--reveal-item-duration);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+// Large imagery: visible by default, fades in only once the image is ready.
+// Opacity plus a very small scale settle — no zoom effect.
+.reveal-image {
+  opacity: 1;
+}
+
+.js .reveal-image {
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity var(--reveal-image-duration) var(--ease-out),
+    transform var(--reveal-image-duration) var(--ease-out);
+}
+
+.js .reveal-image.is-loaded {
+  opacity: 1;
+  transform: none;
+}
+
+// Gentler, not zero: keep a short fade with minimal travel and no stagger.
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    transform: translateY(8px);
+    transition-duration: 150ms, 150ms;
+    transition-delay: 0ms;
+  }
+
+  .js .reveal-image {
+    transform: none;
+    transition-duration: 150ms, 150ms;
+  }
+}

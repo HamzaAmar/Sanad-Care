@@ -2,7 +2,7 @@ import { Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import { CircleCheck, Clock, Globe, Heart, Shield, Users } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import "./why-us.scss"; // Assuming we'll add some custom styles
-import { ServiceCard } from "../../service-card";
+import { Box } from "../../box";
 
 const WhatWeDid = [
   {
@@ -118,7 +118,7 @@ const WhyUs = () => {
           </div>
           <Grid gap="6" cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }}>
             {WhatWeDid.map((item) => (
-              <ServiceCard
+              <Box
                 key={item.label}
                 icon={item.icon}
                 title={item.label}

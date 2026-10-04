@@ -1,7 +1,7 @@
 import { Grid } from "@pillar-ui/core";
 import { Moon, Star, Sun, Sunrise } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import { ServiceCard } from "@/app/_components/service-card";
+import { Box } from "@/app/_components/box";
 import AnimatedSection from "@/app/_components/AnimatedSection";
 
 const DayInLife = () => {
@@ -37,7 +37,7 @@ const DayInLife = () => {
     <AnimatedSection title={t("title")}>
       <Grid cols={{ default: "1fr", md: "1fr 1fr" }} gap="4" className="space-y-8 relative">
         {ROUTINES.map(({ title, description, icon }) => (
-          <ServiceCard key={title} icon={icon} title={title} description={description} />
+          <Box key={title} icon={icon} title={title} description={description} />
         ))}
       </Grid>
     </AnimatedSection>

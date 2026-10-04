@@ -8,7 +8,7 @@ import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 import { Link } from "@/i18n/navigation";
-import { ServiceCard } from "@/app/_components/service-card";
+import { Box } from "@/app/_components/box";
 
 const GymPartnershipSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -143,7 +143,7 @@ const GymPartnershipSection = () => {
           </Text>
           <Grid cols={{ default: "1fr", sm: "1fr 1fr" }} gap="4" className="delivery-features">
             {PANELS.map(({ slug, ...rest }) => (
-              <ServiceCard key={slug} {...rest} />
+              <Box key={slug} {...rest} />
             ))}
           </Grid>
         </Paper>
@@ -154,7 +154,7 @@ const GymPartnershipSection = () => {
           </Heading>
           <Flex direction="col" gap="4">
             {STEPS.map(({ slug, ...rest }) => (
-              <ServiceCard key={slug} {...rest} />
+              <Box key={slug} {...rest} />
             ))}
           </Flex>
           <Button as={Link} href="/contact-us" size="5" color="su" className="nationwide-cta">

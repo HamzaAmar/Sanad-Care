@@ -7,7 +7,7 @@ import { Clock, Home, Location, Shield, Star, User } from "@pillar-ui/icons";
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
-import { ServiceCard } from "@/app/_components/service-card";
+import { Box } from "@/app/_components/box";
 
 const WhyUsVenipuncture = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -117,7 +117,7 @@ const WhyUsVenipuncture = () => {
         className="delivery-features"
       >
         {FEATURES.map(({ slug, ...rest }) => (
-          <ServiceCard key={slug} {...rest} />
+          <Box key={slug} {...rest} />
         ))}
       </Grid>
     </Paper>

@@ -6,7 +6,7 @@ import { Heading, Paper, Text } from "@pillar-ui/core";
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
-import { ServiceCard } from "@/app/_components/service-card";
+import { Box } from "@/app/_components/box";
 
 const HowItWorksVenipuncture = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -92,7 +92,7 @@ const HowItWorksVenipuncture = () => {
         }}
       >
         {STEPS.map(({ slug, ...rest }, index) => (
-          <ServiceCard
+          <Box
             key={slug}
             variant="colored"
             title={`0${index + 1}. ${rest.title}`}

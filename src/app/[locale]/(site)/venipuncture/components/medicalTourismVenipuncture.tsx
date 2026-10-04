@@ -18,7 +18,7 @@ const MedicalTourismVenipuncture = () => {
 
   return (
     <Paper as="section" flow="8" className="section medical-tourism-container">
-      <Grid cols={{ default: "1fr", md: "1fr 1fr" }} gap="6" items="center">
+      <Grid cols={{ default: "1fr", md: "3fr 1fr" }} gap="6" items="center">
         <Paper flow="5">
           <Chips corner="2" color="su" size="3" variant="outline">
             {t("tourism.badge")}
@@ -40,12 +40,6 @@ const MedicalTourismVenipuncture = () => {
                 <Text size="3">{t(key)}</Text>
               </Flex>
             ))}
-          </Flex>
-
-          <Flex>
-            <Button as={Link} href="/contact-us" size="5" color="su">
-              {t("tourism.cta")}
-            </Button>
           </Flex>
         </Paper>
         <Paper

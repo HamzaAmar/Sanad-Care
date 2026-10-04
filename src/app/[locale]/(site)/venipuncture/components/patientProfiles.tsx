@@ -7,7 +7,7 @@ import { Heart, Home, Location, Star, User } from "@pillar-ui/icons";
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
-import { ServiceCard } from "@/app/_components/service-card";
+import { Box } from "@/app/_components/box";
 
 const PatientProfilesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -96,7 +96,7 @@ const PatientProfilesSection = () => {
         className="patient-grid"
       >
         {PROFILES.map(({ slug, ...rest }) => (
-          <ServiceCard key={slug} {...rest} />
+          <Box key={slug} {...rest} />
         ))}
       </Grid>
     </Paper>
