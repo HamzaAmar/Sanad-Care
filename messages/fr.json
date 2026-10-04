@@ -317,10 +317,33 @@
       ],
       "og_title": "Soins Médicaux pour Touristes à Marrakech - Nous Venons à Votre Hôtel"
     },
-    "heading": "Assistance Médicale pour Touristes",
-    "subheading": "Ne laissez pas la maladie gâcher votre séjour à Marrakech",
-    "description": "Nous sommes spécialisés dans la fourniture d'assistance médicale réactive aux touristes dans les hôtels et riads. Nos infirmiers anglophones peuvent prendre en charge les troubles bénins, les soins de plaies, les soins des blessures et la coordination avec les médecins locaux.",
+    "heading": "Soins Médicaux Internationaux à Marrakech",
+    "subheading": "Votre Partenaire Médical de Confiance au Maroc. Pour les Voyageurs et les Touristes Médicaux.",
+    "description": "Que vous soyez déjà à Marrakech et ayez besoin de soins urgents à votre hôtel, ou que vous planifiiez un voyage médical depuis l'étranger, notre équipe est là pour vous. Nous offrons les mêmes standards de qualité que chez vous, à une fraction du prix. Notre équipe multilingue (anglais, français, arabe) veille à ce que vous soyez compris et pris en charge à chaque étape.",
     "cta": "Obtenez de l'Aide à Votre Hôtel",
+    "imageAlt": "Infirmière Sanadcare prodiguant des soins infirmiers à domicile à Marrakech",
+    "features": {
+      "urgentTravelers": {
+        "title": "Pour les Voyageurs en Urgence",
+        "description": "Réponse rapide à votre hôtel ou riad pour les intoxications alimentaires, les blessures et l'hydratation intraveineuse."
+      },
+      "medicalTravelers": {
+        "title": "Pour les Touristes Médicaux",
+        "description": "Interventions planifiées, forfaits de convalescence et coordination complète avant même de réserver votre vol."
+      },
+      "multilingual": {
+        "title": "100 % Multilingue",
+        "description": "Des soignants parlant couramment anglais, français et arabe. Aucun malentendu dans votre prise en charge."
+      },
+      "value": {
+        "title": "Valeur Exceptionnelle",
+        "description": "Une qualité médicale aux standards occidentaux à prix marocains. Économisez jusqu'à 60 % sur les interventions."
+      },
+      "localExpertise": {
+        "title": "Expertise Locale",
+        "description": "Nous connaissons Marrakech. Nous gérons la logistique, pour que vous puissiez vous concentrer sur votre guérison."
+      }
+    },
     "page": {
       "hero": {
         "title": "Tourisme Médical Marrakech | Récupération Sûre et Confortable",
@@ -622,8 +645,11 @@
       ],
       "og_title": "Soutien aux Familles : soins Professionnels à Domicile pour Vos Proches"
     },
-    "heading": "Soutien pour les Familles",
-    "description": "Nous offrons la tranquillité d'esprit aux familles, proches ou éloignées. Sachez que vos proches reçoivent les meilleurs soins avec nos mises à jour régulières et nos canaux de communication ouverts.",
+    "heading": "Soins de Confiance pour les Familles à Marrakech",
+    "subheading": "Soins Infirmiers à Domicile pour Vos Parents Âgés à Marrakech",
+    "description": "Que vous viviez à Marrakech ou à des milliers de kilomètres, vos parents méritent des soins sûrs et professionnels. Nos infirmiers diplômés assurent la prise en charge des personnes âgées, la gestion des médicaments et l'assistance quotidienne à domicile — avec des mises à jour régulières qui rassurent toute la famille, même depuis l'étranger.",
+    "cta": "Découvrir les Soins pour Familles",
+    "imageAlt": "Infirmière Sanadcare prodiguant des soins à domicile à une personne âgée entourée de sa famille à Marrakech",
     "page": {
       "section1": {
         "title": "Le Poids d'Aimer Quelqu'un Qui a Besoin de Soins",
@@ -776,21 +802,29 @@
     },
 
     "features": {
-      "peaceOfMind": {
-        "title": "Tranquillité d'Esprit",
-        "description": "Sachez que votre proche est entre des mains sûres et professionnelles."
+      "licensedNurses": {
+        "title": "Infirmiers Diplômés et Vérifiés",
+        "description": "Chaque infirmier est diplômé d'État, vérifié et formé aux soins à domicile des personnes âgées."
       },
-      "stayInformed": {
-        "title": "Restez Informé",
-        "description": "Nous vous informons à chaque étape de la prise en charge."
+      "familyUpdates": {
+        "title": "Mises à Jour Régulières",
+        "description": "Notes de soins quotidiennes et rapports clairs, où que vous soyez dans le monde."
       },
-      "emotionalSupport": {
-        "title": "Soutien Émotionnel",
-        "description": "Nous soutenons votre famille autant que votre proche."
+      "emergencyAvailability": {
+        "title": "Disponibilité d'Urgence 24h/24",
+        "description": "Des infirmiers disponibles jour et nuit, avec une procédure claire en cas de changement."
       },
-      "timeForWhatMatters": {
-        "title": "Plus de Temps pour l'Essentiel",
-        "description": "Nous gérons les soins pour vous permettre de vous concentrer sur vos moments ensemble."
+      "culturalRespect": {
+        "title": "Respect Culturel et Religieux",
+        "description": "Des soins qui respectent les valeurs et les traditions de votre famille, en darija, français ou anglais."
+      },
+      "personalizedCare": {
+        "title": "Des Soins Adaptés à Votre Famille",
+        "description": "Un plan de soins personnalisé selon les besoins, le rythme et les souhaits de votre famille."
+      },
+      "nurseChoice": {
+        "title": "Votre Infirmier, Votre Choix",
+        "description": "Vous préférez un infirmier ou une infirmière ? Vous souhaitez changer ? Demandez, tout simplement — à tout moment."
       }
     }
   },
@@ -801,8 +835,10 @@
       "keywords": "Dignité du patient Marrakech, Soins bienveillants Maroc, Convalescence à domicile Marrakech, Soins infirmiers personnalisés, Soins de confort à domicile",
       "og_title": "Sanad Care : Là Où Chaque Patient Est Traité avec Dignité et Attention"
     },
-    "heading": "Sécurité Centrée sur le Patient",
-    "description": "Votre sécurité est primordiale. Nous suivons des protocoles d'hygiène stricts et des plans de soins personnalisés pour assurer le plus haut niveau de sécurité et de confort pour chaque patient.",
+    "heading": "Votre Sécurité Avant Tout",
+    "subheading": "Soins Infirmiers à Domicile Sûrs et Centrés sur le Patient à Marrakech",
+    "description": "Chaque patient mérite des soins sûrs, discrets et dignes. Nos infirmiers diplômés appliquent des protocoles d'hygiène stricts et construisent un plan de soins personnalisé autour de votre santé, de votre confort et de votre domicile — pour que vous puissiez vous concentrer sur votre rétablissement.",
+    "imageAlt": "Infirmière Sanadcare appliquant le protocole d'hygiène pour des soins à domicile centrés sur le patient à Marrakech",
     "page": {
       "struggle": {
         "title": "Vous Méritez Plus Que Juste des Médicaments",
@@ -961,19 +997,27 @@
     "benefits": {
       "strictHygiene": {
         "title": "Protocoles d'Hygiène Stricts",
-        "description": "Nous appliquons des normes rigoureuses de désinfection médicale pour maintenir votre environnement domestique totalement stérile et sûr."
+        "description": "Désinfection de niveau hospitalier et protocoles de protection pour un environnement propre et sûr."
       },
       "personalizedCare": {
-        "title": "Plans de soins Personnalisés",
-        "description": "Chaque intervention est adaptée exclusivement à votre profil de santé unique, garantissant une exécution médicale précise et sécurisée."
+        "title": "Plans de Soins Personnalisés",
+        "description": "Chaque visite suit un plan adapté à votre état, vos médicaments et votre routine quotidienne."
       },
       "maximumComfort": {
         "title": "Confort Centré sur le Patient",
-        "description": "Éliminez l'anxiété liée aux cliniques. Recevez des soins médicaux professionnels tout en restant détendu dans votre espace privé."
+        "description": "Pas de salle d'attente ni de stress — les soins viennent à vous, chez vous."
       },
       "privacyConfidentiality": {
-        "title": "Confidentialité & Sécurité Totale",
-        "description": "Vos traitements et consultations se déroulent discrètement à domicile, garantissant le respect absolu de votre dignité et de votre vie privée."
+        "title": "Confidentialité & Sécurité Absolues",
+        "description": "Vos soins restent confidentiels, avec des visites discrètes et des données médicales protégées."
+      },
+      "doctorCoordination": {
+        "title": "Coordination avec le Médecin",
+        "description": "Nous suivons les instructions de votre médecin et partageons des mises à jour claires avec votre équipe de soins."
+      },
+      "emergencySupport": {
+        "title": "Support d'Urgence 24h/24",
+        "description": "En cas de changement, un infirmier est à un appel — jour et nuit."
       }
     }
   },
@@ -1105,22 +1149,32 @@
           "title": "Suivi continu",
           "description": "Nous restons disponibles pour adapter le service, répondre aux questions et accompagner la famille."
         }
-      ]
+      ],
+      "trust": ["24h/24 · 7j/7", "Sans engagement", "Infirmiers diplômés"],
+      "badges": {
+        "step1": "Appel · WhatsApp · Formulaire",
+        "step4": "Domicile · Hôtel · Riad",
+        "step5": "Mises à jour quotidiennes"
+      },
+      "cta": {
+        "primary": "Réserver un infirmier",
+        "secondary": "+212 704 524 625",
+        "inline": "Nous contacter",
+        "reassurance": "Gratuit · Sans engagement · Réponse en quelques minutes."
+      }
     },
     "emergencyCta": {
       "eyebrow": "Besoin d'aide aujourd'hui ?",
       "title": "Soins infirmiers à domicile disponibles 24h/24 et 7j/7 à Marrakech",
-      "description": "Que vous ayez besoin de soins pour une personne âgée, d'un suivi post-opératoire, d'un accompagnement pour maladie chronique ou d'une assistance médicale pour touristes à Marrakech, nos infirmiers qualifiés sont prêts à intervenir à domicile, à l'hôtel ou en résidence.",
+      "description": "Un infirmier diplômé peut être chez vous, à votre hôtel ou riad dès aujourd'hui — soins urgents aux personnes âgées, suivi post-opératoire ou maladies chroniques.",
       "benefits": [
-        "Disponible 24h/24",
-        "Infirmiers qualifiés",
-        "Réponse rapide",
-        "Soins à domicile ou hôtel",
-        "Assistance aux touristes",
-        "Plan de soins personnalisé"
+        "Intervention urgente le jour même",
+        "Infirmiers diplômés et multilingues",
+        "Domicile · Hôtel · Riad"
       ],
-      "primaryCta": "Demander un infirmier",
-      "secondaryCta": "Discuter sur WhatsApp"
+      "primaryCta": "Appeler maintenant",
+      "secondaryCta": "Discuter sur WhatsApp",
+      "status": "Disponible maintenant · 7j/7"
     }
   },
   "faq": {

@@ -1,0 +1,20 @@
+// Subtle tactile press feedback for homepage CTAs.
+//
+// Replaces the library default active state (lift + grow) with a small,
+// calm press. Transform-only, so surrounding layout is never affected.
+// Focus styling is intentionally left alone — the library :focus-visible
+// outline stays the single, clearly visible keyboard indicator.
+.home-page :is(a, button) {
+  transition: transform 150ms var(--ease-out);
+}
+
+.home-page :is(a, button):active {
+  transform: scale(0.97);
+}
+
+// Retain the press confirmation, just make it quicker.
+@media (prefers-reduced-motion: reduce) {
+  .home-page :is(a, button) {
+    transition-duration: 100ms;
+  }
+}

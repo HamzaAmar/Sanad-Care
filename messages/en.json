@@ -153,44 +153,54 @@
     "howItWorks": {
       "eyebrow": "Simple Process",
       "title": "How to Book a Home Nurse in Marrakech",
-      "description": "Getting professional home nursing care in Marrakech is simple. Contact us, explain your needs, and we help match you with the right healthcare professional.",
+      "description": "Tell us what you need, get matched with a licensed nurse, and receive care at home — often the same day for urgent requests.",
+      "trust": ["24/7 · 7 days", "No commitment", "Licensed nurses"],
       "steps": [
         {
-          "title": "Contact Our Team",
-          "description": "Call, WhatsApp, or send a request and tell us what type of home nursing service you need."
+          "title": "Tell Us What You Need",
+          "description": "Call, WhatsApp, or send the form. Two minutes is enough — we speak Darija, French, and English."
         },
         {
-          "title": "Share Medical Needs",
-          "description": "We discuss the patient’s condition, location, schedule, and any special care requirements."
+          "title": "Get a Free Care Assessment",
+          "description": "A care advisor asks about the patient’s condition, address, and schedule — no commitment."
         },
         {
-          "title": "Get Matched",
-          "description": "We connect you with a qualified nurse experienced in the required type of care."
+          "title": "Meet Your Matched Nurse",
+          "description": "We match you with a licensed nurse experienced in exactly this care and confirm the arrival time."
         },
         {
-          "title": "Receive Care at Home",
-          "description": "Your nurse comes to your home, hotel, or residence in Marrakech and starts the care plan."
+          "title": "Care Begins at Home",
+          "description": "Your nurse arrives at your home, hotel, or riad in Marrakech — fully equipped."
         },
         {
-          "title": "Ongoing Follow-Up",
-          "description": "We stay available to adjust the service, answer questions, and support the family."
+          "title": "We Stay With You",
+          "description": "Daily updates for the family and easy plan adjustments — for as long as you need."
         }
-      ]
+      ],
+      "badges": {
+        "step1": "Call · WhatsApp · Form",
+        "step4": "Home · Hotel · Riad",
+        "step5": "Daily family updates"
+      },
+      "cta": {
+        "primary": "Book a Home Nurse",
+        "secondary": "+212 704 524 625",
+        "inline": "Contact us",
+        "reassurance": "Free to ask · No commitment · We reply in minutes."
+      }
     },
     "emergencyCta": {
       "eyebrow": "Need Help Today?",
       "title": "24/7 Home Nursing Care Available Across Marrakech",
-      "description": "Whether you need urgent elderly care, post-surgery nursing, chronic disease support, or medical assistance for tourists in Marrakech, our qualified nurses are ready to help at home, hotel, or residence.",
+      "description": "A licensed nurse can be at your home, hotel, or riad today — for urgent elderly care, post-surgery support, or chronic care.",
       "benefits": [
-        "24/7 Availability",
-        "Licensed Home Nurses",
-        "Fast Response",
-        "Care at Home or Hotel",
-        "Tourist Medical Support",
-        "Personalized Care Plans"
+        "Same-day urgent dispatch",
+        "Licensed, multilingual nurses",
+        "Home · Hotel · Riad"
       ],
-      "primaryCta": "Request a Nurse Now",
-      "secondaryCta": "Chat on WhatsApp"
+      "primaryCta": "Call Now",
+      "secondaryCta": "Chat on WhatsApp",
+      "status": "Available now · 7 days a week"
     }
   },
   "hero": {
@@ -400,10 +410,33 @@
       ],
       "og_title": "Medical Care for Tourists in Marrakech - We Come To Your Hotel"
     },
-    "heading": "Medical Assistance for Tourists",
-    "subheading": "Don't let illness ruin your stay in Marrakech",
-    "description": "We specialize in providing rapid medical assistance to tourists in hotels and riads. Our English-speaking nurses can handle minor ailments, injury care, and coordination with local doctors.",
+    "heading": "International Medical Care in Marrakech",
+    "subheading": "Your Trusted Medical Partner in Morocco. For Travelers and Medical Tourists.",
+    "description": "Whether you are already in Marrakech and need urgent care at your hotel, or you are planning a medical trip from abroad, our team is here for you. We offer the same high-quality standards you expect at home, at a fraction of the price. Our multilingual team (English, French, Arabic) ensures you are understood and cared for at every step.",
     "cta": "Get Help at Your Hotel",
+    "imageAlt": "Sanadcare nurse providing professional home nursing service in Marrakech",
+    "features": {
+      "urgentTravelers": {
+        "title": "For Urgent Travelers",
+        "description": "Rapid response to your hotel or riad for food poisoning, injuries, and IV hydration."
+      },
+      "medicalTravelers": {
+        "title": "For Medical Travelers",
+        "description": "Pre-planned procedures, recovery packages, and full coordination before you even book your flight."
+      },
+      "multilingual": {
+        "title": "100% Multilingual",
+        "description": "Fluent English, French, and Arabic speakers. No miscommunication in your care."
+      },
+      "value": {
+        "title": "Exceptional Value",
+        "description": "Western-standard medical quality at Moroccan prices. Save up to 60% on procedures."
+      },
+      "localExpertise": {
+        "title": "Local Expertise",
+        "description": "We know Marrakech. We handle the logistics, so you can focus on healing."
+      }
+    },
     "page": {
       "hero": {
         "title": "Medical Tourism Marrakech | Safe & Comfortable Recovery",
@@ -710,8 +743,11 @@
       ],
       "og_title": "Support for Families: Professional Home Care for Your Loved Ones"
     },
-    "heading": "Support for Families",
-    "description": "We provide peace of mind for families, near or far. Know that your loved ones are receiving the best care with our regular updates and open communication channels.",
+    "heading": "Trusted Family Care in Marrakech",
+    "subheading": "Home Nursing & Elderly Care for Your Parents in Marrakech",
+    "description": "Whether you live in Marrakech or thousands of kilometers away, your parents deserve safe, professional care. Our licensed nurses provide elderly care, medication management, and daily support at home — with regular updates that keep the whole family informed and in control, even from abroad.",
+    "cta": "Discover Family Care",
+    "imageAlt": "Sanadcare nurse providing elderly care and home nursing for a senior with family in Marrakech",
     "page": {
       "section1": {
         "title": "The Weight of Loving Someone Who Needs Care",
@@ -871,21 +907,29 @@
       }
     },
     "features": {
-      "peaceOfMind": {
-        "title": "Peace of Mind",
-        "description": "Know your loved one is in safe, professional hands."
+      "licensedNurses": {
+        "title": "Licensed & Verified Nurses",
+        "description": "Every nurse is state-registered, background-checked, and trained in elderly and home care."
       },
-      "stayInformed": {
-        "title": "Stay Informed",
-        "description": "We keep you updated every step of the way."
+      "familyUpdates": {
+        "title": "Regular Family Updates",
+        "description": "Daily care notes and clear reports keep you informed, wherever you are in the world."
       },
-      "emotionalSupport": {
-        "title": "Emotional Support",
-        "description": "We support your family as much as your loved one."
+      "emergencyAvailability": {
+        "title": "24/7 Emergency Availability",
+        "description": "Nurses on call day and night, with clear escalation when your parent's condition changes."
       },
-      "timeForWhatMatters": {
-        "title": "More Time for What Matters",
-        "description": "We handle the care, so you can focus on being together."
+      "culturalRespect": {
+        "title": "Cultural & Religious Sensitivity",
+        "description": "Care that respects your family's values and traditions, in Darija, French, or English."
+      },
+      "personalizedCare": {
+        "title": "Care Matched to Your Family",
+        "description": "A personalized care plan built around your parent's needs, routines, and your family's wishes."
+      },
+      "nurseChoice": {
+        "title": "Your Nurse, Your Choice",
+        "description": "Prefer a female or male nurse? Want to change your nurse? Just ask — anytime, no questions asked."
       }
     }
   },
@@ -896,8 +940,10 @@
       "keywords": "Patient dignity Marrakech, Compassionate care Morocco, Home recovery Marrakech, Personalized nursing care, Comfort care at home",
       "og_title": "Sanad Care: Where Patients Are Treated With Dignity and Time"
     },
-    "heading": "Patient-Centered Security",
-    "description": "Your safety is paramount. We follow strict hygiene protocols and personalized care plans to ensure the highest level of security and comfort for every patient.",
+    "heading": "Your Safety Comes First",
+    "subheading": "Safe, Patient-Centered Home Nursing in Marrakech",
+    "description": "Every patient deserves care that feels safe, private, and dignified. Our licensed nurses follow strict hygiene protocols and build a personalized care plan around your health, your comfort, and your home — so you can focus on recovery, not worry.",
+    "imageAlt": "Sanadcare nurse following hygiene protocol for patient-centered home care in Marrakech",
     "page": {
       "struggle": {
         "title": "You Deserve More Than Just Medicine",
@@ -1034,19 +1080,27 @@
     "benefits": {
       "strictHygiene": {
         "title": "Strict Hygiene Protocols",
-        "description": "We enforce rigorous medical sanitization standards and protective protocols to keep your home environment completely sterile and safe."
+        "description": "Hospital-grade sanitization and protective protocols keep your home environment clean and safe."
       },
       "personalizedCare": {
         "title": "Personalized Care Plans",
-        "description": "Every procedure and routine is tailored exclusively to your unique health profile, ensuring precise and safe medical execution."
+        "description": "Every visit follows a plan tailored to your condition, medications, and daily routine."
       },
       "maximumComfort": {
         "title": "Patient-Centered Comfort",
-        "description": "Eliminate clinic anxiety and white-coat hypertension. Receive medical attention while relaxed in your own private space."
+        "description": "No clinic waiting rooms or white-coat stress — care comes to you, in your own space."
       },
       "privacyConfidentiality": {
         "title": "Absolute Privacy & Security",
-        "description": "Your medical treatments and consultations happen discreetly at home, ensuring maximum confidentiality and patient dignity."
+        "description": "Your treatment stays confidential, with discreet visits and protected medical information."
+      },
+      "doctorCoordination": {
+        "title": "Doctor Coordination",
+        "description": "We follow your doctor's instructions and share clear updates with your care team."
+      },
+      "emergencySupport": {
+        "title": "24/7 Emergency Support",
+        "description": "If something changes, a nurse is one call away — day or night."
       }
     }
   },

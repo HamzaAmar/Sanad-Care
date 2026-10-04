@@ -1,0 +1,335 @@
+// Shared hooks for the homepage SEO sections (conditions / how-to-book /
+// emergency CTA). These classNames were used in the markup but had no rules;
+// they are defined here once instead of being left inert.
+
+.home-seo__section {
+  display: flow-root;
+}
+
+.home-seo__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.home-seo__section-heading,
+.home-seo__panel {
+  width: 100%;
+}
+
+.home-seo__primary-button {
+  font-weight: 600;
+}
+
+// --- emergency CTA: the page's urgent peak ---------------------------------
+.home-seo__final-cta {
+  position: relative;
+  width: 100%;
+  padding: var(--S8);
+  border: 1px solid var(--P6);
+  border-radius: var(--R5);
+  overflow: hidden;
+  background-color: var(--P2);
+  background-image: radial-gradient(120% 140% at 100% 0%, var(--P3), transparent 62%);
+}
+
+.home-seo__final-cta::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--P9), var(--Su9));
+}
+
+.home-seo__final-cta-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S2);
+}
+
+.home-seo__status {
+  color: var(--B11);
+}
+
+.home-seo__status-dot {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--Rfull);
+  background: var(--Su9);
+  box-shadow: 0 0 0 4px var(--Su3);
+}
+
+@media (max-width: 767px) {
+  .home-seo__final-cta {
+    padding: var(--S6);
+  }
+
+  .home-seo__final-cta-actions {
+    flex-direction: column;
+  }
+
+  .home-seo__final-cta-actions > * {
+    width: 100%;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// "How to book a home nurse" — numbered journey.
+// Mobile: a vertical rail. >=768px: a horizontal connected rail whose thread
+// overruns the final station and fades out — the section's one signature
+// gesture (care continues after the visit).
+// ---------------------------------------------------------------------------
+
+.booking-journey {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S7);
+  --booking-node: 2.5rem;
+  --booking-gap: 1.75rem;
+  --booking-overrun: 4rem;
+}
+
+.booking-journey__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S3);
+}
+
+.booking-journey__trust {
+  margin-top: var(--S1);
+}
+
+.booking-journey__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--booking-gap);
+}
+
+.booking-journey__step {
+  position: relative;
+  padding-inline-start: calc(var(--booking-node) + 1rem);
+}
+
+.booking-journey__step-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S1);
+}
+
+.booking-journey__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--S1);
+  width: 100%;
+}
+
+// The station marker is a large mono digit; its background masks the thread
+// that runs behind it, so the line appears to start and stop at each number.
+.booking-journey__num {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  height: var(--booking-node);
+  min-width: var(--booking-node);
+  padding-inline: 0.25rem;
+  font-family: var(--mono-font);
+  font-size: var(--F6);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--P11);
+  background: var(--B1);
+  z-index: 1;
+}
+
+.booking-journey__title {
+  color: var(--B12);
+}
+
+.booking-journey__desc {
+  max-width: 42ch;
+}
+
+.booking-journey__badge {
+  align-self: flex-start;
+  margin-top: var(--S1);
+  padding: 0.15em 0.6em;
+  border-radius: var(--R2);
+  background: var(--P3);
+  color: var(--P11);
+  font-size: var(--F2);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.booking-journey__inline-link {
+  align-self: flex-start;
+  margin-top: var(--S1);
+  font-size: var(--F3);
+  font-weight: 600;
+  color: var(--P11);
+}
+
+.booking-journey__inline-link:hover {
+  text-decoration: underline;
+}
+
+.booking-journey__cta {
+  text-align: center;
+}
+
+// --- connector: vertical (mobile-first) ------------------------------------
+.booking-journey__step::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(var(--booking-node) / 2);
+  top: var(--booking-node);
+  width: 2px;
+  height: calc(100% - var(--booking-node) + var(--booking-gap));
+  background: var(--P9);
+}
+
+.booking-journey__step:last-child::before {
+  height: var(--booking-overrun);
+  background: linear-gradient(to bottom, var(--P9), transparent);
+}
+
+// --- connector: horizontal rail (>=768px) ----------------------------------
+@media (min-width: 768px) {
+  .booking-journey__steps {
+    flex-direction: row;
+    gap: 1.5rem;
+    --booking-gap: 1.5rem;
+  }
+
+  .booking-journey__step {
+    flex: 1 1 0;
+    padding-inline-start: 0;
+  }
+
+  .booking-journey__step-inner {
+    align-items: center;
+    text-align: center;
+  }
+
+  .booking-journey__num {
+    position: relative;
+    inset-inline-start: auto;
+    top: auto;
+  }
+
+  .booking-journey__desc,
+  .booking-journey__badge,
+  .booking-journey__inline-link {
+    align-self: center;
+  }
+
+  .booking-journey__badge {
+    margin-top: 0;
+  }
+
+  .booking-journey__step::before {
+    inset-inline-start: calc(var(--booking-gap) / -2);
+    top: calc(var(--booking-node) / 2);
+    width: calc(100% + var(--booking-gap));
+    height: 2px;
+    background: var(--P9);
+  }
+
+  .booking-journey__step:first-child::before {
+    inset-inline-start: 50%;
+    width: calc(50% + var(--booking-gap) / 2);
+  }
+
+  .booking-journey__step:last-child::before {
+    inset-inline-start: calc(var(--booking-gap) / -2);
+    width: calc(50% + var(--booking-gap) / 2 + var(--booking-overrun));
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--P9) 0,
+      var(--P9) calc(100% - var(--booking-overrun)),
+      transparent 100%
+    );
+  }
+
+  [dir="rtl"] .booking-journey__step:last-child::before {
+    background: linear-gradient(
+      to left,
+      var(--P9) 0,
+      var(--P9) calc(100% - var(--booking-overrun)),
+      transparent 100%
+    );
+  }
+}
+
+// --- motion -----------------------------------------------------------------
+// The rail wrapper is the scroll trigger; its own reveal transform is
+// neutralised so the thread and stations animate instead of the whole block.
+.js .booking-journey__rail.reveal {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.js .booking-journey__step-inner {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--reveal-item-duration) var(--ease-out),
+    transform var(--reveal-item-duration) var(--ease-out);
+  transition-delay: calc(var(--step-index, 0) * var(--reveal-stagger));
+  pointer-events: none;
+}
+
+.js .booking-journey__rail.is-visible .booking-journey__step-inner {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.js .booking-journey__step::before {
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 600ms var(--ease-out);
+  transition-delay: calc(var(--step-index, 0) * var(--reveal-stagger));
+}
+
+.js .booking-journey__rail.is-visible .booking-journey__step::before {
+  transform: scaleY(1);
+}
+
+@media (min-width: 768px) {
+  .js .booking-journey__step::before {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .js .booking-journey__rail.is-visible .booking-journey__step::before {
+    transform: scaleX(1);
+  }
+
+  [dir="rtl"] .js .booking-journey__step::before {
+    transform-origin: right center;
+  }
+}
+
+// Gentler, not zero: the thread simply renders complete; stations fade.
+@media (prefers-reduced-motion: reduce) {
+  .js .booking-journey__step-inner {
+    transform: translateY(8px);
+    transition-duration: 150ms;
+    transition-delay: 0ms;
+  }
+
+  .js .booking-journey__step::before {
+    transform: none;
+    transition: none;
+  }
+}
