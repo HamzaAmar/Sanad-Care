@@ -305,7 +305,6 @@ const DocumentForm = ({ questions }: { questions: string[] }) => {
           />
         </div>
       )}
-
       <Paper flow="3" p="4" corner="3" background="B3" border className="doc-progress">
         <Flex items="center" justify="between" gap="3">
           <Text as="p" size="3" weight="6">

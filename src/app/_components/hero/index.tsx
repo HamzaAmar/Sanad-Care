@@ -50,12 +50,10 @@ const HeroSection = () => {
         <Paper flow="2">
           <Flex gap="4" className="hero-likes hero-animation">
             <AvatarGroup size="2">
-              {Array.from({ length: 4 }, (_, i) => (
-                <Avatar
-                  key={`hero-avatar-${5 + i}`}
-                  src={`https://picsum.photos/id/${5 + i}/200/200`}
-                />
-              ))}
+              <Avatar title="Sanad Care client" fallback="SB" />
+              <Avatar title="Sanad Care client" fallback="YE" />
+              <Avatar title="Sanad Care client" fallback="KT" />
+              <Avatar title="Sanad Care client" fallback="NR" />
             </AvatarGroup>
             <Flex gap="1" items="center">
               <Star width={16} fill="var(--W8)" stroke="var(--W8)" />
