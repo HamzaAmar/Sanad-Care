@@ -35,6 +35,633 @@ export interface ServiceTreeItem {
 }
 
 export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
+  "iv-therapy-marrakech": {
+    slug: "iv-therapy-marrakech",
+    category: "service",
+    title: {
+      en: "IV Therapy & Perfusion at Home in Marrakech",
+      fr: "Perfusion à Domicile à Marrakech",
+      ar: "تركيب المحاليل الوريدية بالمنزل في مراكش",
+    },
+    subtitle: {
+      en: "Professional Hydration, Vitamin Drips, and Intravenous Treatments",
+      fr: "Mise en place de perfusions de réhydratation ou de traitements IV",
+      ar: "تركيب محاليل التغذية والترطيب والعلاجات الوريدية باحترافية",
+    },
+    metaTitle: {
+      en: "IV Therapy Marrakech | Perfusion at Home",
+      fr: "Perfusion à Domicile Marrakech | Perfusion IV",
+      ar: "محلول وريدي منزلي مراكش | تركيب محاليل في المنزل",
+    },
+    metaDescription: {
+      en: "Get professional perfusion and IV therapy at home in Marrakech. Hydration drips, post-surgery IV treatments, and medical infusions managed by experienced nurses.",
+      fr: "Bénéficiez de perfusions et d'antibiothérapies IV à domicile à Marrakech. Réhydratation, suivi post-opératoire gérés par des infirmiers qualifiés.",
+      ar: "احصل على تركيب محاليل وريدية وعلاجات وريدية في منزلك بمراكش. محاليل الجفاف، محاليل ما بعد الجراحة تحت إشراف ممرضين ذوي خبرة.",
+    },
+    keywords: {
+      en: [
+        "IV therapy Marrakech",
+        "hydration drip Marrakech",
+        "hydration IV at home Marrakech",
+        "post surgery IV therapy Marrakech",
+      ],
+      fr: [
+        "perfusion à domicile Marrakech",
+        "perfusion IV Marrakech",
+        "perfusion de réhydratation à domicile",
+        "traitement intraveineux à domicile",
+      ],
+      ar: [
+        "تركيب محاليل وريدية بالمنزل مراكش",
+        "محلول فيتامينات منزلي مراكش",
+        "تغذية وريدية في المنزل بمراكش",
+        "محلول ترطيب في المنزل",
+      ],
+    },
+    description: {
+      en: "Our registered nurses specialize in installing and monitoring intravenous infusions at home. From physician-prescribed antibiotic perfusions to hydration and post-surgical support, we stay on-site during the treatment to ensure safety and comfort.",
+      fr: "Nos infirmiers diplômés d'État sont formés à la pose et au suivi de cathéters veineux et perfusions. Qu'il s'agisse d'antibiotiques ou de solutés de réhydratation, l'infirmier assure une surveillance clinique tout au long de la perfusion.",
+      ar: "يتخصص ممرضونا في تركيب ومراقبة المحاليل والأدوية الوريدية بالمنزل. بدءاً من المضادات الحيوية الوريدية الموصوفة إلى محاليل الجفاف، نضمن مراقبة مستمرة للمريض لسلامته.",
+    },
+    highlights: {
+      en: [
+        "Peripheral venous catheter placement",
+        "Continuous monitoring of drip rate and vital signs",
+        "Catheter care and complication prevention",
+        "Post-therapy clean-up and reporting",
+      ],
+      fr: [
+        "Pose sécurisée de cathéters veineux périphériques",
+        "Surveillance en continu du débit et des constantes vitales",
+        "Prévention du risque infectieux et contrôle du site de perfusion",
+        "Retrait du matériel et rapport d'intervention",
+      ],
+      ar: [
+        "تركيب القسطرة الوريدية الطرفية بأمان",
+        "مراقبة مستمرة لمعدل تدفق المحلول والعلامات الحيوية",
+        "العناية بالقسطرة والوقاية من الالتهابات الوريدية",
+        "إزالة المحلول وتوثيق التحديثات الطبية",
+      ],
+    },
+    faqs: {
+      en: [
+        {
+          q: "How long does a nurse stay for a perfusion?",
+          a: "The nurse remains present for the entire duration of the infusion (typically 45 minutes to 2 hours) to monitor the patient's reaction.",
+        },
+      ],
+      fr: [
+        {
+          q: "L'infirmier reste-t-il pendant toute la durée de la perfusion ?",
+          a: "Oui, l'infirmier reste sur place pour surveiller le déroulement (généralement de 45 minutes à 2 heures) et intervenir en cas de besoin.",
+        },
+      ],
+      ar: [
+        {
+          q: "كم من الوقت يبقى الممرض أثناء تركيب المحلول؟",
+          a: "يبقى الممرض متواجدًا طوال فترة تدفق المحلول (عادة من 45 دقيقة إلى ساعتين) لمراقبة استجابة المريض وضمان سلامته.",
+        },
+      ],
+    },
+  },
+  "elderly-care-marrakech": {
+    slug: "elderly-care-marrakech",
+    category: "service",
+    title: {
+      en: "Elderly & Senior Care at Home in Marrakech",
+      fr: "Aide et Soins aux Personnes Âgées à Domicile",
+      ar: "رعاية كبار السن في المنزل بمراكش",
+    },
+    subtitle: {
+      en: "Compassionate Caregiving, Medication Supervision, and Mobility Assistance",
+      fr: "Accompagnement bienveillant, suivi médical et aide à la mobilité pour seniors",
+      ar: "رعاية عطوفة، إشراف على الأدوية، ومساعدة في الحركة للمسنين",
+    },
+    metaTitle: {
+      en: "Elderly Care Marrakech | Senior Home Care Support",
+      fr: "Aide Personnes Âgées Marrakech | Garde Malade Senior",
+      ar: "رعاية مسنين مراكش | خدمة رعاية كبار السن بالمنزل",
+    },
+    metaDescription: {
+      en: "Compassionate home care for seniors in Marrakech. Registered nurses and caregivers for medication management, hygiene, mobility support, and daily monitoring.",
+      fr: "Accompagnement des seniors à domicile à Marrakech. Garde-malade qualifié pour aide à l'hygiène, prise de médicaments, sécurité et mobilité.",
+      ar: "رعاية منزلية عطوفة لكبار السن في مراكش. ممرضون ومقدمو رعاية للإشراف على الأدوية، النظافة الشخصية، المساعدة الحركية، والمتابعة الصحية اليومية.",
+    },
+    keywords: {
+      en: [
+        "elderly care Marrakech",
+        "senior care Marrakech",
+        "caregiver Marrakech",
+        "elderly care at home Marrakech",
+      ],
+      fr: [
+        "aide personnes âgées Marrakech",
+        "aide à domicile senior Marrakech",
+        "garde malade senior Marrakech",
+        "assistance personnes âgées",
+      ],
+      ar: [
+        "رعاية كبار السن مراكش",
+        "مرافق مسنين في مراكش",
+        "ممرض رعاية كبار السن بالمنزل",
+        "مساعدة المسنين في المنزل بمراكش",
+      ],
+    },
+    description: {
+      en: "Enable your elderly loved ones to maintain their independence in the comfort of their home. Sanad Care offers structured senior support including vitals tracking, medication organization, fall prevention, personal hygiene assistance, and warm companionship.",
+      fr: "Permettez à vos parents âgés de vieillir sereinement chez eux. Sanad Care propose un soutien structuré : gestion du pilulier, aide à la toilette, prévention des chutes, surveillance de l'alimentation et présence rassurante.",
+      ar: "ساعد والديك وكبار السن في عائلتك على العيش بسلام وراحة في منزلهم. يقدم سند كير رعاية كبار سن منظمة تشمل: تنظيم الأدوية، الوقاية من السقوط، المساعدة في النظافة الشخصية والمرافقة اليومية.",
+    },
+    highlights: {
+      en: [
+        "Medication preparation and adherence verification",
+        "Gentle assistance with bathing, dressing, and hygiene",
+        "Safe transfer and mobility support to prevent falls",
+        "Daily reports sent directly to families and children",
+      ],
+      fr: [
+        "Préparation du pilulier et vérification de la prise des médicaments",
+        "Aide douce à la toilette quotidienne et à l'habillage",
+        "Aide aux transferts et déplacements pour prévenir les chutes",
+        "Rapports réguliers envoyés aux enfants et à la famille",
+      ],
+      ar: [
+        "تحضير الأدوية والتأكد من تناولها في مواعيدها",
+        "مساعدة لطيفة ومحترمة في الاستحمام، النظافة والملابس",
+        "مساعدة في الحركة والتنقل لتفادي السقوط والإصابات",
+        "تقارير وتحديثات يومية ترسل مباشرة للأبناء والعائلة",
+      ],
+    },
+    faqs: {
+      en: [
+        {
+          q: "Do you offer 24/7 care for elderly patients?",
+          a: "Yes, we can arrange continuous 24/7 nurse-led supervision for seniors who cannot be left alone.",
+        },
+      ],
+      fr: [
+        {
+          q: "Proposez-vous une garde 24h/24 pour les personnes âgées ?",
+          a: "Oui, nous pouvons organiser une présence continue en relais (jour et nuit) pour les aînés en perte d'autonomie.",
+        },
+      ],
+      ar: [
+        {
+          q: "هل توفرون رعاية كبار السن على مدار الساعة؟",
+          a: "نعم، يمكننا ترتيب رعاية ومراقبة مستمرة على مدار الساعة للمسنين الذين يحتاجون إلى رعاية دائمة.",
+        },
+      ],
+    },
+  },
+
+  "alzheimers-care-marrakech": {
+    slug: "alzheimers-care-marrakech",
+    category: "service",
+    title: {
+      en: "Alzheimer's & Dementia Care at Home",
+      fr: "Accompagnement Alzheimer & Démence à Domicile",
+      ar: "رعاية مرضى الزهايمر والخرف في المنزل بمراكش",
+    },
+    subtitle: {
+      en: "Specialized Memory Care, Behavioral Support, and Safety Supervision",
+      fr: "Prise en charge spécialisée, repères et sécurité à domicile pour patients Alzheimer",
+      ar: "رعاية ذاكرة متخصصة، دعم سلوكي، وإشراف أمني كامل للمرضى",
+    },
+    metaTitle: {
+      en: "Alzheimer's Care Marrakech | Home Dementia Caregiver",
+      fr: "Accompagnement Alzheimer Marrakech | Démence à Domicile",
+      ar: "رعاية زهايمر منزلية مراكش | مرافق مرضى الخرف",
+    },
+    metaDescription: {
+      en: "Specialized home care for Alzheimer's and dementia patients in Marrakech. Patient, experienced caregivers ensuring safety, memory stimulation, and family respite.",
+      fr: "Soins spécialisés Alzheimer à domicile à Marrakech. Infirmiers formés pour assurer la sécurité, la stimulation cognitive et le répit des proches.",
+      ar: "رعاية منزلية متخصصة لمرضى الزهايمر والخرف في مراكش. ممرضون ومقدمو رعاية يتمتعون بالصبر والخبرة لضمان السلامة وتنشيط الذاكرة.",
+    },
+    keywords: {
+      en: [
+        "Alzheimer care Marrakech",
+        "dementia care Marrakech",
+        "home care for Alzheimer patients Marrakech",
+        "dementia caregiver Marrakech",
+      ],
+      fr: [
+        "accompagnement Alzheimer Marrakech",
+        "démence care Marrakech",
+        "garde malade alzheimer Marrakech",
+        "aide alzheimer à domicile",
+      ],
+      ar: [
+        "رعاية مرضى الزهايمر مراكش",
+        "مرافق مريض زهايمر بالمنزل",
+        "رعاية الخرف المنزلية بمراكش",
+        "مساعدة مرضى الزهايمر بالمنزل",
+      ],
+    },
+    description: {
+      en: "Caring for a family member with Alzheimer's is emotionally and physically exhausting. Our specialized caregivers and nurses provide a safe environment to prevent wandering, maintain structured daily routines, offer gentle cognitive stimulation, and give families essential respite.",
+      fr: "Accompagner un proche atteint d'Alzheimer requiert patience et expertise. Nos intervenants forment un cadre rassurant pour éviter la désorientation, stimuler les fonctions cognitives et alléger la charge mentale des aidants familiaux.",
+      ar: "تتطلب رعاية مريض الزهايمر أو الخرف صبراً وخبرة خاصة. يقدم مقدمو الرعاية لدينا بيئة آمنة تمنع ضياع المريض، وتتبع روتينًا يوميًا مريحًا يساعد في إبطاء التدهور المعرفي.",
+    },
+    highlights: {
+      en: [
+        "Continuous prevention of wandering and safety hazards",
+        "Structured routines to reduce agitation and anxiety",
+        "Cognitive exercises and memory reinforcement support",
+        "Respite care options for family members",
+      ],
+      fr: [
+        "Sécurisation du domicile et prévention des fugues",
+        "Mise en place de rituels quotidiens pour diminuer l'anxiété",
+        "Activités stimulantes douces adaptées au stade de la maladie",
+        "Relais pour permettre aux proches de souffler",
+      ],
+      ar: [
+        "تأمين المنزل المستمر ومنع خروج المريض بمفرده",
+        "تنظيم روتين يومي يقلل من القلق والاضطرابات السلوكية",
+        "تمارين إدراكية لطيفة وتنشيط مستمر للذاكرة",
+        "خيارات رعاية مؤقتة لإراحة أفراد العائلة ومساعدتهم",
+      ],
+    },
+    faqs: {
+      en: [
+        {
+          q: "How do your caregivers manage agitation?",
+          a: "Our staff is trained in non-verbal de-escalation techniques, validation therapy, and redirecting focus to calm anxious patients.",
+        },
+      ],
+      fr: [
+        {
+          q: "Comment vos équipes gèrent-elles l'agitation ?",
+          a: "Nos infirmiers utilisent des méthodes de diversion douce, de validation émotionnelle et d'apaisement par le ton et l'environnement.",
+        },
+      ],
+      ar: [
+        {
+          q: "كيف يتعامل مقدمو الرعاية مع عصبية مريض الزهايمر؟",
+          a: "يتم تدريب موظفينا على تقنيات التهدئة غير اللفظية، تفهم مشاعر المريض، وتوجيه انتباهه إلى أنشطة مهدئة أخرى.",
+        },
+      ],
+    },
+  },
+  "cancer-care-marrakech": {
+    slug: "cancer-care-marrakech",
+    category: "condition",
+    title: {
+      en: "Cancer Home Care & Nursing Support",
+      fr: "Soins en Oncologie et Cancer à Domicile",
+      ar: "رعاية مرضى السرطان في المنزل بمراكش",
+    },
+    subtitle: {
+      en: "Post-Chemotherapy Monitoring, Pain Relief, and Supportive Care",
+      fr: "Suivi post-chimiothérapie, soulagement des effets secondaires et soutien",
+      ar: "متابعة ما بعد العلاج الكيماوي، تخفيف الآلام، والدعم الصحي الشامل",
+    },
+    metaTitle: {
+      en: "Cancer Home Care Marrakech | Oncology Nursing Support",
+      fr: "Soins Cancer à Domicile Marrakech | Accompagnement Oncologie",
+      ar: "رعاية مرضى السرطان مراكش | تمريض منزلي لمرضى الأورام",
+    },
+    metaDescription: {
+      en: "Specialized cancer support care at home in Marrakech. Oncology nursing, chemotherapy side effects management, pain relief, and emotional support.",
+      fr: "Soins d'accompagnement du cancer à domicile à Marrakech. Suivi post-chimio, gestion de la douleur et écoute par des infirmiers spécialisés.",
+      ar: "رعاية منزلية متخصصة لدعم مرضى السرطان في مراكش. تمريض الأورام، إدارة الأعراض الجانبية للعلاج الكيماوي، وتخفيف الآلام بالمنزل.",
+    },
+    keywords: {
+      en: [
+        "Cancer Home Care Marrakech",
+        "oncology nurse Marrakech",
+        "post chemotherapy home care",
+        "palliative cancer care Marrakech",
+      ],
+      fr: [
+        "soins cancer Marrakech",
+        "infirmier oncologie Marrakech",
+        "suivi post chimiothérapie domicile",
+        "soins de support cancer Marrakech",
+      ],
+      ar: [
+        "رعاية مرضى السرطان مراكش",
+        "تمريض الأورام بالمنزل بمراكش",
+        "متابعة ما بعد الكيماوي في المنزل",
+        "تخفيف آلام السرطان بالمنزل",
+      ],
+    },
+    description: {
+      en: "Undergoing cancer treatment is a challenging journey. Our oncology-trained home nurses assist patients with post-chemotherapy side effects, hydration drips, venous access care (PICC line/Port-a-Cath cleaning), medication management, pain control, and psychological support.",
+      fr: "Faire face au cancer demande un accompagnement attentionné. Nos infirmiers prennent en charge la gestion des effets secondaires des traitements, l'entretien des voies veineuses (diffuseurs, chambres implantables) et le soulagement de la douleur.",
+      ar: "يتطلب علاج السرطان رعاية متخصصة. يقدم ممرضونا المؤهلون المتابعة الطبية بعد جلسات الكيماوي، تركيب محاليل الترطيب، العناية بالقسطرة الوريدية المركزية (PICC/Port-a-Cath)، وإدارة الآلام.",
+    },
+    highlights: {
+      en: [
+        "Maintenance and flush of central venous lines (Port-a-Cath, PICC)",
+        "Nausea, vomiting, and hydration management with IV drips",
+        "Prescribed pain therapy monitoring (morphine and derivatives)",
+        "Deep emotional support and active listening for patients",
+      ],
+      fr: [
+        "Entretien et rinçage des voies d'accès central (chambre implantable, PICC line)",
+        "Gestion des nausées et réhydratation par perfusion à domicile",
+        "Surveillance des antalgiques majeurs prescrits (morphine et dérivés)",
+        "Soutien psychologique fort et écoute attentive de la personne",
+      ],
+      ar: [
+        "العناية بالقسطرة الوريدية المركزية وغسلها (Port-a-Cath, PICC) بانتظام",
+        "إدارة الغثيان والقيء وتركيب محاليل التغذية والترطيب الوريدية",
+        "متابعة إعطاء مسكنات الألم القوية الموصوفة (المورفين ومشتقاته)",
+        "دعم معنوي ونفسي عميق والاستماع لمتطلبات المريض والمقربين منه",
+      ],
+    },
+    faqs: {
+      en: [
+        {
+          q: "Can you flush and care for a Port-a-Cath at home?",
+          a: "Yes, our registered nurses are certified in managing and flushing central venous lines under strict sterile protocols.",
+        },
+      ],
+      fr: [
+        {
+          q: "Pouvez-vous rincer une chambre implantable à domicile ?",
+          a: "Oui, nos infirmiers maîtrisent parfaitement les protocoles stériles de soin et de rinçage des chambres implantables (Port-a-Cath) et PICC lines.",
+        },
+      ],
+      ar: [
+        {
+          q: "هل يمكنكم تنظيف والعناية بـ Port-a-Cath في المنزل؟",
+          a: "نعم، ممرضونا مؤهلون تماماً للتعامل مع القسطرة الوريدية المركزية وغسلها تحت ظروف تعقيم معتمدة وصارمة.",
+        },
+      ],
+    },
+  },
+
+  "stroke-rehabilitation-marrakech": {
+    slug: "stroke-rehabilitation-marrakech",
+    category: "condition",
+    title: {
+      en: "Stroke Recovery & Rehabilitation Support",
+      fr: "Réadaptation et Suivi Post-AVC à Domicile",
+      ar: "التعافي وإعادة التأهيل بعد الجلطة الدماغية بالمنزل",
+    },
+    subtitle: {
+      en: "Nursing Monitoring, Mobility Recovery, and Complication Prevention",
+      fr: "Surveillance clinique post-AVC, prévention des récidives et mobilisation",
+      ar: "متابعة طبية بعد السكتة الدماغية، الوقاية من المضاعفات، وتسهيل الحركة",
+    },
+    metaTitle: {
+      en: "Stroke Rehabilitation Marrakech | Stroke Recovery Care",
+      fr: "Rééducation Post-AVC Marrakech | Suivi AVC Domicile",
+      ar: "تأهيل السكتة الدماغية مراكش | رعاية جلطة الدماغ بالمنزل",
+    },
+    metaDescription: {
+      en: "Dedicated stroke recovery care at home in Marrakech. Registered nurses and physiotherapists assisting with mobility, speech exercise support, and vital monitoring.",
+      fr: "Accompagnement post-AVC à domicile à Marrakech. Surveillance clinique, rééducation physique et aide à la reprise d'autonomie par nos équipes.",
+      ar: "رعاية تأهيلية متكاملة بعد الجلطة الدماغية بالمنزل في مراكش. يشارك ممرضونا وأخصائيو الترويض في استعادة الحركة والوقاية من جلطات جديدة.",
+    },
+    keywords: {
+      en: [
+        "Stroke Rehabilitation Marrakech",
+        "stroke recovery at home Marrakech",
+        "post stroke nurse Marrakech",
+        "hemiplegia home care",
+      ],
+      fr: [
+        "rééducation AVC Marrakech",
+        "soins post AVC à domicile",
+        "réadaptation hémiplégie domicile",
+        "surveillance récidive AVC",
+      ],
+      ar: [
+        "تأهيل جلطات الدماغ مراكش",
+        "التعافي من الجلطة الدماغية بالمنزل",
+        "ممرض لمريض الجلطة بمراكش",
+        "علاج الشلل النصفي بالمنزل",
+      ],
+    },
+    description: {
+      en: "Recovering from a stroke (AVC) requires a multidisciplinary effort and close medical supervision. We provide dedicated nursing monitoring to prevent recurrences, manage anticoagulant treatments, assist with daily transfers, and coordinate with home physiotherapists to restore motor functions.",
+      fr: "La récupération après un accident vasculaire cérébral (AVC) demande un suivi quotidien. Nos équipes assurent la surveillance de la tension, la gestion des traitements anticoagulants, l'aide aux transferts et coordonnent la kinésithérapie.",
+      ar: "يتطلب التعافي بعد السكتة الدماغية (AVC) رعاية دقيقة ومستمرة. يوفر ممرضونا مراقبة ضغط الدم والنبض، تنظيم أدوية السيولة والوقاية من الجلطات.",
+    },
+    highlights: {
+      en: [
+        "Strict tracking of blood pressure and cardiovascular indicators",
+        "Anticoagulant treatment tracking and compliance checking",
+        "Safe patient transfers and mobility exercises to prevent stiffness",
+        "Coordination with speech therapists and physiotherapists",
+      ],
+      fr: [
+        "Contrôle strict de la tension artérielle pour prévenir les récidives",
+        "Suivi précis des traitements anticoagulants et dosages (INR)",
+        "Mobilisation sécurisée pour stimuler la motricité et éviter la raideur",
+        "Liaison étroite avec les kinésithérapeutes et orthophonistes",
+      ],
+      ar: [
+        "مراقبة صارمة لضغط الدم ومؤشرات القلب لمنع تكرار الجلطة",
+        "تتبع أدوية السيولة وفحص تحاليل تخثر الدم (مثل INR)",
+        "مساعدة حركية آمنة لمنع تيبس العضلات والمفاصل",
+        "تنسيق مستمر مع أخصائيي العلاج الطبيعي والنطق",
+      ],
+    },
+    faqs: {
+      en: [
+        {
+          q: "How does Sanad Care support post-stroke mobility?",
+          a: "Our nurses assist with daily positioning and walking practice, and we can schedule a home physiotherapist for intensive motor rehabilitation.",
+        },
+      ],
+      fr: [
+        {
+          q: "Comment aidez-vous à la reprise de la marche post-AVC ?",
+          a: "Nos infirmiers aident aux mobilisations quotidiennes et nous pouvons programmer des séances régulières avec un kinésithérapeute partenaire à domicile.",
+        },
+      ],
+      ar: [
+        {
+          q: "كيف يساعد سند كير في تحسين حركة مريض الجلطة؟",
+          a: "يساعد ممرضونا في المشي والحركة اليومية الآمنة، ويمكننا جدولة أخصائي ترويض طبي منزلي لبرنامج حركي مكثف.",
+        },
+      ],
+    },
+  },
+
+  "parkinson-care-marrakech": {
+    slug: "parkinson-care-marrakech",
+    category: "condition",
+    title: {
+      en: "Parkinson's Disease Home Care in Marrakech",
+      fr: "Suivi de la Maladie de Parkinson à Domicile",
+      ar: "رعاية مرضى الباركنسون (الشلل الرعاش) بالمنزل",
+    },
+    subtitle: {
+      en: "Medication Timing, Mobility Support, and Daily Assistance",
+      fr: "Respect horaire des traitements, aide à la marche et autonomie",
+      ar: "تنظيم مواعيد الأدوية الدقيقة، دعم الحركة والمشية، ومساعدات الحياة اليومية",
+    },
+    metaTitle: {
+      en: "Parkinson's Care Marrakech | Parkinson Home Nursing",
+      fr: "Suivi Parkinson Marrakech | Aide Parkinson Domicile",
+      ar: "رعاية باركنسون مراكش | تمريض منزلي للشلل الرعاش",
+    },
+    metaDescription: {
+      en: "Get specialized Parkinson's disease home care in Marrakech. Registered nurses ensuring strict medication schedules, mobility support, and safety checks.",
+      fr: "Prise en charge de la maladie de Parkinson à domicile à Marrakech. Respect rigoureux des heures de traitement, aide à la marche et sécurité.",
+      ar: "احصل على رعاية منزلية متخصصة لمرضى الباركنسون في مراكش. ممرضون يضمنون الالتزام التام بمواعيد الأدوية والمساعدة الحركية لتفادي السقوط.",
+    },
+    keywords: {
+      en: [
+        "Parkinson Care Marrakech",
+        "home nurse Parkinson disease Marrakech",
+        "mobility support Parkinson",
+        "medication timing Parkinson",
+      ],
+      fr: [
+        "suivi Parkinson Marrakech",
+        "aide Parkinson à domicile",
+        "infirmier maladie Parkinson Marrakech",
+        "garde malade parkinsonien",
+      ],
+      ar: [
+        "رعاية باركنسون مراكش",
+        "ممرض منزلي للشلل الرعاش",
+        "تنظيم أدوية باركنسون بالمنزل",
+        "مساعدة الحركة لمرضى الباركنسون",
+      ],
+    },
+    description: {
+      en: "Parkinson's management requires highly strict medication timing to control tremors and rigidity. Our nurses help maintain this schedule, assist patients during 'off' periods, support safe walking to prevent falls, and encourage exercises to preserve motor skills.",
+      fr: "La gestion de la maladie de Parkinson repose sur une prise médicamenteuse à heures très précises. Nos infirmiers veillent au respect de ce rythme, soutiennent le patient lors des phases de blocage et sécurisent les déplacements.",
+      ar: "تعتمد السيطرة على أعراض الباركنسون على تناول الأدوية في مواعيد دقيقة للغاية لمنع التصلب والارتعاش. يساعد ممرضونا في ضبط المنبهات الدوائية ومساعدة الحركة.",
+    },
+    highlights: {
+      en: [
+        "Strict administration of treatments (Levodopa/dopamine agonists) on time",
+        "Assistance with balance, transfers, and safety during walking",
+        "Facilitation of fine motor skill exercises",
+        "Nutritional monitoring to manage swallowing difficulties",
+      ],
+      fr: [
+        "Administration rigoureuse des traitements (Lévodopa) à heures fixes",
+        "Aide aux transferts et à la marche pour prévenir le risque de chute",
+        "Stimulation de la motricité fine et des exercices d'étirement",
+        "Surveillance de l'alimentation face aux risques de fausse route",
+      ],
+      ar: [
+        "إعطاء الأدوية بدقة متناهية وفي مواعيدها الثابتة (مثل ليفودوبا)",
+        "مساعدة التوازن والحركة أثناء المشي لتفادي السقوط",
+        "تشجيع المريض على القيام بتمارين حركية خفيفة",
+        "مراقبة البلع والتغذية لتفادي الاختناق وصعوبة البلع",
+      ],
+    },
+    faqs: {
+      en: [
+        {
+          q: "Why is medication timing so critical for Parkinson's?",
+          a: "Taking medication late can cause a sudden return of rigidity and tremors (the 'off' effect), making movements extremely difficult.",
+        },
+      ],
+      fr: [
+        {
+          q: "Pourquoi l'heure des médicaments est-elle si importante ?",
+          a: "Un retard dans la prise peut provoquer un retour soudain des blocages et des tremblements (effet 'off'), rendant tout mouvement impossible.",
+        },
+      ],
+      ar: [
+        {
+          q: "لماذا تعد مواعيد الأدوية مهمة جداً لمريض الباركنسون؟",
+          a: "لأن أي تأخير في تناول الدواء قد يؤدي إلى عودة التصلب والارتعاش بشكل مفاجئ (تأثير 'off')، مما يعيق حركة المريض تماماً.",
+        },
+      ],
+    },
+  },
+  "dementia-care-marrakech": {
+    slug: "dementia-care-marrakech",
+    category: "condition",
+    title: {
+      en: "Dementia Home Care Services in Marrakech",
+      fr: "Prise en Charge de la Démence à Domicile",
+      ar: "رعاية مرضى الخرف بالمنزل في مراكش",
+    },
+    subtitle: {
+      en: "Patient Behavioral Support, Memory Care, and Household Safety",
+      fr: "Suivi comportemental, stimulation cognitive et repères sécurisés",
+      ar: "الدعم السلوكي، تنشيط الذاكرة، وتهيئة المنزل لسلامة المريض",
+    },
+    metaTitle: {
+      en: "Dementia Care Marrakech | Dementia Home Nurse",
+      fr: "Suivi Démence Marrakech | Garde Malade Démence Domicile",
+      ar: "رعاية الخرف مراكش | جليس مريض الخرف بالمنزل",
+    },
+    metaDescription: {
+      en: "Professional dementia home care in Marrakech. Experienced nurses and caregivers for safety monitoring, behavioral stabilization, and memory support.",
+      fr: "Accompagnement de la démence à domicile à Marrakech. Garde-malade qualifié pour assurer la sécurité et la stimulation cognitive du patient.",
+      ar: "رعاية منزلية متخصصة لمرضى الخرف في مراكش. ممرضون ومقدمو رعاية للحفاظ على سلامة المريض، استقراره السلوكي وتنشيط ذاكرته.",
+    },
+    keywords: {
+      en: [
+        "dementia care Marrakech",
+        "home nurse dementia Marrakech",
+        "dementia caregiver Marrakech",
+        "vascular dementia care home",
+      ],
+      fr: [
+        "suivi démence Marrakech",
+        "garde malade démence Marrakech",
+        "aide démence à domicile",
+        "démence sénile accompagnement",
+      ],
+      ar: [
+        "رعاية الخرف مراكش",
+        "تمريض منزلي لمرضى الخرف",
+        "جليس مريض الخرف بالمنزل بمراكش",
+        "التعامل مع الخرف الشيخوخي",
+      ],
+    },
+    description: {
+      en: "Dementia conditions (including vascular and senile dementia) present complex behavioral challenges. Our caregivers offer experienced support to manage mood shifts, create a secure physical environment to prevent accidents, establish reassuring daily structures, and support general health.",
+      fr: "Les démences (séniles, vasculaires...) entraînent des troubles cognitifs et comportementaux complexes. Nos intervenants proposent une garde sécurisante, préviennent les accidents domestiques et instaurent un cadre quotidien stable.",
+      ar: "يتسبب الخرف (بأنواعه المختلفة كالأوعية الدموية والشيخوخي) في اضطرابات سلوكية ومعرفية صعبة. يوفر فريقنا بيئة منزلية هادئة تحمي المريض وتمنع تقلب المزاج.",
+    },
+    highlights: {
+      en: [
+        "Creation of a safe living space to prevent falls and disorientation",
+        "Soft redirection techniques to manage anxiety and wandering",
+        "Cognitive exercises and memory games",
+        "Comprehensive health monitoring and family support",
+      ],
+      fr: [
+        "Aménagement sécurisé de l'espace de vie pour éviter les accidents",
+        "Techniques d'apaisement pour canaliser l'errance ou l'agitation",
+        "Jeux de mémoire et exercices cognitifs adaptés",
+        "Suivi de l'état de santé général et écoute des aidants",
+      ],
+      ar: [
+        "تهيئة مساحة معيشية آمنة تمنع السقوط أو تيهان المريض",
+        "أساليب تهدئة لطيفة للتعامل مع التوتر والمشي المتكرر بلا هدف",
+        "ألعاب تنشيط الذاكرة وتمارين الإدراك المعرفي",
+        "متابعة صحية شاملة ودعم مستمر لأفراد الأسرة",
+      ],
+    },
+    faqs: {
+      en: [
+        {
+          q: "How do you handle memory loss confusion?",
+          a: "We avoid arguing or correcting the patient. Instead, we validate their feelings, use simple terms, and gently redirect their attention to comforting activities.",
+        },
+      ],
+      fr: [
+        {
+          q: "Comment gérez-vous la confusion liée aux pertes de mémoire ?",
+          a: "Nous évitons de contredire le patient. Nous validons son ressenti, parlons calmement avec des mots simples et captons son intérêt sur une autre activité.",
+        },
+      ],
+      ar: [
+        {
+          q: "كيف تتعاملون مع تشتت المريض وفقدان الذاكرة؟",
+          a: "نتجنب تماماً مجادلة المريض أو تصحيحه بشدة. بدلاً من ذلك، نتفهم مشاعره، نتحدث بعبارات بسيطة، ونوجه انتباهه بلطف إلى شيء مريح ومألوف.",
+        },
+      ],
+    },
+  },
+
   "home-nursing-marrakech": {
     slug: "home-nursing-marrakech",
     category: "pillar",
@@ -412,96 +1039,6 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
     },
   },
 
-  "iv-therapy-marrakech": {
-    slug: "iv-therapy-marrakech",
-    category: "service",
-    title: {
-      en: "IV Therapy & Perfusion at Home in Marrakech",
-      fr: "Perfusion à Domicile à Marrakech",
-      ar: "تركيب المحاليل الوريدية بالمنزل في مراكش",
-    },
-    subtitle: {
-      en: "Professional Hydration, Vitamin Drips, and Intravenous Treatments",
-      fr: "Mise en place de perfusions de réhydratation ou de traitements IV",
-      ar: "تركيب محاليل التغذية والترطيب والعلاجات الوريدية باحترافية",
-    },
-    metaTitle: {
-      en: "IV Therapy Marrakech | Perfusion at Home",
-      fr: "Perfusion à Domicile Marrakech | Perfusion IV",
-      ar: "محلول وريدي منزلي مراكش | تركيب محاليل في المنزل",
-    },
-    metaDescription: {
-      en: "Get professional perfusion and IV therapy at home in Marrakech. Hydration drips, post-surgery IV treatments, and medical infusions managed by experienced nurses.",
-      fr: "Bénéficiez de perfusions et d'antibiothérapies IV à domicile à Marrakech. Réhydratation, suivi post-opératoire gérés par des infirmiers qualifiés.",
-      ar: "احصل على تركيب محاليل وريدية وعلاجات وريدية في منزلك بمراكش. محاليل الجفاف، محاليل ما بعد الجراحة تحت إشراف ممرضين ذوي خبرة.",
-    },
-    keywords: {
-      en: [
-        "IV therapy Marrakech",
-        "hydration drip Marrakech",
-        "hydration IV at home Marrakech",
-        "post surgery IV therapy Marrakech",
-      ],
-      fr: [
-        "perfusion à domicile Marrakech",
-        "perfusion IV Marrakech",
-        "perfusion de réhydratation à domicile",
-        "traitement intraveineux à domicile",
-      ],
-      ar: [
-        "تركيب محاليل وريدية بالمنزل مراكش",
-        "محلول فيتامينات منزلي مراكش",
-        "تغذية وريدية في المنزل بمراكش",
-        "محلول ترطيب في المنزل",
-      ],
-    },
-    description: {
-      en: "Our registered nurses specialize in installing and monitoring intravenous infusions at home. From physician-prescribed antibiotic perfusions to hydration and post-surgical support, we stay on-site during the treatment to ensure safety and comfort.",
-      fr: "Nos infirmiers diplômés d'État sont formés à la pose et au suivi de cathéters veineux et perfusions. Qu'il s'agisse d'antibiotiques ou de solutés de réhydratation, l'infirmier assure une surveillance clinique tout au long de la perfusion.",
-      ar: "يتخصص ممرضونا في تركيب ومراقبة المحاليل والأدوية الوريدية بالمنزل. بدءاً من المضادات الحيوية الوريدية الموصوفة إلى محاليل الجفاف، نضمن مراقبة مستمرة للمريض لسلامته.",
-    },
-    highlights: {
-      en: [
-        "Peripheral venous catheter placement",
-        "Continuous monitoring of drip rate and vital signs",
-        "Catheter care and complication prevention",
-        "Post-therapy clean-up and reporting",
-      ],
-      fr: [
-        "Pose sécurisée de cathéters veineux périphériques",
-        "Surveillance en continu du débit et des constantes vitales",
-        "Prévention du risque infectieux et contrôle du site de perfusion",
-        "Retrait du matériel et rapport d'intervention",
-      ],
-      ar: [
-        "تركيب القسطرة الوريدية الطرفية بأمان",
-        "مراقبة مستمرة لمعدل تدفق المحلول والعلامات الحيوية",
-        "العناية بالقسطرة والوقاية من الالتهابات الوريدية",
-        "إزالة المحلول وتوثيق التحديثات الطبية",
-      ],
-    },
-    faqs: {
-      en: [
-        {
-          q: "How long does a nurse stay for a perfusion?",
-          a: "The nurse remains present for the entire duration of the infusion (typically 45 minutes to 2 hours) to monitor the patient's reaction.",
-        },
-      ],
-      fr: [
-        {
-          q: "L'infirmier reste-t-il pendant toute la durée de la perfusion ?",
-          a: "Oui, l'infirmier reste sur place pour surveiller le déroulement (généralement de 45 minutes à 2 heures) et intervenir en cas de besoin.",
-        },
-      ],
-      ar: [
-        {
-          q: "كم من الوقت يبقى الممرض أثناء تركيب المحلول؟",
-          a: "يبقى الممرض متواجدًا طوال فترة تدفق المحلول (عادة من 45 دقيقة إلى ساعتين) لمراقبة استجابة المريض وضمان سلامته.",
-        },
-      ],
-    },
-  },
-
   "wound-care-marrakech": {
     slug: "wound-care-marrakech",
     category: "service",
@@ -767,186 +1304,6 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
         {
           q: "كيف يتم تنظيم الاستشفاء المنزلي؟",
           a: "بناءً على طلب وتوجيهات طبيبك، نقوم بوضع خطة زيارات التمريض، توفير الأجهزة الطبية المطلوبة، وجدولة المتابعة الطبية اليومية للمريض.",
-        },
-      ],
-    },
-  },
-
-  "elderly-care-marrakech": {
-    slug: "elderly-care-marrakech",
-    category: "service",
-    title: {
-      en: "Elderly & Senior Care at Home in Marrakech",
-      fr: "Aide et Soins aux Personnes Âgées à Domicile",
-      ar: "رعاية كبار السن في المنزل بمراكش",
-    },
-    subtitle: {
-      en: "Compassionate Caregiving, Medication Supervision, and Mobility Assistance",
-      fr: "Accompagnement bienveillant, suivi médical et aide à la mobilité pour seniors",
-      ar: "رعاية عطوفة، إشراف على الأدوية، ومساعدة في الحركة للمسنين",
-    },
-    metaTitle: {
-      en: "Elderly Care Marrakech | Senior Home Care Support",
-      fr: "Aide Personnes Âgées Marrakech | Garde Malade Senior",
-      ar: "رعاية مسنين مراكش | خدمة رعاية كبار السن بالمنزل",
-    },
-    metaDescription: {
-      en: "Compassionate home care for seniors in Marrakech. Registered nurses and caregivers for medication management, hygiene, mobility support, and daily monitoring.",
-      fr: "Accompagnement des seniors à domicile à Marrakech. Garde-malade qualifié pour aide à l'hygiène, prise de médicaments, sécurité et mobilité.",
-      ar: "رعاية منزلية عطوفة لكبار السن في مراكش. ممرضون ومقدمو رعاية للإشراف على الأدوية، النظافة الشخصية، المساعدة الحركية، والمتابعة الصحية اليومية.",
-    },
-    keywords: {
-      en: [
-        "elderly care Marrakech",
-        "senior care Marrakech",
-        "caregiver Marrakech",
-        "elderly care at home Marrakech",
-      ],
-      fr: [
-        "aide personnes âgées Marrakech",
-        "aide à domicile senior Marrakech",
-        "garde malade senior Marrakech",
-        "assistance personnes âgées",
-      ],
-      ar: [
-        "رعاية كبار السن مراكش",
-        "مرافق مسنين في مراكش",
-        "ممرض رعاية كبار السن بالمنزل",
-        "مساعدة المسنين في المنزل بمراكش",
-      ],
-    },
-    description: {
-      en: "Enable your elderly loved ones to maintain their independence in the comfort of their home. Sanad Care offers structured senior support including vitals tracking, medication organization, fall prevention, personal hygiene assistance, and warm companionship.",
-      fr: "Permettez à vos parents âgés de vieillir sereinement chez eux. Sanad Care propose un soutien structuré : gestion du pilulier, aide à la toilette, prévention des chutes, surveillance de l'alimentation et présence rassurante.",
-      ar: "ساعد والديك وكبار السن في عائلتك على العيش بسلام وراحة في منزلهم. يقدم سند كير رعاية كبار سن منظمة تشمل: تنظيم الأدوية، الوقاية من السقوط، المساعدة في النظافة الشخصية والمرافقة اليومية.",
-    },
-    highlights: {
-      en: [
-        "Medication preparation and adherence verification",
-        "Gentle assistance with bathing, dressing, and hygiene",
-        "Safe transfer and mobility support to prevent falls",
-        "Daily reports sent directly to families and children",
-      ],
-      fr: [
-        "Préparation du pilulier et vérification de la prise des médicaments",
-        "Aide douce à la toilette quotidienne et à l'habillage",
-        "Aide aux transferts et déplacements pour prévenir les chutes",
-        "Rapports réguliers envoyés aux enfants et à la famille",
-      ],
-      ar: [
-        "تحضير الأدوية والتأكد من تناولها في مواعيدها",
-        "مساعدة لطيفة ومحترمة في الاستحمام، النظافة والملابس",
-        "مساعدة في الحركة والتنقل لتفادي السقوط والإصابات",
-        "تقارير وتحديثات يومية ترسل مباشرة للأبناء والعائلة",
-      ],
-    },
-    faqs: {
-      en: [
-        {
-          q: "Do you offer 24/7 care for elderly patients?",
-          a: "Yes, we can arrange continuous 24/7 nurse-led supervision for seniors who cannot be left alone.",
-        },
-      ],
-      fr: [
-        {
-          q: "Proposez-vous une garde 24h/24 pour les personnes âgées ?",
-          a: "Oui, nous pouvons organiser une présence continue en relais (jour et nuit) pour les aînés en perte d'autonomie.",
-        },
-      ],
-      ar: [
-        {
-          q: "هل توفرون رعاية كبار السن على مدار الساعة؟",
-          a: "نعم، يمكننا ترتيب رعاية ومراقبة مستمرة على مدار الساعة للمسنين الذين يحتاجون إلى رعاية دائمة.",
-        },
-      ],
-    },
-  },
-
-  "alzheimers-care-marrakech": {
-    slug: "alzheimers-care-marrakech",
-    category: "service",
-    title: {
-      en: "Alzheimer's & Dementia Care at Home",
-      fr: "Accompagnement Alzheimer & Démence à Domicile",
-      ar: "رعاية مرضى الزهايمر والخرف في المنزل بمراكش",
-    },
-    subtitle: {
-      en: "Specialized Memory Care, Behavioral Support, and Safety Supervision",
-      fr: "Prise en charge spécialisée, repères et sécurité à domicile pour patients Alzheimer",
-      ar: "رعاية ذاكرة متخصصة، دعم سلوكي، وإشراف أمني كامل للمرضى",
-    },
-    metaTitle: {
-      en: "Alzheimer's Care Marrakech | Home Dementia Caregiver",
-      fr: "Accompagnement Alzheimer Marrakech | Démence à Domicile",
-      ar: "رعاية زهايمر منزلية مراكش | مرافق مرضى الخرف",
-    },
-    metaDescription: {
-      en: "Specialized home care for Alzheimer's and dementia patients in Marrakech. Patient, experienced caregivers ensuring safety, memory stimulation, and family respite.",
-      fr: "Soins spécialisés Alzheimer à domicile à Marrakech. Infirmiers formés pour assurer la sécurité, la stimulation cognitive et le répit des proches.",
-      ar: "رعاية منزلية متخصصة لمرضى الزهايمر والخرف في مراكش. ممرضون ومقدمو رعاية يتمتعون بالصبر والخبرة لضمان السلامة وتنشيط الذاكرة.",
-    },
-    keywords: {
-      en: [
-        "Alzheimer care Marrakech",
-        "dementia care Marrakech",
-        "home care for Alzheimer patients Marrakech",
-        "dementia caregiver Marrakech",
-      ],
-      fr: [
-        "accompagnement Alzheimer Marrakech",
-        "démence care Marrakech",
-        "garde malade alzheimer Marrakech",
-        "aide alzheimer à domicile",
-      ],
-      ar: [
-        "رعاية مرضى الزهايمر مراكش",
-        "مرافق مريض زهايمر بالمنزل",
-        "رعاية الخرف المنزلية بمراكش",
-        "مساعدة مرضى الزهايمر بالمنزل",
-      ],
-    },
-    description: {
-      en: "Caring for a family member with Alzheimer's is emotionally and physically exhausting. Our specialized caregivers and nurses provide a safe environment to prevent wandering, maintain structured daily routines, offer gentle cognitive stimulation, and give families essential respite.",
-      fr: "Accompagner un proche atteint d'Alzheimer requiert patience et expertise. Nos intervenants forment un cadre rassurant pour éviter la désorientation, stimuler les fonctions cognitives et alléger la charge mentale des aidants familiaux.",
-      ar: "تتطلب رعاية مريض الزهايمر أو الخرف صبراً وخبرة خاصة. يقدم مقدمو الرعاية لدينا بيئة آمنة تمنع ضياع المريض، وتتبع روتينًا يوميًا مريحًا يساعد في إبطاء التدهور المعرفي.",
-    },
-    highlights: {
-      en: [
-        "Continuous prevention of wandering and safety hazards",
-        "Structured routines to reduce agitation and anxiety",
-        "Cognitive exercises and memory reinforcement support",
-        "Respite care options for family members",
-      ],
-      fr: [
-        "Sécurisation du domicile et prévention des fugues",
-        "Mise en place de rituels quotidiens pour diminuer l'anxiété",
-        "Activités stimulantes douces adaptées au stade de la maladie",
-        "Relais pour permettre aux proches de souffler",
-      ],
-      ar: [
-        "تأمين المنزل المستمر ومنع خروج المريض بمفرده",
-        "تنظيم روتين يومي يقلل من القلق والاضطرابات السلوكية",
-        "تمارين إدراكية لطيفة وتنشيط مستمر للذاكرة",
-        "خيارات رعاية مؤقتة لإراحة أفراد العائلة ومساعدتهم",
-      ],
-    },
-    faqs: {
-      en: [
-        {
-          q: "How do your caregivers manage agitation?",
-          a: "Our staff is trained in non-verbal de-escalation techniques, validation therapy, and redirecting focus to calm anxious patients.",
-        },
-      ],
-      fr: [
-        {
-          q: "Comment vos équipes gèrent-elles l'agitation ?",
-          a: "Nos infirmiers utilisent des méthodes de diversion douce, de validation émotionnelle et d'apaisement par le ton et l'environnement.",
-        },
-      ],
-      ar: [
-        {
-          q: "كيف يتعامل مقدمو الرعاية مع عصبية مريض الزهايمر؟",
-          a: "يتم تدريب موظفينا على تقنيات التهدئة غير اللفظية، تفهم مشاعر المريض، وتوجيه انتباهه إلى أنشطة مهدئة أخرى.",
         },
       ],
     },
@@ -1847,366 +2204,6 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
         {
           q: "ماذا أفعل إذا ظل قياس ضغط دمي مرتفعاً؟",
           a: "يقوم ممرضونا بتسجيل قياساتك وإبلاغ طبيبك المعالج على الفور إذا تجاوزت القراءات المعدلات الآمنة المحددة لك.",
-        },
-      ],
-    },
-  },
-
-  "cancer-care-marrakech": {
-    slug: "cancer-care-marrakech",
-    category: "condition",
-    title: {
-      en: "Cancer Home Care & Nursing Support",
-      fr: "Soins en Oncologie et Cancer à Domicile",
-      ar: "رعاية مرضى السرطان في المنزل بمراكش",
-    },
-    subtitle: {
-      en: "Post-Chemotherapy Monitoring, Pain Relief, and Supportive Care",
-      fr: "Suivi post-chimiothérapie, soulagement des effets secondaires et soutien",
-      ar: "متابعة ما بعد العلاج الكيماوي، تخفيف الآلام، والدعم الصحي الشامل",
-    },
-    metaTitle: {
-      en: "Cancer Home Care Marrakech | Oncology Nursing Support",
-      fr: "Soins Cancer à Domicile Marrakech | Accompagnement Oncologie",
-      ar: "رعاية مرضى السرطان مراكش | تمريض منزلي لمرضى الأورام",
-    },
-    metaDescription: {
-      en: "Specialized cancer support care at home in Marrakech. Oncology nursing, chemotherapy side effects management, pain relief, and emotional support.",
-      fr: "Soins d'accompagnement du cancer à domicile à Marrakech. Suivi post-chimio, gestion de la douleur et écoute par des infirmiers spécialisés.",
-      ar: "رعاية منزلية متخصصة لدعم مرضى السرطان في مراكش. تمريض الأورام، إدارة الأعراض الجانبية للعلاج الكيماوي، وتخفيف الآلام بالمنزل.",
-    },
-    keywords: {
-      en: [
-        "Cancer Home Care Marrakech",
-        "oncology nurse Marrakech",
-        "post chemotherapy home care",
-        "palliative cancer care Marrakech",
-      ],
-      fr: [
-        "soins cancer Marrakech",
-        "infirmier oncologie Marrakech",
-        "suivi post chimiothérapie domicile",
-        "soins de support cancer Marrakech",
-      ],
-      ar: [
-        "رعاية مرضى السرطان مراكش",
-        "تمريض الأورام بالمنزل بمراكش",
-        "متابعة ما بعد الكيماوي في المنزل",
-        "تخفيف آلام السرطان بالمنزل",
-      ],
-    },
-    description: {
-      en: "Undergoing cancer treatment is a challenging journey. Our oncology-trained home nurses assist patients with post-chemotherapy side effects, hydration drips, venous access care (PICC line/Port-a-Cath cleaning), medication management, pain control, and psychological support.",
-      fr: "Faire face au cancer demande un accompagnement attentionné. Nos infirmiers prennent en charge la gestion des effets secondaires des traitements, l'entretien des voies veineuses (diffuseurs, chambres implantables) et le soulagement de la douleur.",
-      ar: "يتطلب علاج السرطان رعاية متخصصة. يقدم ممرضونا المؤهلون المتابعة الطبية بعد جلسات الكيماوي، تركيب محاليل الترطيب، العناية بالقسطرة الوريدية المركزية (PICC/Port-a-Cath)، وإدارة الآلام.",
-    },
-    highlights: {
-      en: [
-        "Maintenance and flush of central venous lines (Port-a-Cath, PICC)",
-        "Nausea, vomiting, and hydration management with IV drips",
-        "Prescribed pain therapy monitoring (morphine and derivatives)",
-        "Deep emotional support and active listening for patients",
-      ],
-      fr: [
-        "Entretien et rinçage des voies d'accès central (chambre implantable, PICC line)",
-        "Gestion des nausées et réhydratation par perfusion à domicile",
-        "Surveillance des antalgiques majeurs prescrits (morphine et dérivés)",
-        "Soutien psychologique fort et écoute attentive de la personne",
-      ],
-      ar: [
-        "العناية بالقسطرة الوريدية المركزية وغسلها (Port-a-Cath, PICC) بانتظام",
-        "إدارة الغثيان والقيء وتركيب محاليل التغذية والترطيب الوريدية",
-        "متابعة إعطاء مسكنات الألم القوية الموصوفة (المورفين ومشتقاته)",
-        "دعم معنوي ونفسي عميق والاستماع لمتطلبات المريض والمقربين منه",
-      ],
-    },
-    faqs: {
-      en: [
-        {
-          q: "Can you flush and care for a Port-a-Cath at home?",
-          a: "Yes, our registered nurses are certified in managing and flushing central venous lines under strict sterile protocols.",
-        },
-      ],
-      fr: [
-        {
-          q: "Pouvez-vous rincer une chambre implantable à domicile ?",
-          a: "Oui, nos infirmiers maîtrisent parfaitement les protocoles stériles de soin et de rinçage des chambres implantables (Port-a-Cath) et PICC lines.",
-        },
-      ],
-      ar: [
-        {
-          q: "هل يمكنكم تنظيف والعناية بـ Port-a-Cath في المنزل؟",
-          a: "نعم، ممرضونا مؤهلون تماماً للتعامل مع القسطرة الوريدية المركزية وغسلها تحت ظروف تعقيم معتمدة وصارمة.",
-        },
-      ],
-    },
-  },
-
-  "stroke-rehabilitation-marrakech": {
-    slug: "stroke-rehabilitation-marrakech",
-    category: "condition",
-    title: {
-      en: "Stroke Recovery & Rehabilitation Support",
-      fr: "Réadaptation et Suivi Post-AVC à Domicile",
-      ar: "التعافي وإعادة التأهيل بعد الجلطة الدماغية بالمنزل",
-    },
-    subtitle: {
-      en: "Nursing Monitoring, Mobility Recovery, and Complication Prevention",
-      fr: "Surveillance clinique post-AVC, prévention des récidives et mobilisation",
-      ar: "متابعة طبية بعد السكتة الدماغية، الوقاية من المضاعفات، وتسهيل الحركة",
-    },
-    metaTitle: {
-      en: "Stroke Rehabilitation Marrakech | Stroke Recovery Care",
-      fr: "Rééducation Post-AVC Marrakech | Suivi AVC Domicile",
-      ar: "تأهيل السكتة الدماغية مراكش | رعاية جلطة الدماغ بالمنزل",
-    },
-    metaDescription: {
-      en: "Dedicated stroke recovery care at home in Marrakech. Registered nurses and physiotherapists assisting with mobility, speech exercise support, and vital monitoring.",
-      fr: "Accompagnement post-AVC à domicile à Marrakech. Surveillance clinique, rééducation physique et aide à la reprise d'autonomie par nos équipes.",
-      ar: "رعاية تأهيلية متكاملة بعد الجلطة الدماغية بالمنزل في مراكش. يشارك ممرضونا وأخصائيو الترويض في استعادة الحركة والوقاية من جلطات جديدة.",
-    },
-    keywords: {
-      en: [
-        "Stroke Rehabilitation Marrakech",
-        "stroke recovery at home Marrakech",
-        "post stroke nurse Marrakech",
-        "hemiplegia home care",
-      ],
-      fr: [
-        "rééducation AVC Marrakech",
-        "soins post AVC à domicile",
-        "réadaptation hémiplégie domicile",
-        "surveillance récidive AVC",
-      ],
-      ar: [
-        "تأهيل جلطات الدماغ مراكش",
-        "التعافي من الجلطة الدماغية بالمنزل",
-        "ممرض لمريض الجلطة بمراكش",
-        "علاج الشلل النصفي بالمنزل",
-      ],
-    },
-    description: {
-      en: "Recovering from a stroke (AVC) requires a multidisciplinary effort and close medical supervision. We provide dedicated nursing monitoring to prevent recurrences, manage anticoagulant treatments, assist with daily transfers, and coordinate with home physiotherapists to restore motor functions.",
-      fr: "La récupération après un accident vasculaire cérébral (AVC) demande un suivi quotidien. Nos équipes assurent la surveillance de la tension, la gestion des traitements anticoagulants, l'aide aux transferts et coordonnent la kinésithérapie.",
-      ar: "يتطلب التعافي بعد السكتة الدماغية (AVC) رعاية دقيقة ومستمرة. يوفر ممرضونا مراقبة ضغط الدم والنبض، تنظيم أدوية السيولة والوقاية من الجلطات.",
-    },
-    highlights: {
-      en: [
-        "Strict tracking of blood pressure and cardiovascular indicators",
-        "Anticoagulant treatment tracking and compliance checking",
-        "Safe patient transfers and mobility exercises to prevent stiffness",
-        "Coordination with speech therapists and physiotherapists",
-      ],
-      fr: [
-        "Contrôle strict de la tension artérielle pour prévenir les récidives",
-        "Suivi précis des traitements anticoagulants et dosages (INR)",
-        "Mobilisation sécurisée pour stimuler la motricité et éviter la raideur",
-        "Liaison étroite avec les kinésithérapeutes et orthophonistes",
-      ],
-      ar: [
-        "مراقبة صارمة لضغط الدم ومؤشرات القلب لمنع تكرار الجلطة",
-        "تتبع أدوية السيولة وفحص تحاليل تخثر الدم (مثل INR)",
-        "مساعدة حركية آمنة لمنع تيبس العضلات والمفاصل",
-        "تنسيق مستمر مع أخصائيي العلاج الطبيعي والنطق",
-      ],
-    },
-    faqs: {
-      en: [
-        {
-          q: "How does Sanad Care support post-stroke mobility?",
-          a: "Our nurses assist with daily positioning and walking practice, and we can schedule a home physiotherapist for intensive motor rehabilitation.",
-        },
-      ],
-      fr: [
-        {
-          q: "Comment aidez-vous à la reprise de la marche post-AVC ?",
-          a: "Nos infirmiers aident aux mobilisations quotidiennes et nous pouvons programmer des séances régulières avec un kinésithérapeute partenaire à domicile.",
-        },
-      ],
-      ar: [
-        {
-          q: "كيف يساعد سند كير في تحسين حركة مريض الجلطة؟",
-          a: "يساعد ممرضونا في المشي والحركة اليومية الآمنة، ويمكننا جدولة أخصائي ترويض طبي منزلي لبرنامج حركي مكثف.",
-        },
-      ],
-    },
-  },
-
-  "parkinson-care-marrakech": {
-    slug: "parkinson-care-marrakech",
-    category: "condition",
-    title: {
-      en: "Parkinson's Disease Home Care in Marrakech",
-      fr: "Suivi de la Maladie de Parkinson à Domicile",
-      ar: "رعاية مرضى الباركنسون (الشلل الرعاش) بالمنزل",
-    },
-    subtitle: {
-      en: "Medication Timing, Mobility Support, and Daily Assistance",
-      fr: "Respect horaire des traitements, aide à la marche et autonomie",
-      ar: "تنظيم مواعيد الأدوية الدقيقة، دعم الحركة والمشية، ومساعدات الحياة اليومية",
-    },
-    metaTitle: {
-      en: "Parkinson's Care Marrakech | Parkinson Home Nursing",
-      fr: "Suivi Parkinson Marrakech | Aide Parkinson Domicile",
-      ar: "رعاية باركنسون مراكش | تمريض منزلي للشلل الرعاش",
-    },
-    metaDescription: {
-      en: "Get specialized Parkinson's disease home care in Marrakech. Registered nurses ensuring strict medication schedules, mobility support, and safety checks.",
-      fr: "Prise en charge de la maladie de Parkinson à domicile à Marrakech. Respect rigoureux des heures de traitement, aide à la marche et sécurité.",
-      ar: "احصل على رعاية منزلية متخصصة لمرضى الباركنسون في مراكش. ممرضون يضمنون الالتزام التام بمواعيد الأدوية والمساعدة الحركية لتفادي السقوط.",
-    },
-    keywords: {
-      en: [
-        "Parkinson Care Marrakech",
-        "home nurse Parkinson disease Marrakech",
-        "mobility support Parkinson",
-        "medication timing Parkinson",
-      ],
-      fr: [
-        "suivi Parkinson Marrakech",
-        "aide Parkinson à domicile",
-        "infirmier maladie Parkinson Marrakech",
-        "garde malade parkinsonien",
-      ],
-      ar: [
-        "رعاية باركنسون مراكش",
-        "ممرض منزلي للشلل الرعاش",
-        "تنظيم أدوية باركنسون بالمنزل",
-        "مساعدة الحركة لمرضى الباركنسون",
-      ],
-    },
-    description: {
-      en: "Parkinson's management requires highly strict medication timing to control tremors and rigidity. Our nurses help maintain this schedule, assist patients during 'off' periods, support safe walking to prevent falls, and encourage exercises to preserve motor skills.",
-      fr: "La gestion de la maladie de Parkinson repose sur une prise médicamenteuse à heures très précises. Nos infirmiers veillent au respect de ce rythme, soutiennent le patient lors des phases de blocage et sécurisent les déplacements.",
-      ar: "تعتمد السيطرة على أعراض الباركنسون على تناول الأدوية في مواعيد دقيقة للغاية لمنع التصلب والارتعاش. يساعد ممرضونا في ضبط المنبهات الدوائية ومساعدة الحركة.",
-    },
-    highlights: {
-      en: [
-        "Strict administration of treatments (Levodopa/dopamine agonists) on time",
-        "Assistance with balance, transfers, and safety during walking",
-        "Facilitation of fine motor skill exercises",
-        "Nutritional monitoring to manage swallowing difficulties",
-      ],
-      fr: [
-        "Administration rigoureuse des traitements (Lévodopa) à heures fixes",
-        "Aide aux transferts et à la marche pour prévenir le risque de chute",
-        "Stimulation de la motricité fine et des exercices d'étirement",
-        "Surveillance de l'alimentation face aux risques de fausse route",
-      ],
-      ar: [
-        "إعطاء الأدوية بدقة متناهية وفي مواعيدها الثابتة (مثل ليفودوبا)",
-        "مساعدة التوازن والحركة أثناء المشي لتفادي السقوط",
-        "تشجيع المريض على القيام بتمارين حركية خفيفة",
-        "مراقبة البلع والتغذية لتفادي الاختناق وصعوبة البلع",
-      ],
-    },
-    faqs: {
-      en: [
-        {
-          q: "Why is medication timing so critical for Parkinson's?",
-          a: "Taking medication late can cause a sudden return of rigidity and tremors (the 'off' effect), making movements extremely difficult.",
-        },
-      ],
-      fr: [
-        {
-          q: "Pourquoi l'heure des médicaments est-elle si importante ?",
-          a: "Un retard dans la prise peut provoquer un retour soudain des blocages et des tremblements (effet 'off'), rendant tout mouvement impossible.",
-        },
-      ],
-      ar: [
-        {
-          q: "لماذا تعد مواعيد الأدوية مهمة جداً لمريض الباركنسون؟",
-          a: "لأن أي تأخير في تناول الدواء قد يؤدي إلى عودة التصلب والارتعاش بشكل مفاجئ (تأثير 'off')، مما يعيق حركة المريض تماماً.",
-        },
-      ],
-    },
-  },
-
-  "dementia-care-marrakech": {
-    slug: "dementia-care-marrakech",
-    category: "condition",
-    title: {
-      en: "Dementia Home Care Services in Marrakech",
-      fr: "Prise en Charge de la Démence à Domicile",
-      ar: "رعاية مرضى الخرف بالمنزل في مراكش",
-    },
-    subtitle: {
-      en: "Patient Behavioral Support, Memory Care, and Household Safety",
-      fr: "Suivi comportemental, stimulation cognitive et repères sécurisés",
-      ar: "الدعم السلوكي، تنشيط الذاكرة، وتهيئة المنزل لسلامة المريض",
-    },
-    metaTitle: {
-      en: "Dementia Care Marrakech | Dementia Home Nurse",
-      fr: "Suivi Démence Marrakech | Garde Malade Démence Domicile",
-      ar: "رعاية الخرف مراكش | جليس مريض الخرف بالمنزل",
-    },
-    metaDescription: {
-      en: "Professional dementia home care in Marrakech. Experienced nurses and caregivers for safety monitoring, behavioral stabilization, and memory support.",
-      fr: "Accompagnement de la démence à domicile à Marrakech. Garde-malade qualifié pour assurer la sécurité et la stimulation cognitive du patient.",
-      ar: "رعاية منزلية متخصصة لمرضى الخرف في مراكش. ممرضون ومقدمو رعاية للحفاظ على سلامة المريض، استقراره السلوكي وتنشيط ذاكرته.",
-    },
-    keywords: {
-      en: [
-        "dementia care Marrakech",
-        "home nurse dementia Marrakech",
-        "dementia caregiver Marrakech",
-        "vascular dementia care home",
-      ],
-      fr: [
-        "suivi démence Marrakech",
-        "garde malade démence Marrakech",
-        "aide démence à domicile",
-        "démence sénile accompagnement",
-      ],
-      ar: [
-        "رعاية الخرف مراكش",
-        "تمريض منزلي لمرضى الخرف",
-        "جليس مريض الخرف بالمنزل بمراكش",
-        "التعامل مع الخرف الشيخوخي",
-      ],
-    },
-    description: {
-      en: "Dementia conditions (including vascular and senile dementia) present complex behavioral challenges. Our caregivers offer experienced support to manage mood shifts, create a secure physical environment to prevent accidents, establish reassuring daily structures, and support general health.",
-      fr: "Les démences (séniles, vasculaires...) entraînent des troubles cognitifs et comportementaux complexes. Nos intervenants proposent une garde sécurisante, préviennent les accidents domestiques et instaurent un cadre quotidien stable.",
-      ar: "يتسبب الخرف (بأنواعه المختلفة كالأوعية الدموية والشيخوخي) في اضطرابات سلوكية ومعرفية صعبة. يوفر فريقنا بيئة منزلية هادئة تحمي المريض وتمنع تقلب المزاج.",
-    },
-    highlights: {
-      en: [
-        "Creation of a safe living space to prevent falls and disorientation",
-        "Soft redirection techniques to manage anxiety and wandering",
-        "Cognitive exercises and memory games",
-        "Comprehensive health monitoring and family support",
-      ],
-      fr: [
-        "Aménagement sécurisé de l'espace de vie pour éviter les accidents",
-        "Techniques d'apaisement pour canaliser l'errance ou l'agitation",
-        "Jeux de mémoire et exercices cognitifs adaptés",
-        "Suivi de l'état de santé général et écoute des aidants",
-      ],
-      ar: [
-        "تهيئة مساحة معيشية آمنة تمنع السقوط أو تيهان المريض",
-        "أساليب تهدئة لطيفة للتعامل مع التوتر والمشي المتكرر بلا هدف",
-        "ألعاب تنشيط الذاكرة وتمارين الإدراك المعرفي",
-        "متابعة صحية شاملة ودعم مستمر لأفراد الأسرة",
-      ],
-    },
-    faqs: {
-      en: [
-        {
-          q: "How do you handle memory loss confusion?",
-          a: "We avoid arguing or correcting the patient. Instead, we validate their feelings, use simple terms, and gently redirect their attention to comforting activities.",
-        },
-      ],
-      fr: [
-        {
-          q: "Comment gérez-vous la confusion liée aux pertes de mémoire ?",
-          a: "Nous évitons de contredire le patient. Nous validons son ressenti, parlons calmement avec des mots simples et captons son intérêt sur une autre activité.",
-        },
-      ],
-      ar: [
-        {
-          q: "كيف تتعاملون مع تشتت المريض وفقدان الذاكرة؟",
-          a: "نتجنب تماماً مجادلة المريض أو تصحيحه بشدة. بدلاً من ذلك، نتفهم مشاعره، نتحدث بعبارات بسيطة، ونوجه انتباهه بلطف إلى شيء مريح ومألوف.",
         },
       ],
     },
