@@ -13,17 +13,155 @@
 .service-card {
   transition: 0.3s;
   overflow: hidden;
+  // Stretched-link anchor: the CTA's overlay is positioned against the card so
+  // the whole surface is clickable while only one link is a tab stop.
+  position: relative;
+}
+
+// Only the CTA link navigates; its overlay covers the card. The call button is
+// lifted above it so it stays independently clickable.
+.service-card__cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+// Pillar presses the button with a transform on :active, and a transformed
+// element becomes the containing block for its own absolute children — that
+// would shrink the overlay to the button mid-press. Keep the box still.
+.service-card__cta:active {
+  transform: none;
+}
+
+.service-card__call {
+  position: relative;
+  z-index: 2;
+}
+
+.service-card__body {
+  padding-inline: 1rem;
+  padding-bottom: 1rem;
+}
+
+.service-card__facts {
+  display: grid;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.service-card__fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--B11);
+
+  svg {
+    flex: none;
+    margin-block-start: 0.1rem;
+    color: var(--P11);
+  }
+}
+
+.service-card__actions {
+  --button-transform: none;
+}
+
+.service-card__chip {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 0.6rem;
+  inset-inline-start: 0.6rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--B6);
+  // Solid rather than translucent: contrast has to hold over an arbitrary
+  // photograph, so the chip cannot borrow the photo's colours.
+  background: var(--B1);
+  color: var(--B12);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .service-card__media {
   position: relative;
+  // Contains the blend modes below to the thumbnail so they never tint the
+  // card surface behind it.
+  isolation: isolate;
+  // The shared timing for the hover reveal. Deliberately gentler than the
+  // global --ease-out, which front-loads ~95% of the change into the first
+  // 120ms and makes the reveal read as instant rather than animated.
+  --card-reveal: 520ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  img {
+    // The thumbnails come from different shoots with different white balance
+    // and exposure. Flatten the colour first so one wash can sit on top and
+    // bring the whole set into a single grade.
+    filter: grayscale(0.45) saturate(0.95) contrast(1.06) brightness(1.05);
+    transform: scale(1);
+    transition:
+      filter var(--card-reveal),
+      transform var(--card-reveal);
+  }
+
+  // Unifying grade: the same brand-hued wash over every thumbnail.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(155deg, color-mix(in srgb, var(--P9) 48%, transparent), transparent 64%),
+      linear-gradient(0deg, color-mix(in srgb, var(--P8) 30%, transparent), transparent 70%);
+    mix-blend-mode: soft-light;
+    opacity: 1;
+    transition: opacity var(--card-reveal);
+  }
 
   &::after {
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 2;
     pointer-events: none;
     background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.32) 100%);
+  }
+}
+
+// Reveal the photo's true colour and ease it in on hover, and on keyboard
+// focus anywhere in the card. The identity values are written out explicitly
+// rather than using `filter: none` because `none` cannot be interpolated —
+// the reveal would snap instead of animate.
+//
+// Only the image scales: the wash and the bottom scrim are siblings, so they
+// stay put and the zoom reads as the photo pushing through a fixed frame.
+.service-card:hover .service-card__media,
+.service-card:focus-within .service-card__media {
+  img {
+    filter: grayscale(0) saturate(1) contrast(1) brightness(1);
+    transform: scale(1.07);
+  }
+
+  &::before {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card__media img,
+  .service-card__media::before {
+    transition: none;
+  }
+
+  // Zoom is motion, so drop it entirely rather than letting it snap.
+  .service-card:hover .service-card__media img,
+  .service-card:focus-within .service-card__media img {
+    transform: none;
   }
 }
 

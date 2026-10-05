@@ -176,6 +176,17 @@
         "description": "Des solutions de suivi clinique et d'accompagnement à domicile conçues pour la convalescence et le confort à Marrakech.",
         "button": "Découvrir le programme"
       },
+      "card": {
+        "explore": "Découvrir {service}",
+        "callNow": "Appeler",
+        "subscriptionChip": "Formule mensuelle"
+      },
+      "proof": {
+        "nurses": "Infirmiers diplômés d'État",
+        "availability": "Disponibilité 24h/24",
+        "response": "Visite à domicile en moins de 60 min"
+      },
+      "subscriptionNote": "Les services affichant « Formule mensuelle » peuvent aussi être organisés en formule mensuelle ; tous restent disponibles à la séance.",
       "conditions": {
         "badge": "Accompagnement Pathologies",
         "title": "Soutien et Suivi pour Conditions Médicales",

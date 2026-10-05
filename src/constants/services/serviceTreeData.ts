@@ -24,6 +24,8 @@ export interface LocalizedFAQs {
 export interface ServiceTreeItem {
   slug: string;
   category: "pillar" | "service" | "condition";
+  subscriptionAvailable: boolean;
+  shortTitle: LocalizedText;
   title: LocalizedText;
   subtitle: LocalizedText;
   metaTitle: LocalizedText;
@@ -37,6 +39,8 @@ export interface ServiceTreeItem {
 export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   "iv-therapy-marrakech": {
     slug: "iv-therapy-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "IV therapy", fr: "Perfusion à domicile", ar: "المحاليل الوريدية" },
     category: "service",
     title: {
       en: "IV Therapy & Perfusion at Home in Marrakech",
@@ -126,6 +130,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   },
   "elderly-care-marrakech": {
     slug: "elderly-care-marrakech",
+    subscriptionAvailable: true,
+    shortTitle: { en: "Elderly care", fr: "Soins aux aînés", ar: "رعاية كبار السن" },
     category: "service",
     title: {
       en: "Elderly & Senior Care at Home in Marrakech",
@@ -216,6 +222,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "alzheimers-care-marrakech": {
     slug: "alzheimers-care-marrakech",
+    subscriptionAvailable: true,
+    shortTitle: { en: "Alzheimer's care", fr: "Alzheimer", ar: "رعاية الزهايمر" },
     category: "service",
     title: {
       en: "Alzheimer's & Dementia Care at Home",
@@ -305,6 +313,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   },
   "cancer-care-marrakech": {
     slug: "cancer-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Cancer support", fr: "Soins oncologiques", ar: "دعم مرضى السرطان" },
     category: "condition",
     title: {
       en: "Cancer Home Care & Nursing Support",
@@ -395,6 +405,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "stroke-rehabilitation-marrakech": {
     slug: "stroke-rehabilitation-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Stroke recovery", fr: "Après-AVC", ar: "التعافي بعد الجلطة" },
     category: "condition",
     title: {
       en: "Stroke Recovery & Rehabilitation Support",
@@ -485,6 +497,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "parkinson-care-marrakech": {
     slug: "parkinson-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Parkinson's care", fr: "Parkinson", ar: "رعاية باركنسون" },
     category: "condition",
     title: {
       en: "Parkinson's Disease Home Care in Marrakech",
@@ -574,6 +588,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   },
   "dementia-care-marrakech": {
     slug: "dementia-care-marrakech",
+    subscriptionAvailable: true,
+    shortTitle: { en: "Dementia care", fr: "Démence", ar: "رعاية الخرف" },
     category: "condition",
     title: {
       en: "Dementia Home Care Services in Marrakech",
@@ -664,6 +680,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "home-nursing-marrakech": {
     slug: "home-nursing-marrakech",
+    subscriptionAvailable: true,
+    shortTitle: { en: "Home nursing", fr: "Soins infirmiers", ar: "التمريض المنزلي" },
     category: "pillar",
     title: {
       en: "Home Nursing Services in Marrakech",
@@ -771,6 +789,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "nurse-at-home-marrakech": {
     slug: "nurse-at-home-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Nurse at home", fr: "Infirmier à domicile", ar: "ممرض في المنزل" },
     category: "service",
     title: {
       en: "Registered Nurse at Home in Marrakech",
@@ -861,6 +881,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "blood-test-at-home-marrakech": {
     slug: "blood-test-at-home-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Blood test", fr: "Prise de sang", ar: "سحب الدم" },
     category: "service",
     title: {
       en: "Blood Test & Collection at Home in Marrakech",
@@ -951,6 +973,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "injection-at-home-marrakech": {
     slug: "injection-at-home-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Injections", fr: "Injections", ar: "الحقن" },
     category: "service",
     title: {
       en: "Injection at Home in Marrakech",
@@ -1041,6 +1065,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "wound-care-marrakech": {
     slug: "wound-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Wound care", fr: "Soins des plaies", ar: "العناية بالجروح" },
     category: "service",
     title: {
       en: "Wound Care & Dressing Changes at Home",
@@ -1131,6 +1157,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "post-surgery-care-marrakech": {
     slug: "post-surgery-care-marrakech",
+    subscriptionAvailable: true,
+    shortTitle: { en: "Post-surgery care", fr: "Après-opératoire", ar: "ما بعد الجراحة" },
     category: "service",
     title: {
       en: "Post-Surgery Home Care in Marrakech",
@@ -1221,6 +1249,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "hospitalization-at-home-marrakech": {
     slug: "hospitalization-at-home-marrakech",
+    subscriptionAvailable: true,
+    shortTitle: { en: "Hospital at home", fr: "Hospitalisation à domicile", ar: "الاستشفاء المنزلي" },
     category: "service",
     title: {
       en: "Hospitalization at Home in Marrakech",
@@ -1311,6 +1341,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "palliative-care-marrakech": {
     slug: "palliative-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Palliative care", fr: "Soins palliatifs", ar: "الرعاية التلطيفية" },
     category: "service",
     title: {
       en: "Palliative & End of Life Care at Home",
@@ -1401,6 +1433,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "disability-care-marrakech": {
     slug: "disability-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Disability care", fr: "Handicap", ar: "رعاية ذوي الاحتياجات" },
     category: "service",
     title: {
       en: "Disability & Handicap Care at Home",
@@ -1491,6 +1525,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "physiotherapy-at-home-marrakech": {
     slug: "physiotherapy-at-home-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Physiotherapy", fr: "Kinésithérapie", ar: "العلاج الطبيعي" },
     category: "service",
     title: {
       en: "Physiotherapy at Home in Marrakech",
@@ -1581,6 +1617,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "postpartum-care-marrakech": {
     slug: "postpartum-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Postpartum care", fr: "Post-partum", ar: "رعاية ما بعد الولادة" },
     category: "service",
     title: {
       en: "Postpartum Care at Home in Marrakech",
@@ -1671,6 +1709,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "newborn-care-marrakech": {
     slug: "newborn-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Newborn care", fr: "Nouveau-né", ar: "رعاية المولود" },
     category: "service",
     title: {
       en: "Newborn Care at Home in Marrakech",
@@ -1761,6 +1801,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "chronic-disease-care-marrakech": {
     slug: "chronic-disease-care-marrakech",
+    subscriptionAvailable: true,
+    shortTitle: { en: "Chronic care", fr: "Maladies chroniques", ar: "الأمراض المزمنة" },
     category: "service",
     title: {
       en: "Chronic Disease Management at Home",
@@ -1851,6 +1893,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "night-care-marrakech": {
     slug: "night-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Night care", fr: "Garde de nuit", ar: "الرعاية الليلية" },
     category: "service",
     title: {
       en: "Night Care & Overnight Nurse Services",
@@ -1941,6 +1985,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "medical-assistance-tourists-marrakech": {
     slug: "medical-assistance-tourists-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Tourist assistance", fr: "Assistance touristes", ar: "مساعدة السياح" },
     category: "service",
     title: {
       en: "Medical Assistance for Tourists in Marrakech",
@@ -2031,6 +2077,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "diabetes-care-marrakech": {
     slug: "diabetes-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Diabetes care", fr: "Diabète", ar: "رعاية السكري" },
     category: "condition",
     title: {
       en: "Diabetes Home Care & Monitoring in Marrakech",
@@ -2121,6 +2169,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "hypertension-care-marrakech": {
     slug: "hypertension-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Hypertension", fr: "Hypertension", ar: "ضغط الدم" },
     category: "condition",
     title: {
       en: "Hypertension Monitoring & Care at Home",
@@ -2211,6 +2261,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "bedridden-patient-care-marrakech": {
     slug: "bedridden-patient-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Bedridden care", fr: "Patient alité", ar: "رعاية طريح الفراش" },
     category: "condition",
     title: {
       en: "Bedridden Patient Care at Home in Marrakech",
@@ -2301,6 +2353,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "pressure-ulcer-care-marrakech": {
     slug: "pressure-ulcer-care-marrakech",
+    subscriptionAvailable: false,
+    shortTitle: { en: "Pressure ulcers", fr: "Escarres", ar: "قرح الفراش" },
     category: "condition",
     title: {
       en: "Pressure Ulcer & Bedsore Treatment",

@@ -269,6 +269,17 @@
         "description": "Clinical follow-up and home assistance solutions designed for recovery and comfort in Marrakech.",
         "button": "Explore Program"
       },
+      "card": {
+        "explore": "Explore {service}",
+        "callNow": "Call now",
+        "subscriptionChip": "Monthly plan available"
+      },
+      "proof": {
+        "nurses": "Registered state nurses (IDE)",
+        "availability": "24/7 availability",
+        "response": "Home visit within 60 min"
+      },
+      "subscriptionNote": "Services showing a monthly plan badge can also be arranged as a monthly plan — every service remains available per session.",
       "conditions": {
         "badge": "Condition Support",
         "title": "Medical Condition Care & Support",

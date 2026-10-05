@@ -57,6 +57,9 @@ export function HomeNursingSeoSections() {
                   <ServiceCard
                     title={item.title[locale] || item.title.en}
                     description={item.description[locale] || item.description.en}
+                    shortTitle={item.shortTitle[locale] || item.shortTitle.en}
+                    highlights={item.highlights[locale] || item.highlights.en}
+                    subscriptionAvailable={item.subscriptionAvailable}
                     slug={item.slug}
                   />
                 </Reveal>
