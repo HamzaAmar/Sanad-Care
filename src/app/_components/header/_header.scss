@@ -21,6 +21,18 @@
   align-self: stretch;
 }
 
+.h-e-cta {
+  padding-inline: 1.15rem;
+  white-space: nowrap;
+  box-shadow: 0 8px 22px -12px color-mix(in srgb, var(--P9) 80%, transparent);
+}
+
+@media (max-width: 640px) {
+  .h-e-cta {
+    display: none;
+  }
+}
+
 .h-e-lst,
 .h-e-itm:not([data-mobile="true"]),
 .h-e-lnk {

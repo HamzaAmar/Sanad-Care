@@ -1,33 +1,37 @@
-import { Flex, Grid, Paper, Text } from "@pillar-ui/core";
+import { Heading, Text } from "@pillar-ui/core";
 import { CircleCheck } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import AnimatedSection from "@/app/_components/AnimatedSection";
+import Reveal from "@/app/_components/reveal";
 
 const TrustSignals = () => {
   const t = useTranslations("patient.page.trust");
   const signals = t.raw("signals") as string[];
 
   return (
-    <AnimatedSection title={t("title")} className="text-center">
-      <Grid cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }} gap="6">
-        {signals.map((signal, index) => (
-          <Flex
-            gap="4"
-            key={index}
-            className="delivery-section"
-            as={Paper}
-            p="4"
-            corner="2"
-            background="B1"
-          >
-            <CircleCheck width="24" stroke="var(--P11)" strokeWidth="1.5" />
-            <Text size="4" weight="5" align="center">
-              {signal}
-            </Text>
-          </Flex>
+    <section className="pat-block pat-trust">
+      <header className="pat-head">
+        <Reveal>
+          <Heading as="h2" size="7" weight="5" className="pat-title">
+            {t("title")}
+          </Heading>
+        </Reveal>
+      </header>
+
+      <ul className="pat-trust__list">
+        {signals.map((signal, i) => (
+          <li key={i}>
+            <Reveal variant="item" index={i} className="pat-trust__item">
+              <span className="pat-trust__icon" aria-hidden="true">
+                <CircleCheck width={22} stroke="currentColor" strokeWidth={1.7} />
+              </span>
+              <Text size="4" weight="5">
+                {signal}
+              </Text>
+            </Reveal>
+          </li>
         ))}
-      </Grid>
-    </AnimatedSection>
+      </ul>
+    </section>
   );
 };
 

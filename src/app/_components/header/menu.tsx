@@ -4,11 +4,11 @@ import { Flex } from "@pillar-ui/core";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 
-import { useMenuLinks } from "./header.data";
+import { useHeaderLinks } from "./header.data";
 
 export default function DesktopMenu() {
   const pathname = usePathname();
-  const LINKS = useMenuLinks();
+  const LINKS = useHeaderLinks();
 
   return (
     <nav className="luxury-nav slide-down-animation">

@@ -1,17 +1,22 @@
+/* =========================================================================
+   Shared hero primitives
+   `.hero-content`, `.hero-actions`, `.hero-action`, `.hero-badges` and
+   `.hero-animation` are still consumed by the venipuncture hero, so they stay
+   global. Everything new for the home hero is namespaced under `.hero__*`.
+   ========================================================================= */
+
 .hero {
-  height: calc(100vh - 6rem);
-  overflow: hidden;
   position: relative;
-  animation: shows 0.75s ease-in-out forwards;
-  background-color: var(--B2);
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(1rem, 2vw, 2rem) clamp(1rem, 4vw, 3rem) 0;
   border-radius: 2rem;
-  margin: 1rem;
-  // background-color: rgba(0, 0, 0, 0.1);
+  background: var(--B2);
+  animation: shows 0.75s ease-in-out forwards;
 }
 
-.hero-call-mail {
-  box-shadow: inset 0 0 16px var(--B4);
-  border-color: var(--B6);
+.dark .hero {
+  background: var(--B1);
 }
 
 @keyframes shows {
@@ -28,62 +33,15 @@
   animation: moves 1s calc(var(--id, 1) * 80ms) cubic-bezier(0, -0.35, 0.1, 1) forwards;
 }
 
-.hero-chips {
-  padding-inline: 0.75rem;
-}
-
-.hero-navigation-actions {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-  cursor: pointer;
-}
-
-.luxury-hero__glow {
-  position: absolute;
-  width: 40vmin;
-  height: 40vmin;
-  border-radius: 50%;
-  filter: blur(150px);
-  opacity: 0.25;
-  pointer-events: none;
-}
-.luxury-hero__glow--left {
-  left: -25vmin;
-  top: 20%;
-  background: var(--P8);
-  // animation: moves-hero 5s infinite alternate cubic-bezier(0.16, 1, 0.3, 1.5);
-  --translate: translate(50%, 50%);
-}
-
-.luxury-hero__glow--right {
-  right: -25vmin;
-  bottom: 20%;
-  background: var(--P7);
-  // animation: moves-hero 5s 2s infinite alternate ease-out;
-}
-
-@keyframes moves-hero {
+@keyframes moves {
   0% {
-    transform: var(--translate, translate(-50%, -50%)) rotate(0deg) scale(0.75);
+    transform: var(--moves, translateY(1rem));
+    opacity: 0;
   }
+
   100% {
-    transform: translate(0, 0) rotate(360deg) scale(1.3);
-  }
-}
-
-.hero-image {
-  width: 100%;
-  height: 16/9;
-
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    transform: none;
+    opacity: 1;
   }
 }
 
@@ -96,82 +54,21 @@
   height: 100%;
 }
 
-@media (max-width: 720px) {
-  .hero-bg {
-    display: none;
-  }
-
-  .hero-content {
-    border-radius: 0;
-    display: grid;
-    place-content: center;
-  }
-}
-
-.hero-title {
-  --id: 1;
-  font-size: clamp(1.85rem, 3.125vw, 6.5rem);
-  letter-spacing: 2px;
-  color: var(--B12);
-}
-
-.hero-description {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: var(--B11);
-  max-width: 800px;
-  --id: 2;
-  --moves: translateX(-2rem);
-}
 .hero-action {
   --id: 3;
   --moves: scale(0.95) translateY(10px);
+
   &:nth-child(2) {
     --id: 4;
     --moves: translateY(-10px) scale(0.95);
   }
 }
 
-.hero-likes {
-  background-color: var(--B1);
-  border: 1px solid var(--B2);
-  width: fit-content;
-  box-shadow:
-    0 4px 8px -2px rgba(0, 0, 0, 0.3),
-    inset 0 0 20px var(--B2);
-  padding: 0.5rem;
-  border-radius: 6px;
-  --id: 5;
-}
-
-.hero-bg {
-  animation: bounce-bg 3s ease-in-out infinite;
-  transform-origin: bottom;
-}
-
-@keyframes bounce-bg {
-  0% {
-    transform: scale(1) translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: scale(1.02) translateY(-6px) rotate(1deg);
-  }
-  100% {
-    transform: scale(1) translateY(0) rotate(0deg);
-  }
-}
-
-.hero-numbers {
-  --moves: translateX(-5px) scale(0.95);
-  transform-origin: left;
-  --id: 6;
-}
-
-.hero-information {
-  --moves: translateY(-2rem);
-  --id: 7;
-
-  &:first-child {
-    --moves: translateY(2rem);
+@media (max-width: 720px) {
+  .hero-content {
+    border-radius: 0;
+    display: grid;
+    place-content: center;
   }
 }
 
@@ -210,23 +107,618 @@
   }
 }
 
-@keyframes moves {
-  0% {
-    transform: var(--moves, translateY(1rem));
-    opacity: 0;
-  }
-
-  100% {
-    transform: none;
-    opacity: 1;
-  }
-}
-
 .call-action {
   display: block;
   padding: 0.5rem;
   border-radius: 4px;
   &:hover {
     background-color: var(--B3);
+  }
+}
+
+/* =========================================================================
+   Home hero
+   ========================================================================= */
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  /* Fixed tracks rather than fractions: keeps the copy and the narrow arch
+     close together instead of stranding the image in a wide empty column. */
+  .hero__inner {
+    grid-template-columns: minmax(0, 40rem) minmax(0, 20rem);
+    justify-content: center;
+  }
+}
+
+.hero__title {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--B12);
+  text-wrap: balance;
+}
+
+.hero__content {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 40rem;
+  min-width: 0;
+}
+
+/* --- Ambient depth ------------------------------------------------------ */
+
+.hero__glow {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+}
+
+.hero__glow--a {
+  inset-block-start: -18%;
+  inset-inline-start: 6%;
+  width: min(720px, 70vw);
+  height: min(720px, 70vw);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--P9) 26%, transparent),
+    transparent 70%
+  );
+}
+
+.hero__glow--b {
+  inset-block-end: -6%;
+  inset-inline-end: -8%;
+  width: min(560px, 60vw);
+  height: min(560px, 60vw);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--P7) 22%, transparent),
+    transparent 70%
+  );
+}
+
+.dark .hero__glow--a {
+  opacity: 0.55;
+}
+
+.dark .hero__glow--b {
+  opacity: 0.4;
+}
+
+.hero__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--B12) 8%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 4px 4px;
+  mask-image: radial-gradient(ellipse at center, #000 15%, transparent 72%);
+}
+
+.dark .hero__grain {
+  opacity: 0.3;
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--B1) 12%, transparent) 1px,
+    transparent 1px
+  );
+}
+
+/* --- Entrance motion ---------------------------------------------------- */
+
+.hero__anim {
+  animation: hero-rise 620ms var(--ease-out) both;
+  animation-delay: calc(var(--hero-step, 0) * 90ms);
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Copy --------------------------------------------------------------- */
+
+.hero__availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  width: fit-content;
+  border: 1px solid var(--B6);
+  border-radius: 999px;
+  background: var(--B1);
+  color: var(--B12);
+  box-shadow: inset 0 1px 0 var(--B4);
+}
+
+.hero__availability-sep {
+  color: var(--B10);
+}
+
+.hero__pulse {
+  position: relative;
+  flex: none;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--P9);
+}
+
+.hero__pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--P9);
+  animation: hero-pulse 2.4s ease-out infinite;
+}
+
+@keyframes hero-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+.hero__badge {
+  color: var(--P11);
+}
+
+.hero__subtitle {
+  max-width: 34rem;
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--B11);
+}
+
+/* --- Actions ------------------------------------------------------------ */
+
+.hero__action {
+  min-height: 2.5rem;
+  padding-inline: 1.5rem;
+  font-weight: 600;
+}
+
+.hero__action--primary {
+  position: relative;
+  box-shadow:
+    0 10px 30px -10px color-mix(in srgb, var(--P9) 65%, transparent),
+    0 0 0 0 color-mix(in srgb, var(--P9) 45%, transparent);
+  animation: hero-glow 3.2s ease-in-out infinite;
+}
+
+@keyframes hero-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 30px -10px color-mix(in srgb, var(--P9) 65%, transparent),
+      0 0 0 0 color-mix(in srgb, var(--P9) 40%, transparent);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 38px -10px color-mix(in srgb, var(--P9) 75%, transparent),
+      0 0 0 10px color-mix(in srgb, var(--P9) 0%, transparent);
+  }
+}
+
+.hero__actions-note {
+  margin-top: -0.35rem;
+  color: var(--B10);
+}
+
+/* --- Social proof ------------------------------------------------------- */
+
+.hero__proof {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+/* Built explicitly rather than via Avatar: the design-system avatar clips its
+   fallback text at these sizes. */
+.hero__avatars {
+  display: flex;
+}
+
+.hero__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-inline-start: -0.55rem;
+  border-radius: 50%;
+  border: 2px solid var(--B2);
+  background: linear-gradient(140deg, var(--P5), var(--P8));
+  color: var(--P12);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.hero__avatar:first-child {
+  margin-inline-start: 0;
+}
+
+.hero__proof-text {
+  display: grid;
+  gap: 0.1rem;
+  line-height: 1.35;
+}
+
+/* --- Stats -------------------------------------------------------------- */
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.5rem;
+  width: 100%;
+  margin: 0.4rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--B6);
+}
+
+@media (min-width: 560px) {
+  .hero__stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.hero__stat {
+  display: grid;
+  gap: 0.15rem;
+  padding-inline: 1.25rem;
+}
+
+/* Hairline dividers between the stats. Logical properties keep them on the
+   correct side in RTL. */
+.hero__stat + .hero__stat {
+  border-inline-start: 1px solid var(--B6);
+}
+
+.hero__stat:first-child {
+  padding-inline-start: 0;
+}
+
+/* Two columns: items 1 and 3 start a row, so they must not carry a divider. */
+@media (max-width: 559px) {
+  .hero__stat:nth-child(odd) {
+    border-inline-start: 0;
+    padding-inline-start: 0;
+  }
+}
+
+.hero__stat-value {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--B12);
+}
+
+.hero__stat-label {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: var(--B10);
+}
+
+/* --- Media -------------------------------------------------------------- */
+
+.hero__media {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  /* Sized so the whole hero (copy, arch and ticker) fits above the fold on a
+     1280x720 laptop once the header is accounted for. */
+  max-width: min(100%, 17rem);
+  aspect-ratio: 9 / 16;
+  /* Vertical radius of the arch dome: 9/16 of the height is half the width, so
+     28.125% gives a true semicircular top. Kept as a variable so the mobile
+     ratio can override it. */
+  --hero-arch-v: 28.125%;
+  --hero-arch-corner: 1.25rem;
+}
+
+/* The frame fills the media box exactly, so the floating cards anchor to the
+   image edges rather than to the wider grid track. */
+.hero__frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  /* Arched top — echoes the Marrakech doorways in the photograph. */
+  border-radius:
+    50% 50% var(--hero-arch-corner) var(--hero-arch-corner) /
+    var(--hero-arch-v) var(--hero-arch-v) var(--hero-arch-corner)
+    var(--hero-arch-corner);
+  border: 1px solid var(--B6);
+  box-shadow: var(--B4);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Soft accent bloom sitting behind the arch. */
+.hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 12% -14% -8%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 45%,
+    color-mix(in srgb, var(--P9) 26%, transparent),
+    transparent 68%
+  );
+  filter: blur(38px);
+  pointer-events: none;
+}
+
+.hero__frame-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 52%, color-mix(in srgb, var(--B2) 85%, transparent) 100%),
+    radial-gradient(
+      120% 90% at 50% 100%,
+      color-mix(in srgb, var(--B2) 60%, transparent),
+      transparent 60%
+    );
+}
+
+.dark .hero__frame-fade {
+  background:
+    linear-gradient(180deg, transparent 52%, color-mix(in srgb, var(--B1) 85%, transparent) 100%),
+    radial-gradient(
+      120% 90% at 50% 100%,
+      color-mix(in srgb, var(--B1) 60%, transparent),
+      transparent 60%
+    );
+}
+
+/* --- Floating glass cards ----------------------------------------------- */
+
+.hero__card {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  /* Kept in proportion to the arch so the cards annotate the photo rather
+     than cover it. */
+  max-width: 13rem;
+  border: 1px solid color-mix(in srgb, var(--B1) 22%, transparent);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--B1) 78%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 14px 36px -14px rgba(0, 0, 0, 0.45);
+  color: var(--B12);
+  transition: transform 260ms var(--ease-out);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.dark .hero__card {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--B1);
+}
+
+.hero__card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 0.55rem;
+  color: var(--P11);
+  background: color-mix(in srgb, var(--P9) 16%, transparent);
+}
+
+.hero__card-body {
+  display: grid;
+  gap: 0.05rem;
+  min-width: 0;
+}
+
+.hero__card-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.hero__card-meta {
+  font-size: 0.67rem;
+  line-height: 1.3;
+  color: var(--B10);
+}
+
+.dark .hero__card-meta {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.hero__card--enroute {
+  inset-block-start: 6%;
+  inset-inline-start: -5%;
+}
+
+.hero__card--recovery {
+  inset-block-end: 25%;
+  inset-inline-end: -6%;
+}
+
+.hero__card--rating {
+  inset-block-end: 3%;
+  inset-inline-start: -3%;
+}
+
+@media (max-width: 899px) {
+  .hero__media {
+    /* Cards stack underneath, so the box is content-sized; the frame carries
+       the ratio itself. Keeping 9:16 here avoids cropping the subject. */
+    aspect-ratio: auto;
+    max-width: min(100%, 18.7rem);
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .hero__frame {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 9 / 16;
+  }
+
+  .hero__card {
+    position: static;
+    max-width: none;
+  }
+}
+
+/* --- Services ticker ---------------------------------------------------- */
+
+.hero__ticker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  // Scroll container: keeps the nowrap marquee out of intrinsic width
+  // calculations so it cannot stretch the page on narrow viewports.
+  overflow: hidden;
+  max-width: 1400px;
+  margin: clamp(2rem, 4vw, 3.25rem) auto 0;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--B6);
+  border-bottom: 1px solid var(--B6);
+}
+
+.hero__ticker-label {
+  flex: none;
+  position: relative;
+  z-index: 1;
+  padding-inline: clamp(1rem, 4vw, 3rem) 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--B10);
+  background: var(--B2);
+}
+
+.dark .hero__ticker-label {
+  background: var(--B1);
+}
+
+.hero__ticker-viewport {
+  position: relative;
+  overflow: hidden;
+  flex: 1 1 auto;
+  // `width: 0` + grow lets the track fill the free space while contributing
+  // nothing to intrinsic width; `min-width: 0` allows it to shrink.
+  width: 0;
+  min-width: 0;
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.hero__ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: max-content;
+  animation: hero-marquee 42s linear infinite;
+}
+
+.hero__ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.25rem;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  color: var(--B11);
+
+  &::after {
+    content: "";
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background: var(--P9);
+    opacity: 0.7;
+  }
+}
+
+.hero__ticker:hover .hero__ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes hero-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Reduced motion ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__anim,
+  .hero__action--primary,
+  .hero__pulse::after {
+    animation: none;
+  }
+
+  .hero__ticker-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .hero__card {
+    transition: none;
   }
 }

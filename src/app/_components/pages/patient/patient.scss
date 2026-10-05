@@ -1,3 +1,7 @@
+/* ------------------------------------------------------------------
+   Shared AnimatedSection shell (used by patient, family and doctor)
+   Keep these intact — they are referenced outside this page.
+-------------------------------------------------------------------*/
 .patient-section {
   position: relative;
   overflow: hidden;
@@ -35,7 +39,6 @@
   margin-top: 2rem;
 }
 
-// grid layouts for specific sections
 .patient-grid {
   display: grid;
   gap: 2rem;
@@ -43,5 +46,405 @@
 
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Patient page — redesigned
+-------------------------------------------------------------------*/
+.patient-page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.75rem, 5vw, 5.5rem);
+}
+
+.pat-block {
+  display: grid;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+.pat-head {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 62ch;
+}
+
+.pat-title {
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.pat-lead {
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+/* --- Section 1: the patient's own voice -------------------------- */
+.pat-struggle {
+  grid-template-columns: 1fr;
+
+  @media (min-width: 900px) {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    column-gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+  }
+}
+
+.pat-struggle .pat-title {
+  font-size: clamp(1.95rem, 1.2rem + 3.4vw, 3.5rem);
+}
+
+.pat-struggle__intro {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.pat-voice {
+  display: grid;
+  align-content: start;
+}
+
+.pat-voice__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding-block: clamp(0.9rem, 2vw, 1.2rem);
+  border-block-start: 1px solid var(--B4);
+}
+
+.pat-voice li:last-child .pat-voice__item {
+  border-block-end: 1px solid var(--B4);
+}
+
+.pat-voice__mark {
+  width: 1.25rem;
+  height: 2px;
+  margin-block-start: 0.7rem;
+  border-radius: 2px;
+  background: var(--P9);
+}
+
+.pat-voice__text {
+  color: var(--B11);
+  text-wrap: pretty;
+}
+
+.pat-affirm {
+  grid-column: 1 / -1;
+  position: relative;
+  padding: clamp(1.5rem, 3.5vw, 2.35rem) clamp(1.5rem, 3.5vw, 2.75rem);
+  background: var(--P2);
+  border-inline-start: 4px solid var(--P9);
+  border-radius: 0.85rem;
+}
+
+.pat-affirm__text {
+  color: var(--P11);
+  font-size: clamp(1.15rem, 0.95rem + 1vw, 1.65rem);
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+
+/* --- Difference: the not / but transformation -------------------- */
+.pat-diff__list {
+  display: grid;
+}
+
+.pat-diff__item {
+  border-block-start: 1px solid var(--B5);
+}
+
+.pat-diff__item:last-child {
+  border-block-end: 1px solid var(--B5);
+}
+
+.pat-diff__row {
+  display: grid;
+  gap: 0.65rem 2rem;
+  padding-block: clamp(1.1rem, 2.6vw, 1.6rem);
+
+  @media (min-width: 780px) {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+  }
+}
+
+.pat-diff__not {
+  color: var(--B11);
+  font-size: var(--F4);
+  border-inline-start: 2px solid var(--B6);
+  padding-inline-start: 1rem;
+}
+
+.pat-diff__but {
+  color: var(--B12);
+  font-weight: 500;
+  border-inline-start: 3px solid var(--P9);
+  padding-inline-start: 1rem;
+  text-wrap: pretty;
+}
+
+/* --- Services ---------------------------------------------------- */
+.pat-services__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 820px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pat-service-card {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: var(--B2);
+  border: 1px solid var(--B4);
+  border-radius: 1.25rem;
+}
+
+.pat-service-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.pat-service-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  color: var(--P11);
+  background: linear-gradient(135deg, var(--P2), var(--P4));
+}
+
+.pat-service-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* --- Signature: a day in your life (timeline) -------------------- */
+.pat-day__wrap {
+  display: grid;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+.pat-timeline {
+  --pat-node: 2.85rem;
+  --pat-rail-gap: 1.75rem;
+  position: relative;
+}
+
+.pat-timeline__thread {
+  position: absolute;
+  inset-block: calc(var(--pat-node) / 2);
+  inset-inline-start: 0;
+  width: var(--pat-node);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pat-timeline__thread svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pat-timeline__thread path {
+  fill: none;
+  stroke: var(--P9);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.js .pat-timeline__thread path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.js .pat-day__wrap.is-visible .pat-timeline__thread path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.6s var(--ease-out) 0.15s;
+}
+
+.pat-timeline__list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+}
+
+.pat-timeline__item {
+  position: relative;
+  display: grid;
+  gap: 0.35rem;
+  padding-inline-start: calc(var(--pat-node) + var(--pat-rail-gap));
+  padding-block: clamp(0.9rem, 2.2vw, 1.35rem);
+  min-height: var(--pat-node);
+}
+
+.pat-timeline__node {
+  position: absolute;
+  inset-inline-start: 0;
+  top: clamp(0.9rem, 2.2vw, 1.35rem);
+  display: grid;
+  place-items: center;
+  width: var(--pat-node);
+  height: var(--pat-node);
+  border-radius: 50%;
+  color: var(--P11);
+  background: var(--B1);
+  box-shadow:
+    0 0 0 2px var(--P9),
+    0 10px 22px -12px var(--B9);
+}
+
+.pat-timeline__time {
+  color: var(--P11);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--F3);
+}
+
+.pat-timeline__body {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.js .pat-timeline__item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 130ms);
+}
+
+.js .pat-day__wrap.is-visible .pat-timeline__item {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Values: founder’s voice ------------------------------------- */
+.pat-values__inner {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  justify-items: center;
+  gap: 1.15rem;
+  text-align: center;
+  padding: clamp(2.25rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
+  border-radius: clamp(1rem, 3vw, 2rem);
+  background: var(--P11);
+  color: #fff;
+}
+
+.pat-values__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 15% 0%, rgb(255 255 255 / 0.14), transparent 55%);
+  pointer-events: none;
+}
+
+.pat-values__title {
+  color: #fff;
+  text-wrap: balance;
+}
+
+.pat-values__desc {
+  max-width: 60ch;
+  color: var(--P3);
+  text-wrap: pretty;
+}
+
+.pat-values__rule {
+  width: 3rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--P6);
+  margin-block-start: 0.5rem;
+}
+
+.pat-values__cta {
+  color: var(--P2);
+  font-size: var(--F5);
+  font-weight: 600;
+}
+
+/* --- Trust ------------------------------------------------------- */
+.pat-trust__list {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 980px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pat-trust__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--B2);
+  border: 1px solid var(--B4);
+  border-radius: 1rem;
+  height: 100%;
+}
+
+.pat-trust__icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--P9);
+}
+
+/* --- Philosophy art ---------------------------------------------- */
+.pat-philosophy {
+  @media (min-width: 900px) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: center;
+    column-gap: clamp(2.5rem, 6vw, 6rem);
+  }
+}
+
+.pat-philosophy__art {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border-radius: 50% 50% 48% 52% / 52% 48% 52% 48%;
+  background: radial-gradient(circle at 50% 40%, var(--P3), transparent 70%);
+}
+
+.pat-philosophy__art img {
+  display: block;
+  width: min(240px, 60vw);
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .pat-timeline__item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .js .pat-timeline__thread path,
+  .js .pat-day__wrap.is-visible .pat-timeline__thread path {
+    stroke-dashoffset: 0;
+    transition: none;
   }
 }

@@ -1,88 +1,177 @@
-import { Avatar, AvatarGroup, Button, Chips, Flex, Heading, Paper, Text } from "@pillar-ui/core";
-import { PhoneCall, Star, Whatsapp } from "@pillar-ui/icons";
+import { Button, Flex, Paper, Text } from "@pillar-ui/core";
+import { Ambulance, CircleCheck, Clock, PhoneCall, Star, Whatsapp } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import type { CSSProperties, ReactNode } from "react";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
+
+const HERO_IMAGE = "/images/hero/hero-care-portrait-9x16.avif";
+const HERO_IMAGE_WIDTH = 375;
+const HERO_IMAGE_HEIGHT = 667;
+
+const AVATARS = ["SB", "YE", "KT", "NR", "AM"];
+
+type CardKey = "enroute" | "recovery" | "rating";
+
+const CARD_ORDER: CardKey[] = ["enroute", "recovery", "rating"];
+
+const CARD_ICONS: Record<CardKey, ReactNode> = {
+  enroute: <Ambulance width={18} strokeWidth={1.6} />,
+  recovery: <CircleCheck width={18} strokeWidth={1.6} />,
+  rating: <Star width={18} fill="currentColor" strokeWidth={1.6} />,
+};
+
+type StatEntry = { value: string; label: string };
+type CardEntry = { title: string; meta: string };
 
 const HeroSection = () => {
   const t = useTranslations();
+  const stats = Object.values(t.raw("hero.stats") as unknown as Record<string, StatEntry>);
+  const cards = t.raw("hero.cards") as unknown as Record<CardKey, CardEntry>;
+  const tickerItems = t.raw("hero.ticker.items") as unknown as string[];
+
+  const step = (value: number) => ({ "--hero-step": value }) as CSSProperties;
 
   return (
-    <Flex
-      as={Paper}
-      flow="4"
-      items="center"
-      justify="center"
-      className="hero"
-      aria-label="Hero Car Carousel"
-    >
-      <div className="luxury-hero__noise" />
-      <div className="luxury-hero__glow luxury-hero__glow--left" />
-      <div className="luxury-hero__glow luxury-hero__glow--right" />
-      <Paper flow="5" className="hero-content">
-        <Chips variant="outline" color="b" corner="2" className="hero-chips hero-animation">
-          {t("hero.ranking")}
-        </Chips>
-        <Heading leading="1" weight="5" className="hero-title hero-animation">
-          {t("hero.title")}
-        </Heading>
-        <Text className="hero-description hero-animation">{t("hero.subtitle")}</Text>
-        <Flex wrap gap="4" className="hero-actions">
-          <Button
-            variant="shadow"
-            as={Link}
-            href={PERSONAL_INFO.socialMedia.whatsapp}
-            className="hero-action hero-animation"
-            icon={<Whatsapp />}
-          >
-            {t("contact.contactWhatsapp")}
-          </Button>
-          <Button
-            as={Link}
-            variant="soft"
-            href={PERSONAL_INFO.contact.phone}
-            className="hero-action hero-animation"
-            icon={<PhoneCall />}
-          >
-            {t("contact.contactPhone")}
-          </Button>
-        </Flex>
-        <Paper flow="2">
-          <Flex gap="4" className="hero-likes hero-animation">
-            <AvatarGroup size="2">
-              <Avatar title="Sanad Care client" fallback="SB" />
-              <Avatar title="Sanad Care client" fallback="YE" />
-              <Avatar title="Sanad Care client" fallback="KT" />
-              <Avatar title="Sanad Care client" fallback="NR" />
-            </AvatarGroup>
-            <Flex gap="1" items="center">
-              <Star width={16} fill="var(--W8)" stroke="var(--W8)" />
-              <Text size="3" color="b" low>
-                4.8
-              </Text>
-              <Text size="3" color="b" low>
-                (3K+)
-              </Text>
-            </Flex>
-          </Flex>
-          <Text className="hero-numbers hero-animation" size="1" color="b" low>
-            {t("hero.usersCount")}
+    <section className="hero">
+      <div className="hero__grain" aria-hidden="true" />
+      <div className="hero__glow hero__glow--a" aria-hidden="true" />
+      <div className="hero__glow hero__glow--b" aria-hidden="true" />
+
+      <div className="hero__inner">
+        <Paper flow="5" className="hero__content">
+          <div className="hero__availability hero__anim" style={step(0)}>
+            <span className="hero__pulse" aria-hidden="true" />
+            <Text as="span" size="2" weight="5">
+              {t("hero.availability")}
+            </Text>
+            <span className="hero__availability-sep" aria-hidden="true">
+              ·
+            </span>
+            <Text as="span" size="2" color="b" low>
+              {t("hero.availabilityMeta")}
+            </Text>
+          </div>
+
+          <h1 className="hero__title hero__anim" style={step(2)}>
+            {t("hero.title")} <br />
+            {t("hero.titleAccent")}
+          </h1>
+
+          <Text className="hero__subtitle hero__anim" style={step(3)}>
+            {t("hero.subtitle")}
           </Text>
+
+          <Flex wrap gap="3" className="hero__actions hero__anim" style={step(4)}>
+            <Button
+              variant="solid"
+              color="p"
+              as="a"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={PERSONAL_INFO.socialMedia.whatsapp}
+              className="hero__action hero__action--primary"
+              icon={<Whatsapp />}
+            >
+              {t("contact.contactWhatsapp")}
+            </Button>
+            <Button
+              as="a"
+              variant="outline"
+              color="b"
+              href={PERSONAL_INFO.contact.phone}
+              className="hero__action"
+              icon={<PhoneCall />}
+            >
+              {t("contact.contactPhone")}
+            </Button>
+          </Flex>
+
+          <Flex gap="2" items="center" className="hero__actions-note hero__anim" style={step(4)}>
+            <Clock width={14} strokeWidth={1.8} aria-hidden="true" />
+            <Text as="span" size="2" color="b" low>
+              {t("hero.whatsappNote")}
+            </Text>
+          </Flex>
+
+          <div className="hero__proof hero__anim" style={step(5)}>
+            <div className="hero__avatars" aria-hidden="true">
+              {AVATARS.map((initials) => (
+                <span className="hero__avatar" key={initials}>
+                  {initials}
+                </span>
+              ))}
+            </div>
+            <div className="hero__proof-text">
+              <Flex gap="1" items="center">
+                <Star width={15} fill="var(--W8)" stroke="var(--W8)" aria-hidden="true" />
+                <Text as="span" size="3" weight="6">
+                  {t("hero.ratingValue")}
+                </Text>
+              </Flex>
+              <Text as="span" size="3" color="b" low>
+                {t("hero.ratingLabel")}
+              </Text>
+            </div>
+          </div>
+
+          <dl className="hero__stats hero__anim" style={step(6)}>
+            {stats.map(({ value, label }) => (
+              <div className="hero__stat" key={label}>
+                <dt className="hero__stat-value">{value}</dt>
+                <dd className="hero__stat-label">{label}</dd>
+              </div>
+            ))}
+          </dl>
         </Paper>
-        <Flex gap="2" wrap>
-          <Chips corner="full" variant="soft" color="se" className="hero-animation">
-            {t("hero.timing")}
-          </Chips>
-          <Chips corner="full" variant="soft" color="se" className="hero-animation">
-            {t("hero.careBased")}
-          </Chips>
-          <Chips corner="full" variant="soft" color="se" className="hero-animation">
-            {t("hero.safe")}
-          </Chips>
-        </Flex>
-      </Paper>
-      <img src="/nurse.png" alt="" className="hero-bg" width="300" />
-    </Flex>
+
+        <div className="hero__media">
+          <div className="hero__frame hero__anim" style={step(1)}>
+            <img
+              src={HERO_IMAGE}
+              alt={t("hero.photoAlt")}
+              width={HERO_IMAGE_WIDTH}
+              height={HERO_IMAGE_HEIGHT}
+            />
+            <span className="hero__frame-fade" aria-hidden="true" />
+          </div>
+
+          {CARD_ORDER.map((key, i) => (
+            <div
+              className={`hero__card hero__card--${key} hero__anim`}
+              key={key}
+              style={{ "--hero-step": i + 3 } as CSSProperties}
+            >
+              <span className="hero__card-icon" aria-hidden="true">
+                {CARD_ICONS[key]}
+              </span>
+              <span className="hero__card-body">
+                <span className="hero__card-title">{cards[key].title}</span>
+                <span className="hero__card-meta">{cards[key].meta}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="hero__ticker">
+        <Text as="span" size="2" className="hero__ticker-label">
+          {t("hero.ticker.label")}
+        </Text>
+        <div className="hero__ticker-viewport">
+          <ul className="hero__ticker-track">
+            {[...tickerItems, ...tickerItems].map((item, i) => (
+              <li
+                className="hero__ticker-item"
+                key={`${item}-${i}`}
+                aria-hidden={i >= tickerItems.length ? true : undefined}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
   );
 };
 

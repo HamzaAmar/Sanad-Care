@@ -10,17 +10,22 @@ interface ServiceCardProps {
   slug?: string;
 }
 
-export const ServiceCard = ({
-  slug,
-  image = "/abc.avif",
-  title,
-  description,
-}: ServiceCardProps) => {
+const FOLDER_ALIASES: Record<string, string> = {
+  "elderly-care": "elder-care",
+};
+
+export const ServiceCard = ({ slug, image, title, description }: ServiceCardProps) => {
   const tService = useTranslations("services.page.programs");
+  const baseSlug = slug?.replace(/-marrakech$/, "");
+  const serviceFolder = baseSlug ? (FOLDER_ALIASES[baseSlug] ?? baseSlug) : undefined;
+  const imageSrc =
+    image ??
+    (slug && serviceFolder ? `/images/${serviceFolder}/${slug}-sanadcare.avif` : "/abc.avif");
 
   return (
     <Paper corner="3" border className="delivery-feature service-card">
       <div
+        className="service-card__media"
         style={{
           margin: "0.75rem",
           borderRadius: "var(--R3, 0.5em)",
@@ -29,7 +34,7 @@ export const ServiceCard = ({
         }}
       >
         <img
-          src={image}
+          src={imageSrc}
           alt={title}
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />

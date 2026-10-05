@@ -107,17 +107,48 @@
     "ar": "Arabe"
   },
   "hero": {
-    "title": "Soins infirmiers à Domicile Marrakech | soins Professionnels 24h/24 à Votre Porte",
-    "subtitle": "Soins médicaux professionnels et bienveillants dans le confort de votre domicile. Service à Marrakech avec des infirmiers diplômés pour les soins aux personnes âgées, la récupération post-chirurgicale et le soutien au tourisme médical.",
+    "title": "Des soins qui viennent à vous.",
+    "titleAccent": "Infirmiers diplômés à Marrakech, 24h/24.",
+    "subtitle": "Soins aux personnes âgées, récupération post-chirurgicale et tourisme médical — assurés à domicile par des infirmiers diplômés d'État.",
     "bookBtn": "Réserver un Infirmier",
     "browseBtn": "Nos Services",
     "sendUsMessage": "Demander des Soins",
     "callUsToday": "Appelez pour Assistance",
-    "usersCount": "La confiance de nombreuses familles à Marrakech",
+    "usersCount": "La confiance des familles à Marrakech",
     "ranking": "Service de soins infirmiers à domicile N°1",
     "timing": "Support de soins 24h/24 et 7j/7",
     "careBased": "Soins basés sur vos besoins",
-    "safe": "Sûr et sécurisé"
+    "safe": "Sûr et sécurisé",
+    "availability": "Infirmiers disponibles",
+    "availabilityMeta": "Réponse moyenne 45 min",
+    "whatsappNote": "Répond en moins de 5 minutes",
+    "ratingValue": "4,8",
+    "ratingLabel": "La confiance de plus de 3 000 familles à Marrakech",
+    "photoAlt": "Une infirmière Sanad Care accompagne une patiente âgée à domicile à Marrakech",
+    "stats": {
+      "availability": { "value": "24h/24", "label": "Disponibilité" },
+      "response": { "value": "45 min", "label": "Réponse moyenne" },
+      "families": { "value": "3 000+", "label": "Familles accompagnées" },
+      "licensed": { "value": "100%", "label": "Infirmiers diplômés" }
+    },
+    "cards": {
+      "enroute": { "title": "Infirmière Salma", "meta": "En route · arrivée 25 min" },
+      "recovery": { "title": "Récupération post-opératoire", "meta": "Protocole suivi" },
+      "rating": { "title": "Note 4,9", "meta": "Plus de 3 000 visites" }
+    },
+    "ticker": {
+      "label": "Nos services de soins",
+      "items": [
+        "Soins aux personnes âgées",
+        "Perfusion à domicile",
+        "Kinésithérapie",
+        "Suivi post-opératoire",
+        "Tourisme médical",
+        "Soins des plaies",
+        "Prises de sang",
+        "Injections"
+      ]
+    }
   },
   "services": {
     "heading": "Nos services infirmiers professionnels",

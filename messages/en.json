@@ -204,17 +204,48 @@
     }
   },
   "hero": {
-    "title": "Home Nursing Marrakech | 24/7 Professional Care at Your Doorstep",
-    "subtitle": "Professional, compassionate medical care in the comfort of your home. Serving Marrakech with registered nurses for elderly care, post-surgery recovery, and medical tourism support.",
+    "title": "Care that comes to you.",
+    "titleAccent": "Licensed nurses across Marrakech, 24/7.",
+    "subtitle": "Elderly care, post-surgery recovery and medical tourism support — delivered at home by state-registered nurses.",
     "bookBtn": "Book a Nurse",
     "browseBtn": "Our Services",
     "sendUsMessage": "Request Care",
     "callUsToday": "Call for Assistance",
-    "usersCount": "Trusted by many families in Marrakech",
+    "usersCount": "Trusted by families across Marrakech",
     "ranking": "#1 Home Nursing Service",
     "timing": "24/7 Care Support",
     "careBased": "Care Based on Your Needs",
-    "safe": "Safe & Secure"
+    "safe": "Safe & Secure",
+    "availability": "Nurses available now",
+    "availabilityMeta": "Avg. response 45 min",
+    "whatsappNote": "Replies in under 5 minutes",
+    "ratingValue": "4.8",
+    "ratingLabel": "Trusted by 3,000+ families in Marrakech",
+    "photoAlt": "A Sanad Care nurse assisting an elderly patient at home in Marrakech",
+    "stats": {
+      "availability": { "value": "24/7", "label": "Availability" },
+      "response": { "value": "45 min", "label": "Avg. response" },
+      "families": { "value": "3,000+", "label": "Families served" },
+      "licensed": { "value": "100%", "label": "Licensed nurses" }
+    },
+    "cards": {
+      "enroute": { "title": "Nurse Salma", "meta": "On the way · ETA 25 min" },
+      "recovery": { "title": "Post-surgery recovery", "meta": "Care plan followed" },
+      "rating": { "title": "4.9 rating", "meta": "3,000+ visits" }
+    },
+    "ticker": {
+      "label": "Our care services",
+      "items": [
+        "Elderly care",
+        "IV therapy",
+        "Physiotherapy",
+        "Post-op care",
+        "Medical tourism",
+        "Wound care",
+        "Blood tests",
+        "Injections"
+      ]
+    }
   },
   "services": {
     "heading": "Our Professional Nursing Services",

@@ -9,12 +9,12 @@ import Logo from "@/app/logo";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
 import { Link } from "@/i18n/navigation";
 
-import { useMenuLinks } from "./header.data";
+import { useHeaderLinks } from "./header.data";
 
 export const HeaderMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   const t = useTranslations();
   const pathname = usePathname();
-  const LINKS = useMenuLinks();
+  const LINKS = useHeaderLinks();
 
   return (
     <Paper flow="6" as="nav" className="mobile-menu">

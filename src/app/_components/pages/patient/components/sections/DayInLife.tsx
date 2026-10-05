@@ -1,46 +1,55 @@
-import { Grid } from "@pillar-ui/core";
-import { Moon, Star, Sun, Sunrise } from "@pillar-ui/icons";
+import { Heading, Text } from "@pillar-ui/core";
+import { MoonStar, Star, SunHigh, Sunrise } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import { Box } from "@/app/_components/box";
-import AnimatedSection from "@/app/_components/AnimatedSection";
+import type { CSSProperties, ReactNode } from "react";
+import Reveal from "@/app/_components/reveal";
+
+const PERIODS: Array<{ key: string; icon: ReactNode }> = [
+  { key: "morning", icon: <Sunrise width={22} stroke="currentColor" strokeWidth={1.6} /> },
+  { key: "afternoon", icon: <SunHigh width={22} stroke="currentColor" strokeWidth={1.6} /> },
+  { key: "evening", icon: <MoonStar width={22} stroke="currentColor" strokeWidth={1.6} /> },
+  { key: "night", icon: <Star width={22} stroke="currentColor" strokeWidth={1.6} /> },
+];
 
 const DayInLife = () => {
   const t = useTranslations("patient.page.dayInLife");
-  const ROUTINES = [
-    {
-      id: 1,
-      icon: <Sunrise width={24} stroke="var(--P11)" strokeWidth="1.5" />,
-      title: t(`periods.morning.title`),
-      description: t(`periods.morning.description`),
-    },
-    {
-      id: 2,
-      icon: <Sun width={24} stroke="var(--P11)" strokeWidth="1.5" />,
-      title: t(`periods.afternoon.title`),
-      description: t(`periods.afternoon.description`),
-    },
-    {
-      id: 3,
-      icon: <Moon width={24} stroke="var(--P11)" strokeWidth="1.5" />,
-      title: t(`periods.evening.title`),
-      description: t(`periods.evening.description`),
-    },
-    {
-      id: 4,
-      icon: <Star width={24} stroke="var(--P11)" strokeWidth="1.5" />,
-      title: t(`periods.night.title`),
-      description: t(`periods.night.description`),
-    },
-  ];
 
   return (
-    <AnimatedSection title={t("title")}>
-      <Grid cols={{ default: "1fr", md: "1fr 1fr" }} gap="4" className="space-y-8 relative">
-        {ROUTINES.map(({ title, description, icon }) => (
-          <Box key={title} icon={icon} title={title} description={description} />
-        ))}
-      </Grid>
-    </AnimatedSection>
+    <section className="pat-block pat-day">
+      <Reveal className="pat-day__wrap">
+        <header className="pat-head">
+          <Heading as="h2" size="7" weight="5" className="pat-title">
+            {t("title")}
+          </Heading>
+        </header>
+
+        <div className="pat-timeline">
+          <span className="pat-timeline__thread" aria-hidden="true">
+            <svg viewBox="0 0 44 400" preserveAspectRatio="none">
+              <path d="M22 4 C 8 70 36 120 22 190 S 8 320 22 396" pathLength={1} />
+            </svg>
+          </span>
+
+          <ol className="pat-timeline__list">
+            {PERIODS.map(({ key, icon }, i) => (
+              <li key={key} className="pat-timeline__item" style={{ "--i": i } as CSSProperties}>
+                <span className="pat-timeline__node" aria-hidden="true">
+                  {icon}
+                </span>
+                <div className="pat-timeline__body">
+                  <Text as="h3" weight="6" className="pat-timeline__time">
+                    {t(`periods.${key}.title`)}
+                  </Text>
+                  <Text size="4" color="b" low>
+                    {t(`periods.${key}.description`)}
+                  </Text>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Reveal>
+    </section>
   );
 };
 
