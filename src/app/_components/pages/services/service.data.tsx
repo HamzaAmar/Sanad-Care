@@ -423,6 +423,7 @@ export const faqByLocale: Record<LocaleKey, FaqItem[]> = {
 
 export const prestationsInfirmieres = [
   {
+    id: "standard-nursing-visit",
     title: {
       fr: "Visite Infirmière Standard",
       ar: "زيارة تمريضية قياسية",
@@ -451,6 +452,7 @@ export const prestationsInfirmieres = [
     price: "220",
   },
   {
+    id: "blood-sampling",
     title: {
       fr: "Prélèvement Sanguin",
       ar: "سحب الدم",
@@ -479,6 +481,7 @@ export const prestationsInfirmieres = [
     price: "220",
   },
   {
+    id: "simple-dressing",
     title: {
       fr: "Pansement Simple",
       ar: "ضمادة بسيطة",
@@ -502,6 +505,7 @@ export const prestationsInfirmieres = [
     price: "230",
   },
   {
+    id: "complex-dressing",
     title: {
       fr: "Pansement Complexe / Escarre",
       ar: "ضمادة معقدة / قرحة الفراش",
@@ -530,6 +534,7 @@ export const prestationsInfirmieres = [
     price: "330",
   },
   {
+    id: "im-injection",
     title: {
       fr: "Injection Intramusculaire (IM)",
       ar: "حقن عضلي (IM)",
@@ -558,6 +563,7 @@ export const prestationsInfirmieres = [
     price: "170",
   },
   {
+    id: "sc-injection",
     title: {
       fr: "Injection Sous-Cutanée (SC)",
       ar: "حقن تحت الجلد (SC)",
@@ -586,6 +592,7 @@ export const prestationsInfirmieres = [
     price: "160",
   },
   {
+    id: "iv-infusion",
     title: {
       fr: "Pose de Perfusion IV",
       ar: "تركيب محلول وريدي (IV)",
@@ -614,6 +621,7 @@ export const prestationsInfirmieres = [
     price: "280",
   },
   {
+    id: "stitch-removal",
     title: {
       fr: "Retrait Points / Agrafes",
       ar: "إزالة الغرز / الدبابيس",
@@ -639,6 +647,7 @@ export const prestationsInfirmieres = [
     price: "180",
   },
   {
+    id: "glucose-insulin",
     title: {
       fr: "Surveillance Glycémie + Insuline",
       ar: "مراقبة مستوى السكر + الأنسولين",
@@ -667,6 +676,7 @@ export const prestationsInfirmieres = [
     price: "200",
   },
   {
+    id: "home-vaccination",
     title: {
       fr: "Vaccination à Domicile",
       ar: "تلقيح منزلي",
@@ -695,6 +705,7 @@ export const prestationsInfirmieres = [
     price: "180",
   },
   {
+    id: "cardio-monitoring",
     title: {
       fr: "Surveillance Cardio-Tensionnelle",
       ar: "مراقبة القلب وضغط الدم",

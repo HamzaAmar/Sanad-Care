@@ -153,6 +153,136 @@
   "services": {
     "heading": "Nos services infirmiers professionnels",
     "subheading": "Soins complets adaptés à vos besoins",
+    "detail": {
+      "category": {
+        "pillar": "Service pilier",
+        "service": "Soin infirmier à domicile",
+        "condition": "Accompagnement maladie"
+      },
+      "breadcrumbs": {
+        "home": "Accueil",
+        "services": "Services"
+      },
+      "facts": {
+        "response": "Visite à domicile en moins de 60 min",
+        "availability": "Disponibles 24h/24, 7j/7",
+        "nurses": "Infirmiers diplômés d'État (IDE)",
+        "languages": "Darija · Français · Anglais"
+      },
+      "highlights": {
+        "service": "Ce que fait l'infirmier",
+        "condition": "Comment nous accompagnons à domicile"
+      },
+      "included": {
+        "title": "Ce qui est inclus",
+        "includesLabel": "Compris",
+        "currency": "MAD",
+        "excludesLabel": "Non compris"
+      },
+      "quote": {
+        "title": "Tarif sur évaluation",
+        "body": "Ce soin s'organise à l'heure : le tarif dépend de la durée de la présence et du rythme des visites. Décrivez-nous la situation et nous vous confirmons un tarif écrit avant la première visite, sans engagement."
+      },
+      "packs": {
+        "title": "Formules mensuelles",
+        "perMonth": "par mois",
+        "visitsPerMonth": "{count} visites / mois",
+        "featured": "Le plus choisi",
+        "note": "Les formules mensuelles sont disponibles pour ce soin. Les visites à l'unité restent possibles.",
+        "empty": "Renseignez-vous sur les visites régulières."
+      },
+      "process": {
+        "title": "Ce qui se passe après votre contact",
+        "steps": [
+          "Vous appelez, vous écrivez sur WhatsApp, ou vous demandez qu'on vous rappelle.",
+          "Un conseiller vous pose quelques questions sur le patient, l'adresse et l'ordonnance.",
+          "Nous confirmons le tarif, l'infirmier et l'heure d'arrivée avant la visite.",
+          "L'infirmier arrive avec le matériel, présente sa carte professionnelle, vérifie l'ordonnance, puis réalise les soins.",
+          "Vous recevez un compte rendu WhatsApp après la visite et le plan de la suivante."
+        ]
+      },
+      "nurse": {
+        "title": "Qui intervient à votre domicile",
+        "intro": "Chaque visite est assurée par un infirmier diplômé d'État (IDE), inscrit auprès de l'État marocain.",
+        "id": "L'infirmier présente sa carte professionnelle à son arrivée.",
+        "sameNurse": "Nous confions si possible le même infirmier ; son remplaçant est briefé sur le dossier.",
+        "oversight": "Un infirmier référent supervise le plan de soins.",
+        "choose": "Vous pouvez demander un infirmier avec qui vous êtes à l'aise.",
+        "change": "Vous pouvez demander à changer d'infirmier à tout moment.",
+        "report": "Vous pouvez nous signaler un infirmier directement."
+      },
+      "coverage": {
+        "title": "Zone d'intervention et délai",
+        "body": "Tous les quartiers de Marrakech, 24h/24.",
+        "travel": "Les visites hors de la ville peuvent inclure un petit supplément de déplacement, confirmé avant la réservation.",
+        "night": "Les visites de nuit et du week-end incluent un supplément, confirmé avant la réservation."
+      },
+      "prep": {
+        "title": "Avant l'arrivée de l'infirmier",
+        "prescription": "Les injections, perfusions et prises de sang nécessitent une ordonnance valide. Les ordonnances étrangères sont acceptées.",
+        "extra": "Nous vous confirmons ce qu'il faut prévoir au moment de la réservation."
+      },
+      "safety": {
+        "title": "Sécurité, limites et urgences",
+        "notEmergency": "Nous ne sommes pas un service d'urgence. En cas d'urgence vitale, appelez immédiatement le SAMU (141).",
+        "scope": "Nos infirmiers travaillent sur ordonnance. Ils ne posent pas de diagnostic, ne modifient pas un traitement et ne remplacent pas l'hospitalisation.",
+        "numbers": "Urgences : SAMU 141 · Pompiers 15"
+      },
+      "payment": {
+        "title": "Paiement et justificatifs",
+        "methods": "Paiement en espèces, par chèque ou par virement. Le paiement en ligne n'est pas encore disponible.",
+        "invoice": "Nous délivrons une facture détaillée pour chaque visite.",
+        "insurance": "Nous ne sommes affiliés ni à l'AMO, ni à la CNSS, ni à aucune assurance, et ne pouvons pas confirmer un remboursement. Celui-ci dépend de votre couverture.",
+        "cancellation": "Aucun frais d'annulation — prévenez-nous simplement le plus tôt possible afin de libérer le créneau."
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "shared": [
+          {
+            "q": "Faut-il une ordonnance ?",
+            "a": "Pour les injections, les perfusions et les prises de sang, oui : une ordonnance valide. Les ordonnances étrangères sont acceptées."
+          },
+          {
+            "q": "Combien cela coûte-t-il ?",
+            "a": "Nous confirmons un tarif écrit avant la première visite, quel que soit le soin. Les formules mensuelles commencent à 1 490 MAD par mois."
+          },
+          {
+            "q": "Peut-on payer par carte ?",
+            "a": "Pas encore. Nous acceptons les espèces, le chèque ou le virement, et délivrons une facture détaillée."
+          },
+          {
+            "q": "Quelles zones couvrez-vous ?",
+            "a": "Tous les quartiers de Marrakech. Les visites hors ville peuvent inclure un supplément, confirmé avant la réservation."
+          },
+          {
+            "q": "Parlez-vous français ?",
+            "a": "Notre équipe couvre le darija, le français et l'anglais."
+          }
+        ]
+      },
+      "related": {
+        "title": "Soins associés"
+      },
+      "contact": {
+        "title": "Réserver ce soin",
+        "body": "Un conseiller répond 24h/24 — sans formulaire, sans engagement. Décrivez la situation du patient et nous confirmons le tarif et l'heure d'arrivée.",
+        "whatsappPrefill": "Bonjour Sanad Care, je souhaite des informations sur :",
+      "advisor": "Un conseiller répond 24h/24",
+        "whatsapp": "Discuter sur WhatsApp",
+        "call": "Appeler 24h/24",
+        "hours": "7j/7 - 24h/24"
+      },
+      "nav": {
+        "onThisPage": "Sur cette page",
+        "included": "Soins et tarifs",
+        "plans": "Formules mensuelles",
+        "process": "Déroulement",
+        "safety": "Sécurité",
+      "nurse": "Votre infirmier",
+        "faq": "FAQ",
+        "contact": "Contact"
+      }
+    },
     "page": {
       "seeAll": "Voir tous nos services",
       "badge": "Forfaits premium de soins a domicile",

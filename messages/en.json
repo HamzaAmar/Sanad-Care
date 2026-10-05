@@ -250,6 +250,136 @@
   "services": {
     "heading": "Our Professional Nursing Services",
     "subheading": "Comprehensive Care Tailored to Your Needs",
+    "detail": {
+      "category": {
+        "pillar": "Pillar Service",
+        "service": "Home Nursing Service",
+        "condition": "Medical Condition Support"
+      },
+      "breadcrumbs": {
+        "home": "Home",
+        "services": "Services"
+      },
+      "facts": {
+        "response": "Home visit within 60 min",
+        "availability": "Available 24/7",
+        "nurses": "State-registered nurses (IDE)",
+        "languages": "Darija · French · English"
+      },
+      "highlights": {
+        "service": "What the nurse does",
+        "condition": "How we support this at home"
+      },
+      "included": {
+        "title": "What is included",
+        "includesLabel": "Includes",
+        "currency": "MAD",
+        "excludesLabel": "Not included"
+      },
+      "quote": {
+        "title": "Pricing on assessment",
+        "body": "This care is arranged by the hour, so the price depends on how long the nurse stays and how often you need visits. Tell us the situation and we will confirm a written price before the first visit — no obligation."
+      },
+      "packs": {
+        "title": "Monthly care plans",
+        "perMonth": "per month",
+        "visitsPerMonth": "{count} visits / month",
+        "featured": "Most chosen",
+        "note": "Monthly plans are available for this service. Single visits remain available.",
+        "empty": "Ask us about regular visits."
+      },
+      "process": {
+        "title": "What happens after you contact us",
+        "steps": [
+          "You call, send a WhatsApp message, or ask us to call you back.",
+          "A care advisor asks about the patient, the address, and the prescription.",
+          "We confirm the price, the nurse, and the arrival time before the visit.",
+          "The nurse arrives with the equipment, presents professional ID, checks the prescription, then gives the care.",
+          "You receive a WhatsApp care note after the visit and the plan for the next one."
+        ]
+      },
+      "nurse": {
+        "title": "Who comes to your home",
+        "intro": "Every visit is made by an infirmier diplômé d'État (IDE) — a nurse registered by the Moroccan state.",
+        "id": "The nurse presents professional ID on arrival.",
+        "sameNurse": "We assign the same nurse wherever scheduling allows; a replacement is briefed on the file.",
+        "oversight": "A lead nurse oversees the care plan.",
+        "choose": "You can ask for a nurse you feel comfortable with.",
+        "change": "You can ask to change the nurse at any time.",
+        "report": "You can report a nurse to us directly."
+      },
+      "coverage": {
+        "title": "Where we come, and how fast",
+        "body": "All Marrakech neighbourhoods, 24/7.",
+        "travel": "Visits outside the city may include a small travel supplement, confirmed before booking.",
+        "night": "Night and weekend visits carry a supplement, confirmed before booking."
+      },
+      "prep": {
+        "title": "Before the nurse arrives",
+        "prescription": "Injections, IV infusions and blood tests require a valid prescription. Foreign prescriptions are accepted.",
+        "extra": "We confirm exactly what to prepare when you book."
+      },
+      "safety": {
+        "title": "Safety, limits and emergencies",
+        "notEmergency": "We are not an emergency service. In a life-threatening emergency, call SAMU 141 immediately.",
+        "scope": "Our nurses work from your doctor's prescription. They do not diagnose, do not change a treatment, and do not replace hospital care.",
+        "numbers": "Emergency: SAMU 141 · Fire brigade 15"
+      },
+      "payment": {
+        "title": "Payment and paperwork",
+        "methods": "Payment in cash, by cheque, or by bank transfer. Online payment is not available yet.",
+        "invoice": "We issue a detailed invoice for every visit.",
+        "insurance": "We are not affiliated with AMO, CNSS or any insurer and cannot confirm reimbursement. Reimbursement depends on your own cover.",
+        "cancellation": "No cancellation fee — just tell us as early as you can so we can free the slot."
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "shared": [
+          {
+            "q": "Do I need a prescription?",
+            "a": "For injections, IV infusions and blood tests, yes — a valid prescription. Foreign prescriptions are accepted."
+          },
+          {
+            "q": "How much will it cost?",
+            "a": "We confirm a written price before the first visit, whatever the service. Monthly plans start at 1,490 MAD per month."
+          },
+          {
+            "q": "Can I pay by card?",
+            "a": "Not yet. We accept cash, cheque or bank transfer, and we issue a detailed invoice."
+          },
+          {
+            "q": "Which areas do you cover?",
+            "a": "All Marrakech neighbourhoods. Visits outside the city may include a supplement, confirmed before booking."
+          },
+          {
+            "q": "Do you speak English?",
+            "a": "Our team covers Darija, French and English."
+          }
+        ]
+      },
+      "related": {
+        "title": "Related care"
+      },
+      "contact": {
+        "title": "Book this care",
+        "body": "A care advisor answers 24/7 — no form, no commitment. Tell us the patient's situation and we confirm price and arrival time.",
+        "whatsappPrefill": "Hello Sanad Care, I would like information about:",
+      "advisor": "A care advisor answers 24/7",
+        "whatsapp": "Chat on WhatsApp",
+        "call": "Call 24/7",
+        "hours": "7/7 - 24/24"
+      },
+      "nav": {
+        "onThisPage": "On this page",
+        "included": "Care & pricing",
+        "plans": "Monthly plans",
+        "process": "How it works",
+        "safety": "Safety",
+      "nurse": "Your nurse",
+        "faq": "FAQ",
+        "contact": "Contact"
+      }
+    },
     "page": {
       "seeAll": "see all services",
       "badge": "Premium home nursing plans",

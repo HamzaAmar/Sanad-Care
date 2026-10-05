@@ -10,7 +10,7 @@ interface ServiceCardProps {
   description: string;
   slug?: string;
   shortTitle?: string;
-  subscriptionAvailable?: boolean;
+  hasMonthlyPlan?: boolean;
   highlights?: string[];
 }
 
@@ -39,7 +39,7 @@ export const ServiceCard = ({
   title,
   description,
   shortTitle,
-  subscriptionAvailable = false,
+  hasMonthlyPlan = false,
   highlights,
 }: ServiceCardProps) => {
   const t = useTranslations("services.page.card");
@@ -66,7 +66,7 @@ export const ServiceCard = ({
           alt={title}
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />
-        {subscriptionAvailable ? (
+        {hasMonthlyPlan ? (
           <span className="service-card__chip">{t("subscriptionChip")}</span>
         ) : null}
       </div>

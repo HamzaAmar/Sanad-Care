@@ -1,419 +1,501 @@
-"use client";
-
 import {
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
-  Chips,
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
   Flex,
   Grid,
   Heading,
   Paper,
   Text,
-  Badge,
-  Button,
 } from "@pillar-ui/core";
-import { Check, Shield, Clock, Users, Whatsapp, Phone } from "@pillar-ui/icons";
-import { SERVICE_TREE, ServiceTreeItem } from "@/constants/services/serviceTreeData";
+import { CircleCheck, PhoneCall, Shield, Star, Whatsapp } from "@pillar-ui/icons";
+import { getTranslations } from "next-intl/server";
+import { PERSONAL_INFO } from "@/constants/personalInfo";
+import { SERVICE_TREE, type ServiceTreeItem } from "@/constants/services/serviceTreeData";
+import { getPacks } from "@/constants/services/packs";
 import { prestationsInfirmieres } from "../services/service.data";
 import type { LocaleKey } from "@/types/localeProps.interface";
+import type { PackId } from "@/types/service";
+import ServiceFaq from "./components/ServiceFaq";
+import ServiceNav, { type ServiceNavSection } from "./components/ServiceNav";
 import "./serviceDetail.scss";
-import { PERSONAL_INFO } from "@/constants/personalInfo";
 
 interface ServiceDetailProps {
   slug: string;
   locale: LocaleKey;
 }
 
-// Map slug to relevant clinical procedures (prestations)
-const getRelatedPrestations = (slug: string) => {
-  switch (slug) {
-    case "blood-test-at-home-marrakech":
-      return [1]; // Prélèvement Sanguin
-    case "injection-at-home-marrakech":
-      return [4, 5, 9]; // IM, SC, Vaccination
-    case "iv-therapy-marrakech":
-      return [6]; // Pose de Perfusion IV
-    case "wound-care-marrakech":
-    case "pressure-ulcer-care-marrakech":
-      return [2, 3, 7]; // Pansement Simple, Complexe, Retrait points
-    case "diabetes-care-marrakech":
-      return [8]; // Glycémie + Insuline
-    case "chronic-disease-care-marrakech":
-      return [8, 10]; // Glycémie + Cardio-Tensionnelle
-    case "home-nursing-marrakech":
-    case "nurse-at-home-marrakech":
-    case "hospitalization-at-home-marrakech":
-    case "post-surgery-care-marrakech":
-      return [0, 2, 4, 6]; // Standard, Pansement, IM, Perfusion
-    default:
-      return [0]; // Visite Infirmière Standard
-  }
+const procedureById = new Map(prestationsInfirmieres.map((item) => [item.id, item]));
+
+/** Lines the catalog already marks as excluded, e.g. "Medication is not included". */
+const EXCLUDE_PATTERNS: Record<LocaleKey, RegExp> = {
+  en: /not included/i,
+  fr: /pas inclus/i,
+  ar: /غير مشمول/,
 };
 
-const ServiceDetail = ({ slug, locale }: ServiceDetailProps) => {
-  const item: ServiceTreeItem | undefined = SERVICE_TREE[slug];
+const pick = <T,>(value: Record<LocaleKey, T>, locale: LocaleKey): T =>
+  value[locale] ?? value.en;
 
-  if (!item) {
-    return (
-      <Paper p="8" className="section text-center">
-        <Heading size="6">Service not found</Heading>
-        <Text color="b" low>
-          The requested service page does not exist or has been moved.
-        </Text>
-      </Paper>
-    );
-  }
+const MAX_RELATED = 3;
 
-  // Get translations based on locale
-  const title = item.title[locale] || item.title.en;
-  const subtitle = item.subtitle[locale] || item.subtitle.en;
-  const description = item.description[locale] || item.description.en;
-  const highlights = item.highlights[locale] || item.highlights.en;
-  const keywords = item.keywords[locale] || item.keywords.en;
-  const faqs = item.faqs[locale] || item.faqs.en;
+const getRelated = (item: ServiceTreeItem) => {
+  const siblings = Object.values(SERVICE_TREE).filter(
+    (other) => other.slug !== item.slug && other.category === item.category,
+  );
+  const pool = siblings.length
+    ? siblings
+    : Object.values(SERVICE_TREE).filter((other) => other.category === "service");
+  return pool.slice(0, MAX_RELATED);
+};
 
-  // Category labels
-  const categoryLabels = {
-    pillar: { en: "Pillar Service", fr: "Service Pilier", ar: "الخدمة الأساسية" },
-    service: {
-      en: "Home Nursing Service",
-      fr: "Soin Infirmier à Domicile",
-      ar: "خدمة تمريضية منزلية",
-    },
-    condition: {
-      en: "Medical Condition Support",
-      fr: "Suivi Pathologie / Maladie",
-      ar: "رعاية الحالات الطبية",
-    },
-  };
-  const categoryLabel = categoryLabels[item.category][locale];
+const ServiceDetail = async ({ slug, locale }: ServiceDetailProps) => {
+  const item = SERVICE_TREE[slug];
+  if (!item) return null;
 
-  // Static site labels
-  const staticLabels = {
-    whatsIncluded: {
-      en: "What is Included & Pricing",
-      fr: "Soins & Tarification",
-      ar: "ماذا تشمل الخدمة والأسعار",
-    },
-    pricingNote: {
-      en: "Prices reflect the baseline procedure cost. Final billing depends on care duration and patient requirements.",
-      fr: "Les prix indiqués sont des tarifs de base. La facturation finale dépend de la durée des soins et des besoins du patient.",
-      ar: "الأسعار الموضحة هي تكاليف أساسية. تعتمد التكلفة النهائية على مدة الرعاية واحتياجات المريض.",
-    },
-    whyChooseUs: {
-      en: "Why Families Choose Sanad Care",
-      fr: "Pourquoi Choisir Sanad Care",
-      ar: "لماذا تختار سند كير",
-    },
-    trustedTeam: {
-      en: "State-Registered Nurses",
-      fr: "Infirmiers Diplômés d'État",
-      ar: "ممرضون وممرضات مجازون",
-    },
-    trustedTeamDesc: {
-      en: "Every care session is delivered by fully certified and registered clinical professionals.",
-      fr: "Chaque séance de soins est assurée par un infirmier diplômé et agréé par l'État.",
-      ar: "كل زيارة يقوم بها ممرضون مؤهلون ومجازون علمياً لضمان أعلى مستويات السلامة.",
-    },
-    available247: {
-      en: "24/7 Availability",
-      fr: "Disponibilité 24h/24 & 7j/7",
-      ar: "متاحون على مدار الساعة",
-    },
-    available247Desc: {
-      en: "Round-the-clock support for emergencies, night shifts, and regular scheduled home visits.",
-      fr: "Soutien permanent pour les urgences, les gardes de nuit et les visites programmées.",
-      ar: "دعم مستمر للمناوبات الليلية، الزيارات الطارئة، والرعاية الدورية المجدولة.",
-    },
-    multilingual: {
-      en: "Multilingual Communication",
-      fr: "Communication Multilingue",
-      ar: "تواصل بلغات متعددة",
-    },
-    multilingualDesc: {
-      en: "Clear discussions with clinical staff fluent in English, French, and Moroccan Darija.",
-      fr: "Échanges clairs avec notre équipe parlant français, anglais et arabe darija.",
-      ar: "تواصل واضح ومريح مع ممرضين يتحدثون الدارجة، الفرنسية، والإنجليزية.",
-    },
-    bookTitle: { en: "Book This Care Now", fr: "Réserver ce Soin", ar: "احجز هذه الخدمة الآن" },
-    bookDesc: {
-      en: "Connect with our care advisors to schedule a home nurse visit or discuss a customized monthly plan.",
-      fr: "Contactez nos conseillers pour planifier une visite ou concevoir un forfait de soins mensuel.",
-      ar: "تواصل مع مستشاري الرعاية لدينا لجدولة زيارة تمريضية أو وضع خطة رعاية شهرية.",
-    },
-    ctaWhatsapp: { en: "Chat on WhatsApp", fr: "Discuter sur WhatsApp", ar: "تواصل عبر واتساب" },
-    ctaPhone: { en: "Call Helpline 24/7", fr: "Appeler notre Ligne 24/7", ar: "اتصل بنا 24/7" },
-    faqTitle: {
-      en: "Frequently Asked Questions",
-      fr: "Questions Fréquentes",
-      ar: "الأسئلة الشائعة",
-    },
-    pricePrefix: { en: "Starting from", fr: "À partir de", ar: "ابتداءً من" },
-    madUnit: { en: "MAD", fr: "MAD", ar: "درهم" },
-  };
+  const t = await getTranslations({ locale, namespace: "services.detail" });
 
-  const labels = staticLabels;
+  const title = pick(item.title, locale);
+  const procedures = item.procedures
+    .map((id) => procedureById.get(id))
+    .filter((procedure) => procedure !== undefined);
+  const packs = getPacks(item.packs as PackId[]);
+  const related = getRelated(item);
 
-  // Retrieve related procedures (prestations) for this page
-  const relatedIndices = getRelatedPrestations(slug);
-  const relatedPrestations = relatedIndices
-    .map((idx) => prestationsInfirmieres[idx])
-    .filter(Boolean);
+  const excludes = procedures
+    .flatMap((procedure) => pick(procedure.inclus, locale))
+    .filter((line) => EXCLUDE_PATTERNS[locale].test(line));
 
-  const dir = locale === "ar" ? "rtl" : "ltr";
+  const included = pick(item.highlights, locale);
+
+  const faqs = [
+    ...pick(item.faqs, locale).map((faq, index) => ({
+      id: `${slug}-own-${index}`,
+      q: faq.q,
+      a: faq.a,
+    })),
+    ...(t.raw("faq.shared") as Array<{ q: string; a: string }>).map((faq, index) => ({
+      id: `${slug}-shared-${index}`,
+      q: faq.q,
+      a: faq.a,
+    })),
+  ];
+
+  const facts = [
+    { key: "response", icon: <CircleCheck width={17} strokeWidth={1.8} /> },
+    { key: "availability", icon: <CircleCheck width={17} strokeWidth={1.8} /> },
+    { key: "nurses", icon: <Shield width={17} strokeWidth={1.8} /> },
+    { key: "languages", icon: <CircleCheck width={17} strokeWidth={1.8} /> },
+  ] as const;
+
+  const processSteps = t.raw("process.steps") as string[];
+  const nursePoints = [
+    "id",
+    "sameNurse",
+    "oversight",
+    "choose",
+    "change",
+    "report",
+  ] as const;
+
+  const sections: ServiceNavSection[] = [
+    { id: "sd-included", label: t("nav.included") },
+    ...(packs.length ? [{ id: "sd-plans", label: t("nav.plans") }] : []),
+    { id: "sd-process", label: t("nav.process") },
+    { id: "sd-nurse", label: t("nav.nurse") },
+    { id: "sd-safety", label: t("nav.safety") },
+    { id: "sd-faq", label: t("nav.faq") },
+    { id: "sd-contact", label: t("nav.contact"), spy: false },
+  ];
+
+  const whatsappHref = `${PERSONAL_INFO.contact.whatsapp}?text=${encodeURIComponent(
+    `${t("contact.whatsappPrefill")} ${title}`,
+  )}`;
 
   return (
-    <Paper as="article" flow="8" className="section service-detail__shell" dir={dir}>
-      {/* 1. Header Hero section */}
-      <header className="service-detail__hero">
-        <Flex items="center" gap="4" justify="between" wrap>
-          <Paper flow="6">
-            <div>
-              <Text color="p" low size="3">
-                {categoryLabel}
-              </Text>
-              <Heading as="h1" leading="1" size="9">
-                {title}
-              </Heading>
-            </div>
-            <Flex gap="2" wrap>
-              {keywords.map((kw, i) => (
-                <Chips key={i} variant="soft">
-                  {kw}
-                </Chips>
-              ))}
-            </Flex>
-            <Text as="p" color="b" low size="7">
-              {subtitle}
-            </Text>
-          </Paper>
-          <Flex gap="2" wrap>
-            <Button
-              as="a"
-              variant="shadow"
-              href={PERSONAL_INFO.contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              icon={<Whatsapp />}
-            >
-              {labels.ctaWhatsapp[locale]}
-            </Button>
-            <Button icon={<Phone />} variant="soft" as="a" href={PERSONAL_INFO.contact.phone}>
-              {labels.ctaPhone[locale]}
-            </Button>
-          </Flex>
+    <article className="sd">
+      <header className="sd__head">
+        <Breadcrumb>
+          <BreadcrumbItem href={`/${locale}`}>{t("breadcrumbs.home")}</BreadcrumbItem>
+          <BreadcrumbItem href={`/${locale}/services`}>{t("breadcrumbs.services")}</BreadcrumbItem>
+          <BreadcrumbItem current>{pick(item.shortTitle, locale)}</BreadcrumbItem>
+        </Breadcrumb>
+
+        <Text as="p" className="sd__eyebrow" size="3">
+          {t(`category.${item.category}`)}
+        </Text>
+        <Heading as="h1" size="8" weight="6" className="sd__title">
+          {title}
+        </Heading>
+        <Text as="p" size="5" color="b" low className="sd__subtitle">
+          {pick(item.subtitle, locale)}
+        </Text>
+
+        <ul className="sd__facts">
+          {facts.map(({ key, icon }) => (
+            <li className="sd__fact" key={key}>
+              <span className="sd__fact-icon" aria-hidden="true">
+                {icon}
+              </span>
+              {t(`facts.${key}`)}
+            </li>
+          ))}
+        </ul>
+
+        <Flex wrap gap="3" className="sd__cta">
+          <Button
+            as="a"
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="solid"
+            color="p"
+            icon={<Whatsapp />}
+            className="sd__cta-whatsapp"
+          >
+            {t("contact.whatsapp")}
+            <span className="sd-visually-hidden"> (opens WhatsApp)</span>
+          </Button>
+          <Button
+            as="a"
+            href={PERSONAL_INFO.contact.phone}
+            variant="outline"
+            color="b"
+            icon={<PhoneCall />}
+            className="sd__cta-call"
+          >
+            {t("contact.call")}
+          </Button>
         </Flex>
       </header>
 
-      {/* 2. Content Grid */}
-      <Grid cols={{ default: "1fr", lg: "1.8fr 1fr" }} gap="6" className="service-detail__grid">
-        <div className="service-detail__content-main">
-          {/* Main Description */}
-          <Paper as={Paper} flow="3" className="l_box">
-            <Heading as="h2" size="6">
-              {title}
+      <ServiceNav sections={sections} label={t("nav.onThisPage")} />
+
+      <div className="sd__layout">
+        {/* The contact card is first in the DOM so keyboard and screen-reader
+            users reach it early; CSS places it in the right column on desktop. */}
+        <aside className="sd__aside" id="sd-contact" aria-label={t("contact.title")}>
+          <Paper flow="3" p="5" corner="3" className="sd-contact">
+            <Heading as="h2" size="5" weight="6">
+              {t("contact.title")}
             </Heading>
-            <Text color="b" low leading="3">
-              {description}
+            <Text as="p" size="3" color="b" low>
+              {t("contact.body")}
             </Text>
-
-            {/* Highlights bullet list */}
-            <Heading as="h3" size="4">
-              {item.category === "condition"
-                ? locale === "fr"
-                  ? "Symptômes et Prise en Charge"
-                  : locale === "ar"
-                    ? "الأعراض والرعاية المقدمة"
-                    : "Symptoms & In-Home Support"
-                : locale === "fr"
-                  ? "Points Clés de notre Service"
-                  : locale === "ar"
-                    ? "أبرز مميزات الخدمة"
-                    : "Key Elements of Our Service"}
-            </Heading>
-            <Paper flow="2">
-              {highlights.map((highlight, index) => (
-                <Paper
-                  background="B2"
-                  border
-                  corner="2"
-                  p="2"
-                  as={Flex}
-                  gap="2"
-                  items="center"
-                  key={index}
-                >
-                  <Check stroke="var(--P9)" width={20} strokeWidth={2} />
-                  <Text size="3" color="b" low>
-                    {highlight}
-                  </Text>
-                </Paper>
-              ))}
-            </Paper>
+            <Flex direction="col" gap="2">
+              <Button
+                as="a"
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                fluid
+                variant="solid"
+                color="p"
+                icon={<Whatsapp />}
+              >
+                {t("contact.whatsapp")}
+                <span className="sd-visually-hidden"> (opens WhatsApp)</span>
+              </Button>
+              <Button
+                as="a"
+                href={PERSONAL_INFO.contact.phone}
+                fluid
+                variant="outline"
+                color="b"
+                icon={<PhoneCall />}
+              >
+                <bdi dir="ltr">{PERSONAL_INFO.phone}</bdi>
+              </Button>
+            </Flex>
+            <ul className="sd-contact__meta">
+              <li>{t("contact.advisor")}</li>
+              <li>
+                <bdi dir="ltr">{t("contact.hours")}</bdi>
+              </li>
+            </ul>
           </Paper>
+        </aside>
 
-          {/* Related Procedures & Pricing */}
-          {relatedPrestations.length > 0 && (
-            <Paper flow="6" as="section" className="l_box">
-              <div>
-                <Heading weight="5" as="h2" size="6">
-                  {labels.whatsIncluded[locale]}
+        <div className="sd__main" id="sd-main">
+          <section className="sd-block" aria-labelledby="sd-about-h">
+            <Heading as="h2" size="6" id="sd-about-h" className="sd-block__h">
+              {t("highlights.service")}
+            </Heading>
+            <Text as="p" size="4" color="b" low className="sd-prose">
+              {pick(item.description, locale)}
+            </Text>
+          </section>
+
+          <section className="sd-block" id="sd-included" aria-labelledby="sd-included-h">
+            <Heading as="h2" size="6" id="sd-included-h" className="sd-block__h">
+              {t("included.title")}
+            </Heading>
+
+            <ul className="sd-checks">
+              {included.map((line) => (
+                <li className="sd-check" key={line}>
+                  <CircleCheck width={17} strokeWidth={1.8} aria-hidden="true" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            {excludes.length > 0 ? (
+              <>
+                <Heading as="h3" size="4" className="sd-sub__h">
+                  {t("included.excludesLabel")}
                 </Heading>
-                <Text size="3" color="b" low>
-                  {labels.pricingNote[locale]}
+                <ul className="sd-checks sd-checks--muted">
+                  {[...new Set(excludes)].map((line) => (
+                    <li className="sd-check" key={line}>
+                      <span aria-hidden="true" className="sd-check__dash" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {procedures.length > 0 ? (
+              <>
+                <Heading as="h3" size="4" className="sd-sub__h">
+                  {t("included.includesLabel")}
+                </Heading>
+                <ul className="sd-procedures">
+                  {procedures.map((procedure) => (
+                    <li className="sd-procedure" key={procedure.id}>
+                      <div className="sd-procedure__head">
+                        <Heading as="h4" size="4" weight="5">
+                          {pick(procedure.title, locale)}
+                        </Heading>
+                        <p className="sd-procedure__price">
+                          <bdi dir="ltr">
+                            {procedure.price} {t("included.currency")}
+                          </bdi>
+                        </p>
+                      </div>
+                      <ul className="sd-checks">
+                        {pick(procedure.inclus, locale)
+                          .filter((line) => !EXCLUDE_PATTERNS[locale].test(line))
+                          .map((line) => (
+                            <li className="sd-check" key={line}>
+                              <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                              <span>{line}</span>
+                            </li>
+                          ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <div className="sd-quote">
+                <Heading as="h3" size="4" weight="5">
+                  {t("quote.title")}
+                </Heading>
+                <Text as="p" size="3" color="b" low>
+                  {t("quote.body")}
                 </Text>
               </div>
+            )}
+          </section>
 
-              <Paper flow="8">
-                {relatedPrestations.map((prestation, idx) => (
-                  <Paper flow="4" key={idx}>
-                    <Flex justify="between" wrap items="center" gap="2">
-                      <Heading as="h4" weight="5">
-                        {prestation.title[locale] || prestation.title.en}
-                      </Heading>
-                      <Flex items="center" gap="2">
-                        <Chips transform="lowercase" variant="shadow" color="p">
-                          {labels.pricePrefix[locale]}
-                        </Chips>
-                        <Text size="4" weight="5" className="service-detail__prestation-price">
-                          {prestation.price}.00 {labels.madUnit[locale]}
-                        </Text>
-                      </Flex>
-                    </Flex>
-                    <Paper flow="1">
-                      {(prestation.inclus[locale] || prestation.inclus.en).map((inc, i) => (
-                        <Paper
-                          background="B2"
-                          border
-                          key={i}
-                          corner="2"
-                          p="2"
-                          as={Flex}
-                          gap="2"
-                          items="center"
-                        >
-                          <Check stroke="var(--P9)" width={14} strokeWidth={2.5} />
-                          <Text size="3" color="b" low>
-                            {inc}
-                          </Text>
-                        </Paper>
+          {packs.length > 0 ? (
+            <section className="sd-block" id="sd-plans" aria-labelledby="sd-plans-h">
+              <Heading as="h2" size="6" id="sd-plans-h" className="sd-block__h">
+                {t("packs.title")}
+              </Heading>
+              <Text as="p" size="3" color="b" low>
+                {t("packs.note")}
+              </Text>
+              <Grid cols={{ default: "1fr", sm: "1fr 1fr" }} gap="4" className="sd-packs">
+                {packs.map((pack) => (
+                  <Paper
+                    key={pack.id}
+                    flow="3"
+                    p="4"
+                    corner="3"
+                    border
+                    className={pack.featured ? "sd-pack sd-pack--featured" : "sd-pack"}
+                  >
+                    {pack.featured ? (
+                      <span className="sd-pack__badge">
+                        <Star width={13} strokeWidth={1.8} aria-hidden="true" />
+                        {t("packs.featured")}
+                      </span>
+                    ) : null}
+                    <Heading as="h3" size="4" weight="6">
+                      {pick(pack.name, locale)}
+                    </Heading>
+                    <p className="sd-pack__price">
+                      <bdi dir="ltr">{pack.priceMad.toLocaleString("en-US")}</bdi>{" "}
+                      {t("included.currency")} <span>· {t("packs.perMonth")}</span>
+                    </p>
+                    <Text as="p" size="3" color="b" low>
+                      {t("packs.visitsPerMonth", { count: pack.visitsPerMonth })}
+                    </Text>
+                    <ul className="sd-checks">
+                      {pick(pack.features, locale).map((line) => (
+                        <li className="sd-check" key={line}>
+                          <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                          <span>{line}</span>
+                        </li>
                       ))}
-                    </Paper>
+                    </ul>
                   </Paper>
                 ))}
-              </Paper>
-            </Paper>
-          )}
+              </Grid>
+            </section>
+          ) : null}
 
-          {/* FAQs section */}
-          {faqs.length > 0 && (
-            <Paper flow="5" className="l_box" aria-labelledby="faq-title">
-              <div>
-                <Chips color="b" variant="soft">
-                  FAQ
-                </Chips>
-                <Heading as="h2" size="5" id="faq-title">
-                  {labels.faqTitle[locale]}
-                </Heading>
-              </div>
-
-              <Accordion collapsible separate corner="4" size="4">
-                {faqs.map(({ q, a }, idx) => (
-                  <AccordionItem key={idx} value={`faq-${idx}`}>
-                    <AccordionButton className="faq--button">{q}</AccordionButton>
-                    <AccordionPanel className="faq--answer">{a}</AccordionPanel>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Paper>
-          )}
-        </div>
-
-        {/* 3. Sticky Sidebar */}
-        <Paper as="aside" flow="4" className="service-detail__sidebar">
-          {/* Booking CTA Card */}
-          <Paper flow="4" className="service-detail__cta-card">
-            <Heading as="h2" size="6" weight="5">
-              {labels.bookTitle[locale]}
+          <section className="sd-block" id="sd-process" aria-labelledby="sd-process-h">
+            <Heading as="h2" size="6" id="sd-process-h" className="sd-block__h">
+              {t("process.title")}
             </Heading>
-            <Text size="4" leading="3">
-              {labels.bookDesc[locale]}
+            <ol className="sd-steps">
+              {processSteps.map((step, index) => (
+                <li className="sd-step" key={step}>
+                  <span className="sd-step__num" aria-hidden="true">
+                    {index + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+
+            <div className="sd-sub">
+              <Heading as="h3" size="4" className="sd-sub__h">
+                {t("coverage.title")}
+              </Heading>
+              <ul className="sd-checks">
+                <li className="sd-check">
+                  <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                  <span>{t("coverage.body")}</span>
+                </li>
+                <li className="sd-check">
+                  <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                  <span>{t("coverage.travel")}</span>
+                </li>
+                <li className="sd-check">
+                  <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                  <span>{t("coverage.night")}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="sd-sub">
+              <Heading as="h3" size="4" className="sd-sub__h">
+                {t("prep.title")}
+              </Heading>
+              <ul className="sd-checks">
+                <li className="sd-check">
+                  <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                  <span>{t("prep.prescription")}</span>
+                </li>
+                <li className="sd-check">
+                  <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                  <span>{t("prep.extra")}</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="sd-block" id="sd-nurse" aria-labelledby="sd-nurse-h">
+            <Heading as="h2" size="6" id="sd-nurse-h" className="sd-block__h">
+              {t("nurse.title")}
+            </Heading>
+            <Text as="p" size="4" color="b" low className="sd-prose">
+              {t("nurse.intro")}
             </Text>
-            <Paper flow="2">
-              <Button
-                fluid
-                as="a"
-                href={PERSONAL_INFO.contact.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                icon={<Whatsapp />}
-                variant="mixed"
-              >
-                {labels.ctaWhatsapp[locale]}
-              </Button>
-              <Button
-                fluid
-                as="a"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={PERSONAL_INFO.contact.phone}
-                icon={<Phone />}
-                variant="outline"
-                color="o"
-              >
-                {labels.ctaPhone[locale]}
-              </Button>
-            </Paper>
-          </Paper>
+            <ul className="sd-checks">
+              {nursePoints.map((point) => (
+                <li className="sd-check" key={point}>
+                  <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                  <span>{t(`nurse.${point}`)}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
-          {/* Quick trust metrics */}
-          <Paper flow="6" className="l_box">
-            <Heading as="h3" size="4">
-              {labels.whyChooseUs[locale]}
+          <section className="sd-block" id="sd-safety" aria-labelledby="sd-safety-h">
+            <Heading as="h2" size="6" id="sd-safety-h" className="sd-block__h">
+              {t("safety.title")}
             </Heading>
-            <Paper flow="4">
-              <Flex gap="3" items="start">
-                <Badge variant="soft" type="icon" icon={<Shield width={20} />} />
-                <div>
-                  <Text weight="6" size="3" color="b">
-                    {labels.trustedTeam[locale]}
-                  </Text>
-                  <Text size="2" color="b" low>
-                    {labels.trustedTeamDesc[locale]}
-                  </Text>
-                </div>
-              </Flex>
+            <ul className="sd-checks">
+              <li className="sd-check">
+                <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                <span>{t("safety.notEmergency")}</span>
+              </li>
+              <li className="sd-check">
+                <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                <span>{t("safety.scope")}</span>
+              </li>
+            </ul>
+            <p className="sd-safety__numbers">
+              <bdi dir="ltr">{t("safety.numbers")}</bdi>
+            </p>
+          </section>
 
-              <Flex gap="3" items="start">
-                <Badge variant="soft" type="icon" icon={<Clock width={20} />} />
-                <div>
-                  <Text weight="6" size="3" color="b">
-                    {labels.available247[locale]}
-                  </Text>
-                  <Text size="2" color="b" low>
-                    {labels.available247Desc[locale]}
-                  </Text>
-                </div>
-              </Flex>
+          <section className="sd-block" id="sd-payment" aria-labelledby="sd-payment-h">
+            <Heading as="h2" size="6" id="sd-payment-h" className="sd-block__h">
+              {t("payment.title")}
+            </Heading>
+            <ul className="sd-checks">
+              <li className="sd-check">
+                <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                <span>{t("payment.methods")}</span>
+              </li>
+              <li className="sd-check">
+                <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                <span>{t("payment.invoice")}</span>
+              </li>
+              <li className="sd-check">
+                <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                <span>{t("payment.cancellation")}</span>
+              </li>
+              <li className="sd-check">
+                <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+                <span>{t("payment.insurance")}</span>
+              </li>
+            </ul>
+          </section>
 
-              <Flex gap="3" items="start">
-                <Badge variant="soft" type="icon" icon={<Users width={20} />} />
-                <div>
-                  <Text weight="6" size="3" color="b">
-                    {labels.multilingual[locale]}
-                  </Text>
-                  <Text size="2" color="b" low>
-                    {labels.multilingualDesc[locale]}
-                  </Text>
-                </div>
-              </Flex>
-            </Paper>
-          </Paper>
-        </Paper>
-      </Grid>
-    </Paper>
+          {faqs.length > 0 ? (
+            <section className="sd-block" id="sd-faq" aria-labelledby="sd-faq-h">
+              <Heading as="h2" size="6" id="sd-faq-h" className="sd-block__h">
+                {t("faq.title")}
+              </Heading>
+              <ServiceFaq items={faqs} />
+            </section>
+          ) : null}
+        </div>
+      </div>
+
+      {related.length > 0 ? (
+        <section className="sd-block sd-related" aria-labelledby="sd-related-h">
+          <Heading as="h2" size="6" id="sd-related-h" className="sd-block__h">
+            {t("related.title")}
+          </Heading>
+          <Grid cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }} gap="4">
+            {related.map((other) => (
+              <Paper key={other.slug} flow="2" p="4" corner="3" border className="sd-related__card">
+                <Text as="p" size="2" color="p" low>
+                  {t(`category.${other.category}`)}
+                </Text>
+                <Heading as="h3" size="4" weight="5">
+                  <a className="sd-related__link" href={`/${locale}/services/${other.slug}`}>
+                    {pick(other.title, locale)}
+                  </a>
+                </Heading>
+                <Text as="p" size="3" color="b" low>
+                  {pick(other.subtitle, locale)}
+                </Text>
+              </Paper>
+            ))}
+          </Grid>
+        </section>
+      ) : null}
+    </article>
   );
 };
 

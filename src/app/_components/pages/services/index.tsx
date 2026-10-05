@@ -25,7 +25,7 @@ const renderCards = (items: ServiceTreeItem[], locale: LocaleKey) =>
       description={item.description[locale] || item.description.en}
       shortTitle={item.shortTitle[locale] || item.shortTitle.en}
       highlights={item.highlights[locale] || item.highlights.en}
-      subscriptionAvailable={item.subscriptionAvailable}
+      hasMonthlyPlan={item.packs.length > 0}
       slug={item.slug}
     />
   ));

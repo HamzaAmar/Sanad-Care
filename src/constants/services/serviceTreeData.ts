@@ -1,14 +1,7 @@
-export interface LocalizedText {
-  en: string;
-  fr: string;
-  ar: string;
-}
+import type { PackId, ProcedureId } from "@/types/service";
+import type { LocalizedArray, LocalizedText } from "@/types/service";
 
-export interface LocalizedArray {
-  en: string[];
-  fr: string[];
-  ar: string[];
-}
+export type { LocalizedArray, LocalizedText } from "@/types/service";
 
 export interface FAQ {
   q: string;
@@ -24,8 +17,19 @@ export interface LocalizedFAQs {
 export interface ServiceTreeItem {
   slug: string;
   category: "pillar" | "service" | "condition";
-  subscriptionAvailable: boolean;
   shortTitle: LocalizedText;
+  /**
+   * Catalogue procedures that make up this service. An empty array is
+   * meaningful: the cost depends on hours, not on a procedure, so the page
+   * quotes on assessment instead of showing a number.
+   */
+  procedures: ProcedureId[];
+  /**
+   * Monthly plans available for this service. Empty means the service is sold
+   * per visit only; the card's "monthly plan available" chip is derived from
+   * this list.
+   */
+  packs: PackId[];
   title: LocalizedText;
   subtitle: LocalizedText;
   metaTitle: LocalizedText;
@@ -39,8 +43,9 @@ export interface ServiceTreeItem {
 export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   "iv-therapy-marrakech": {
     slug: "iv-therapy-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "IV therapy", fr: "Perfusion à domicile", ar: "المحاليل الوريدية" },
+    procedures: ["iv-infusion"],
     category: "service",
     title: {
       en: "IV Therapy & Perfusion at Home in Marrakech",
@@ -130,8 +135,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   },
   "elderly-care-marrakech": {
     slug: "elderly-care-marrakech",
-    subscriptionAvailable: true,
+    packs: ["essential", "suivi", "intensif", "vip"],
     shortTitle: { en: "Elderly care", fr: "Soins aux aînés", ar: "رعاية كبار السن" },
+    procedures: [],
     category: "service",
     title: {
       en: "Elderly & Senior Care at Home in Marrakech",
@@ -222,8 +228,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "alzheimers-care-marrakech": {
     slug: "alzheimers-care-marrakech",
-    subscriptionAvailable: true,
+    packs: ["essential", "suivi", "intensif", "vip"],
     shortTitle: { en: "Alzheimer's care", fr: "Alzheimer", ar: "رعاية الزهايمر" },
+    procedures: [],
     category: "service",
     title: {
       en: "Alzheimer's & Dementia Care at Home",
@@ -313,8 +320,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   },
   "cancer-care-marrakech": {
     slug: "cancer-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Cancer support", fr: "Soins oncologiques", ar: "دعم مرضى السرطان" },
+    procedures: ["iv-infusion", "standard-nursing-visit"],
     category: "condition",
     title: {
       en: "Cancer Home Care & Nursing Support",
@@ -357,47 +365,47 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
       ],
     },
     description: {
-      en: "Undergoing cancer treatment is a challenging journey. Our oncology-trained home nurses assist patients with post-chemotherapy side effects, hydration drips, venous access care (PICC line/Port-a-Cath cleaning), medication management, pain control, and psychological support.",
-      fr: "Faire face au cancer demande un accompagnement attentionné. Nos infirmiers prennent en charge la gestion des effets secondaires des traitements, l'entretien des voies veineuses (diffuseurs, chambres implantables) et le soulagement de la douleur.",
-      ar: "يتطلب علاج السرطان رعاية متخصصة. يقدم ممرضونا المؤهلون المتابعة الطبية بعد جلسات الكيماوي، تركيب محاليل الترطيب، العناية بالقسطرة الوريدية المركزية (PICC/Port-a-Cath)، وإدارة الآلام.",
+      en: "Undergoing cancer treatment is a challenging journey. Our oncology-trained home nurses assist patients with post-chemotherapy side effects, hydration drips, medication management, pain control, and psychological support.",
+      fr: "Faire face au cancer demande un accompagnement attentionné. Nos infirmiers prennent en charge la gestion des effets secondaires des traitements, le soulagement de la douleur et le suivi des constantes.",
+      ar: "يتطلب علاج السرطان رعاية متخصصة. يقدم ممرضونا المؤهلون المتابعة الطبية بعد جلسات الكيماوي، تركيب محاليل الترطيب، وتخفيف الآلام، ومتابعة العلامات الحيوية.",
     },
     highlights: {
       en: [
-        "Maintenance and flush of central venous lines (Port-a-Cath, PICC)",
+        "Medication management as prescribed by your doctor",
         "Nausea, vomiting, and hydration management with IV drips",
-        "Prescribed pain therapy monitoring (morphine and derivatives)",
+        "Monitoring of prescribed pain relief",
         "Deep emotional support and active listening for patients",
       ],
       fr: [
-        "Entretien et rinçage des voies d'accès central (chambre implantable, PICC line)",
+        "Gestion des médicaments selon l'ordonnance de votre médecin",
         "Gestion des nausées et réhydratation par perfusion à domicile",
-        "Surveillance des antalgiques majeurs prescrits (morphine et dérivés)",
+        "Surveillance de la douleur selon l'ordonnance",
         "Soutien psychologique fort et écoute attentive de la personne",
       ],
       ar: [
-        "العناية بالقسطرة الوريدية المركزية وغسلها (Port-a-Cath, PICC) بانتظام",
+        "إدارة الأدوية حسب الوصفة الطبية",
         "إدارة الغثيان والقيء وتركيب محاليل التغذية والترطيب الوريدية",
-        "متابعة إعطاء مسكنات الألم القوية الموصوفة (المورفين ومشتقاته)",
+        "متابعة تسكين الألم حسب الوصفة الطبية",
         "دعم معنوي ونفسي عميق والاستماع لمتطلبات المريض والمقربين منه",
       ],
     },
     faqs: {
       en: [
         {
-          q: "Can you flush and care for a Port-a-Cath at home?",
-          a: "Yes, our registered nurses are certified in managing and flushing central venous lines under strict sterile protocols.",
+          q: "Can you help after a chemotherapy session?",
+          a: "Yes. We monitor for post-chemotherapy side effects, manage hydration, and record symptoms to share with your treating doctor.",
         },
       ],
       fr: [
         {
-          q: "Pouvez-vous rincer une chambre implantable à domicile ?",
-          a: "Oui, nos infirmiers maîtrisent parfaitement les protocoles stériles de soin et de rinçage des chambres implantables (Port-a-Cath) et PICC lines.",
+          q: "Pouvez-vous intervenir après une séance de chimiothérapie ?",
+          a: "Oui. Nous surveillons les effets secondaires, gérons la réhydratation et transmettons les symptômes à votre médecin traitant.",
         },
       ],
       ar: [
         {
-          q: "هل يمكنكم تنظيف والعناية بـ Port-a-Cath في المنزل؟",
-          a: "نعم، ممرضونا مؤهلون تماماً للتعامل مع القسطرة الوريدية المركزية وغسلها تحت ظروف تعقيم معتمدة وصارمة.",
+          q: "هل يمكنكم المتابعة بعد جلسة العلاج الكيماوي؟",
+          a: "نعم. نراقب الأعراض الجانبية، ونوفر الترطيب الوريدي، وننقل الأعراض إلى طبيبك المعالج.",
         },
       ],
     },
@@ -405,8 +413,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "stroke-rehabilitation-marrakech": {
     slug: "stroke-rehabilitation-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Stroke recovery", fr: "Après-AVC", ar: "التعافي بعد الجلطة" },
+    procedures: ["standard-nursing-visit", "cardio-monitoring"],
     category: "condition",
     title: {
       en: "Stroke Recovery & Rehabilitation Support",
@@ -497,8 +506,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "parkinson-care-marrakech": {
     slug: "parkinson-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Parkinson's care", fr: "Parkinson", ar: "رعاية باركنسون" },
+    procedures: ["standard-nursing-visit"],
     category: "condition",
     title: {
       en: "Parkinson's Disease Home Care in Marrakech",
@@ -588,8 +598,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   },
   "dementia-care-marrakech": {
     slug: "dementia-care-marrakech",
-    subscriptionAvailable: true,
+    packs: ["essential", "suivi", "intensif", "vip"],
     shortTitle: { en: "Dementia care", fr: "Démence", ar: "رعاية الخرف" },
+    procedures: [],
     category: "condition",
     title: {
       en: "Dementia Home Care Services in Marrakech",
@@ -680,8 +691,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "home-nursing-marrakech": {
     slug: "home-nursing-marrakech",
-    subscriptionAvailable: true,
+    packs: ["essential", "suivi", "intensif", "vip"],
     shortTitle: { en: "Home nursing", fr: "Soins infirmiers", ar: "التمريض المنزلي" },
+    procedures: ["standard-nursing-visit", "simple-dressing", "im-injection", "iv-infusion"],
     category: "pillar",
     title: {
       en: "Home Nursing Services in Marrakech",
@@ -789,8 +801,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "nurse-at-home-marrakech": {
     slug: "nurse-at-home-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Nurse at home", fr: "Infirmier à domicile", ar: "ممرض في المنزل" },
+    procedures: ["standard-nursing-visit", "im-injection", "iv-infusion"],
     category: "service",
     title: {
       en: "Registered Nurse at Home in Marrakech",
@@ -881,8 +894,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "blood-test-at-home-marrakech": {
     slug: "blood-test-at-home-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Blood test", fr: "Prise de sang", ar: "سحب الدم" },
+    procedures: ["blood-sampling"],
     category: "service",
     title: {
       en: "Blood Test & Collection at Home in Marrakech",
@@ -973,8 +987,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "injection-at-home-marrakech": {
     slug: "injection-at-home-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Injections", fr: "Injections", ar: "الحقن" },
+    procedures: ["im-injection", "sc-injection", "home-vaccination"],
     category: "service",
     title: {
       en: "Injection at Home in Marrakech",
@@ -1065,8 +1080,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "wound-care-marrakech": {
     slug: "wound-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Wound care", fr: "Soins des plaies", ar: "العناية بالجروح" },
+    procedures: ["simple-dressing", "complex-dressing", "stitch-removal"],
     category: "service",
     title: {
       en: "Wound Care & Dressing Changes at Home",
@@ -1109,8 +1125,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
       ],
     },
     description: {
-      en: "Improper wound care can lead to serious infections and delayed recovery. Our nurses specialize in surgical staples/stitches removal, simple post-op dressings, and advanced ulcer/bedsore debridement using sterile techniques and specialized products.",
-      fr: "Des soins inadaptés peuvent retarder la cicatrisation et causer des infections. Nos infirmiers s'occupent du retrait des fils/agrafes, des pansements chirurgicaux et du traitement actif des plaies chroniques (escarres, ulcères).",
+      en: "Improper wound care can lead to serious infections and delayed recovery. Our nurses specialize in surgical staples/stitches removal, simple post-op dressings, and sterile dressing changes for chronic wounds and bedsores.",
+      fr: "Des soins inadaptés peuvent retarder la cicatrisation et causer des infections. Nos infirmiers s'occupent du retrait des fils/agrafes, des pansements chirurgicaux et des pansements stériles pour plaies chroniques et escarres.",
       ar: "تتطلب الجروح عناية دقيقة لتجنب الالتهابات. يقدم ممرضونا خدمات إزالة الغرز أو الدبابيس الجراحية، غيار الجروح العادية، وعلاج القرح الجلدية المعقدة وقرح الفراش بطرق معقمة.",
     },
     highlights: {
@@ -1157,8 +1173,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "post-surgery-care-marrakech": {
     slug: "post-surgery-care-marrakech",
-    subscriptionAvailable: true,
+    packs: ["essential", "suivi", "intensif", "vip"],
     shortTitle: { en: "Post-surgery care", fr: "Après-opératoire", ar: "ما بعد الجراحة" },
+    procedures: ["standard-nursing-visit", "simple-dressing", "im-injection", "iv-infusion"],
     category: "service",
     title: {
       en: "Post-Surgery Home Care in Marrakech",
@@ -1249,8 +1266,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "hospitalization-at-home-marrakech": {
     slug: "hospitalization-at-home-marrakech",
-    subscriptionAvailable: true,
+    packs: ["essential", "suivi", "intensif", "vip"],
     shortTitle: { en: "Hospital at home", fr: "Hospitalisation à domicile", ar: "الاستشفاء المنزلي" },
+    procedures: ["standard-nursing-visit", "simple-dressing", "im-injection", "iv-infusion"],
     category: "service",
     title: {
       en: "Hospitalization at Home in Marrakech",
@@ -1341,8 +1359,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "palliative-care-marrakech": {
     slug: "palliative-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Palliative care", fr: "Soins palliatifs", ar: "الرعاية التلطيفية" },
+    procedures: [],
     category: "service",
     title: {
       en: "Palliative & End of Life Care at Home",
@@ -1391,19 +1410,19 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
     },
     highlights: {
       en: [
-        "Administration of prescribed strong analgesics and infusions",
+        "Monitoring of prescribed treatment and infusions",
         "Gentle hygiene, skin protection, and position changing",
         "Symptom management (nausea, respiratory distress)",
         "Compassionate emotional support for the patient and family",
       ],
       fr: [
-        "Administration rigoureuse d'antalgiques majeurs et perfusions",
+        "Surveillance du traitement prescrit et des perfusions",
         "Soins d'hygiène prévenant les douleurs, effleurages escarres",
         "Contrôle des symptômes pénibles (nausées, détresse respiratoire)",
         "Soutien psychologique et écoute pour la famille",
       ],
       ar: [
-        "إعطاء مسكنات الألم القوية والمحاليل الموصوفة لتخفيف المعاناة",
+        "متابعة العلاج الموصوف والمحاليل الوريدية",
         "النظافة الشخصية اللطيفة، العناية بالجلد، وتغيير الوضعيات باستمرار",
         "إدارة الأعراض الصعبة (الغثيان، ضيق التنفس)",
         "دعم معنوي ونفسي رحيم للمريض وأفراد أسرته",
@@ -1433,8 +1452,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "disability-care-marrakech": {
     slug: "disability-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Disability care", fr: "Handicap", ar: "رعاية ذوي الاحتياجات" },
+    procedures: [],
     category: "service",
     title: {
       en: "Disability & Handicap Care at Home",
@@ -1525,8 +1545,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "physiotherapy-at-home-marrakech": {
     slug: "physiotherapy-at-home-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Physiotherapy", fr: "Kinésithérapie", ar: "العلاج الطبيعي" },
+    procedures: [],
     category: "service",
     title: {
       en: "Physiotherapy at Home in Marrakech",
@@ -1617,8 +1638,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "postpartum-care-marrakech": {
     slug: "postpartum-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Postpartum care", fr: "Post-partum", ar: "رعاية ما بعد الولادة" },
+    procedures: [],
     category: "service",
     title: {
       en: "Postpartum Care at Home in Marrakech",
@@ -1709,8 +1731,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "newborn-care-marrakech": {
     slug: "newborn-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Newborn care", fr: "Nouveau-né", ar: "رعاية المولود" },
+    procedures: [],
     category: "service",
     title: {
       en: "Newborn Care at Home in Marrakech",
@@ -1801,8 +1824,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "chronic-disease-care-marrakech": {
     slug: "chronic-disease-care-marrakech",
-    subscriptionAvailable: true,
+    packs: ["essential", "suivi", "intensif", "vip"],
     shortTitle: { en: "Chronic care", fr: "Maladies chroniques", ar: "الأمراض المزمنة" },
+    procedures: ["glucose-insulin", "cardio-monitoring"],
     category: "service",
     title: {
       en: "Chronic Disease Management at Home",
@@ -1893,8 +1917,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "night-care-marrakech": {
     slug: "night-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Night care", fr: "Garde de nuit", ar: "الرعاية الليلية" },
+    procedures: [],
     category: "service",
     title: {
       en: "Night Care & Overnight Nurse Services",
@@ -1985,8 +2010,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "medical-assistance-tourists-marrakech": {
     slug: "medical-assistance-tourists-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Tourist assistance", fr: "Assistance touristes", ar: "مساعدة السياح" },
+    procedures: ["standard-nursing-visit", "im-injection"],
     category: "service",
     title: {
       en: "Medical Assistance for Tourists in Marrakech",
@@ -2077,8 +2103,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "diabetes-care-marrakech": {
     slug: "diabetes-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Diabetes care", fr: "Diabète", ar: "رعاية السكري" },
+    procedures: ["glucose-insulin"],
     category: "condition",
     title: {
       en: "Diabetes Home Care & Monitoring in Marrakech",
@@ -2129,39 +2156,39 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
       en: [
         "Capillary blood glucose tracking and logbook management",
         "Insulin administration via pens or syringes under prescription",
-        "Detailed examination and prevention of diabetic foot ulcers",
+        "Diabetic foot checks and ulcer prevention",
         "Guidance on hypo/hyperglycemia alert signs",
       ],
       fr: [
         "Suivi glycémique régulier et tenue du carnet de surveillance",
         "Administration d'insuline sous ordonnance (stylos ou seringues)",
-        "Examen minutieux et soins préventifs du pied diabétique",
+        "Contrôle du pied diabétique et prévention des ulcères",
         "Éducation sur la reconnaissance des signes de malaise (hypo/hyper)",
       ],
       ar: [
         "متابعة مستمرة لنسبة السكر وتسجيلها بانتظام",
         "إعطاء الأنسولين بدقة بالحقن أو الأقلام الموصوفة",
-        "فحص دقيق وعناية وقائية بالقدم السكري لتفادي القروح",
+        "فحص القدم السكري والوقاية من القروح",
         "توعية المريض بكيفية رصد والتعامل مع حالات هبوط أو ارتفاع السكر",
       ],
     },
     faqs: {
       en: [
         {
-          q: "Can your nurses treat diabetic foot ulcers?",
-          a: "Yes, our nurses are highly experienced in treating diabetic wounds and ulcer debridement under sterile conditions.",
+          q: "Can you care for a diabetic foot wound at home?",
+          a: "We clean and dress diabetic foot wounds using sterile technique, and we alert your doctor immediately if the wound needs medical review.",
         },
       ],
       fr: [
         {
           q: "Prenez-vous en charge les plaies du pied diabétique ?",
-          a: "Oui, nos infirmiers sont experts dans la réfection des pansements stériles et le traitement des ulcères du pied diabétique.",
+          a: "Nous nettoyons et pansons les plaies du pied diabétique en conditions stériles, et alertons immédiatement votre médecin si la plaie nécessite un avis médical.",
         },
       ],
       ar: [
         {
-          q: "هل يستطيع ممرضوكم علاج جروح القدم السكري؟",
-          a: "نعم، يتمتع ممرضونا بخبرة كبيرة في غيار الجروح المعقمة وعلاج قروح القدم السكري.",
+          q: "هل يمكنكم العناية بجرح القدم السكري في المنزل؟",
+          a: "ننظف ونضمّد جروح القدم السكري بتقنية معقمة، وننبّه طبيبك فوراً إذا كان الجرح يحتاج إلى تقييم طبي.",
         },
       ],
     },
@@ -2169,8 +2196,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "hypertension-care-marrakech": {
     slug: "hypertension-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Hypertension", fr: "Hypertension", ar: "ضغط الدم" },
+    procedures: ["cardio-monitoring", "standard-nursing-visit"],
     category: "condition",
     title: {
       en: "Hypertension Monitoring & Care at Home",
@@ -2261,8 +2289,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "bedridden-patient-care-marrakech": {
     slug: "bedridden-patient-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Bedridden care", fr: "Patient alité", ar: "رعاية طريح الفراش" },
+    procedures: ["standard-nursing-visit", "simple-dressing"],
     category: "condition",
     title: {
       en: "Bedridden Patient Care at Home in Marrakech",
@@ -2353,8 +2382,9 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
 
   "pressure-ulcer-care-marrakech": {
     slug: "pressure-ulcer-care-marrakech",
-    subscriptionAvailable: false,
+    packs: [],
     shortTitle: { en: "Pressure ulcers", fr: "Escarres", ar: "قرح الفراش" },
+    procedures: ["complex-dressing", "simple-dressing"],
     category: "condition",
     title: {
       en: "Pressure Ulcer & Bedsore Treatment",
@@ -2362,8 +2392,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
       ar: "علاج قرح الفراش والقرح الجلدية بالمنزل",
     },
     subtitle: {
-      en: "Advanced Wound Debridement, Sterile Dressing, and Healing Acceleration",
-      fr: "Nettoyage en profondeur, pansement cicatrisant et détersion d'escarres",
+      en: "Sterile Dressing Care and Wound Monitoring",
+      fr: "Nettoyage stérile, pansement cicatrisant et soins des escarres",
       ar: "تنظيف القرحة، وضع ضمادات معقمة مساعدة على الالتئام السريع",
     },
     metaTitle: {
@@ -2372,8 +2402,8 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
       ar: "علاج قرح الفراش مراكش | غيار معقم لقرحة الفراش",
     },
     metaDescription: {
-      en: "Professional bedsore and pressure ulcer treatment in Marrakech. Specialized dressing change, sterile debridement, and healing protocols by registered nurses.",
-      fr: "Soins et traitement des escarres à domicile à Marrakech. Pansements cicatrisants spécialisés et débridement par nos infirmiers diplômés d'État.",
+      en: "Professional bedsore and pressure ulcer dressing care in Marrakech. Specialized dressing changes and sterile wound care by state-registered nurses.",
+      fr: "Soins et pansements des escarres à domicile à Marrakech. Pansements spécialisés et soins stériles par nos infirmiers diplômés d'État.",
       ar: "علاج متخصص لقرح الفراش بالمنزل في مراكش. تنظيف القرح وتغيير الضمادات المعقمة لتسريع شفاء الأنسجة التالفة بواسطة ممرضين معتمدين.",
     },
     keywords: {
@@ -2381,7 +2411,7 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
         "pressure ulcer treatment Marrakech",
         "bedsore care home Marrakech",
         "complex dressing bedsore",
-        "wound debridement home nurse",
+        "wound care nurse at home",
       ],
       fr: [
         "traitement escarres Marrakech",
@@ -2397,25 +2427,25 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
       ],
     },
     description: {
-      en: "Bedsores (pressure ulcers) require expert clinical management to heal and avoid deep tissue infections. Our nurses assess the ulcer stage (I to IV), perform necrotic tissue debridement if necessary, apply modern specialized dressings (alginate, hydrogel), and set up strict preventive positioning protocols.",
-      fr: "Les escarres nécessitent des compétences spécifiques pour cicatriser. Nos infirmiers évaluent le stade de la plaie, réalisent la détersion des tissus nécrosés, appliquent des pansements hydro-actifs et instaurent des règles strictes de décharge de pression.",
+      en: "Bedsores (pressure ulcers) require expert clinical management to heal and avoid deep tissue infections. Our nurses assess the ulcer stage (I to IV), apply specialized dressings (alginate, hydrogel), and set up strict preventive positioning protocols.",
+      fr: "Les escarres nécessitent des compétences spécifiques pour cicatriser. Nos infirmiers évaluent le stade de la plaie, appliquent des pansements hydro-actifs et instaurent des règles strictes de décharge de pression.",
       ar: "تتطلب قرح الفراش (التقرحات الجلدية) علاجاً طبياً متخصصاً لتجنب التهاب العظام والالتهابات العميقة. يقوم ممرضونا بتقييم مرحلة القرحة (من الأولى للرابعة)، وتنظيفها وتطهيرها.",
     },
     highlights: {
       en: [
-        "Aseptic cleaning and enzymatic/mechanical bedsore debridement",
+        "Aseptic cleaning and sterile dressing changes",
         "Use of advanced moisture-balanced cicatrisation dressings",
         "Pressure relief strategies (position changes, padding, floatation cushions)",
         "Frequent updates and cooperation with the patient's physician",
       ],
       fr: [
-        "Nettoyage stérile et débridement mécanique ou enzymatique des tissus morts",
+        "Nettoyage stérile et changement de pansements stériles",
         "Application de pansements cicatrisants de dernière génération",
         "Mise en décharge complète de la zone lésée (talons, sacrum)",
         "Rapport régulier d'évolution et adaptation du protocole avec le médecin",
       ],
       ar: [
-        "تنظيف معقم وإزالة الأنسجة الميتة المتراكمة ميكانيكياً أو كيميائياً",
+        "تنظيف معقم وتغيير الضمادات المعقمة",
         "استخدام ضمادات متقدمة تحافظ على رطوبة الجرح وتسرع بناء الجلد",
         "تخفيف الضغط الكامل عن المنطقة المصابة (العجز، الكعبين) بالوسائد",
         "متابعة دورية وإطلاع الطبيب المعالج على مدى تحسن القرحة",
