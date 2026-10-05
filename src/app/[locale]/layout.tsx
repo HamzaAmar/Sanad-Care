@@ -27,7 +27,7 @@ export async function generateMetadata({
       url: `${BASE_URL}/${locale}`,
       images: [
         {
-          url: "/og-image.jpg",
+          url: "/og-image.png",
           width: 1200,
           height: 630,
           alt: t("ogImageAlt"),
@@ -37,7 +37,7 @@ export async function generateMetadata({
     twitter: {
       title: t("ogTitle"),
       description: t("ogDescription"),
-      images: ["/og-image.jpg"],
+      images: ["/og-image.png"],
     },
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
@@ -65,7 +65,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
   setRequestLocale(locale);
 
   return (
-    <html suppressHydrationWarning lang="en" dir={dir}>
+    <html suppressHydrationWarning lang={locale} dir={dir}>
       <body suppressHydrationWarning>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

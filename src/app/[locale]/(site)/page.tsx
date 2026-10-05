@@ -18,7 +18,7 @@ export default async function HomePage() {
         about: { "@id": "https://www.sanadcare.ma/en/#business" },
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: "https://www.sanadcare.ma/og-image.jpg",
+          url: "https://www.sanadcare.ma/og-image.png",
           width: 1200,
           height: 630,
         },
@@ -59,7 +59,7 @@ export default async function HomePage() {
           height: 512,
           caption: "Sanad Care Logo",
         },
-        image: "https://www.sanadcare.ma/og-image.jpg",
+        image: "https://www.sanadcare.ma/og-image.png",
         description:
           "Leading home nursing and medical care provider in Marrakech, Morocco. Serving locals and international tourists with 24/7 professional healthcare at home, hotel, or private residence.",
         foundingDate: "2026",
@@ -102,7 +102,7 @@ export default async function HomePage() {
 
       // ─── 4. HOME HEALTH CARE SERVICE (Core Local Entity) ──────
       {
-        "@type": "HomeHealthCareService",
+        "@type": "MedicalBusiness",
         "@id": "https://www.sanadcare.ma/en/#business",
         name: "Sanad Care - Home Nursing Marrakech",
         alternateName: [
@@ -112,7 +112,7 @@ export default async function HomePage() {
           "English Speaking Nurse Marrakech",
         ],
         image: [
-          "https://www.sanadcare.ma/og-image.jpg",
+          "https://www.sanadcare.ma/og-image.png",
           "https://www.sanadcare.ma/images/nurse-home-care.jpg",
           "https://www.sanadcare.ma/images/medical-tourism-marrakech.jpg",
         ],
