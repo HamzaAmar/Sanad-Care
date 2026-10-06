@@ -141,7 +141,10 @@ const DocumentForm = ({ questions }: { questions: string[] }) => {
         setValues(state.values);
         if (formRef.current) writeDocumentFormData(formRef.current, state.values);
       }
-      errorRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      errorRef.current?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "center",
+      });
       return;
     }
 

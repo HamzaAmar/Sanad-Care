@@ -7,20 +7,21 @@ import type { DocumentErrorCode, DocumentFieldName, DocumentValues } from "./doc
  * action (authoritative check + translatable error codes).
  */
 export const documentSchema = z.object({
-  fullName: z.string().trim().min(1, "required").min(2, "tooShort"),
+  fullName: z.string().trim().min(1, "required").min(2, "tooShort").max(100, "tooLong"),
   age: z
     .string()
     .trim()
     .min(1, "required")
     .regex(/^\d{1,3}$/, "invalidAge")
     .refine((value) => Number(value) >= 1 && Number(value) <= 120, "invalidAge"),
-  arrivalDate: z.string().trim().min(1, "required"),
-  hotel: z.string().trim().min(1, "required").min(2, "tooShort"),
+  arrivalDate: z.string().trim().min(1, "required").max(30, "tooLong"),
+  hotel: z.string().trim().min(1, "required").min(2, "tooShort").max(150, "tooLong"),
   phone: z
     .string()
     .trim()
     .min(1, "required")
     .min(6, "tooShort")
+    .max(30, "tooLong")
     .regex(/^[+\d][\d\s\-().]{5,}$/, "invalidPhone"),
 });
 

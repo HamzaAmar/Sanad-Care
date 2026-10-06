@@ -25,6 +25,7 @@ export type DocumentFieldName = "fullName" | "age" | "arrivalDate" | "hotel" | "
 export type DocumentErrorCode =
   | "required"
   | "tooShort"
+  | "tooLong"
   | "invalidAge"
   | "invalidPhone"
   | "consentRequired"
