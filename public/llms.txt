@@ -1,28 +1,36 @@
-# Taouafi Luxury Rent Car
+# Sanad Care
 
-> Premium luxury car rental service in Marrakech, Morocco. Providing an exclusive fleet of high-end vehicles with VIP services.
+> Sanad Care is a home nursing and home healthcare provider based in Marrakech, Morocco. State-registered nurses (IDE) deliver medical care at home, in hotels, and in riads: elderly care, post-surgery recovery, IV therapy, injections, wound care, physiotherapy, chronic disease monitoring, and medical assistance for tourists. Available 24/7.
 
 ## Services
 
-- **Self-Drive Rentals**: Rent luxury cars (Mercedes, Range Rover, Porsche, etc.) for personal use.
-- **Chauffeur Service**: Professional drivers for VIP transport, airport transfers, and tours.
-- **Nationwide Delivery**: Delivery of vehicles to any location in Morocco (Marrakech, Casablanca, Tangier, etc.).
+- **Home Nursing** (`/en/services`, `/fr/services`, `/ar/services`): 26 services including elderly care, post-operative care, injections and IV therapy at home, wound and pressure ulcer care, chronic disease monitoring, palliative care, newborn and postpartum care.
+- **Medical Tourism** (`/en/tourism`): medical assistance for tourists at their hotel or riad, including illness and injury follow-up and coordination with doctors.
+- **Blood Tests at Home** (`/en/venipuncture`): venipuncture service for patients, pregnant women, athletes (partner gym discounts), and tourists.
+- **Pre-Travel Health Questionnaire** (`/en/document`): form for visitors to share health details before arrival.
 
 ## Navigation
 
-- **Home**: `/` - The main landing page showcasing the fleet and core services.
-- **Our Cars**: `/cars` - Browse the complete fleet of available luxury vehicles.
-- **About Us**: `/about-us` - Information about the company, mission, and values.
-- **Contact**: `/contact-us` - Contact details, including phone, email, and location.
-- **Blog**: `/blogs` - Travel tips, guides, and insights about luxury travel in Morocco.
-- **FAQ**: `/faq` - Answers to common questions about rentals, insurance, and deposits.
+- **Home**: `/` - Home nursing in Marrakech, 24/7.
+- **Services**: `/services` - All home nursing services and care programs.
+- **Tourism**: `/tourism` - Medical assistance for visitors.
+- **Venipuncture**: `/venipuncture` - Blood tests at home or hotel.
+- **Why Us**: `/why-us` - Standards, nurses, and coverage.
+- **Family**: `/family` - Guidance for families arranging care for a relative.
+- **Patient**: `/patient` - Patient-centered care approach.
+- **FAQ**: `/faq` - Answers about services, pricing, booking, and coverage.
+- **Contact**: `/contact-us` - Phone, WhatsApp, email, and message form.
+- **Privacy**: `/privacy` - Privacy policy.
 
-## Key Features
+## Contact
 
-- **Multilingual Support**: Website available in English (`en`), French (`fr`), and Arabic (`ar`).
-- **Premium Fleet**: Includes top brands like Mercedes-Benz, Range Rover, Porsche, Bentley, and Audi.
-- **24/7 Support**: Dedicated customer service for all rental needs.
+- Phone: +212 704 524 625 (24/7)
+- Email: health.sanadcare@gmail.com
+- WhatsApp: https://wa.me/212704524625
+- Address: N° 3 Immeuble Palmier 104, Lotissement Iguider 2, Rouidate, Marrakech, Morocco
 
-## Context
+## Notes
 
-Taouafi Rent Car acts as a premier provider for tourists and business travelers seeking high-quality transportation in Marrakech and beyond. The platform emphasizes ease of booking, vehicle quality, and exceptional customer service.
+- Multilingual: English (`/en`), French (`/fr`), Arabic (`/ar`).
+- Coverage area: Marrakech and surrounding areas; home visits within the city and to hotels and riads.
+- Pricing: per-session and monthly care programs; conditions described on each service page.

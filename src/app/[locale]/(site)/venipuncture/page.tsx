@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/page-metadata";
 import VenipunctureHero from "./components/venipunctureHero";
 import WhyUsVenipuncture from "./components/whyUsVenipuncture";
 import GymPartnershipSection from "./components/gymPartnership";
@@ -17,8 +18,14 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "venipuncture" });
 
   return {
-    title: t("meta.title"),
-    description: t("meta.description"),
+    ...buildPageMetadata({
+      locale,
+      path: "/venipuncture",
+      title: t("meta.title"),
+      description: t("meta.description"),
+      ogTitle: t("meta.ogTitle"),
+      ogDescription: t("meta.ogDescription"),
+    }),
     keywords: [
       "prise de sang à domicile Marrakech",
       "blood test at home Marrakech",
@@ -27,24 +34,15 @@ export async function generateMetadata({
       "medical tourism Marrakech blood test",
       "فحص الدم المنزلي مراكش",
     ],
-    openGraph: {
-      title: t("meta.ogTitle"),
-      description: t("meta.ogDescription"),
-      locale: locale === "ar" ? "ar_MA" : locale === "en" ? "en_US" : "fr_MA",
-      type: "website",
-    },
-    alternates: {
-      canonical: `/${locale}/venipuncture`,
-      languages: {
-        fr: "/fr/venipuncture",
-        en: "/en/venipuncture",
-        ar: "/ar/venipuncture",
-      },
-    },
   };
 }
 
-export default function VenipuncturePage() {
+export default async function VenipuncturePage({
+  params,
+}: PageProps<"/[locale]/venipuncture">) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <div className="venipuncture-page Sf-6">
       <VenipunctureHero />
