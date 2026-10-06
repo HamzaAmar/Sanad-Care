@@ -1,6 +1,96 @@
 {
+  "privacyPage": {
+    "title": "Politique de confidentialité",
+    "updated": "Dernière mise à jour : octobre 2026",
+    "metaDescription": "Comment Sanad Care collecte, utilise et protège vos informations personnelles lorsque vous utilisez sanadcare.ma ou nous contactez.",
+    "intro": "Sanad Care est un prestataire de soins infirmiers à domicile basé à Marrakech, au Maroc. Cette politique explique ce que nous faisons des informations personnelles lorsque vous utilisez sanadcare.ma ou nous contactez.",
+    "sections": [
+      {
+        "title": "Ce que nous collectons",
+        "body": [
+          "Ce que vous envoyez via le formulaire de contact : votre nom, votre adresse e-mail, votre numéro de téléphone et votre message.",
+          "Ce que vous nous indiquez sur WhatsApp ou par téléphone lors de la mise en place des soins, y compris les informations sur la santé et les besoins du patient.",
+          "Des informations techniques de base sur l'utilisation du site, collectées via Google Analytics."
+        ]
+      },
+      {
+        "title": "Pourquoi nous les utilisons",
+        "body": [
+          "Pour répondre à votre demande et organiser les soins que vous souhaitez.",
+          "Pour garder une trace des soins dispensés, afin que l'infirmier suivant sache ce qui a été fait.",
+          "Pour comprendre quelles parties du site sont utiles et l'améliorer."
+        ]
+      },
+      {
+        "title": "Informations de santé",
+        "body": [
+          "Prendre soin d'une personne implique de manipuler des informations de santé, qui sont sensibles. Nous ne demandons que ce qui est nécessaire pour assurer les soins demandés, et nous ne les partageons qu'avec les infirmiers concernés."
+        ]
+      },
+      {
+        "title": "Cookies et mesure d'audience",
+        "body": [
+          "Nous utilisons Google Analytics pour compter les visites et voir quelles pages sont consultées. Cet outil dépose des cookies et collecte une adresse IP abrégée. Vous pouvez bloquer les cookies dans les réglages de votre navigateur sans perdre l'accès au site."
+        ]
+      },
+      {
+        "title": "Qui d'autre intervient",
+        "body": [
+          "Google — mesure d'audience du site, et la fiche Google où nos avis sont publiés.",
+          "Cloudflare Turnstile — vérifie que les messages du formulaire viennent d'une personne et non d'un robot.",
+          "Notre prestataire d'e-mail — achemine les messages du formulaire vers notre boîte de réception.",
+          "Meta (WhatsApp) — si vous nous écrivez sur WhatsApp, cette conversation relève aussi de la politique de confidentialité de WhatsApp."
+        ]
+      },
+      {
+        "title": "Durée de conservation",
+        "body": [
+          "Demandes : le temps nécessaire pour vous répondre et organiser les soins.",
+          "Dossiers de soins : pendant la relation de soins et aussi longtemps que les règles applicables l'exigent.",
+          "Données de mesure d'audience : selon les paramètres de conservation de Google Analytics."
+        ]
+      },
+      {
+        "title": "Vos droits",
+        "body": [
+          "Vous pouvez nous demander quelles informations nous détenons, demander leur correction ou leur suppression. Écrivez-nous à l'adresse ci-dessous et nous vous répondrons.",
+          "La loi marocaine 09-08 relative à la protection des données personnelles encadre notre traitement. Si vous êtes dans l'Union européenne, vous disposez également des droits prévus par le RGPD."
+        ]
+      },
+      {
+        "title": "Modifications de cette politique",
+        "body": [
+          "Si cette politique change, nous mettrons à jour la date en haut de cette page."
+        ]
+      },
+      {
+        "title": "Nous contacter au sujet de la confidentialité",
+        "body": [
+          "Pour toute question sur cette politique ou vos informations, contactez-nous et nous vous aiderons."
+        ]
+      }
+    ]
+  },
+  "reviews": {
+    "badge": "Avis",
+    "heading": "Ce que disent les familles sur Google",
+    "lead": "Avis publiés sur notre fiche Google, sans modification.",
+    "readOnGoogle": "Lire tous les avis sur Google",
+    "leaveReview": "Laisser un avis",
+    "reviewSource": "Avis Google",
+    "viewOnGoogle": "Voir sur Google",
+    "reviewsCount": "{count} avis",
+    "empty": "Tous les avis sont sur notre fiche Google — les bons comme les moins bons. Consultez-les là-bas.",
+    "writtenIn": "Rédigé en {language}",
+    "languages": {
+      "en": "anglais",
+      "fr": "français",
+      "ar": "arabe"
+    },
+    "disclosure": "Les avis sont affichés tels que publiés sur Google, dans leur ordre d'affichage, et ne sont pas modifiés par nos soins."
+  },
   "seo": {
-    "metaTitle": "infirmière à domicile marrakech | soins Professionnels à Votre Porte",
+    "metaTitle": "Infirmière à domicile à Marrakech | Sanad Care",
     "metaDescription": "Infirmière à domicile Marrakech disponible 24h/24 et 7j/7. soins infirmiers à domicile, suivi post-opératoire, prise en charge des seniors et assistance médicale pour touristes.",
     "ogTitle": "infirmière à domicile marrakech | soins Professionnels 24h/24",
     "ogDescription": "Infirmière à domicile Marrakech disponible 24h/24 et 7j/7. soins infirmiers à domicile, suivi post-opératoire, prise en charge des seniors et assistance médicale pour touristes.",
@@ -8,7 +98,24 @@
   },
   "common": {
     "before": "Avant",
-    "after": "Après"
+    "after": "Après",
+    "skipToContent": "Aller au contenu"
+  },
+  "notFoundPage": {
+    "title": "Page introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
+  },
+  "errorPage": {
+    "title": "Une erreur est survenue",
+    "description": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+    "retry": "Réessayer"
+  },
+  "qrCode": {
+    "subtitle": "{name} à Marrakech",
+    "site": "Site web",
+    "call": "Appelez-nous",
+    "mail": "E-mail"
   },
   "nav": {
     "home": "Accueil",
@@ -67,6 +174,7 @@
     "errors": {
       "required": "Ce champ est obligatoire.",
       "tooShort": "Cette valeur est trop courte.",
+      "tooLong": "Cette valeur est trop longue.",
       "invalidAge": "Saisissez un âge valide entre 1 et 120 ans.",
       "invalidPhone": "Saisissez un numéro de téléphone valide.",
       "consentRequired": "Veuillez confirmer que vous acceptez les conditions.",
@@ -94,11 +202,13 @@
     },
     "workingDays": "Tous les jours",
     "copyright": "Sanad Care. Tous droits réservés.",
-    "developedBy": "Développé par"
+    "developedBy": "Développé par",
+    "privacy": "Politique de confidentialité"
   },
   "header": {
     "openMenu": "Ouvrir la Barre de Menu",
     "closeMenu": "Fermer la Barre de Menu",
+    "menu": "Menu",
     "homePage": "Page d'Accueil"
   },
   "language": {
@@ -120,21 +230,20 @@
     "careBased": "Soins basés sur vos besoins",
     "safe": "Sûr et sécurisé",
     "availability": "Infirmiers disponibles",
-    "availabilityMeta": "Réponse moyenne 45 min",
+    "availabilityMeta": "Visite à domicile en moins de 60 min",
     "whatsappNote": "Répond en moins de 5 minutes",
-    "ratingValue": "4,8",
     "ratingLabel": "La confiance de plus de 3 000 familles à Marrakech",
     "photoAlt": "Une infirmière Sanad Care accompagne une patiente âgée à domicile à Marrakech",
     "stats": {
       "availability": { "value": "24h/24", "label": "Disponibilité" },
-      "response": { "value": "45 min", "label": "Réponse moyenne" },
-      "families": { "value": "3 000+", "label": "Familles accompagnées" },
-      "licensed": { "value": "100%", "label": "Infirmiers diplômés" }
+      "response": { "value": "60 min", "label": "Délai moyen" },
+      "coverage": { "value": "Marrakech", "label": "Zone d'intervention" },
+      "licensed": { "value": "100%", "label": "Infirmiers diplômés d'État" }
     },
     "cards": {
-      "enroute": { "title": "Infirmière Salma", "meta": "En route · arrivée 25 min" },
-      "recovery": { "title": "Récupération post-opératoire", "meta": "Protocole suivi" },
-      "rating": { "title": "Note 4,9", "meta": "Plus de 3 000 visites" }
+      "response": { "title": "Visite en moins de 60 min", "meta": "Partout à Marrakech" },
+      "nurse": { "title": "Le même infirmier si possible", "meta": "Briefé sur votre dossier" },
+      "report": { "title": "Compte rendu WhatsApp", "meta": "Après chaque visite" }
     },
     "ticker": {
       "label": "Nos services de soins",
@@ -151,6 +260,10 @@
     }
   },
   "services": {
+    "seo": {
+      "title": "Services de soins infirmiers à domicile à Marrakech | Sanad Care",
+      "description": "Découvrez 26 services de soins infirmiers à domicile à Marrakech : soins aux personnes âgées, récupération post-opératoire, perfusions, pansements, injections, kinésithérapie et plus."
+    },
     "heading": "Nos services infirmiers professionnels",
     "subheading": "Soins complets adaptés à vos besoins",
     "detail": {
@@ -369,7 +482,7 @@
   "whyUs": {
     "seo": {
       "title": "Soins infirmiers à Domicile de confiance à Marrakech | Sanad Care",
-      "description": "Optez pour une prise en charge infirmière à domicile de qualité à Marrakech. Nos infirmiers diplômés et autorisés à exercer interviennent 24h/24 selon disponibilité, dans le respect des prescriptions médicales, avec professionnalisme, vigilance et bienveillance.",
+      "description": "Soins infirmiers à domicile de qualité à Marrakech. Infirmiers diplômés d'État, disponibles 24h/24, dans le respect des prescriptions et avec bienveillance.",
       "keywords": [
         "Soins infirmiers à domicile Marrakech",
         "Infirmiers diplômés Maroc",
@@ -419,15 +532,33 @@
       "details": {
         "h2": "Petits Détails. Grand Impact.",
         "subtitle": "Comment la vraie guérison se produit",
-        "description": "Nous avons découvert que la récupération s'améliore quand les petits éléments fonctionnent ensemble : Individuellement petits. Ensemble, puissants.",
-        "list": [
-          "Organisation des médicaments",
-          "Qualité nutritionnelle",
-          "Surveillance des signes vitaux",
-          "Soutien psychologique",
-          "Communication claire et respectueuse",
-          "Se sentir en sécurité à la maison"
-        ]
+      "description": "Nous avons découvert que la récupération s'améliore quand les petits éléments fonctionnent ensemble : Individuellement petits. Ensemble, puissants.",
+      "items": [
+        {
+          "title": "Organisation des médicaments",
+          "description": "Veiller à la prise des médicaments à l'heure, au bon dosage, en respectant pleinement les prescriptions médicales."
+        },
+        {
+          "title": "Qualité nutritionnelle",
+          "description": "Suivre et soutenir une alimentation équilibrée adaptée à l'état de santé et aux besoins médicaux du patient."
+        },
+        {
+          "title": "Surveillance des signes vitaux",
+          "description": "Mesure et suivi réguliers des signes vitaux pour détecter les changements précoces et prévenir les complications."
+        },
+        {
+          "title": "Soutien psychologique",
+          "description": "Apporter une réassurance émotionnelle, réduire l'anxiété et soutenir le bien-être mental du patient."
+        },
+        {
+          "title": "Communication claire et respectueuse",
+          "description": "Maintenir une communication transparente et respectueuse avec les patients et les familles à chaque étape des soins."
+        },
+        {
+          "title": "Se sentir en sécurité à la maison",
+          "description": "Créer un environnement sûr et supervisé qui favorise le confort, la confiance et la tranquillité d'esprit."
+        }
+      ]
       },
       "global": {
         "h2": "Apprendre des meilleures pratiques mondiales",
@@ -478,7 +609,7 @@
   },
   "tourism": {
     "seo": {
-      "title": "Assistance Médicale pour Touristes à Marrakech | Médecins et infirmiers à l'Hôtel",
+      "title": "Assistance médicale aux touristes à Marrakech | Sanad Care",
       "description": "Un problème de santé à Marrakech ? Recevez une assistance médicale rapide dans votre hôtel ou riad. infirmiers anglophones et coordination médicale pour blessures, maladies ou suivi postopératoire.",
       "keywords": [
         "Médecin pour touristes Marrakech",
@@ -807,7 +938,7 @@
   "family": {
     "seo": {
       "title": "Aide à Domicile pour Personnes Âgées et Familles à Marrakech | Sanad Care",
-      "description": "Épuisé par le rôle d'aidant ? Sanad Care propose des soins infirmiers professionnels à domicile pour vos proches à Marrakech. Comptes rendus quotidiens, gestion des médicaments et tranquillité d'esprit.",
+      "description": "Épuisé par le rôle d'aidant ? Sanad Care propose des soins infirmiers professionnels à domicile à Marrakech. Comptes rendus quotidiens et gestion des médicaments.",
       "keywords": [
         "Soins aux personnes âgées Marrakech",
         "Aide-soignant pour parents Maroc",
@@ -1230,6 +1361,10 @@
     }
   },
   "contact": {
+    "seo": {
+      "title": "Contactez Sanad Care | Soins infirmiers 24/7 à Marrakech",
+      "description": "Contactez Sanad Care pour des soins infirmiers à domicile 24/7 à Marrakech. Appelez, écrivez sur WhatsApp ou envoyez un message — nous répondons rapidement."
+    },
     "title": "Contactez-Nous",
     "intro": "Besoin de soins infirmiers ? Contactez-nous aujourd'hui.",
     "phoneLabel": "Ligne d'Urgence 24h/24 et 7j/7",
@@ -1241,7 +1376,18 @@
       "email": "Email",
       "subject": "Sujet",
       "message": "Message",
-      "send": "Envoyer"
+      "send": "Envoyer",
+      "retry": "Réessayer",
+      "successTitle": "Message envoyé",
+      "successMessage": "Votre message a bien été envoyé. Nous vous répondrons bientôt.",
+      "errorTitle": "Une erreur est survenue",
+      "errors": {
+        "invalidData": "Veuillez vérifier les champs du formulaire et réessayer.",
+        "captchaFailed": "La vérification du captcha a échoué. Veuillez réessayer.",
+        "captchaExpired": "Le captcha a expiré. Veuillez vérifier à nouveau.",
+        "rateLimited": "Trop de messages envoyés. Veuillez réessayer dans quelques minutes.",
+        "sendFailed": "Votre message n'a pas pu être envoyé. Réessayez ou appelez-nous."
+      }
     },
     "social": {
       "facebook": "Aller sur Facebook",
@@ -1350,6 +1496,10 @@
     }
   },
   "faq": {
+    "seo": {
+      "title": "Questions fréquentes | Sanad Care",
+      "description": "Réponses aux questions fréquentes sur les soins infirmiers à domicile à Marrakech : services, tarifs, réservation, infirmiers, soins aux personnes âgées et post-opératoires, zones couvertes et urgences."
+    },
     "heading": "Questions Fréquemment Posées",
 
     "generalQuestions": "Questions Générales",
@@ -1516,7 +1666,7 @@
   },
   "venipuncture": {
     "meta": {
-      "title": "Prise de Sang à Domicile Marrakech | Infirmier 24h/24 — Gym & Tourism",
+      "title": "Prise de sang à domicile à Marrakech | Sanad Care",
       "description": "Infirmier diplômé d'État pour prise de sang à domicile à Marrakech. Service. Partenaire salles de sport (-20%). Service touristes hôtel. Résultats 24-48h.",
       "ogTitle": "Prise de Sang à Domicile Marrakech — Partenaire Gym & Tourism",
       "ogDescription": "Prélèvement sanguin professionnel à domicile ou à l'hôtel à Marrakech. Réduction 20% pour les sportifs. Service disponible en français, arabe et anglais."
@@ -1647,19 +1797,20 @@
       "cta": "Réserver avec réduction"
     },
     "tourism": {
-      "badge": "Medical Tourism",
-      "heading": "Blood Test for Tourists in Marrakech",
-      "subheading": "Don't waste your vacation time in a lab queue. We come to your hotel.",
-      "description": "Professional home blood draw service for tourists staying in Marrakech. English-speaking nurse, sterile equipment, results in 24-48h delivered to your email.",
+      "badge": "Tourisme médical",
+      "heading": "Prise de sang pour les touristes à Marrakech",
+      "subheading": "Ne perdez pas vos vacances dans une file d'attente de laboratoire. Nous venons à votre hôtel.",
+      "description": "Service professionnel de prise de sang à domicile pour les touristes séjournant à Marrakech. Infirmier francophone, matériel stérile, résultats en 24-48 h envoyés par e-mail. Nous visitons tous les hôtels et riads.",
       "reasons": {
-        "preTravel": "Pre-travel health check",
-        "postTravel": "Post-travel screening",
-        "extended": "Routine monitoring during extended stay",
-        "medication": "Medication level checks",
-        "illness": "Food poisoning or illness follow-up",
-        "visa": "Visa or insurance medical requirements"
+        "preTravel": "Bilan de santé avant un long voyage",
+        "postTravel": "Dépistage après un séjour rural ou dans le désert",
+        "extended": "Suivi de routine pendant un séjour prolongé",
+        "medication": "Contrôle des taux de médicaments (thyroïde, anticoagulants)",
+        "illness": "Suivi d'une intoxication alimentaire ou d'une maladie",
+        "visa": "Exigences médicales pour visa ou assurance voyage"
       },
-      "cta": "Book as a Tourist"
+      "cta": "Réserver en tant que touriste",
+      "imageAlt": "Infirmier assistant un touriste lors d'un soin médical dans un hôtel à Marrakech"
     },
     "profiles": {
       "heading": "Pour Qui ? — Nos Services de Prélèvement",

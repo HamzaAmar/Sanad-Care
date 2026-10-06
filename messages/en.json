@@ -1,4 +1,94 @@
 {
+  "privacyPage": {
+    "title": "Privacy policy",
+    "updated": "Last updated: October 2026",
+    "metaDescription": "How Sanad Care collects, uses, and protects your personal information when you use sanadcare.ma or contact us.",
+    "intro": "Sanad Care is a home nursing provider based in Marrakech, Morocco. This policy explains what we do with personal information when you use sanadcare.ma or contact us.",
+    "sections": [
+      {
+        "title": "What we collect",
+        "body": [
+          "What you send through the contact form: your name, email address, phone number and message.",
+          "What you tell us on WhatsApp or by phone when arranging care, including information about the patient's health and needs.",
+          "Basic technical information about how the site is used, collected through Google Analytics."
+        ]
+      },
+      {
+        "title": "Why we use it",
+        "body": [
+          "To answer your enquiry and arrange the care you ask for.",
+          "To keep a record of the care we provide, so the next nurse knows what happened before.",
+          "To understand which parts of the site are useful, so we can improve it."
+        ]
+      },
+      {
+        "title": "Health information",
+        "body": [
+          "Caring for someone means handling health information, which is sensitive. We ask only for what we need to provide the care you request, and we share it only with the nurses involved in that care."
+        ]
+      },
+      {
+        "title": "Cookies and analytics",
+        "body": [
+          "We use Google Analytics to count visits and see which pages are used. It sets cookies and collects an abbreviated IP address. You can block cookies in your browser settings without losing access to the site."
+        ]
+      },
+      {
+        "title": "Who else is involved",
+        "body": [
+          "Google — website analytics, and the Google Business Profile where our reviews are published.",
+          "Cloudflare Turnstile — checks that contact form messages come from a person rather than a bot.",
+          "Our email provider — delivers contact form messages to our inbox.",
+          "Meta (WhatsApp) — if you message us on WhatsApp, that conversation is also governed by WhatsApp's own privacy policy."
+        ]
+      },
+      {
+        "title": "How long we keep it",
+        "body": [
+          "Enquiries: as long as needed to answer you and arrange care.",
+          "Care records: for the duration of the care relationship and as long as applicable rules require.",
+          "Analytics data: according to Google Analytics' own retention settings."
+        ]
+      },
+      {
+        "title": "Your rights",
+        "body": [
+          "You can ask us what we hold about you, ask us to correct it, or ask us to delete it. Write to us at the address below and we will respond.",
+          "Moroccan law 09-08 on the protection of personal data governs how we handle this. If you are in the European Union, you also have the rights set out in the GDPR."
+        ]
+      },
+      {
+        "title": "Changes to this policy",
+        "body": [
+          "If this policy changes, we will update the date at the top of this page."
+        ]
+      },
+      {
+        "title": "Contact us about privacy",
+        "body": [
+          "For any question about this policy or your information, contact us and we will help."
+        ]
+      }
+    ]
+  },
+  "reviews": {
+    "badge": "Reviews",
+    "heading": "What families say on Google",
+    "lead": "Unedited reviews published on our Google profile.",
+    "readOnGoogle": "Read all reviews on Google",
+    "leaveReview": "Leave a review",
+    "reviewSource": "Review from Google",
+    "viewOnGoogle": "View on Google",
+    "reviewsCount": "{count} reviews",
+    "empty": "Our Google profile is where every review lives — the good and the less good. Read them there.",
+    "writtenIn": "Written in {language}",
+    "languages": {
+      "en": "English",
+      "fr": "French",
+      "ar": "Arabic"
+    },
+    "disclosure": "Reviews are shown as published on Google, in the order they appear there, and are not edited by us."
+  },
   "seo": {
     "metaTitle": "Home Nursing Marrakech | Professional Care at Your Doorstep",
     "metaDescription": "Professional home nursing services in Marrakech. Registered nurses, elderly care, post-surgery support, and medical assistance for tourists. Available 24/7.",
@@ -8,7 +98,24 @@
   },
   "common": {
     "before": "Before",
-    "after": "After"
+    "after": "After",
+    "skipToContent": "Skip to content"
+  },
+  "notFoundPage": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to home"
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "retry": "Try again"
+  },
+  "qrCode": {
+    "subtitle": "{name} in Marrakech",
+    "site": "Website",
+    "call": "Call Us",
+    "mail": "Email"
   },
   "nav": {
     "home": "Home",
@@ -67,6 +174,7 @@
     "errors": {
       "required": "This field is required.",
       "tooShort": "This value is too short.",
+      "tooLong": "This value is too long.",
       "invalidAge": "Enter a valid age between 1 and 120.",
       "invalidPhone": "Enter a valid phone number.",
       "consentRequired": "Please confirm that you agree to the terms.",
@@ -94,11 +202,13 @@
     },
     "workingDays": "Everyday",
     "copyright": "Sanad Care. All rights reserved.",
-    "developedBy": "Developed by"
+    "developedBy": "Developed by",
+    "privacy": "Privacy policy"
   },
   "header": {
     "openMenu": "Open Menu Bar",
     "closeMenu": "Close Menu Bar",
+    "menu": "Menu",
     "homePage": "Home Page"
   },
   "language": {
@@ -217,21 +327,20 @@
     "careBased": "Care Based on Your Needs",
     "safe": "Safe & Secure",
     "availability": "Nurses available now",
-    "availabilityMeta": "Avg. response 45 min",
+    "availabilityMeta": "Home visit within 60 min",
     "whatsappNote": "Replies in under 5 minutes",
-    "ratingValue": "4.8",
     "ratingLabel": "Trusted by 3,000+ families in Marrakech",
     "photoAlt": "A Sanad Care nurse assisting an elderly patient at home in Marrakech",
     "stats": {
       "availability": { "value": "24/7", "label": "Availability" },
-      "response": { "value": "45 min", "label": "Avg. response" },
-      "families": { "value": "3,000+", "label": "Families served" },
-      "licensed": { "value": "100%", "label": "Licensed nurses" }
+      "response": { "value": "60 min", "label": "Average arrival" },
+      "coverage": { "value": "Marrakech", "label": "Service area" },
+      "licensed": { "value": "100%", "label": "State-registered nurses" }
     },
     "cards": {
-      "enroute": { "title": "Nurse Salma", "meta": "On the way · ETA 25 min" },
-      "recovery": { "title": "Post-surgery recovery", "meta": "Care plan followed" },
-      "rating": { "title": "4.9 rating", "meta": "3,000+ visits" }
+      "response": { "title": "Home visit within 60 min", "meta": "Anywhere in Marrakech" },
+      "nurse": { "title": "Same nurse where possible", "meta": "Briefed on your care file" },
+      "report": { "title": "WhatsApp care note", "meta": "After every visit" }
     },
     "ticker": {
       "label": "Our care services",
@@ -248,6 +357,10 @@
     }
   },
   "services": {
+    "seo": {
+      "title": "Home Nursing Services in Marrakech | Sanad Care",
+      "description": "Explore 26 home nursing services in Marrakech: elderly care, post-surgery recovery, IV therapy, wound care, injections, physiotherapy, and more."
+    },
     "heading": "Our Professional Nursing Services",
     "subheading": "Comprehensive Care Tailored to Your Needs",
     "detail": {
@@ -462,7 +575,7 @@
   "whyUs": {
     "seo": {
       "title": "Trusted Home Nursing Services in Marrakech | Sanad Care",
-      "description": "Choose the highest standard of medical care in Marrakech. Our state-registered nurses provide 24/7 home healthcare, combining clinical expertise with genuine compassion.",
+      "description": "Choose the highest standard of medical care in Marrakech. State-registered nurses provide 24/7 home healthcare with clinical expertise and compassion.",
       "keywords": [
         "Home nursing Marrakech",
         "Registered nurses Morocco",
@@ -512,15 +625,33 @@
       "details": {
         "h2": "Small Details. Big Impact.",
         "subtitle": "How Real Healing Happens",
-        "description": "We discovered that recovery improves when small elements work together: Individually small. Together, powerful.",
-        "list": [
-          "Medication organization",
-          "Nutritional quality",
-          "Vital signs monitoring",
-          "Psychological support",
-          "Clear, respectful communication",
-          "Feeling safe at home"
-        ]
+      "description": "We discovered that recovery improves when small elements work together: Individually small. Together, powerful.",
+      "items": [
+        {
+          "title": "Medication organization",
+          "description": "Ensuring medications are taken on time, in the correct dosage, with full adherence to medical prescriptions."
+        },
+        {
+          "title": "Nutritional quality",
+          "description": "Monitoring and supporting balanced nutrition adapted to the patient's health condition and medical needs."
+        },
+        {
+          "title": "Vital signs monitoring",
+          "description": "Regular measurement and tracking of vital signs to detect changes early and prevent complications."
+        },
+        {
+          "title": "Psychological support",
+          "description": "Providing emotional reassurance, reducing anxiety, and supporting the patient's mental well-being."
+        },
+        {
+          "title": "Clear, respectful communication",
+          "description": "Maintaining transparent, respectful communication with patients and families at every step of care."
+        },
+        {
+          "title": "Feeling safe at home",
+          "description": "Creating a secure, supervised home environment that promotes comfort, trust, and peace of mind."
+        }
+      ]
       },
       "global": {
         "h2": "Learning From Global Best Practices",
@@ -571,7 +702,7 @@
   },
   "tourism": {
     "seo": {
-      "title": "Medical Assistance for Tourists in Marrakech | Hotel Doctors & Nurses",
+      "title": "Medical Assistance for Tourists in Marrakech | Sanad Care",
       "description": "Sick in Marrakech? Get rapid medical assistance at your hotel or riad. English-speaking nurses and doctor coordination for injury, illness, or post-op care.",
       "keywords": [
         "Tourist doctor Marrakech",
@@ -905,7 +1036,7 @@
   "family": {
     "seo": {
       "title": "Elderly & Family Home Care Support in Marrakech | Sanad Care",
-      "description": "Overwhelmed by caregiving? Sanad Care provides professional home nursing for your loved ones in Marrakech. Daily updates, medication management, and peace of mind.",
+      "description": "Overwhelmed by caregiving? Sanad Care provides professional home nursing for your loved ones in Marrakech. Daily updates and medication management.",
       "keywords": [
         "Elderly care Marrakech",
         "Caregiver for parents Morocco",
@@ -1281,6 +1412,10 @@
     "badge": "Testimonials"
   },
   "contact": {
+    "seo": {
+      "title": "Contact Sanad Care | 24/7 Home Nursing in Marrakech",
+      "description": "Contact Sanad Care for 24/7 home nursing in Marrakech. Call, WhatsApp, or send a message — we reply quickly in English, French, or Arabic."
+    },
     "title": "Contact Us",
     "intro": "Need nursing care? Contact us today.",
     "phoneLabel": "24/7 Hotline",
@@ -1292,7 +1427,18 @@
       "email": "Email",
       "subject": "Subject",
       "message": "Message",
-      "send": "Send"
+      "send": "Send",
+      "retry": "Retry",
+      "successTitle": "Message sent",
+      "successMessage": "Your message has been sent. We will get back to you soon.",
+      "errorTitle": "Something went wrong",
+      "errors": {
+        "invalidData": "Please check the form fields and try again.",
+        "captchaFailed": "Captcha verification failed. Please try again.",
+        "captchaExpired": "Captcha expired. Please verify again.",
+        "rateLimited": "Too many messages submitted. Please try again in a few minutes.",
+        "sendFailed": "Your message could not be sent. Please try again or call us."
+      }
     },
     "social": {
       "facebook": "Go to Facebook",
@@ -1304,6 +1450,10 @@
     "contactPhone": "Call us Now"
   },
   "faq": {
+    "seo": {
+      "title": "Frequently Asked Questions | Sanad Care",
+      "description": "Answers to common questions about home nursing in Marrakech: services, pricing, booking, nurses, elderly and post-surgery care, coverage, and emergencies."
+    },
     "heading": "Frequently Asked Questions",
 
     "generalQuestions": "General Questions",
@@ -1470,7 +1620,7 @@
   },
   "venipuncture": {
     "meta": {
-      "title": "Home Blood Test Marrakech | Private Blood Draw at Home & Hotel — 24h Results",
+      "title": "Home Blood Test in Marrakech | Sanad Care",
       "description": "State-certified nurse for home blood tests in Marrakech. Trilingual EN/FR/AR service for locals, athletes (20% gym partner discount) and tourists. Hotel visits. Results in 24-48h.",
       "ogTitle": "Home Blood Test Marrakech — Hotel & Home Blood Draw Service",
       "ogDescription": "Professional home blood draw in Marrakech. 20% discount for gym members. English-speaking nurse. Hotel visits available. Results in 24-48h."
@@ -1606,7 +1756,8 @@
         "illness": "Food poisoning or illness follow-up",
         "visa": "Visa or travel insurance medical requirements"
       },
-      "cta": "Book as a Tourist"
+      "cta": "Book as a Tourist",
+      "imageAlt": "Nurse assisting a tourist with medical care at a Marrakech hotel"
     },
     "profiles": {
       "heading": "Who Is This For? — Our Blood Draw Services",
