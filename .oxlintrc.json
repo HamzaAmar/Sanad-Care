@@ -1,0 +1,3 @@
+{
+  "ignorePatterns": [".agents/**", ".next/**", "node_modules/**"]
+}
