@@ -1,0 +1,89 @@
+/* Reviews from the Google Business Profile.
+   Deliberately plain: the credibility comes from showing real, attributed,
+   unedited reviews next to a link to the profile — not from decoration. */
+
+.reviews {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.reviews__head {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.reviews__lead {
+  text-wrap: pretty;
+}
+
+.reviews__rating {
+  flex-wrap: wrap;
+}
+
+.reviews__rating-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Stars -------------------------------------------------------------- */
+
+.reviews__stars {
+  display: inline-flex;
+  gap: 0.15rem;
+  color: var(--B6);
+}
+
+.reviews__star.is-on {
+  color: var(--W9);
+}
+
+/* --- Cards -------------------------------------------------------------- */
+
+.reviews__card {
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+  background: var(--B2);
+}
+
+.reviews__text {
+  margin: 0;
+  color: var(--B11);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.reviews__meta {
+  display: grid;
+  gap: 0.1rem;
+  padding-block-start: 0.75rem;
+  border-block-start: 1px solid var(--B5);
+}
+
+.reviews__language {
+  margin: 0;
+  font-style: italic;
+}
+
+.reviews__empty {
+  max-width: 46ch;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+
+/* --- Actions + disclosure ----------------------------------------------- */
+
+.reviews__actions {
+  justify-content: center;
+  // Pillar's buttons default to `text-transform: capitalize`, which turns these
+  // sentence-case labels into Title Case ("Read All Reviews On Google").
+  --button-transform: none;
+}
+
+.reviews__disclosure {
+  max-width: 62ch;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
