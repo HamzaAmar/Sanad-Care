@@ -41,6 +41,8 @@ export function RevealImage({ className, onLoad, onError, ...rest }: RevealImage
         onError?.(e);
       }}
       className={cls}
+      loading="lazy"
+      decoding="async"
       {...rest}
     />
   );

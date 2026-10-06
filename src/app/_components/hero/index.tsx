@@ -1,23 +1,22 @@
 import { Button, Flex, Paper, Text } from "@pillar-ui/core";
-import { Ambulance, CircleCheck, Clock, PhoneCall, Star, Whatsapp } from "@pillar-ui/icons";
+import { CircleCheck, Clock, PhoneCall, Star, UserCheck, Whatsapp } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import type { CSSProperties, ReactNode } from "react";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
+import { GOOGLE_PROFILE_URL } from "@/constants/reviews";
 
 const HERO_IMAGE = "/images/hero/hero-care-portrait-9x16.avif";
 const HERO_IMAGE_WIDTH = 375;
 const HERO_IMAGE_HEIGHT = 667;
 
-const AVATARS = ["SB", "YE", "KT", "NR", "AM"];
+type CardKey = "response" | "nurse" | "report";
 
-type CardKey = "enroute" | "recovery" | "rating";
-
-const CARD_ORDER: CardKey[] = ["enroute", "recovery", "rating"];
+const CARD_ORDER: CardKey[] = ["response", "nurse", "report"];
 
 const CARD_ICONS: Record<CardKey, ReactNode> = {
-  enroute: <Ambulance width={18} strokeWidth={1.6} />,
-  recovery: <CircleCheck width={18} strokeWidth={1.6} />,
-  rating: <Star width={18} fill="currentColor" strokeWidth={1.6} />,
+  response: <Clock width={18} strokeWidth={1.6} />,
+  nurse: <UserCheck width={18} strokeWidth={1.6} />,
+  report: <CircleCheck width={18} strokeWidth={1.6} />,
 };
 
 type StatEntry = { value: string; label: string };
@@ -93,26 +92,20 @@ const HeroSection = () => {
             </Text>
           </Flex>
 
-          <div className="hero__proof hero__anim" style={step(5)}>
-            <div className="hero__avatars" aria-hidden="true">
-              {AVATARS.map((initials) => (
-                <span className="hero__avatar" key={initials}>
-                  {initials}
-                </span>
-              ))}
-            </div>
-            <div className="hero__proof-text">
-              <Flex gap="1" items="center">
-                <Star width={15} fill="var(--W8)" stroke="var(--W8)" aria-hidden="true" />
-                <Text as="span" size="3" weight="6">
-                  {t("hero.ratingValue")}
-                </Text>
-              </Flex>
-              <Text as="span" size="3" color="b" low>
-                {t("hero.ratingLabel")}
-              </Text>
-            </div>
-          </div>
+          {/* Real reviews live on the Google profile; until the rating is set
+              from that profile we link out rather than show a number. */}
+          <a
+            className="hero__reviews hero__anim"
+            style={step(5)}
+            href={GOOGLE_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Star width={15} strokeWidth={0} fill="currentColor" aria-hidden="true" />
+            <Text as="span" size="3" weight="5">
+              {t("reviews.readOnGoogle")}
+            </Text>
+          </a>
 
           <dl className="hero__stats hero__anim" style={step(6)}>
             {stats.map(({ value, label }) => (
@@ -131,6 +124,8 @@ const HeroSection = () => {
               alt={t("hero.photoAlt")}
               width={HERO_IMAGE_WIDTH}
               height={HERO_IMAGE_HEIGHT}
+              fetchPriority="high"
+              decoding="async"
             />
             <span className="hero__frame-fade" aria-hidden="true" />
           </div>
@@ -157,7 +152,7 @@ const HeroSection = () => {
         <Text as="span" size="2" className="hero__ticker-label">
           {t("hero.ticker.label")}
         </Text>
-        <div className="hero__ticker-viewport">
+        <div className="hero__ticker-viewport" tabIndex={0} aria-label={t("hero.ticker.label")}>
           <ul className="hero__ticker-track">
             {[...tickerItems, ...tickerItems].map((item, i) => (
               <li

@@ -1,7 +1,7 @@
 import { Button, Flex, Heading, Paper, Text } from "@pillar-ui/core";
 import { ArrowRight, CircleCheck, PhoneCall } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
 
 interface ServiceCardProps {
@@ -64,6 +64,8 @@ export const ServiceCard = ({
         <img
           src={imageSrc}
           alt={title}
+          loading="lazy"
+          decoding="async"
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />
         {hasMonthlyPlan ? (

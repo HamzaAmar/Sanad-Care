@@ -2,12 +2,32 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 
 import "@pillar-ui/core/main.css";
 import "@/scss/_main.scss";
 import { BASE_URL } from "@/constants/domain";
+import { buildPageMetadata } from "@/lib/page-metadata";
+
+/**
+ * Only the namespaces consumed by client components are serialized to the
+ * browser. Server components read from the full catalog on the server.
+ */
+const CLIENT_MESSAGE_NAMESPACES = [
+  "common",
+  "header",
+  "language",
+  "nav",
+  "hero",
+  "footer",
+  "contact",
+  "document",
+  "family",
+  "venipuncture",
+  "whyUs",
+  "errorPage",
+] as const;
 
 export async function generateMetadata({
   params,
@@ -18,35 +38,16 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "seo" });
 
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
-    openGraph: {
-      title: t("ogTitle"),
-      description: t("ogDescription"),
-      locale: locale,
-      url: `${BASE_URL}/${locale}`,
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: t("ogImageAlt"),
-        },
-      ],
-    },
-    twitter: {
-      title: t("ogTitle"),
-      description: t("ogDescription"),
-      images: ["/og-image.png"],
-    },
-    alternates: {
-      canonical: `${BASE_URL}/${locale}`,
-      languages: {
-        en: `${BASE_URL}/en`,
-        fr: `${BASE_URL}/fr`,
-        ar: `${BASE_URL}/ar`,
-      },
-    },
+    metadataBase: new URL(BASE_URL),
+    ...buildPageMetadata({
+      locale,
+      path: "",
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+      ogTitle: t("ogTitle"),
+      ogDescription: t("ogDescription"),
+      imageAlt: t("ogImageAlt"),
+    }),
   };
 }
 
@@ -64,12 +65,17 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
 
   setRequestLocale(locale);
 
+  const messages = await getMessages();
+  const clientMessages = Object.fromEntries(
+    CLIENT_MESSAGE_NAMESPACES.map((namespace) => [namespace, messages[namespace]]),
+  );
+
   return (
     <html suppressHydrationWarning lang={locale} dir={dir}>
       <body suppressHydrationWarning>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={clientMessages}>{children}</NextIntlClientProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
     </html>
   );
 }
