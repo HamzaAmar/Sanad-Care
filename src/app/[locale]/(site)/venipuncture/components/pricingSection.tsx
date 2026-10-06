@@ -16,7 +16,7 @@ const PricingSection = () => {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 768px)", () => {
+      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
         gsap.from(".pricing-heading", {
           y: 40,
           opacity: 0,

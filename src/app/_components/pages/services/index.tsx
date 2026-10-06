@@ -33,6 +33,7 @@ const renderCards = (items: ServiceTreeItem[], locale: LocaleKey) =>
 const Services = () => {
   const locale = useLocale() as LocaleKey;
   const t = useTranslations("services.page");
+  const tPage = useTranslations("services");
 
   const all = Object.values(SERVICE_TREE);
   const programs = all.filter((item) => item.category === "pillar" || item.category === "service");
@@ -40,6 +41,9 @@ const Services = () => {
 
   return (
     <Paper as="section" flow="9" className="section services-pricing__shell">
+      <Heading as="h1" size="6" className="H-sr">
+        {tPage("heading")}
+      </Heading>
       <Paper as="section" flow="6" className="services-pricing__programs">
         <div>
           <Chips color="b" variant="soft">

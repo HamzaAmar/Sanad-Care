@@ -2,6 +2,24 @@ html {
   scroll-behavior: smooth;
 }
 
+.skip-link {
+  position: fixed;
+  inset-inline-start: 1rem;
+  top: -100%;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--B1);
+  color: var(--B12);
+  border: 1px solid var(--P9);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: top 0.2s ease-in-out;
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
 a:not([class]) {
   font-size: 0.85rem;
   position: relative;
@@ -9,19 +27,27 @@ a:not([class]) {
     content: "";
     position: absolute;
     bottom: -3px;
-    left: 0;
+    inset-inline-start: 0;
     width: 100%;
     height: 2px;
     background-color: var(--P9);
     transform: scaleX(0);
-    transform-origin: left top;
+    transform-origin: 0 top;
     transition: transform 0.2s 100ms ease-in-out;
     border-radius: 100px;
   }
 
   &:hover::after {
     transform: scaleX(1);
-    transform-origin: right bottom;
+    transform-origin: 100% bottom;
+  }
+
+  [dir="rtl"] &::after {
+    transform-origin: 100% top;
+  }
+
+  [dir="rtl"] &:hover::after {
+    transform-origin: 0 bottom;
   }
 }
 

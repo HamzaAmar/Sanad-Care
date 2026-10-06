@@ -337,46 +337,27 @@
   color: var(--B10);
 }
 
-/* --- Social proof ------------------------------------------------------- */
+/* --- Reviews link ------------------------------------------------------- */
 
-.hero__proof {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  flex-wrap: wrap;
-}
-
-/* Built explicitly rather than via Avatar: the design-system avatar clips its
-   fallback text at these sizes. */
-.hero__avatars {
-  display: flex;
-}
-
-.hero__avatar {
+/* Links out to the Google profile. No rating is shown here until the real
+   profile figure is set in constants/reviews.ts. */
+.hero__reviews {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex: none;
-  width: 2.1rem;
-  height: 2.1rem;
-  margin-inline-start: -0.55rem;
-  border-radius: 50%;
-  border: 2px solid var(--B2);
-  background: linear-gradient(140deg, var(--P5), var(--P8));
-  color: var(--P12);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
+  gap: 0.45rem;
+  width: fit-content;
+  color: var(--B11);
+  text-decoration: none;
 
-.hero__avatar:first-child {
-  margin-inline-start: 0;
-}
+  svg {
+    color: var(--W9);
+  }
 
-.hero__proof-text {
-  display: grid;
-  gap: 0.1rem;
-  line-height: 1.35;
+  &:hover {
+    color: var(--B12);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 /* --- Stats -------------------------------------------------------------- */
@@ -689,8 +670,13 @@
   }
 }
 
-.hero__ticker:hover .hero__ticker-track {
+.hero__ticker:hover .hero__ticker-track,
+.hero__ticker:focus-within .hero__ticker-track {
   animation-play-state: paused;
+}
+
+[dir="rtl"] .hero__ticker-track {
+  animation-direction: reverse;
 }
 
 @keyframes hero-marquee {

@@ -17,7 +17,7 @@ const GymPartnershipSection = () => {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 768px)", () => {
+      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
         gsap.from(".gym-badge", {
           scale: 0.7,
           opacity: 0,

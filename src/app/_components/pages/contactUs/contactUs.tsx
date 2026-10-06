@@ -1,5 +1,4 @@
 import { Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
 
@@ -15,7 +14,7 @@ const Contact = () => {
 
       <Paper flow="8">
         <div>
-          <Heading size="9" weight="5" as="h2">
+          <Heading size="9" weight="5" as="h1">
             {t("title")}
           </Heading>
 
@@ -54,12 +53,6 @@ const Contact = () => {
       </Paper>
     </Grid>
   );
-};
-
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description:
-    "Get in touch with Open Hands Morocco for inquiries about volunteering, community service, or cultural exchange programs.",
 };
 
 export default Contact;

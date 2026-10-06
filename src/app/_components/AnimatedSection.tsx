@@ -36,32 +36,38 @@ const AnimatedSection = ({
 
   useGSAP(
     () => {
-      const container = containerRef.current;
-      const design = designRef.current;
-      const content = contentRef.current;
-      const textElements = textElementsRef.current?.children;
+      const mm = gsap.matchMedia();
 
-      if (!container || !design || !content || !textElements) return;
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const container = containerRef.current;
+        const design = designRef.current;
+        const content = contentRef.current;
+        const textElements = textElementsRef.current?.children;
 
-      gsap.set(container, { x: 10, opacity: 0 });
-      gsap.set(design, { y: "-100%", opacity: 0 });
-      gsap.set(content, { y: "100%", opacity: 0 });
-      gsap.set(textElements, { y: 20, opacity: 0 });
+        if (!container || !design || !content || !textElements) return;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container,
-          start: "top center+=50",
-          end: "bottom center",
-          toggleActions: "play none none reverse",
-        },
+        gsap.set(container, { x: 10, opacity: 0 });
+        gsap.set(design, { y: "-100%", opacity: 0 });
+        gsap.set(content, { y: "100%", opacity: 0 });
+        gsap.set(textElements, { y: 20, opacity: 0 });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: "top center+=50",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
+          },
+        });
+        //
+
+        tl.to(container, { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" })
+          .to(design, { y: 0, duration: 0.5, ease: "bounce.out", opacity: 1 }, "-=0.4")
+          .to(content, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, "-=0.6")
+          .to(textElements, { y: 0, opacity: 1, duration: 0.5, stagger: 0.2 }, "-=0.4");
       });
-      //
 
-      tl.to(container, { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" })
-        .to(design, { y: 0, duration: 0.5, ease: "bounce.out", opacity: 1 }, "-=0.4")
-        .to(content, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, "-=0.6")
-        .to(textElements, { y: 0, opacity: 1, duration: 0.5, stagger: 0.2 }, "-=0.4");
+      return () => mm.revert();
     },
     { scope: containerRef },
   );
@@ -89,7 +95,7 @@ const AnimatedSection = ({
             )}
             {cta && (
               <div className="patient-cta">
-                <Link href={ctaLink || "/contact"}>{cta}</Link>
+                <Link href={ctaLink || "/contact-us"}>{cta}</Link>
               </div>
             )}
           </div>

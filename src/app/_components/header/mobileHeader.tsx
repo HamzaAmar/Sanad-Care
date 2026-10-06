@@ -4,12 +4,15 @@ import { cx, Flex, IconButton, Paper, Text } from "@pillar-ui/core";
 import { Close, Envelop, Menu, Phone } from "@pillar-ui/icons";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "@/app/logo";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
 import { Link } from "@/i18n/navigation";
 
 import { useHeaderLinks } from "./header.data";
+
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])';
 
 export const HeaderMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   const t = useTranslations();
@@ -52,26 +55,79 @@ export const HeaderMenu = ({ closeMenu }: { closeMenu: () => void }) => {
 export const MobileHeader = () => {
   const t = useTranslations();
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   function closeMenu() {
     setOpen(false);
+    triggerRef.current?.focus();
   }
 
   function openMenu() {
     setOpen(true);
   }
 
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const panel = panelRef.current;
+    const focusables = panel
+      ? Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR))
+      : [];
+
+    focusables[0]?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeMenu();
+        return;
+      }
+
+      if (event.key !== "Tab" || focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
   return (
     <Flex as={Paper} gap="4" justify="between" items="center" className="mobile-header">
       <IconButton
+        ref={triggerRef}
         variant="soft"
         size="4"
-        title={t("header.openMenu")}
-        onClick={openMenu}
-        icon={<Menu />}
+        title={open ? t("header.closeMenu") : t("header.openMenu")}
+        aria-expanded={open}
+        aria-controls="mobile-menu-panel"
+        onClick={open ? closeMenu : openMenu}
+        icon={open ? <Close /> : <Menu />}
       />
 
       <Paper
+        ref={panelRef}
+        id="mobile-menu-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label={t("header.menu")}
         className="mobile-menu-header menu-mobile-animation"
         width="100"
         height="screen"

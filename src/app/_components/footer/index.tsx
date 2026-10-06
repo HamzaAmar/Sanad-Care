@@ -19,7 +19,7 @@ const Footer = () => {
         className="footer-main"
       >
         <Flex gap="6" direction="col">
-          <Link href="/" className="logo">
+          <Link href="/" className="logo" aria-label={PERSONAL_INFO.name}>
             <Logo width={150} />
           </Link>
 
@@ -87,14 +87,27 @@ const Footer = () => {
       {/* Copyright */}
       <Flex justify="between" items="center" as={Paper} p="4" className="copyright">
         <Text align="center" size="2" color="b" low>
-          &copy; {new Date().getFullYear()} {PERSONAL_INFO.information.name}. {t("copyright")}
+          &copy; {new Date().getFullYear()} {t("copyright")}
         </Text>
 
-        <Text size="2" color="b" low>
-          <Link href="https://www.miloudamar.com/" target="_blank" className="link">
-            {t("developedBy")} Miloud Amar
-          </Link>
-        </Text>
+        <Flex gap="4" items="center" wrap>
+          <Text size="2" color="b" low>
+            <Link href="/privacy" className="link">
+              {t("privacy")}
+            </Link>
+          </Text>
+
+          <Text size="2" color="b" low>
+            <Link
+              href="https://www.miloudamar.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link"
+            >
+              {t("developedBy")} Miloud Amar
+            </Link>
+          </Text>
+        </Flex>
       </Flex>
     </footer>
   );

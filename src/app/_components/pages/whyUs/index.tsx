@@ -4,47 +4,18 @@ import { useTranslations } from "next-intl";
 import "./why-us.scss"; // Assuming we'll add some custom styles
 import { Box } from "../../box";
 
-const WhatWeDid = [
-  {
-    icon: <Clock stroke="var(--P11)" strokeWidth={1.5} />,
-    label: "Medication organization",
-    description:
-      "Ensuring medications are taken on time, in the correct dosage, with full adherence to medical prescriptions.",
-  },
-  {
-    icon: <Heart stroke="var(--P11)" strokeWidth={1.5} />,
-    label: "Nutritional quality",
-    description:
-      "Monitoring and supporting balanced nutrition adapted to the patient’s health condition and medical needs.",
-  },
-  {
-    icon: <Globe stroke="var(--P11)" strokeWidth={1.5} />,
-    label: "Vital signs monitoring",
-    description:
-      "Regular measurement and tracking of vital signs to detect changes early and prevent complications.",
-  },
-  {
-    icon: <Users stroke="var(--P11)" strokeWidth={1.5} />,
-    label: "Psychological support",
-    description:
-      "Providing emotional reassurance, reducing anxiety, and supporting the patient’s mental well-being.",
-  },
-  {
-    icon: <Users stroke="var(--P11)" strokeWidth={1.5} />,
-    label: "Clear, respectful communication",
-    description:
-      "Maintaining transparent, respectful communication with patients and families at every step of care.",
-  },
-  {
-    icon: <Shield stroke="var(--P11)" strokeWidth={1.5} />,
-    label: "Feeling safe at home",
-    description:
-      "Creating a secure, supervised home environment that promotes comfort, trust, and peace of mind.",
-  },
+const DETAIL_ICONS = [
+  <Clock key="medication" stroke="var(--P11)" strokeWidth={1.5} />,
+  <Heart key="nutrition" stroke="var(--P11)" strokeWidth={1.5} />,
+  <Globe key="vitals" stroke="var(--P11)" strokeWidth={1.5} />,
+  <Users key="psychological" stroke="var(--P11)" strokeWidth={1.5} />,
+  <Users key="communication" stroke="var(--P11)" strokeWidth={1.5} />,
+  <Shield key="safety" stroke="var(--P11)" strokeWidth={1.5} />,
 ];
 
 const WhyUs = () => {
   const t = useTranslations();
+  const details = t.raw("whyUs.page.details.items") as { title: string; description: string }[];
 
   return (
     <Paper flow="8" className="section why-us-page">
@@ -54,7 +25,7 @@ const WhyUs = () => {
             <Paper flow="6">
               <div>
                 <Chips size="4">{t("whyUs.page.story.subtitle")}</Chips>
-                <Heading size="8" weight="8" className="section-title">
+                <Heading as="h1" size="8" weight="8" className="section-title">
                   {t("whyUs.page.story.h2")}
                 </Heading>
               </div>
@@ -74,7 +45,7 @@ const WhyUs = () => {
             <Paper flow="6">
               <div>
                 <Chips size="4">{t("whyUs.page.patient.subtitle")}</Chips>
-                <Heading size="8" weight="8" className="section-title">
+                <Heading as="h2" size="8" weight="8" className="section-title">
                   {t("whyUs.page.patient.h2")}
                 </Heading>
               </div>
@@ -92,7 +63,7 @@ const WhyUs = () => {
             <Paper flow="6">
               <div>
                 <Chips size="4">{t("whyUs.page.question.subtitle")}</Chips>
-                <Heading size="9" weight="9" className="big-question">
+                <Heading as="h2" size="9" weight="9" className="big-question">
                   {t("whyUs.page.question.h2")}
                 </Heading>
               </div>
@@ -109,7 +80,7 @@ const WhyUs = () => {
         <Paper flow="8">
           <div>
             <Chips size="4"> {t("whyUs.page.details.subtitle")}</Chips>
-            <Heading size="8" weight="8">
+            <Heading as="h2" size="8" weight="8">
               {t("whyUs.page.details.h2")}
             </Heading>
             <Text size="7" weight="3" color="b" low>
@@ -117,11 +88,11 @@ const WhyUs = () => {
             </Text>
           </div>
           <Grid gap="6" cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }}>
-            {WhatWeDid.map((item) => (
+            {details.map((item, index) => (
               <Box
-                key={item.label}
-                icon={item.icon}
-                title={item.label}
+                key={item.title}
+                icon={DETAIL_ICONS[index]}
+                title={item.title}
                 description={item.description}
               />
             ))}
@@ -137,7 +108,7 @@ const WhyUs = () => {
               <Paper flow="6">
                 <div>
                   <Chips size="4">{t("whyUs.page.global.subtitle")}</Chips>
-                  <Heading leading="1" size="8" weight="8">
+                  <Heading as="h2" leading="1" size="8" weight="8">
                     {t("whyUs.page.global.h2")}
                   </Heading>
                 </div>
@@ -179,7 +150,7 @@ const WhyUs = () => {
         <Paper flow="6">
           <div>
             <Chips size="4">{t("whyUs.page.measurement.subtitle")}</Chips>
-            <Heading size="8" weight="8" className="text-center mb-6" color="b">
+            <Heading as="h2" size="8" weight="8" className="text-center mb-6" color="b">
               {t("whyUs.page.measurement.h2")}
             </Heading>
           </div>
@@ -201,7 +172,7 @@ const WhyUs = () => {
           <Paper flow="6">
             <div>
               <Chips size="4">{t("whyUs.page.visible.subtitle")}</Chips>
-              <Heading size="8" weight="8">
+              <Heading as="h2" size="8" weight="8">
                 {t("whyUs.page.visible.h2")}
               </Heading>
             </div>
@@ -218,7 +189,7 @@ const WhyUs = () => {
             <Paper flow="6">
               <div>
                 <Chips size="4">{t("whyUs.page.grow.subtitle")}</Chips>
-                <Heading leading="1" size="8" weight="8">
+                <Heading as="h2" leading="1" size="8" weight="8">
                   {t("whyUs.page.grow.h2")}
                 </Heading>
               </div>
@@ -236,7 +207,7 @@ const WhyUs = () => {
           <Paper flow="6">
             <div>
               <Chips size="4">{t("whyUs.page.promise.subtitle")}</Chips>
-              <Heading size="8" weight="8">
+              <Heading as="h2" size="8" weight="8">
                 {t("whyUs.page.promise.h2")}
               </Heading>
             </div>

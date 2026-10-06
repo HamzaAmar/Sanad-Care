@@ -22,12 +22,13 @@
     content: "";
     position: absolute;
     bottom: -2px;
-    left: 0;
+    inset-inline-start: 0;
     width: 100%;
     height: 2px;
     background-color: var(--P11);
     border-radius: 2px;
     transform: scaleX(0);
+    transform-origin: 0 center;
     transition: transform 300ms ease;
   }
 
@@ -35,8 +36,16 @@
     color: var(--P11);
     &:before {
       transform: scale(1);
-      transform-origin: left center;
+      transform-origin: 100% center;
     }
+  }
+
+  [dir="rtl"] &::before {
+    transform-origin: 100% center;
+  }
+
+  [dir="rtl"] &:hover:before {
+    transform-origin: 0 center;
   }
 }
 

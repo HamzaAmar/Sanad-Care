@@ -1,3 +1,4 @@
+import { Heading } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
 import DayInLife from "./components/sections/DayInLife";
 import HolisticDifference from "./components/sections/HolisticDifference";
@@ -10,9 +11,13 @@ import AnimatedSection from "../../AnimatedSection";
 
 const PatientPage = () => {
   const t = useTranslations("patient.page");
+  const tSeo = useTranslations("patient.seo");
 
   return (
     <div className="section patient-page">
+      <Heading as="h1" className="H-sr">
+        {tSeo("title")}
+      </Heading>
       <Struggle />
 
       <Philosophy />
@@ -31,7 +36,7 @@ const PatientPage = () => {
         title={t("cta.title")}
         description={t("cta.description")}
         cta={t("cta.button")}
-        ctaLink="/contact"
+        ctaLink="/contact-us"
       />
     </div>
   );

@@ -16,7 +16,7 @@ const WhyUsVenipuncture = () => {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 768px)", () => {
+      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
         gsap.from(".why-us-badge", {
           scale: 0.7,
           opacity: 0,

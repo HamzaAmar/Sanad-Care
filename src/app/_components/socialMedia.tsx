@@ -1,15 +1,17 @@
 import { cx, Flex, IconButton } from "@pillar-ui/core";
 import { Instagram, Phone, Whatsapp } from "@pillar-ui/icons";
+import { useTranslations } from "next-intl";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
 
 const SocialMedia = ({ className = "" }: { className?: string }) => {
+  const t = useTranslations("contact");
   const cls = cx("social-media-item", { [className]: className });
   return (
     <Flex className="social-media-container" gap="4">
       <IconButton
         color="b"
         variant="mixed"
-        title="Go to Instagram"
+        title={t("social.instagram")}
         icon={<Instagram />}
         className={cls}
         as="a"
@@ -21,19 +23,17 @@ const SocialMedia = ({ className = "" }: { className?: string }) => {
       <IconButton
         color="b"
         variant="mixed"
-        title="Call Us"
+        title={t("contactPhone")}
         icon={<Phone />}
         className={cls}
         as="a"
-        href={`tel:${PERSONAL_INFO.phone}`}
-        target="_blank"
-        rel="noreferrer"
+        href={PERSONAL_INFO.contact.phone}
         size="3"
       />
       <IconButton
         color="b"
         variant="mixed"
-        title="Go to Whatsapp"
+        title={t("social.whatsapp")}
         icon={<Whatsapp />}
         className={cls}
         as="a"

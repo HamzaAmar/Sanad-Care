@@ -1,5 +1,6 @@
 "use client";
 
+import { Heading } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
 import Changes from "./components/sections/changes";
 import FamilyServices from "./components/sections/family-service";
@@ -10,9 +11,13 @@ import AnimatedSection from "../../AnimatedSection";
 
 const Family = () => {
   const t = useTranslations("family.page");
+  const tSeo = useTranslations("family.seo");
 
   return (
     <div className="family-page section">
+      <Heading as="h1" className="H-sr">
+        {tSeo("title")}
+      </Heading>
       <AnimatedSection
         title={t("section8.title")}
         description={t("section1.description")}
