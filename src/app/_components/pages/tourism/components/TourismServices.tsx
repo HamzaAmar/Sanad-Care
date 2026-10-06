@@ -15,7 +15,7 @@ const TourismServices = () => {
   return (
     <section className="tourism-services">
       <Paper flow="7">
-        <div>
+        <div className="services-header">
           <Heading size="7" leading="1" as="h2">
             {t("title")}
           </Heading>
