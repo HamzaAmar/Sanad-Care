@@ -1,0 +1,35 @@
+.privacy {
+  max-width: 68ch;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.privacy__head {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.privacy__intro {
+  margin-block-start: 0.5rem;
+}
+
+.privacy__section {
+  display: grid;
+  gap: 0.6rem;
+  scroll-margin-block-start: 5rem;
+}
+
+.privacy__p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.privacy__contact {
+  padding-block-start: 1rem;
+  border-block-start: 1px solid var(--B5);
+}
+
+.privacy__link {
+  color: var(--P11);
+  text-underline-offset: 3px;
+}
