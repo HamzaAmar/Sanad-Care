@@ -1,8 +1,7 @@
 // app/[locale]/venipuncture/components/medicalTourismVenipuncture.tsx
-import { Button, Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
+import { Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import { Check } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 
 const MedicalTourismVenipuncture = () => {
   const t = useTranslations("venipuncture");
@@ -49,8 +48,10 @@ const MedicalTourismVenipuncture = () => {
           style={{ height: "350px", background: "var(--B3)", overflow: "hidden" }}
         >
           <img
-            src="/tourism-medical.jpg"
-            alt=""
+            src="/images/medical-assistance-tourists/medical-assistance-tourists-marrakech-sanadcare.avif"
+            alt={t("tourism.imageAlt")}
+            loading="lazy"
+            decoding="async"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </Paper>
