@@ -14,7 +14,7 @@ const TourismPricing = () => {
           <Text size="5" className="pricing-desc">
             {t("description")}
           </Text>
-          <Link href="/contact">{t("cta")}</Link>
+          <Link href="/contact-us">{t("cta")}</Link>
         </div>
       </div>
     </section>

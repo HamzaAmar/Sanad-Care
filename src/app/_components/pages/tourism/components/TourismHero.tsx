@@ -1,5 +1,6 @@
-import { Button, Heading, Link, Text } from "@pillar-ui/core";
+import { Button, Heading, Text } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const TourismHero = () => {
   const t = useTranslations("tourism.page.hero");
@@ -16,9 +17,9 @@ const TourismHero = () => {
               {t("subtitle")}
             </Text>
             <div>
-              <Link href="/contact">
-                <Button color="p">{t("cta")}</Button>
-              </Link>
+              <Button as={Link} href="/contact-us" color="p">
+                {t("cta")}
+              </Button>
             </div>
           </div>
           <div className="hero-image-wrapper">

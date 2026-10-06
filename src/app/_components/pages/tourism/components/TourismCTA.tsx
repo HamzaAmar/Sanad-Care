@@ -13,7 +13,7 @@ const TourismCTA = () => {
         <Text size="5" color="b" className="cta-desc">
           {t("description")}
         </Text>
-        <Link href="/contact">{t("button")}</Link>
+        <Link href="/contact-us">{t("button")}</Link>
       </div>
     </section>
   );

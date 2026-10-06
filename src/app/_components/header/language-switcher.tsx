@@ -29,12 +29,17 @@ const LanguageMenu = ({ language }: LanguageProps) => {
   const locale = useLocale();
 
   function onSelectChange(locale: LocaleKey) {
+    const query =
+      typeof window === "undefined"
+        ? undefined
+        : Object.fromEntries(new URLSearchParams(window.location.search).entries());
+
     startTransition(() => {
       router.replace(
         // @ts-expect-error -- TypeScript will validate that only known `params`
         // are used in combination with a given `pathname`. Since the two will
         // always match for the current route, we can skip runtime checks.
-        { pathname, params },
+        { pathname, params, query },
         { locale, scroll: false },
       );
     });
