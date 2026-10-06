@@ -1,5 +1,5 @@
 export type FormState = {
-  message?: string;
+  code?: "invalid_data" | "captcha_failed" | "rate_limited" | "send_failed" | "success";
   status?: "idle" | "success" | "error";
 };
 

@@ -1,11 +1,10 @@
 import { z } from "zod";
 
-// Define the schema for form validation
 export const contactSchema = z.object({
-  name: z.string().min(2, "First name must be at least 2 characters"),
-  email: z.email("Invalid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-  // token: z.string().min(1, "Please verify that you are not a robot"),
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
+  email: z.email("Invalid email address").max(254),
+  subject: z.string().trim().min(2, "Subject must be at least 2 characters").max(150),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(5000),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
