@@ -85,7 +85,8 @@
     "languages": {
       "en": "English",
       "fr": "French",
-      "ar": "Arabic"
+      "ar": "Arabic",
+      "darija": "Darija"
     },
     "disclosure": "Reviews are shown as published on Google, in the order they appear there, and are not edited by us."
   },
@@ -608,6 +609,11 @@
     },
     "page": {
       "story": {
+        "titleLine1": "Trusted Medical Care",
+        "titleLine2": "in Marrakech",
+        "cta": "Meet our care team",
+        "quote": "Can care be better?",
+        "quoteSource": "The question that started everything",
         "h2": "Our Story",
         "subtitle": "A Service Born From a Real Story",
         "description": "This project didn't start as a business idea. It started with a human story — one patient, one family, and one question: *Can care be better?* Our mission was shaped by real experience, not theory."
@@ -1429,6 +1435,7 @@
       "message": "Message",
       "send": "Send",
       "retry": "Retry",
+      "captchaHint": "Complete the verification to enable sending.",
       "successTitle": "Message sent",
       "successMessage": "Your message has been sent. We will get back to you soon.",
       "errorTitle": "Something went wrong",
@@ -1444,7 +1451,8 @@
       "facebook": "Go to Facebook",
       "instagram": "Go to Instagram",
       "whatsapp": "Go to Whatsapp",
-      "twitter": "Go to Twitter"
+      "twitter": "Go to Twitter",
+      "google": "Read our reviews on Google"
     },
     "contactWhatsapp": "Contact Us on WhatsApp",
     "contactPhone": "Call us Now"

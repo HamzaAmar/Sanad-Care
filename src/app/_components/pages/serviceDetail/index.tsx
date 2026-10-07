@@ -34,8 +34,7 @@ const EXCLUDE_PATTERNS: Record<LocaleKey, RegExp> = {
   ar: /غير مشمول/,
 };
 
-const pick = <T,>(value: Record<LocaleKey, T>, locale: LocaleKey): T =>
-  value[locale] ?? value.en;
+const pick = <T,>(value: Record<LocaleKey, T>, locale: LocaleKey): T => value[locale] ?? value.en;
 
 const MAX_RELATED = 3;
 
@@ -89,14 +88,7 @@ const ServiceDetail = async ({ slug, locale }: ServiceDetailProps) => {
   ] as const;
 
   const processSteps = t.raw("process.steps") as string[];
-  const nursePoints = [
-    "id",
-    "sameNurse",
-    "oversight",
-    "choose",
-    "change",
-    "report",
-  ] as const;
+  const nursePoints = ["id", "sameNurse", "oversight", "choose", "change", "report"] as const;
 
   const sections: ServiceNavSection[] = [
     { id: "sd-included", label: t("nav.included") },

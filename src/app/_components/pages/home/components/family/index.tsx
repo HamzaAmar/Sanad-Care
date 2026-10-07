@@ -1,7 +1,6 @@
-import { Button, Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
+import { Chips, Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import { Clock, Community, MessageCircle, UserCheck, Users, Verified } from "@pillar-ui/icons";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/app/_components/reveal";
 import { RevealImage } from "@/app/_components/reveal/image";
 import { Box } from "@/app/_components/box";
@@ -59,7 +58,7 @@ const FamilySection = () => {
   return (
     <Reveal>
       <Paper as="section" flow="8" className="section family-care-section">
-        <Grid cols={{ default: "1fr", md: "1fr 1fr" }} gap="6" items="center">
+        <Grid cols={{ default: "1fr", md: "1.2fr 1fr" }} gap="6" items="center">
           <Paper flow="5">
             <div>
               <Chips corner="2" color="su" size="3" variant="outline">
@@ -69,19 +68,14 @@ const FamilySection = () => {
                 {t("subheading")}
               </Heading>
             </div>
-            <Text size="4" color="b" low>
+            <Text size="6" weight="3" color="b" low>
               {t("description")}
             </Text>
-            <Flex>
-              <Button as={Link} href="/family" size="5" color="su">
-                {t("cta")}
-              </Button>
-            </Flex>
           </Paper>
           <Paper
             corner="5"
             border
-            style={{ height: "300px", background: "var(--B3)", overflow: "hidden" }}
+            style={{ background: "var(--B3)", overflow: "hidden", maxHeight: "530px" }}
           >
             <RevealImage
               src={FAMILY_IMAGES[locale]}

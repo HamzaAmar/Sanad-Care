@@ -1,7 +1,7 @@
 "use client";
 
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
-import { Alert, Button, FormController, Input, Textarea } from "@pillar-ui/core";
+import { Alert, Button, FormController, Input, Text, Textarea } from "@pillar-ui/core";
 import { Envelop, Message, Send, User } from "@pillar-ui/icons";
 import { useLocale, useTranslations } from "next-intl";
 import React, { useActionState, useEffect, useRef } from "react";
@@ -31,10 +31,13 @@ const ContactForm = () => {
   useEffect(() => {
     if (state.status === "success") {
       formRef.current?.reset();
+    }
+
+    if (state.status === "success" || state.status === "error") {
       turnstileRef.current?.reset();
       setCaptchaStatus("idle");
     }
-  }, [state.status]);
+  }, [state]);
 
   const stateMessage =
     state.status === "success"
@@ -48,35 +51,80 @@ const ContactForm = () => {
     setCaptchaStatus("idle");
   };
 
+  const captchaSolved = captchaStatus === "solved";
+  const captchaFailed = captchaStatus === "error" || captchaStatus === "expired";
+
   return (
-    <form ref={formRef} aria-labelledby="contact-me" className="Sf-5" action={formAction}>
+    <form
+      ref={formRef}
+      action={formAction}
+      aria-labelledby="contact-title"
+      aria-busy={pending}
+      className="contact-form"
+    >
       {stateMessage && (
         <Alert
           color={state.status === "error" ? "d" : "su"}
           title={state.status === "error" ? t("errorTitle") : t("successTitle")}
           message={stateMessage}
-          aria-live="polite"
         />
       )}
       <div className="Sf-4">
         <FormController label={t("name")} required>
-          <Input name="name" prefixInput={<User width="24" />} required autoComplete="name" />
+          <Input
+            name="name"
+            prefixInput={
+              <span aria-hidden="true">
+                <User width="24" />
+              </span>
+            }
+            required
+            autoComplete="name"
+            maxLength={100}
+          />
         </FormController>
         <FormController label={t("email")} required>
           <Input
             name="email"
             type="email"
             required
-            prefixInput={<Envelop width="24" />}
+            prefixInput={
+              <span aria-hidden="true">
+                <Envelop width="24" />
+              </span>
+            }
             autoComplete="email"
+            maxLength={254}
           />
         </FormController>
         <FormController label={t("subject")} required>
-          <Input name="subject" required prefixInput={<Message width="24" />} />
+          <Input
+            name="subject"
+            required
+            prefixInput={
+              <span aria-hidden="true">
+                <Message width="24" />
+              </span>
+            }
+            maxLength={150}
+          />
         </FormController>
         <FormController label={t("message")} required>
-          <Textarea name="message" required prefixInput={<Message width="24" />} rows={5} />
+          <Textarea
+            name="message"
+            required
+            prefixInput={
+              <span aria-hidden="true">
+                <Message width="24" />
+              </span>
+            }
+            rows={5}
+            maxLength={5000}
+          />
         </FormController>
+      </div>
+
+      <div className="contact-captcha">
         <Turnstile
           ref={turnstileRef}
           siteKey={process.env.NEXT_PUBLIC_SITE_KEY as string}
@@ -88,32 +136,39 @@ const ContactForm = () => {
           }}
         />
 
-        {(captchaStatus === "error" || captchaStatus === "expired") && (
-          <Alert
-            color="d"
-            title={t("errorTitle")}
-            message={
-              captchaStatus === "expired" ? t("errors.captchaExpired") : t("errors.captchaFailed")
-            }
-            aria-live="polite"
-          />
+        {!captchaSolved && (
+          <Text size="2" color="b" low id="captcha-hint">
+            {t("captchaHint")}
+          </Text>
         )}
-
-        {captchaStatus === "error" || captchaStatus === "expired" ? (
-          <Button type="button" onClick={resetCaptcha}>
-            {t("retry")}
-          </Button>
-        ) : null}
-
-        <Button
-          disabled={captchaStatus !== "solved"}
-          icon={<Send width="15" fill="currentColor" />}
-          state={pending ? "loading" : "idle"}
-          type="submit"
-        >
-          {t("send")}
-        </Button>
       </div>
+
+      {captchaFailed && (
+        <Alert
+          color="d"
+          title={t("errorTitle")}
+          message={
+            captchaStatus === "expired" ? t("errors.captchaExpired") : t("errors.captchaFailed")
+          }
+        />
+      )}
+
+      {captchaFailed ? (
+        <Button type="button" onClick={resetCaptcha}>
+          {t("retry")}
+        </Button>
+      ) : null}
+
+      <Button
+        disabled={!captchaSolved}
+        aria-describedby={captchaSolved ? undefined : "captcha-hint"}
+        icon={<Send width="15" fill="currentColor" />}
+        loadingText={t("send")}
+        state={pending ? "loading" : "idle"}
+        type="submit"
+      >
+        {t("send")}
+      </Button>
     </form>
   );
 };

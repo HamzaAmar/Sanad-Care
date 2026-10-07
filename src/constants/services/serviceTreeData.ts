@@ -1267,7 +1267,11 @@ export const SERVICE_TREE: Record<string, ServiceTreeItem> = {
   "hospitalization-at-home-marrakech": {
     slug: "hospitalization-at-home-marrakech",
     packs: ["essential", "suivi", "intensif", "vip"],
-    shortTitle: { en: "Hospital at home", fr: "Hospitalisation à domicile", ar: "الاستشفاء المنزلي" },
+    shortTitle: {
+      en: "Hospital at home",
+      fr: "Hospitalisation à domicile",
+      ar: "الاستشفاء المنزلي",
+    },
     procedures: ["standard-nursing-visit", "simple-dressing", "im-injection", "iv-infusion"],
     category: "service",
     title: {

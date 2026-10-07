@@ -13,7 +13,7 @@ export const Box = ({ icon, title, description, variant = "normal" }: BoxProps) 
   return (
     <Paper p="4" corner="3" border className="delivery-feature">
       <Flex gap="5" items="start">
-        <div>{icon}</div>
+        <div className="delivery-feature__icon">{icon}</div>
         <Paper flow="1">
           <Heading as="h3" size="3" weight="5" {...color}>
             {title}

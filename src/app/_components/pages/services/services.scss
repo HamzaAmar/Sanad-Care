@@ -368,6 +368,84 @@
   }
 }
 
+/* --- Section headers ------------------------------------------------------ */
+
+.services-pricing__programs {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline: -4rem;
+    top: -3rem;
+    height: 22rem;
+    background:
+      radial-gradient(
+        42rem 14rem at 88% 10%,
+        color-mix(in srgb, var(--P9) 12%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        30rem 12rem at 8% 30%,
+        color-mix(in srgb, var(--Se9) 9%, transparent),
+        transparent 65%
+      );
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+.services-pricing__header {
+  display: grid;
+  gap: 0.85rem;
+  justify-items: center;
+  max-width: 46rem;
+  margin-inline: auto;
+  text-align: center;
+
+  :is(h2, p) {
+    margin: 0;
+  }
+
+  h2 {
+    background: linear-gradient(95deg, var(--B12) 55%, var(--P11));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.services-pricing__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--P9) 10%, transparent);
+  color: var(--P11);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  &::before {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--P9);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--P9) 18%, transparent);
+  }
+}
+
+.services-pricing__rule {
+  width: 3.25rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--P9), var(--Se9));
+}
+
 /* --- Page-level proof strip --------------------------------------------- */
 /* The card-level claims live here, once, rather than repeated on every card
    where they would become invisible. */
@@ -375,33 +453,49 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.25rem;
-  margin: 0;
-  padding: 0.9rem 1.15rem;
+  justify-content: center;
+  gap: 0.75rem 1.75rem;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-block: 0.7rem;
+  padding-inline: 0.8rem 1.6rem;
   list-style: none;
-  border: 1px solid var(--B6);
-  border-radius: 1rem;
-  background: linear-gradient(180deg, var(--B1), var(--B2));
+  border: 1px solid color-mix(in srgb, var(--B6) 75%, transparent);
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--B1) 72%, transparent);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 22px 50px -28px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 var(--B4);
 }
 
 .services-pricing__proof-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 500;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--B12);
+  white-space: nowrap;
 
   & + & {
-    padding-inline-start: 1.25rem;
+    padding-inline-start: 1.75rem;
     border-inline-start: 1px solid var(--B6);
   }
 }
 
 .services-pricing__proof-icon {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: none;
-  color: var(--P11);
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--P9), var(--P11));
+  box-shadow: 0 8px 18px -8px color-mix(in srgb, var(--P9) 75%, transparent);
 }
 
 /* Below this width the items wrap, and a divider at the start of a wrapped
@@ -410,6 +504,9 @@
   .services-pricing__proof {
     display: grid;
     gap: 0.65rem;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 1.25rem;
   }
 
   .services-pricing__proof-item + .services-pricing__proof-item {

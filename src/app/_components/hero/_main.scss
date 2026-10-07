@@ -337,29 +337,6 @@
   color: var(--B10);
 }
 
-/* --- Reviews link ------------------------------------------------------- */
-
-/* Links out to the Google profile. No rating is shown here until the real
-   profile figure is set in constants/reviews.ts. */
-.hero__reviews {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  width: fit-content;
-  color: var(--B11);
-  text-decoration: none;
-
-  svg {
-    color: var(--W9);
-  }
-
-  &:hover {
-    color: var(--B12);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-}
-
 /* --- Stats -------------------------------------------------------------- */
 
 .hero__stats {
@@ -440,10 +417,8 @@
   inset: 0;
   overflow: hidden;
   /* Arched top — echoes the Marrakech doorways in the photograph. */
-  border-radius:
-    50% 50% var(--hero-arch-corner) var(--hero-arch-corner) /
-    var(--hero-arch-v) var(--hero-arch-v) var(--hero-arch-corner)
-    var(--hero-arch-corner);
+  border-radius: 50% 50% var(--hero-arch-corner) var(--hero-arch-corner) / var(--hero-arch-v)
+    var(--hero-arch-v) var(--hero-arch-corner) var(--hero-arch-corner);
   border: 1px solid var(--B6);
   box-shadow: var(--B4);
 

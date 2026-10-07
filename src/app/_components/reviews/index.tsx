@@ -1,12 +1,7 @@
-import { Button, Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import { Star } from "@pillar-ui/icons";
+import { Button, Chips, Flex, Grid, Heading, IconButton, Paper, Text } from "@pillar-ui/core";
+import { Google, Star } from "@pillar-ui/icons";
 import { useLocale, useTranslations } from "next-intl";
-import {
-  GOOGLE_PROFILE_URL,
-  GOOGLE_RATING,
-  GOOGLE_REVIEW_URL,
-  REVIEWS,
-} from "@/constants/reviews";
+import { GOOGLE_PROFILE_URL, GOOGLE_RATING, GOOGLE_REVIEW_URL, REVIEWS } from "@/constants/reviews";
 import type { LocaleKey } from "@/types/localeProps.interface";
 
 /** Google shows relative dates, which rot; show the month instead. */
@@ -67,10 +62,7 @@ const Reviews = () => {
 
       {GOOGLE_RATING ? (
         <Flex items="center" justify="center" gap="2" className="reviews__rating">
-          <Stars
-            rating={GOOGLE_RATING.value}
-            label={`${GOOGLE_RATING.value} / 5`}
-          />
+          <Stars rating={GOOGLE_RATING.value} label={`${GOOGLE_RATING.value} / 5`} />
           <Text as="span" weight="6" className="reviews__rating-value">
             <bdi dir="ltr">{GOOGLE_RATING.value.toFixed(1)}</bdi>
           </Text>
@@ -81,7 +73,7 @@ const Reviews = () => {
       ) : null}
 
       {REVIEWS.length > 0 ? (
-        <Grid cols={{ default: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }} gap="5">
+        <Grid cols={{ default: "1fr", sm: "1fr 1fr" }} gap="5">
           {REVIEWS.map((review) => (
             <Paper
               as="article"
@@ -92,23 +84,33 @@ const Reviews = () => {
               border
               className="reviews__card"
             >
-              <Stars rating={review.rating} label={`${review.rating} / 5`} />
-              <Text as="blockquote" size="4" className="reviews__text">
+              <Text as="blockquote" size="4" truncate="5" className="reviews__text">
                 {review.text}
               </Text>
-              <footer className="reviews__meta">
-                <Text as="span" weight="5" size="3">
-                  {review.author}
-                </Text>
-                <Text as="span" size="2" color="b" low>
-                  {formatReviewDate(review.date, locale)}
-                </Text>
-              </footer>
-              {review.language ? (
-                <Text as="p" size="2" color="b" low className="reviews__language">
-                  {t("writtenIn", { language: t(`languages.${review.language}`) })}
-                </Text>
-              ) : null}
+              <Flex as="footer" justify="between" items="center" gap="3" className="reviews__meta">
+                <Flex direction="col" gap="1">
+                  <Text as="span" weight="5" size="3">
+                    {review.author}
+                  </Text>
+                  <Stars rating={review.rating} label={`${review.rating} / 5`} />
+                  <Text as="span" size="2" color="b" low>
+                    {formatReviewDate(review.date, locale)}
+                  </Text>
+                </Flex>
+
+                <IconButton
+                  as="a"
+                  href={review.link}
+                  variant="mixed"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  icon={<Google width="20" strokeWidth="3" aria-hidden="true" />}
+                  title={t("viewOnGoogle")}
+                />
+              </Flex>
+              <Text as="p" size="2" color="b" low className="reviews__language">
+                {t("writtenIn", { language: t(`languages.${review.language}`) })}
+              </Text>
             </Paper>
           ))}
         </Grid>

@@ -20,13 +20,7 @@ export interface ServiceNavSection {
  * links, so it works without JavaScript and mirrors automatically in RTL
  * (no translateX maths).
  */
-export function ServiceNav({
-  sections,
-  label,
-}: {
-  sections: ServiceNavSection[];
-  label: string;
-}) {
+export function ServiceNav({ sections, label }: { sections: ServiceNavSection[]; label: string }) {
   const [active, setActive] = useState(sections[0]?.id ?? "");
 
   useEffect(() => {

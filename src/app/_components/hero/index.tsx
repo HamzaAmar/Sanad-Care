@@ -1,9 +1,8 @@
 import { Button, Flex, Paper, Text } from "@pillar-ui/core";
-import { CircleCheck, Clock, PhoneCall, Star, UserCheck, Whatsapp } from "@pillar-ui/icons";
+import { CircleCheck, Clock, PhoneCall, UserCheck, Whatsapp } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import type { CSSProperties, ReactNode } from "react";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
-import { GOOGLE_PROFILE_URL } from "@/constants/reviews";
 
 const HERO_IMAGE = "/images/hero/hero-care-portrait-9x16.avif";
 const HERO_IMAGE_WIDTH = 375;
@@ -91,21 +90,6 @@ const HeroSection = () => {
               {t("hero.whatsappNote")}
             </Text>
           </Flex>
-
-          {/* Real reviews live on the Google profile; until the rating is set
-              from that profile we link out rather than show a number. */}
-          <a
-            className="hero__reviews hero__anim"
-            style={step(5)}
-            href={GOOGLE_PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Star width={15} strokeWidth={0} fill="currentColor" aria-hidden="true" />
-            <Text as="span" size="3" weight="5">
-              {t("reviews.readOnGoogle")}
-            </Text>
-          </a>
 
           <dl className="hero__stats hero__anim" style={step(6)}>
             {stats.map(({ value, label }) => (

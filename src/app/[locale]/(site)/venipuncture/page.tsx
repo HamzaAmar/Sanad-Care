@@ -37,9 +37,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function VenipuncturePage({
-  params,
-}: PageProps<"/[locale]/venipuncture">) {
+export default async function VenipuncturePage({ params }: PageProps<"/[locale]/venipuncture">) {
   const { locale } = await params;
   setRequestLocale(locale);
 

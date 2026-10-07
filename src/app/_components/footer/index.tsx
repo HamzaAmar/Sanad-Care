@@ -69,9 +69,9 @@ const Footer = () => {
               <Text size="3" color="b" low>
                 {t("sections.hotline")}
               </Text>
-            <Text size="4">
-              <span dir="ltr">{PERSONAL_INFO.phone}</span>
-            </Text>
+              <Text size="4">
+                <span dir="ltr">{PERSONAL_INFO.phone}</span>
+              </Text>
             </Paper>
 
             <Paper flow="1">

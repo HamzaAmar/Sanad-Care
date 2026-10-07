@@ -1,506 +1,535 @@
-section {
-  width: 100%;
+.tourism-page {
+  display: grid;
+  gap: var(--S8);
+  padding-bottom: var(--S8);
 }
 
-// Tourism Hero
+.tourism-container {
+  width: min(1160px, 92vw);
+  margin-inline: auto;
+}
+
+.tourism-band {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: var(--B2);
+  border: 1px solid var(--B4);
+  border-radius: 1.25rem;
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.tour-head {
+  display: grid;
+  gap: var(--S3);
+  max-width: 64ch;
+}
+
+.tour-head--center {
+  justify-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.tour-title {
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.tour-lead {
+  max-width: 60ch;
+  line-height: 1.7;
+}
+
+[dir="rtl"] .tour-title {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+.tour-card {
+  height: 100%;
+  transition:
+    transform 240ms var(--ease-out),
+    border-color 240ms var(--ease-out);
+}
+
+.tour-icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 0.75rem;
+  color: var(--P11);
+  background: color-mix(in srgb, var(--P9) 12%, transparent);
+
+  & svg {
+    inline-size: 1.4rem;
+    block-size: 1.4rem;
+  }
+}
+
+.tour-icon-chip--sm {
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 0.55rem;
+
+  & svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tour-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--B6);
+  }
+}
+
 .tourism-hero {
-  background-color: var(--B11);
-  padding: 5rem 0;
   position: relative;
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+}
+
+.tourism-hero__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.tourism-hero__content {
+  display: grid;
+  gap: var(--S4);
+  justify-items: start;
+}
+
+.tourism-hero .tourism-hero__title {
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.tourism-hero__accent {
+  color: var(--P11);
+}
+
+.tourism-hero__lead {
+  max-width: 46ch;
+  line-height: 1.75;
+}
+
+.tourism-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--S3);
+}
+
+.tourism-hero__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
   overflow: hidden;
+  aspect-ratio: 5 / 4;
+  border: 1px solid var(--B5);
+  border-radius: 1.375rem;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--P9) 7%, var(--B2)),
+    color-mix(in srgb, var(--P9) 15%, var(--B3))
+  );
+  box-shadow: inset 0 1px 0 var(--B1);
 
-  .dark & {
-    background-color: var(--B1);
-  }
-
-  @media (min-width: 1024px) {
-    padding: 8rem 0;
-  }
-
-  .hero-grid {
-    display: grid;
-    gap: 3rem;
-
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-    }
-  }
-
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .hero-title {
-    line-height: 1.25;
-    color: var(--B1);
-
-    .dark & {
-      color: #fff;
-    }
-  }
-
-  .hero-subtitle {
-    max-width: 36rem; // max-w-xl
-    line-height: 1.625;
-    color: #fff;
-    opacity: 0.85;
-  }
-
-  .hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 1rem;
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04); // shadow-xl
-    aspect-ratio: 16 / 9;
-
-    @media (min-width: 1024px) {
-      aspect-ratio: 1 / 1;
-    }
-  }
-
-  .hero-placeholder {
+  &::after {
+    content: "";
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e2e8f0;
-    color: #94a3b8;
-
-    .dark & {
-      background-color: var(--B2);
-    }
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--B12) 7%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 7px 7px;
   }
 }
 
-// Why Tourism Section
-.why-tourism {
-  padding: 4rem 0;
-  background-color: #fff;
+.tourism-hero__svg {
+  position: relative;
+  inline-size: min(86%, 460px);
+  block-size: auto;
+}
 
-  .dark & {
-    background-color: var(--B1);
+.th-route {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.th-route--base {
+  stroke: color-mix(in srgb, var(--P9) 24%, transparent);
+}
+
+.th-route--draw {
+  stroke: var(--P9);
+}
+
+.js .th-route--draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.js .reveal.is-visible .th-route--draw {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.6s var(--ease-out) 0.25s;
+}
+
+.th-pin__ring {
+  fill: var(--B1);
+  stroke: var(--P9);
+  stroke-width: 2;
+}
+
+.th-pin__dot {
+  fill: var(--P9);
+}
+
+.th-pulse {
+  fill: none;
+  stroke: var(--P9);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: th-pulse 2.8s var(--ease-out) infinite;
+}
+
+@keyframes th-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.7);
   }
 
-  @media (min-width: 1024px) {
-    padding: 6rem 0;
-  }
-
-  .section-header {
-    text-align: center;
-  }
-
-  .why-card {
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    border: 1px solid #f1f5f9;
-    background-color: #f8fafc;
-
-    .dark & {
-      border-color: var(--B2);
-      background-color: var(--B2);
-    }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
   }
 }
 
-// Tourism Services Section
-.tourism-services {
-  padding: 4rem 0;
-  background-color: var(--B11);
+.tourism-why__list,
+.tourism-services__list,
+.tourism-trust__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--S4);
+}
 
-  .dark & {
-    background-color: var(--B1);
-  }
+.tourism-why__list li,
+.tourism-services__list li,
+.tourism-trust__list li {
+  display: flex;
+}
 
-  @media (min-width: 1024px) {
-    padding: 6rem 0;
-  }
+.tourism-why__list .reveal,
+.tourism-services__list .reveal,
+.tourism-trust__list .reveal {
+  flex: 1;
+}
 
-  .services-header {
-    text-align: center;
-    margin-bottom: 4rem;
+.tourism-trust__card {
+  display: flex;
+  align-items: center;
+  gap: var(--S3);
+}
 
-    :is(h1, h2, h3, p, span) {
-      color: #fff;
-    }
-  }
-
-  .service-card {
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    background-color: #fff;
-    transition: box-shadow 0.3s ease;
-
-    &:hover {
-      box-shadow:
-        0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05); // shadow-lg
-    }
-
-    .dark & {
-      background-color: var(--B1);
-    }
-  }
-
-  .service-title {
-    font-weight: 600;
-    color: var(--B12);
+@media (min-width: 640px) {
+  .tourism-why__list,
+  .tourism-services__list,
+  .tourism-trust__list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-// Tourism Locations Section
-.tourism-locations {
-  padding: 4rem 0;
-  background-color: #fff;
-  border-top: 1px solid #f1f5f9;
-
-  .dark & {
-    background-color: var(--B1);
-    border-color: var(--B2);
+@media (min-width: 1024px) {
+  .tourism-hero__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   }
 
-  .locations-grid {
-    display: grid;
-    gap: 3rem;
-
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-    }
+  .tourism-why__list {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .locations-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .locations-list {
-    display: grid;
-    gap: 1rem;
-    padding-top: 1rem;
-
-    @media (min-width: 640px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .location-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    background-color: var(--B11);
-    border-radius: 0.5rem;
-
-    .dark & {
-      background-color: var(--B1);
-    }
-  }
-
-  .location-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 9999px;
-    background-color: var(--P9); // emerald-500
-  }
-
-  .location-text {
-    font-weight: 500;
-    color: #fff;
-  }
-
-  .map-placeholder {
-    position: relative;
-    height: 16rem;
-    min-height: 300px;
-    border-radius: 1rem;
-    overflow: hidden;
-    background-color: var(--B12);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .dark & {
-      background-color: var(--B2);
-    }
-
-    @media (min-width: 1024px) {
-      height: 100%;
-    }
+  .tourism-services__list,
+  .tourism-trust__list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-// Tourism Journey Section
-.tourism-journey {
-  padding: 4rem 0;
-  background-color: var(--B11);
+.tourism-locations__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
 
-  .dark & {
-    background-color: var(--B1);
-  }
+.tourism-locations__content {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2rem);
+}
 
-  @media (min-width: 1024px) {
-    padding: 6rem 0;
-  }
+.tourism-locations__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--S3);
+}
 
-  .journey-header {
-    text-align: center;
-    margin-bottom: 4rem;
+.tourism-locations__list li {
+  display: flex;
+}
 
-    :is(h1, h2, h3, p, span) {
-      color: #fff;
-    }
-  }
+.tourism-locations__list .reveal {
+  flex: 1;
+}
 
-  .journey-container {
-    position: relative;
-    max-width: 56rem; // max-w-4xl
-    margin: 0 auto;
-  }
+.tourism-locations__place {
+  display: flex;
+  align-items: center;
+  gap: var(--S3);
+  height: 100%;
+}
 
-  .timeline-line {
-    display: none;
+.tourism-locations__map {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  aspect-ratio: 5 / 4;
+  border: 1px solid var(--B5);
+  border-radius: 1rem;
+  background:
+    radial-gradient(
+      90% 80% at 70% 12%,
+      color-mix(in srgb, var(--P9) 9%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(160deg, var(--B2), var(--B3));
+
+  &::before {
+    content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #e2e8f0;
-    transform: translateX(-50%);
-
-    @media (min-width: 768px) {
-      display: block;
-      left: 15px;
-    }
-
-    @media (min-width: 1024px) {
-      left: 50%;
-    }
-
-    .dark & {
-      background-color: var(--B2);
-    }
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(color-mix(in srgb, var(--B12) 5%, transparent) 1px, transparent 1px) 0 0 /
+        100% 42px,
+      linear-gradient(90deg, color-mix(in srgb, var(--B12) 5%, transparent) 1px, transparent 1px) 0
+        0 / 42px 100%;
+    -webkit-mask-image: radial-gradient(120% 100% at 50% 45%, #000 55%, transparent 100%);
+    mask-image: radial-gradient(120% 100% at 50% 45%, #000 55%, transparent 100%);
   }
 
-  .journey-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .step-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: flex-start;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      align-items: center;
-    }
-
-    // Alternating layout for timeline
-    &.step-reverse {
-      @media (min-width: 768px) {
-        flex-direction: row-reverse;
-      }
-    }
-  }
-
-  .step-content {
-    flex: 1;
-    width: 100%;
-    padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 0.75rem;
-    border: 1px solid #f1f5f9;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); // shadow-sm
-
-    .dark & {
-      background-color: var(--B1);
-      border-color: var(--B2);
-    }
-
-    @media (min-width: 768px) {
-      width: 50%;
-    }
-  }
-
-  .step-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .step-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 9999px;
-    background-color: #d1fae5; // emerald-100
-    color: #047857; // emerald-700
-    font-weight: 700;
-    font-size: 0.875rem;
-  }
-
-  .step-title {
-    color: var(--B12);
-  }
-
-  .step-desc {
-    opacity: 0.75;
-    padding-left: 3rem;
-  }
-
-  .step-marker {
-    display: none;
+  & svg {
     position: absolute;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 9999px;
-    background-color: var(--P9);
-    border: 4px solid #fff;
-    transform: translateX(-50%);
-
-    @media (min-width: 768px) {
-      display: block;
-      left: 15px;
-    }
-
-    @media (min-width: 1024px) {
-      left: 50%;
-    }
-
-    .dark & {
-      border-color: #020617;
-    }
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
   }
 }
 
-// Tourism Pricing Section
-.tourism-pricing {
-  padding: 4rem 0;
-  background-color: #fff;
+.tl-map__route {
+  fill: none;
+  stroke: color-mix(in srgb, var(--P9) 55%, transparent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 5 8;
+}
 
-  .dark & {
-    background-color: var(--B1);
-  }
+.tl-map__pin-ring {
+  fill: var(--B1);
+  stroke: var(--P9);
+  stroke-width: 2;
+}
 
-  .pricing-card {
-    background-color: #ecfdf5; // emerald-50
-    border-radius: 1rem;
-    padding: 2rem;
-    text-align: center;
-    max-width: 56rem; // max-w-4xl
-    margin: 0 auto;
-    border: 1px solid #d1fae5; // emerald-100
+.tl-map__pin-dot {
+  fill: var(--P9);
+}
 
-    @media (min-width: 1024px) {
-      padding: 3rem;
-    }
-
-    .dark & {
-      background-color: rgba(2, 44, 34, 0.3); // emerald-950/30
-      border-color: rgba(6, 78, 59, 0.5); // emerald-900/50
-    }
-  }
-
-  .pricing-title {
-    margin-bottom: 1.5rem;
-    color: #064e3b; // emerald-900
-
-    .dark & {
-      color: #d1fae5; // emerald-100
-    }
-  }
-
-  .pricing-desc {
-    margin-bottom: 2rem;
-    color: #065f46; // emerald-800
-    line-height: 1.625;
-    max-width: 42rem; // max-w-2xl
-    margin-left: auto;
-    margin-right: auto;
-
-    .dark & {
-      color: rgba(167, 243, 208, 0.8); // emerald-200/80
-    }
+@media (min-width: 640px) {
+  .tourism-locations__list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-// Tourism Trust Section
-.tourism-trust {
-  padding: 4rem 0;
-  background-color: var(--B11);
-  color: #fff;
-
-  .dark & {
-    background-color: var(--B1);
+@media (min-width: 1024px) {
+  .tourism-locations__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   }
 
-  @media (min-width: 1024px) {
-    padding: 6rem 0;
-  }
-
-  .trust-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .trust-title {
-    color: #fff;
-  }
-
-  .trust-text {
-    font-weight: 500;
-    font-size: 1.125rem; // text-lg
-    color: var(--B12);
+  .tourism-locations__map {
+    min-height: 400px;
+    aspect-ratio: auto;
   }
 }
 
-// Tourism CTA Section
-.tourism-service-card,
-.why-card {
-  flex-direction: column;
+.tourism-journey__wrap {
+  display: grid;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
 }
-.tourism-cta {
-  padding: 5rem 0;
-  background-color: #fff;
+
+.tour-timeline {
+  --tour-node: 2.85rem;
+  --tour-rail-gap: 1.75rem;
+  position: relative;
+  inline-size: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.tour-timeline__thread {
+  position: absolute;
+  inset-block: calc(var(--tour-node) / 2);
+  inset-inline-start: 0;
+  inline-size: var(--tour-node);
+  pointer-events: none;
+  z-index: 0;
+
+  & svg {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    overflow: visible;
+  }
+}
+
+.tour-timeline__path {
+  fill: none;
+  stroke: var(--P9);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.js .tour-timeline__path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.js .tourism-journey__wrap.is-visible .tour-timeline__path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.6s var(--ease-out) 0.15s;
+}
+
+.tour-timeline__list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+}
+
+.tour-timeline__item {
+  position: relative;
+  display: grid;
+  gap: var(--S2);
+  min-height: var(--tour-node);
+  padding-inline-start: calc(var(--tour-node) + var(--tour-rail-gap));
+  padding-block: clamp(0.9rem, 2.2vw, 1.35rem);
+}
+
+.tour-timeline__body {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.tour-timeline__node {
+  position: absolute;
+  inset-inline-start: 0;
+  top: clamp(0.9rem, 2.2vw, 1.35rem);
+  display: grid;
+  place-items: center;
+  inline-size: var(--tour-node);
+  block-size: var(--tour-node);
+  border-radius: 50%;
+  background: var(--B1);
+  color: var(--P11);
+  font-size: var(--F4);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  box-shadow:
+    0 0 0 2px var(--P9),
+    0 10px 22px -12px var(--B9);
+}
+
+.js .tour-timeline__item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 110ms);
+}
+
+.js .tourism-journey__wrap.is-visible .tour-timeline__item {
+  opacity: 1;
+  transform: none;
+}
+
+.tourism-pricing__band,
+.tourism-cta__band {
+  justify-items: center;
   text-align: center;
+  border-color: color-mix(in srgb, var(--P9) 18%, var(--B4));
+  background:
+    radial-gradient(
+      110% 130% at 50% 0%,
+      color-mix(in srgb, var(--P9) 10%, transparent),
+      transparent 60%
+    ),
+    var(--B2);
+}
 
-  .dark & {
-    background-color: var(--B1);
+.tourism-pricing__inner,
+.tourism-cta__inner {
+  display: grid;
+  gap: var(--S4);
+  justify-items: center;
+  max-width: 58ch;
+}
+
+[dir="rtl"] .tourism-hero .tourism-hero__title {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-card {
+    transition: none;
   }
 
-  .cta-container {
-    max-width: 48rem; // max-w-3xl
-    margin: 0 auto;
-    padding: 0 1rem;
-
-    @media (min-width: 768px) {
-      padding: 0 1.5rem;
-    }
+  .tour-card:hover {
+    transform: none;
   }
 
-  .cta-title {
-    margin-bottom: 1.5rem;
-    color: var(--B12);
+  .js .th-route--draw,
+  .js .reveal.is-visible .th-route--draw {
+    stroke-dashoffset: 0;
+    transition: none;
   }
 
-  .cta-desc {
-    margin-bottom: 2.5rem;
-    opacity: 0.8;
-    line-height: 1.625;
+  .th-pulse {
+    animation: none;
+    opacity: 0.35;
+    transform: none;
+  }
+
+  .js .tour-timeline__item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .js .tour-timeline__path,
+  .js .tourism-journey__wrap.is-visible .tour-timeline__path {
+    stroke-dashoffset: 0;
+    transition: none;
   }
 }

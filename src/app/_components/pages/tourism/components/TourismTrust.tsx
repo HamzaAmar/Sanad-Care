@@ -1,26 +1,45 @@
-import { Grid, Heading, Paper } from "@pillar-ui/core";
+import { Heading, Paper, Text } from "@pillar-ui/core";
+import { CircleCheck } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
+import { Reveal } from "@/app/_components/reveal";
 
 const TourismTrust = () => {
   const t = useTranslations("tourism.page.trust");
   const signals = t.raw("signals") as string[];
 
   return (
-    <section className="tourism-trust">
-      <div className="container">
-        <div className="trust-header">
-          <Heading size="7" as="h2" className="trust-title">
-            {t("title")}
-          </Heading>
-        </div>
+    <section className="tourism-trust" aria-labelledby="tourism-trust-title">
+      <div className="tourism-container tourism-band">
+        <header className="tour-head tour-head--center">
+          <Reveal index={0}>
+            <Heading as="h2" size="8" weight="8" className="tour-title" id="tourism-trust-title">
+              {t("title")}
+            </Heading>
+          </Reveal>
+        </header>
 
-        <Grid cols={{ default: "1fr", sm: "1fr 1fr", lg: "1fr 1fr 1fr" }} gap="6">
-          {signals.map((signal) => (
-            <Paper key={signal} className="G_card">
-              <span className="trust-text">{signal}</span>
-            </Paper>
+        <ul className="tourism-trust__list" role="list">
+          {signals.map((signal, i) => (
+            <li key={signal}>
+              <Reveal variant="item" index={i}>
+                <Paper
+                  background="B1"
+                  border
+                  p="4"
+                  corner="3"
+                  className="tour-card tourism-trust__card"
+                >
+                  <span className="tour-icon-chip tour-icon-chip--sm" aria-hidden="true">
+                    <CircleCheck />
+                  </span>
+                  <Text as="span" size="4" weight="5">
+                    {signal}
+                  </Text>
+                </Paper>
+              </Reveal>
+            </li>
           ))}
-        </Grid>
+        </ul>
       </div>
     </section>
   );

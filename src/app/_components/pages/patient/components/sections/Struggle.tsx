@@ -34,12 +34,10 @@ const Struggle = () => {
         ))}
       </ul>
 
-      <Reveal>
-        <p className="pat-affirm">
-          <Text as="span" weight="5" className="pat-affirm__text">
-            {t("affirmation")}
-          </Text>
-        </p>
+      <Reveal className="pat-affirm">
+        <Text as="p" weight="5" className="pat-affirm__text">
+          {t("affirmation")}
+        </Text>
       </Reveal>
     </section>
   );

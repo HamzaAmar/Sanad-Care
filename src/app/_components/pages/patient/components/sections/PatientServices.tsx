@@ -33,21 +33,23 @@ const PatientServices = () => {
         {CATEGORIES.map(({ key, icon }, i) => {
           const items = t.raw(`categories.${key}.items`) as string[];
           return (
-            <Reveal key={key} variant="item" index={i} className="pat-service-card">
-              <div className="pat-service-card__head">
-                <span className="pat-service-card__icon" aria-hidden="true">
-                  {icon}
-                </span>
-                <Heading as="h3" size="4" weight="5">
-                  {t(`categories.${key}.title`)}
-                </Heading>
-              </div>
-              <div className="pat-service-card__chips">
-                {items.map((item, idx) => (
-                  <Chips key={idx} variant="soft" color="p" size="3">
-                    {item}
-                  </Chips>
-                ))}
+            <Reveal key={key} variant="item" index={i}>
+              <div className="pat-service-card">
+                <div className="pat-service-card__head">
+                  <span className="pat-service-card__icon" aria-hidden="true">
+                    {icon}
+                  </span>
+                  <Heading as="h3" size="4" weight="5">
+                    {t(`categories.${key}.title`)}
+                  </Heading>
+                </div>
+                <div className="pat-service-card__chips">
+                  {items.map((item, idx) => (
+                    <Chips key={idx} variant="soft" color="p" size="3">
+                      {item}
+                    </Chips>
+                  ))}
+                </div>
               </div>
             </Reveal>
           );

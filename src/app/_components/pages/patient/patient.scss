@@ -1,44 +1,4 @@
-/* ------------------------------------------------------------------
-   Shared AnimatedSection shell (used by patient, family and doctor)
-   Keep these intact — they are referenced outside this page.
--------------------------------------------------------------------*/
-.patient-section {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  min-height: 35vh !important;
-}
-
-.patient-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.patient-design {
-  position: absolute;
-  inset: 0;
-  background-color: var(--B3);
-  z-index: 1;
-  border-radius: 1rem;
-}
-
-.patient-content-wrapper {
-  position: relative;
-  z-index: 3;
-}
-
-.patient-description {
-  max-width: 800px;
-}
-
-.patient-cta {
-  margin-top: 2rem;
-}
-
+/* Grid class consumed by the venipuncture patient profiles section. */
 .patient-grid {
   display: grid;
   gap: 2rem;
@@ -200,10 +160,14 @@
 .pat-service-card {
   display: grid;
   gap: 1rem;
+  height: 100%;
   padding: clamp(1.25rem, 3vw, 1.75rem);
   background: var(--B2);
   border: 1px solid var(--B4);
   border-radius: 1.25rem;
+  transition:
+    transform 240ms var(--ease-out),
+    border-color 240ms var(--ease-out);
 }
 
 .pat-service-card__head {
@@ -395,6 +359,14 @@
   }
 }
 
+.pat-trust__list li {
+  display: flex;
+}
+
+.pat-trust__list .reveal {
+  flex: 1;
+}
+
 .pat-trust__item {
   display: flex;
   align-items: center;
@@ -404,12 +376,57 @@
   border: 1px solid var(--B4);
   border-radius: 1rem;
   height: 100%;
+  transition:
+    transform 240ms var(--ease-out),
+    border-color 240ms var(--ease-out);
 }
 
 .pat-trust__icon {
   display: inline-flex;
   flex: none;
   color: var(--P9);
+}
+
+/* --- Restrained card lift, only where hovering is real ----------- */
+@media (hover: hover) and (pointer: fine) {
+  .pat-service-card:hover,
+  .pat-trust__item:hover {
+    transform: translateY(-3px);
+    border-color: var(--B6);
+  }
+}
+
+/* --- Closing band ------------------------------------------------ */
+.pat-cta {
+  display: flex;
+  align-items: center;
+  padding: clamp(1.75rem, 4.5vw, 3.25rem);
+  background:
+    radial-gradient(
+      120% 140% at 50% 0%,
+      color-mix(in srgb, var(--P9) 8%, transparent),
+      transparent 60%
+    ),
+    var(--B2);
+  border: 1px solid var(--B4);
+  border-radius: 1.25rem;
+}
+
+.pat-cta > .reveal {
+  width: 100%;
+}
+
+.pat-cta__inner {
+  display: grid;
+  justify-items: center;
+  gap: 1.15rem;
+  max-width: 62ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.pat-cta__actions {
+  margin-block-start: 0.35rem;
 }
 
 /* --- Philosophy art ---------------------------------------------- */
@@ -446,5 +463,14 @@
   .js .pat-day__wrap.is-visible .pat-timeline__thread path {
     stroke-dashoffset: 0;
     transition: none;
+  }
+
+  .pat-service-card,
+  .pat-trust__item {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
   }
 }

@@ -151,10 +151,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           "Home Nurse Marrakech",
           "English Speaking Nurse Marrakech",
         ],
-        image: [
-          `${BASE_URL}/og-image.jpg`,
-          `${BASE_URL}/images/hero/hero-care-portrait-9x16.avif`,
-        ],
+        image: [`${BASE_URL}/og-image.jpg`, `${BASE_URL}/images/hero/hero-care-portrait-9x16.avif`],
         description:
           "Sanad Care provides professional home nursing services in Marrakech, Morocco. Our registered nurses deliver 24/7 medical care including elderly care, post-surgery recovery, IV therapy, wound care, blood tests, injections, and doctor home visits. Specialized medical assistance for tourists in hotels and riads.",
         url: BASE_URL,

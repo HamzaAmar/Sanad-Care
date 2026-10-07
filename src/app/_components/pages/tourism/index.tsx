@@ -9,7 +9,7 @@ import WhyTourism from "./components/WhyTourism";
 
 const Tourism = () => {
   return (
-    <main className="section">
+    <div className="section tourism-page">
       <TourismHero />
       <WhyTourism />
       <TourismServices />
@@ -18,7 +18,7 @@ const Tourism = () => {
       <TourismPricing />
       <TourismTrust />
       <TourismCTA />
-    </main>
+    </div>
   );
 };
 

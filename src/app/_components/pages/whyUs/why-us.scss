@@ -1,36 +1,607 @@
+.why-us-page {
+  padding-bottom: var(--S8);
+}
+
+/* Section cards are content-sized — the page no longer forces a
+   viewport of scroll per section. */
 .why-us-section {
-  min-height: calc(80vh - 8rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
   background-color: var(--B2);
-  padding: 2rem;
-  border-radius: 1rem;
-  animation: ab 1.5s ease-out;
-  transform-origin: left;
+  border: 1px solid var(--B4);
+  border-radius: 1.25rem;
   display: flex;
   align-items: center;
 }
 
-@keyframes ab {
-  0% {
-    opacity: 0;
-    transform: scale(0.9) translateX(-5rem);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
+// The Reveal wrapper is a flex child; keep it full-width so the
+// section content still spans the card.
+.why-us-section > .reveal {
+  width: 100%;
+}
+
+// Closing band carries a quiet brand bloom.
+.section-promise {
+  background:
+    radial-gradient(
+      120% 140% at 50% 0%,
+      color-mix(in srgb, var(--P9) 8%, transparent),
+      transparent 60%
+    ),
+    var(--B2);
+}
+
+/* Latin display headings: balanced lines, slight negative tracking. */
+.section-title,
+.big-question {
+  text-wrap: balance;
+  letter-spacing: -0.01em;
+}
+
+.big-question {
+  line-height: 1.15;
+  margin-block: var(--S5);
+}
+
+/* Arabic needs vertical room and no tracking. */
+[dir="rtl"] .section-title,
+[dir="rtl"] .big-question {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .big-question {
+  line-height: 1.4;
+}
+
+[dir="rtl"] .why-us-section h2 {
+  line-height: 1.35;
+}
+
+/* Centered statement blocks (question, proof, promise). */
+.wu-statement {
+  max-width: 62ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Card grids: credentials band, service details, promise cards. */
+.wu-facts,
+.wu-details,
+.wu-promises {
+  display: grid;
+  gap: var(--S4);
+  padding: 0;
+  list-style: none;
+  grid-template-columns: 1fr;
+}
+
+.wu-facts li,
+.wu-details li,
+.wu-promises li {
+  display: flex;
+}
+
+.wu-facts .reveal,
+.wu-details .reveal,
+.wu-promises .reveal {
+  flex: 1;
+}
+
+@media (min-width: 640px) {
+  .wu-facts,
+  .wu-details {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-.why-us-page {
-  padding-bottom: var(--space-8);
 
-  .big-question {
-    line-height: 1.1;
-    margin-block: var(--space-5);
+@media (min-width: 1024px) {
+  .wu-facts {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .detail-card {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    padding: var(--space-4);
+  .wu-details,
+  .wu-promises {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Shared Box cards get icon chips and a small hover lift on this page only. */
+.why-us-page .delivery-feature {
+  height: 100%;
+  transition:
+    transform 260ms var(--ease-out),
+    border-color 260ms var(--ease-out);
+}
+
+.why-us-page .delivery-feature__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 0.75rem;
+  color: var(--P11);
+  background: color-mix(in srgb, var(--P9) 12%, transparent);
+
+  & svg {
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .why-us-page .delivery-feature:hover {
+    transform: translateY(-3px);
+    border-color: var(--B6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-us-page .delivery-feature {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+/* Process group headers. */
+.wu-icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border-radius: 0.65rem;
+  color: var(--P11);
+  background: color-mix(in srgb, var(--P9) 12%, transparent);
+
+  & svg {
+    inline-size: 1.15rem;
+    block-size: 1.15rem;
+  }
+}
+
+.wu-check-list {
+  display: grid;
+  gap: var(--S3);
+  list-style: none;
+}
+
+.wu-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--S3);
+}
+
+.wu-check-list svg {
+  flex: none;
+  margin-block-start: 0.15rem;
+  color: var(--Su11);
+}
+
+/* Proof stats band. */
+.wu-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--S4);
+  margin: var(--S4) 0 0;
+}
+
+@media (min-width: 768px) {
+  .wu-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.wu-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: var(--S4);
+  background: var(--B1);
+  border: 1px solid var(--B4);
+  border-radius: 1rem;
+}
+
+.wu-stat__value {
+  font-size: var(--F6, 1.25rem);
+  font-weight: 700;
+  color: var(--P11);
+}
+
+.wu-stat__label {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--B11);
+}
+
+/* Promise pledge cards. */
+.wu-promise {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--S3);
+  height: 100%;
+  padding: var(--S5) var(--S4);
+  background: var(--B1);
+  border: 1px solid var(--B4);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.wu-promise__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 50%;
+  color: var(--Su11);
+  background: color-mix(in srgb, var(--Su9) 14%, transparent);
+}
+
+/* CTA row inside the closing band. */
+.wu-cta {
+  width: 100%;
+  margin-block-start: var(--S4);
+  padding-block-start: var(--S5);
+  border-block-start: 1px solid var(--B4);
+}
+
+/* Image slots — intentional grey placeholders until real photography
+   lands. Grey gradient, hairline border, dot grain, faint watermark. */
+.section-visual {
+  position: relative;
+  inline-size: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 1rem;
+  border: 1px solid var(--B5);
+  background: linear-gradient(165deg, var(--B2) 0%, var(--B4) 100%);
+  box-shadow: inset 0 1px 0 var(--B1);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--B12) 7%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 6px 6px;
+  }
+}
+
+.wu-visual-icon {
+  inline-size: clamp(3.5rem, 8vw, 5.5rem);
+  block-size: auto;
+  color: var(--P11);
+  opacity: 0.16;
+}
+
+.visual-families {
+  aspect-ratio: 5 / 4;
+}
+
+@media (max-width: 767px) {
+  .section-visual {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* =========================================================================
+   Opening editorial section — a pinned intro beside a scrolling narrative.
+   Adapted from a design proposal, with three deliberate departures:
+   - the proposed palette is hard-coded light-mode (#fafaf7 / #0c1b1e / #0e7c6b),
+     so every colour here maps to a theme token instead; pasted as-is it would
+     have broken dark mode and fought the existing surfaces
+   - no webfonts: the Fraunces + Instrument Sans pairing is skipped, so the
+     hierarchy carries on size, weight and spacing alone
+   - entrances use the existing Reveal component rather than a second
+     IntersectionObserver, so there is one motion system, not two
+   Only the headline line-mask is bespoke, and it is gated on `.js` so the
+   headline is never hidden when JavaScript is unavailable.
+   ========================================================================= */
+
+.sc-story {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  background: var(--B1);
+}
+
+.sc-story ::selection {
+  background: color-mix(in srgb, var(--P9) 24%, transparent);
+}
+
+.sc-container {
+  width: min(1160px, 92vw);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+/* --- Left column: pinned while the story scrolls ------------------------ */
+
+.sc-intro {
+  grid-column: 1 / 6;
+  position: sticky;
+  top: clamp(4.5rem, 10vh, 7rem);
+  align-self: start;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.sc-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--P11);
+}
+
+.sc-kicker__rule {
+  width: 2.2rem;
+  height: 1px;
+  background: var(--P11);
+}
+
+.sc-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--B12);
+  text-wrap: balance;
+}
+
+.sc-title__accent {
+  color: var(--P11);
+}
+
+.sc-lead {
+  margin: 0;
+  max-width: 44ch;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--B11);
+}
+
+.sc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding-block-end: 0.4rem;
+  border-block-end: 1px solid var(--B5);
+  color: var(--B12);
+  font-weight: 600;
+  text-decoration: none;
+
+  span {
+    transition: transform 240ms var(--ease-out);
+  }
+}
+
+/* --- Headline line-mask ------------------------------------------------- */
+
+.sc-title .sc-line {
+  display: block;
+  overflow: hidden;
+  padding-block-end: 0.08em;
+  margin-block-end: -0.08em;
+}
+
+.js .sc-title .sc-line > span {
+  display: block;
+  transform: translateY(115%);
+  transition: transform 900ms cubic-bezier(0.22, 0.61, 0.21, 1);
+}
+
+.js .sc-title .sc-line:nth-child(2) > span {
+  transition-delay: 110ms;
+}
+
+.js .reveal.is-visible .sc-title .sc-line > span {
+  transform: none;
+}
+
+/* --- Right column: the narrative ---------------------------------------- */
+
+.sc-body {
+  grid-column: 6 / 13;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sc-visual {
+  margin: 0 0 clamp(2rem, 4vw, 3.25rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--P9) 20%, transparent);
+  border-radius: 1.375rem;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--P9) 7%, var(--B2)),
+    color-mix(in srgb, var(--P9) 14%, var(--B2))
+  );
+}
+
+.sc-quote {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--B12);
+}
+
+.sc-quote-src {
+  margin: 0 0 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--B11);
+}
+
+.sc-ecg {
+  display: block;
+  width: 100%;
+  height: 72px;
+}
+
+.sc-ecg__base,
+.sc-ecg__pulse {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sc-ecg__base {
+  stroke: color-mix(in srgb, var(--P9) 22%, transparent);
+}
+
+.sc-ecg__pulse {
+  stroke: var(--P9);
+  stroke-dasharray: 0.16 0.84;
+  animation: sc-travel 5s linear infinite;
+}
+
+@keyframes sc-travel {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --- Numbered chapters -------------------------------------------------- */
+
+.sc-chapter {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0 1.2rem;
+  padding-block: 2rem;
+  border-block-start: 1px solid var(--B5);
+
+  h2 {
+    margin: 0 0 0.7rem;
+  }
+
+  p {
+    margin: 0;
+    max-width: 60ch;
+    line-height: 1.8;
+  }
+}
+
+.sc-num {
+  padding-block-start: 0.25rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--P11);
+  transition: transform 240ms var(--ease-out);
+}
+
+/* --- Hover, only where hovering is real --------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .sc-cta:hover {
+    color: var(--P11);
+    border-color: var(--P11);
+  }
+
+  .sc-cta:hover span {
+    transform: translateX(4px);
+  }
+
+  .sc-chapter:hover .sc-num {
+    transform: translateX(4px);
+  }
+}
+
+/* --- RTL: no tracking, more leading, mirrored arrow --------------------- */
+
+[dir="rtl"] .sc-kicker,
+[dir="rtl"] .sc-quote-src {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .sc-title {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+[dir="rtl"] .sc-cta span {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [dir="rtl"] .sc-cta:hover span {
+    transform: scaleX(-1) translateX(4px);
+  }
+
+  [dir="rtl"] .sc-chapter:hover .sc-num {
+    transform: translateX(-4px);
+  }
+}
+
+/* --- Narrow screens: unpin, single column ------------------------------- */
+
+@media (max-width: 920px) {
+  .sc-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-intro,
+  .sc-body {
+    grid-column: 1;
+  }
+
+  .sc-intro {
+    position: static;
+  }
+}
+
+/* --- Reduced motion ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .js .sc-title .sc-line > span {
+    transform: none;
+    transition: none;
+  }
+
+  .sc-ecg__pulse {
+    animation: none;
+    stroke-dasharray: none;
+    opacity: 0.55;
+  }
+
+  .sc-cta span,
+  .sc-num {
+    transition: none;
+  }
+
+  .sc-chapter:hover .sc-num,
+  [dir="rtl"] .sc-chapter:hover .sc-num {
+    transform: none;
   }
 }

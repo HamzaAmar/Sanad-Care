@@ -114,7 +114,9 @@
   font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
-  transition: color 160ms ease, background-color 160ms ease;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
 
   &:hover {
     background: var(--B3);

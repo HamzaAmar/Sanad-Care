@@ -1,25 +1,45 @@
-import { Flex, Grid, Paper, Text } from "@pillar-ui/core";
+import { Flex, Paper, Text } from "@pillar-ui/core";
 import { CircleCheck } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import AnimatedSection from "@/app/_components/AnimatedSection";
+import { Reveal } from "@/app/_components/reveal";
+import FamilySection from "../section";
 
 const WhyChooseUs = () => {
   const t = useTranslations("family.page.section7");
   const list = t.raw("list") as string[];
 
   return (
-    <AnimatedSection title={t("title")} description={t("subtitle")}>
-      <Grid cols={{ default: "1fr", lg: "1fr 1fr" }} gap="6">
-        {list.map((item, index) => (
-          <Paper as={Flex} gap="2" p="4" corner="2" key={index} className="delivery-feature">
-            <CircleCheck stroke="var(--P11)" width="24" />
-            <Text size="4" weight="5">
-              {item}
-            </Text>
-          </Paper>
-        ))}
-      </Grid>
-    </AnimatedSection>
+    <FamilySection
+      id="family-trust"
+      title={t("title")}
+      lead={t("subtitle")}
+      gridAs="ul"
+      cols={{ default: "1fr", sm: "1fr 1fr", lg: "repeat(4, minmax(0, 1fr))" }}
+    >
+      {list.map((item, index) => (
+        <li key={item}>
+          <Reveal variant="item" index={index}>
+            <Paper
+              as={Flex}
+              items="start"
+              gap="3"
+              border
+              p="5"
+              corner="3"
+              background="B1"
+              className="family-card"
+            >
+              <span className="family-check" aria-hidden="true">
+                <CircleCheck width={20} stroke="currentColor" strokeWidth={1.8} />
+              </span>
+              <Text size="4" weight="5">
+                {item}
+              </Text>
+            </Paper>
+          </Reveal>
+        </li>
+      ))}
+    </FamilySection>
   );
 };
 

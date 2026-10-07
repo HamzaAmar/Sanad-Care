@@ -1,35 +1,60 @@
-import { Flex, Grid, Heading, Paper, Separator, Text } from "@pillar-ui/core";
-import { CircleCheck } from "@pillar-ui/icons";
+import { Flex, Heading, Paper, Separator, Text } from "@pillar-ui/core";
+import { CircleCheck, Heart, Stethoscope, Users } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
-import AnimatedSection from "@/app/_components/AnimatedSection";
+import { Reveal } from "@/app/_components/reveal";
+import FamilySection from "../section";
+
+const CATEGORY_ICONS = {
+  medical: Stethoscope,
+  daily: Heart,
+  family: Users,
+} as const;
 
 const FamilyServices = () => {
   const t = useTranslations("family.page.section4");
   const categories = ["medical", "daily", "family"] as const;
 
   return (
-    <AnimatedSection title={t("title")} description={t("subtitle")}>
-      <Grid cols={{ default: "1fr", sm: "1fr 1fr", lg: "1fr 1fr 1fr" }} gap="6">
-        {categories.map((key) => (
-          <Paper corner="3" p="4" flow="4" key={key} className="delivery-feature">
-            <Heading size="4" as="h3">
-              {t(`categories.${key}.title`)}
-            </Heading>
-            <Separator thickness="1" />
-            <Paper as="ul" flow="3">
-              {(t.raw(`categories.${key}.items`) as string[]).map((item, idx) => (
-                <Flex gap="2" as="li" key={idx}>
-                  <CircleCheck stroke="var(--P11)" width="20" />
-                  <Text size="3" color="b" low>
-                    {item}
-                  </Text>
+    <FamilySection
+      id="family-services"
+      title={t("title")}
+      lead={t("subtitle")}
+      gridAs="ul"
+      cols={{ default: "1fr", md: "1fr 1fr 1fr" }}
+    >
+      {categories.map((key, index) => {
+        const Icon = CATEGORY_ICONS[key];
+        return (
+          <li key={key}>
+            <Reveal variant="item" index={index}>
+              <Paper flow="4" border p="5" corner="3" background="B1" className="family-card">
+                <Flex items="center" gap="3">
+                  <span className="family-icon-chip" aria-hidden="true">
+                    <Icon width={22} stroke="currentColor" strokeWidth={1.6} />
+                  </span>
+                  <Heading as="h3" size="4" weight="5">
+                    {t(`categories.${key}.title`)}
+                  </Heading>
                 </Flex>
-              ))}
-            </Paper>
-          </Paper>
-        ))}
-      </Grid>
-    </AnimatedSection>
+                <Separator />
+                <Paper as="ul" flow="3">
+                  {(t.raw(`categories.${key}.items`) as string[]).map((item) => (
+                    <Flex as="li" gap="3" items="start" key={item}>
+                      <span className="family-check" aria-hidden="true">
+                        <CircleCheck width={18} stroke="currentColor" strokeWidth={1.8} />
+                      </span>
+                      <Text size="4" color="b" low>
+                        {item}
+                      </Text>
+                    </Flex>
+                  ))}
+                </Paper>
+              </Paper>
+            </Reveal>
+          </li>
+        );
+      })}
+    </FamilySection>
   );
 };
 

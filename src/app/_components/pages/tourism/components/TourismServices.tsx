@@ -1,42 +1,65 @@
-import { Grid, Heading, Paper, Text } from "@pillar-ui/core";
+import { Chips, Heading, Paper, Text } from "@pillar-ui/core";
+import { Bandage, Bed, Headset, Massage, Pill, Stethoscope } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
+import { Reveal } from "@/app/_components/reveal";
+
+const SERVICES = [
+  { key: "postOp", Icon: Bandage },
+  { key: "medication", Icon: Pill },
+  { key: "assistance", Icon: Headset },
+  { key: "equipment", Icon: Bed },
+  { key: "physio", Icon: Massage },
+  { key: "chronic", Icon: Stethoscope },
+] as const;
 
 const TourismServices = () => {
   const t = useTranslations("tourism.page.services");
-  const services = [
-    "postOp",
-    "medication",
-    "assistance",
-    "equipment",
-    "physio",
-    "chronic",
-  ] as const;
 
   return (
-    <section className="tourism-services">
-      <Paper flow="7">
-        <div className="services-header">
-          <Heading size="7" leading="1" as="h2">
-            {t("title")}
-          </Heading>
-          <Text size="4" color="b" low>
-            {t("subtitle")}
-          </Text>
-        </div>
+    <section className="tourism-services" aria-labelledby="tourism-services-title">
+      <div className="tourism-container tourism-band">
+        <header className="tour-head tour-head--center">
+          <Reveal index={0}>
+            <Chips corner="full" color="p" variant="soft" size="3">
+              {t("subtitle")}
+            </Chips>
+          </Reveal>
 
-        <Grid cols={{ default: "1fr", md: "1fr 1fr", lg: "1fr 1fr 1fr" }} gap="6">
-          {services.map((key) => (
-            <Paper key={key} flow="4" as="article" className="G_card tourism-service-card">
-              <Heading size="4" as="h3" className="service-title">
-                {t(`list.${key}.title`)}
-              </Heading>
-              <Text size="3" color="b" low className="service-desc">
-                {t(`list.${key}.description`)}
-              </Text>
-            </Paper>
+          <Reveal index={1}>
+            <Heading as="h2" size="8" weight="8" className="tour-title" id="tourism-services-title">
+              {t("title")}
+            </Heading>
+          </Reveal>
+        </header>
+
+        <ul className="tourism-services__list" role="list">
+          {SERVICES.map(({ key, Icon }, i) => (
+            <li key={key}>
+              <Reveal variant="item" index={i}>
+                <Paper
+                  flow="4"
+                  as="article"
+                  background="B1"
+                  border
+                  p="5"
+                  corner="3"
+                  className="tour-card"
+                >
+                  <span className="tour-icon-chip" aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <Heading as="h3" size="4" weight="6">
+                    {t(`list.${key}.title`)}
+                  </Heading>
+                  <Text size="4" color="b" low>
+                    {t(`list.${key}.description`)}
+                  </Text>
+                </Paper>
+              </Reveal>
+            </li>
           ))}
-        </Grid>
-      </Paper>
+        </ul>
+      </div>
     </section>
   );
 };

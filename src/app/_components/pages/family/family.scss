@@ -1,72 +1,270 @@
+.section.family-page {
+  padding-bottom: var(--S8);
+}
+
+/* Section cards mirror the why-us shell: token surfaces, content-sized. */
 .family-section {
-  border-radius: 1rem;
-  overflow: hidden;
-  position: relative;
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background-color: var(--B2);
+  border: 1px solid var(--B4);
+  border-radius: 1.25rem;
+}
+
+.family-head {
+  display: grid;
+  gap: var(--S3);
+  max-width: 62ch;
+}
+
+.family-title {
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.family-lead {
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+/* List sections wrap each card in an li; the Reveal inside fills the cell. */
+.family-grid > li {
+  display: grid;
+  min-inline-size: 0;
+}
+
+.family-grid .reveal {
+  display: grid;
+  min-inline-size: 0;
+}
+
+.family-card {
+  block-size: 100%;
+  transition:
+    transform 240ms var(--ease-out),
+    border-color 240ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .family-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--B6);
+  }
+}
+
+/* Centered statement bands (intro, support, closing). */
+.family-section--statement .family-head,
+.family-section--closing .family-head {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.family-section--statement .family-grid,
+.family-section--closing .family-grid {
+  justify-items: center;
+  text-align: center;
+}
+
+.family-section--statement .family-lead,
+.family-section--closing .family-lead {
+  color: var(--P11);
+}
+
+.family-statement__body {
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.family-section .family-statement__cta {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  //   opacity: 0;
-  //   transform: translateX(-50px);
+}
 
-  @media (min-width: 768px) {
-    padding: 4rem;
+@media (min-width: 1024px) {
+  .family-section--default .family-statement__cta {
+    justify-content: flex-end;
   }
 }
 
-.family-content {
-  position: relative;
-  z-index: 10;
-  max-width: 600px;
-  width: 100%;
-
-  .text-bubble {
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transform: translateY(50px);
-    // opacity: 0;
-  }
-}
-
-.family-design {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #f43f5e;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(-100%);
-  border-radius: 1rem;
-}
-
-// Layout variations
-.section-reverse {
-  flex-direction: row-reverse;
-}
-
-// Utility for specific section content
-.burden-grid,
-.services-grid,
-.steps-grid,
-.trust-grid {
+/* Opening: a quiet heartbeat mark under the statement. */
+.family-intro__body {
   display: grid;
-  gap: 1.5rem;
-  margin-top: 2rem;
+  justify-items: center;
+  gap: var(--S5);
+  max-width: 62ch;
+  text-wrap: pretty;
 }
 
-.burden-item,
-.service-item,
-.step-item,
-.trust-item {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+.family-pulse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: 50%;
+  color: var(--P11);
+  background: color-mix(in srgb, var(--P9) 12%, var(--B2));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--P9) 22%, transparent);
+  animation: family-beat 2.6s ease-in-out infinite;
+}
 
-  .dark & {
-    background: #1e293b;
+@keyframes family-beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+/* Before / after transformation cards. */
+.family-change__part {
+  display: grid;
+  gap: var(--S2);
+  justify-items: start;
+}
+
+/* Service category cards. */
+.family-icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 0.85rem;
+  color: var(--P11);
+  background: color-mix(in srgb, var(--P9) 12%, var(--B2));
+}
+
+.family-check {
+  display: inline-flex;
+  flex: none;
+  color: var(--P11);
+  padding-block-start: 0.1rem;
+}
+
+/* Numbered step flow (01–05): stacked rail, horizontal on wide screens. */
+.family-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--S4);
+}
+
+.family-step__num {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--P9) 26%, transparent);
+  background: color-mix(in srgb, var(--P9) 13%, var(--B2));
+  color: var(--P11);
+  font-size: var(--F3);
+  font-weight: 700;
+}
+
+.family-step::after {
+  content: "";
+  position: absolute;
+  inset-block: 2.75rem calc(-1 * var(--S4));
+  inset-inline-start: 1.25rem;
+  inline-size: 1px;
+  background: var(--B5);
+}
+
+.family-step:last-child::after {
+  content: none;
+}
+
+@media (min-width: 1024px) {
+  .family-step {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--S3);
+  }
+
+  .family-step::after {
+    content: none;
+  }
+
+  .family-step::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 1.25rem;
+    inset-inline-start: calc(50% + 1.5rem);
+    inline-size: calc(100% + var(--S4) - 3rem);
+    block-size: 1px;
+    background: var(--B5);
+  }
+
+  .family-step:last-child::before {
+    content: none;
+  }
+}
+
+/* Testimonials: one featured quote beside two stacked ones. */
+.family-quotes {
+  display: grid;
+  gap: var(--S4);
+  grid-auto-rows: 1fr;
+}
+
+.family-quote__mark {
+  display: inline-flex;
+  color: var(--P11);
+  opacity: 0.35;
+}
+
+.family-quote__source {
+  display: flex;
+  align-items: center;
+  gap: var(--S3);
+}
+
+.family-quote__source::before {
+  content: "";
+  inline-size: 1.5rem;
+  block-size: 2px;
+  border-radius: 2px;
+  background: var(--P9);
+}
+
+/* Closing band: quiet brand bloom, centered CTAs. */
+.family-section--closing {
+  background:
+    radial-gradient(
+      120% 140% at 50% 0%,
+      color-mix(in srgb, var(--P9) 8%, transparent),
+      transparent 60%
+    ),
+    var(--B2);
+}
+
+/* RTL: no tracking, roomier heading leading. */
+[dir="rtl"] .family-title {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .family-card {
+    transition: none;
+  }
+
+  .family-card:hover {
+    transform: none;
+  }
+
+  .family-pulse {
+    animation: none;
   }
 }

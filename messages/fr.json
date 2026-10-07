@@ -85,7 +85,8 @@
     "languages": {
       "en": "anglais",
       "fr": "français",
-      "ar": "arabe"
+      "ar": "arabe",
+      "darija": "darija"
     },
     "disclosure": "Les avis sont affichés tels que publiés sur Google, dans leur ordre d'affichage, et ne sont pas modifiés par nos soins."
   },
@@ -515,6 +516,11 @@
     },
     "page": {
       "story": {
+        "titleLine1": "Soins Médicaux de confiance",
+        "titleLine2": "à Marrakech",
+        "cta": "Rencontrer notre équipe",
+        "quote": "Les soins peuvent-ils être meilleurs ?",
+        "quoteSource": "La question qui a tout déclenché",
         "h2": "Notre Histoire",
         "subtitle": "Un Service Né d'une Histoire vraie",
         "description": "Ce projet n'a pas commencé comme une idée commerciale. Il a commencé avec une histoire humaine — un patient, une famille, et une question : *Les soins peuvent-ils être meilleurs ?* Notre mission a été façonnée par l'expérience réelle, pas par la théorie."
@@ -1378,6 +1384,7 @@
       "message": "Message",
       "send": "Envoyer",
       "retry": "Réessayer",
+      "captchaHint": "Complétez la vérification pour activer l'envoi.",
       "successTitle": "Message envoyé",
       "successMessage": "Votre message a bien été envoyé. Nous vous répondrons bientôt.",
       "errorTitle": "Une erreur est survenue",
@@ -1393,7 +1400,8 @@
       "facebook": "Aller sur Facebook",
       "instagram": "Aller sur Instagram",
       "whatsapp": "Aller sur Whatsapp",
-      "twitter": "Aller sur Twitter"
+      "twitter": "Aller sur Twitter",
+      "google": "Lisez nos avis sur Google"
     },
     "contactWhatsapp": "Contactez-nous sur WhatsApp",
     "contactPhone": "Appelez-nous maintenant"

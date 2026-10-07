@@ -20,13 +20,15 @@ const TrustSignals = () => {
       <ul className="pat-trust__list">
         {signals.map((signal, i) => (
           <li key={i}>
-            <Reveal variant="item" index={i} className="pat-trust__item">
-              <span className="pat-trust__icon" aria-hidden="true">
-                <CircleCheck width={22} stroke="currentColor" strokeWidth={1.7} />
-              </span>
-              <Text size="4" weight="5">
-                {signal}
-              </Text>
+            <Reveal variant="item" index={i}>
+              <div className="pat-trust__item">
+                <span className="pat-trust__icon" aria-hidden="true">
+                  <CircleCheck width={22} stroke="currentColor" strokeWidth={1.7} />
+                </span>
+                <Text size="4" weight="5">
+                  {signal}
+                </Text>
+              </div>
             </Reveal>
           </li>
         ))}

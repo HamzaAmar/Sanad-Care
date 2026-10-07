@@ -1,4 +1,4 @@
-import { Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
+import { Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
 import { Clock, Route, Shield } from "@pillar-ui/icons";
 import { useLocale, useTranslations } from "next-intl";
 import type { ReactNode } from "react";
@@ -45,14 +45,13 @@ const Services = () => {
         {tPage("heading")}
       </Heading>
       <Paper as="section" flow="6" className="services-pricing__programs">
-        <div>
-          <Chips color="b" variant="soft">
-            {t("programs.badge")}
-          </Chips>
-          <Heading id="services-programs" as="h2" size="6">
+        <div className="services-pricing__header">
+          <span className="services-pricing__kicker">{t("programs.badge")}</span>
+          <Heading id="services-programs" as="h2" size="7" weight="7" leading="1">
             {t("programs.title")}
           </Heading>
-          <Text as="p" size="4" color="b" low className="mt-1">
+          <span className="services-pricing__rule" aria-hidden="true" />
+          <Text as="p" size="4" color="b" low>
             {t("programs.description")}
           </Text>
         </div>
@@ -74,14 +73,13 @@ const Services = () => {
       </Paper>
 
       <Paper as="section" flow="6" className="services-pricing__conditions">
-        <div>
-          <Chips color="b" variant="soft">
-            {t("conditions.badge")}
-          </Chips>
-          <Heading as="h2" size="6">
+        <div className="services-pricing__header">
+          <span className="services-pricing__kicker">{t("conditions.badge")}</span>
+          <Heading as="h2" size="7" weight="7" leading="1">
             {t("conditions.title")}
           </Heading>
-          <Text as="p" size="4" color="b" low className="mt-1">
+          <span className="services-pricing__rule" aria-hidden="true" />
+          <Text as="p" size="4" color="b" low>
             {t("conditions.description")}
           </Text>
         </div>

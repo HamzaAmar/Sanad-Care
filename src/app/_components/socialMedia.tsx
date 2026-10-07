@@ -1,7 +1,8 @@
 import { cx, Flex, IconButton } from "@pillar-ui/core";
-import { Instagram, Phone, Whatsapp } from "@pillar-ui/icons";
+import { Google, Instagram, Phone, Whatsapp } from "@pillar-ui/icons";
 import { useTranslations } from "next-intl";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
+import { GOOGLE_PROFILE_URL } from "@/constants/reviews";
 
 const SocialMedia = ({ className = "" }: { className?: string }) => {
   const t = useTranslations("contact");
@@ -38,6 +39,18 @@ const SocialMedia = ({ className = "" }: { className?: string }) => {
         className={cls}
         as="a"
         href={PERSONAL_INFO.socialMedia.whatsapp}
+        target="_blank"
+        rel="noreferrer"
+        size="3"
+      />
+      <IconButton
+        color="b"
+        variant="mixed"
+        title={t("social.google")}
+        icon={<Google />}
+        className={cls}
+        as="a"
+        href={GOOGLE_PROFILE_URL}
         target="_blank"
         rel="noreferrer"
         size="3"

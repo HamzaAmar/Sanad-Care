@@ -1,0 +1,60 @@
+/* Service cards (services page and home highlights). */
+
+.service-card__media {
+  position: relative;
+  margin: 0.75rem;
+  border-radius: var(--R3, 0.5em);
+  overflow: hidden;
+  aspect-ratio: 2 / 1;
+}
+
+.service-card__media img {
+  filter: grayscale(40%);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+    filter 0.45s ease;
+}
+
+.service-card:hover .service-card__media img,
+.service-card:focus-within .service-card__media img {
+  filter: none;
+  transform: scale(1.07);
+}
+
+.service-card__chip {
+  position: absolute;
+  top: 0.6rem;
+  inset-inline-start: 0.6rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background-color: var(--B12);
+  color: var(--B1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow:
+    0 10px 24px -8px rgba(0, 0, 0, 0.55),
+    0 4px 10px -4px rgba(0, 0, 0, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.service-card__body {
+  padding: 0 0.75rem 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card__media img {
+    transition: none;
+  }
+
+  .service-card:hover .service-card__media img,
+  .service-card:focus-within .service-card__media img {
+    transform: none;
+  }
+}

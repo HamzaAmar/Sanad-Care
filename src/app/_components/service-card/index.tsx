@@ -52,15 +52,7 @@ export const ServiceCard = ({
 
   return (
     <Paper corner="3" border className="delivery-feature service-card">
-      <div
-        className="service-card__media"
-        style={{
-          margin: "0.75rem",
-          borderRadius: "var(--R3, 0.5em)",
-          overflow: "hidden",
-          aspectRatio: "2 / 1",
-        }}
-      >
+      <div className="service-card__media">
         <img
           src={imageSrc}
           alt={title}
@@ -82,16 +74,16 @@ export const ServiceCard = ({
         </Text>
 
         {facts.length > 0 ? (
-          <ul className="service-card__facts">
+          <Paper flow="2" as="ul" className="service-card__facts">
             {facts.map((fact) => (
-              <li className="service-card__fact" key={fact}>
-                <CircleCheck width={15} strokeWidth={1.8} aria-hidden="true" />
+              <Flex as="li" gap="2" className="service-card__fact" key={fact}>
+                <CircleCheck width={15} stroke="var(--P9)" strokeWidth={1.8} aria-hidden="true" />
                 <Text size="3" color="b" low>
                   {fact}
                 </Text>
-              </li>
+              </Flex>
             ))}
-          </ul>
+          </Paper>
         ) : null}
 
         <Flex wrap gap="2" className="service-card__actions">
