@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="title">
-  <title>Respectful mobility and disability support at home</title>
-  <rect width="800" height="400" rx="28" fill="#F5F8F5"/><circle cx="205" cy="198" r="148" fill="#DFEFEB"/><path d="M0 341Q190 288 380 338T800 325V400H0Z" fill="#EAF1EB"/>
-  <g fill="none" stroke="#176C64" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="190" cy="138" r="25" fill="#F5FBF8"/><circle cx="204" cy="257" r="55"/><path d="m190 166 34 45 46 15m-47-15-29 42m-22-54 52 2 15 42m-43-80-18 33-40 10"/>
-    <path d="M151 258a53 53 0 0 1 105 0" stroke="#D89E54"/>
-  </g>
-  <g transform="translate(500 20)"><path d="M77 84c-10-31 12-66 48-67 21-27 67-18 76 12 30 9 39 48 17 68l-6 29H81Z" fill="#34251F"/><ellipse cx="153" cy="91" rx="42" ry="49" fill="#C98E6E"/><path d="M111 85c2-44 74-55 87-8-19-9-32-23-38-36-11 22-27 33-49 44Z" fill="#34251F"/><path d="M137 132h33v33h-33Z" fill="#B97C60"/><path d="M111 157q42-22 84 0l22 106H91Z" fill="#132F59"/><path d="m138 151 15 19 16-19" fill="#F5F8F5"/><path d="M111 169 76 235l20 10 40-52m59-24 28 64-19 9-34-48" fill="#132F59" stroke="#132F59" stroke-width="18" stroke-linecap="round"/><path d="m96 245-5 103h48l13-89 12 89h48l-3-103Z" fill="#132F59"/><path d="M87 346h51l-4 17H79q-10-7 8-17Zm77 0h50q17 12 5 17h-55Z" fill="#F7F8F4"/><path d="M182 190h9" stroke="#39B9B1" stroke-width="5" stroke-linecap="round"/><path d="M68 275h48v42H68Z" fill="#102747"/><path d="M69 287h46m-46 8h46" stroke="#B6D95B" stroke-width="4"/></g>
-</svg>

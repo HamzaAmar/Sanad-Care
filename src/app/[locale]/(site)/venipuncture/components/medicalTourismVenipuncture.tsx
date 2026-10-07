@@ -19,7 +19,7 @@ const MedicalTourismVenipuncture = () => {
     <Paper as="section" flow="8" className="section medical-tourism-container">
       <Grid cols={{ default: "1fr", md: "3fr 1fr" }} gap="6" items="center">
         <Paper flow="5">
-          <Chips corner="2" color="su" size="3" variant="outline">
+          <Chips color="p" size="4">
             {t("tourism.badge")}
           </Chips>
           <Heading as="h2" size="7" weight="6">

@@ -1,5 +1,4 @@
-import { Button, Flex } from "@pillar-ui/core";
-import { CalendarPlus } from "@pillar-ui/icons";
+import { Flex } from "@pillar-ui/core";
 import { useTranslations } from "next-intl";
 import Logo from "@/app/logo";
 import { Link } from "@/i18n/navigation";
@@ -31,18 +30,6 @@ const Header = () => {
       </Flex>
       <DesktopMenu />
       <Flex gap="2" items="center" className="slide-down-animation">
-        <Button
-          as={Link}
-          href="/contact-us"
-          variant="solid"
-          color="p"
-          corner="full"
-          size="4"
-          icon={<CalendarPlus width={16} strokeWidth={1.8} />}
-          className="h-e-cta"
-        >
-          {t("hero.bookBtn")}
-        </Button>
         <LanguageSwitcher language={language} />
         <MobileHeader />
         <Switcher />

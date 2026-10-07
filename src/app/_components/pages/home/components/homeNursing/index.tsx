@@ -1,5 +1,5 @@
-import { Button, Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import { CircleCheck } from "@pillar-ui/icons";
+import { Avatar, Button, Chips, Flex, Grid, Heading, Paper, Text } from "@pillar-ui/core";
+import { CircleCheck, Clock, Globe, PhoneCall, Verified, Whatsapp } from "@pillar-ui/icons";
 import type { CSSProperties } from "react";
 import { Link } from "@/i18n/navigation";
 import { PERSONAL_INFO } from "@/constants/personalInfo";
@@ -16,13 +16,18 @@ type CareCard = {
 
 const BADGE_KEYS = ["step1", "", "", "step4", "step5"];
 
+const EMERGENCY_IMAGE =
+  "/images/elder-care/caregiver-assisting-senior-bedroom-marrakech-sanadcare.avif";
+const EMERGENCY_STAT_ICONS = [Clock, Verified, Globe] as const;
+
 export function HomeNursingSeoSections() {
   const t = useTranslations("home");
+  const tHero = useTranslations("hero");
   const tService = useTranslations("services.page");
   const steps = (t.raw("howItWorks.steps") as CareCard[] | undefined) ?? [];
   const trust = (t.raw("howItWorks.trust") as string[] | undefined) ?? [];
   const badges = (t.raw("howItWorks.badges") as Record<string, string> | undefined) ?? {};
-  const emergencyBenefits = t.raw("emergencyCta.benefits") as string[];
+  const emergencyStats = t.raw("emergencyCta.stats") as { value: string; label: string }[];
   const locale = useLocale() as LocaleKey;
 
   return (
@@ -142,57 +147,91 @@ export function HomeNursingSeoSections() {
         </Reveal>
       </section>
 
-      <section className="section home-seo__section">
+      <section className="section home-seo__section" aria-labelledby="emergency-cta-title">
         <Reveal>
           <Paper flow="5" className="home-seo__final-cta">
-            <div className="home-seo__final-cta-head">
-              <Text as="p" className="home-seo__eyebrow" color="p" low>
-                {t("emergencyCta.eyebrow")}
-              </Text>
-              <Heading as="h2" size="7">
-                {t("emergencyCta.title")}
-              </Heading>
+            <div className="home-seo__final-cta-grid">
+              <div className="home-seo__final-cta-content">
+                <div className="home-seo__final-cta-head">
+                  <Chips as="p">{t("emergencyCta.eyebrow")}</Chips>
+                  <Heading
+                    as="h2"
+                    size="6"
+                    weight="5"
+                    className="home-seo__final-cta-title"
+                    id="emergency-cta-title"
+                  >
+                    {t("emergencyCta.titleLead")}{" "}
+                    <span className="home-seo__final-cta-accent">
+                      {t("emergencyCta.titleAccent")}
+                    </span>
+                  </Heading>
+                </div>
+
+                <Text size="6" weight="3" className="home-seo__final-cta-lead" color="b" low>
+                  {t("emergencyCta.description")}
+                </Text>
+
+                <dl className="home-seo__final-cta-stats">
+                  {emergencyStats.map(({ value, label }, i) => {
+                    const StatIcon = EMERGENCY_STAT_ICONS[i];
+                    return (
+                      <Paper border className="home-seo__stat" key={label}>
+                        <Avatar
+                          fallback={<StatIcon width={18} strokeWidth={1.6} />}
+                          size="3"
+                          color="su"
+                        />
+                        <dt className="home-seo__stat-value">{value}</dt>
+                        <dd className="home-seo__stat-label">{label}</dd>
+                      </Paper>
+                    );
+                  })}
+                </dl>
+
+                <Flex gap="4" wrap className="home-seo__final-cta-actions">
+                  <Button
+                    as="a"
+                    href={PERSONAL_INFO.contact.phone}
+                    size="5"
+                    icon={<PhoneCall width={18} strokeWidth={1.8} />}
+                  >
+                    {t("emergencyCta.primaryCta")}
+                  </Button>
+                  <Button
+                    as="a"
+                    href={PERSONAL_INFO.contact.whatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="soft"
+                    size="5"
+                    color="su"
+                    icon={<Whatsapp width={18} />}
+                  >
+                    {t("emergencyCta.secondaryCta")}
+                  </Button>
+                </Flex>
+              </div>
+
+              <Reveal variant="item" index={1} className="home-seo__final-cta-visual">
+                <img
+                  className="home-seo__final-cta-photo"
+                  src={EMERGENCY_IMAGE}
+                  alt={t("emergencyCta.imageAlt")}
+                  width={720}
+                  height={900}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="home-seo__final-cta-live">
+                  <span className="home-seo__status-dot" aria-hidden="true" />
+                  <span className="home-seo__live-body">
+                    <span className="home-seo__live-title">{t("emergencyCta.status")}</span>
+                    <span className="home-seo__live-meta">{tHero("availabilityMeta")}</span>
+                  </span>
+                </div>
+              </Reveal>
             </div>
-            <Text color="b" low size="4" className="mx-w-75c">
-              {t("emergencyCta.description")}
-            </Text>
-
-            <Flex gap="3" wrap>
-              {emergencyBenefits.map((benefit) => (
-                <Chips key={benefit} corner="full" color="b" variant="soft" size="3">
-                  <CircleCheck width="16" />
-                  {benefit}
-                </Chips>
-              ))}
-            </Flex>
-
-            <Flex gap="4" wrap className="home-seo__final-cta-actions">
-              <Button
-                as="a"
-                href={PERSONAL_INFO.contact.phone}
-                size="5"
-                className="home-seo__primary-button"
-              >
-                {t("emergencyCta.primaryCta")}
-              </Button>
-              <Button
-                as="a"
-                href={PERSONAL_INFO.contact.whatsapp}
-                target="_blank"
-                rel="noreferrer"
-                size="5"
-                variant="soft"
-              >
-                {t("emergencyCta.secondaryCta")}
-              </Button>
-            </Flex>
-
-            <Flex items="center" gap="2" className="home-seo__status">
-              <span className="home-seo__status-dot" aria-hidden="true" />
-              <Text size="2" color="su" low>
-                {t("emergencyCta.status")}
-              </Text>
-            </Flex>
           </Paper>
         </Reveal>
       </section>

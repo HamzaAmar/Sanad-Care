@@ -1,9 +1,18 @@
-import { Chips, Grid, Heading, Paper, Text } from "@pillar-ui/core";
-import { Ambulance, Discount, Globe, Location, Plane } from "@pillar-ui/icons";
+import { Button, Chips, Grid, Heading, Paper, Text } from "@pillar-ui/core";
+import {
+  Ambulance,
+  ArrowRight,
+  Discount,
+  Globe,
+  Location,
+  Plane,
+  Verified,
+} from "@pillar-ui/icons";
 import { useLocale, useTranslations } from "next-intl";
 import { Reveal } from "@/app/_components/reveal";
 import { RevealImage } from "@/app/_components/reveal/image";
 import { Box } from "@/app/_components/box";
+import { Link } from "@/i18n/navigation";
 import { LocaleKey } from "@/types/localeProps.interface";
 
 const TOURISM_IMAGES: Record<LocaleKey, string> = {
@@ -51,44 +60,64 @@ const MedicalTourism = () => {
 
   return (
     <Reveal>
-      <Paper as="section" flow="8" className="section medical-tourism-container">
-        <Grid cols={{ default: "1fr", md: "1.2fr 1fr" }} gap="6" items="center">
-          <Paper flow="5">
+      <Paper as="section" flow="8" className="section home-care-section home-care-section--tourism">
+        <Grid
+          className="home-care-grid"
+          cols={{ default: "1fr", md: "1.2fr 1fr" }}
+          gap="6"
+          items="center"
+        >
+          <Paper flow="5" className="home-care-copy">
             <div>
-              <Chips corner="2" color="p" size="3" variant="outline">
+              <Chips color="p" size="4">
                 {t("heading")}
               </Chips>
-              <Heading as="h2" size="6" weight="6">
+              <Heading as="h2" size="8" weight="5">
                 {t("subheading")}
               </Heading>
             </div>
             <Text size="6" weight="3" color="b" low>
               {t("description")}
             </Text>
-            <Grid
-              cols={{ default: "1fr", sm: "1fr 1fr", md: "repeat(3, 1fr)" }}
-              gap="4"
-              className="delivery-features"
+            <Button
+              as={Link}
+              href="/tourism"
+              size="4"
+              icon={<ArrowRight width={16} />}
+              iconPosition="end"
+              className="home-care-cta"
             >
-              {FEATURES.map(({ slug, ...rest }, i) => (
-                <Reveal key={slug} variant="item" index={i}>
-                  <Box {...rest} />
-                </Reveal>
-              ))}
-            </Grid>
+              {t("cta")}
+            </Button>
           </Paper>
-          <Paper
-            className="medical-tourism-image"
-            corner="5"
-            border
-            style={{ background: "var(--B3)", overflow: "hidden", maxHeight: "530px" }}
-          >
-            <RevealImage
-              src={TOURISM_IMAGES[locale]}
-              alt={t("imageAlt")}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </Paper>
+
+          <div className="home-care-media">
+            <Paper className="home-care-media__frame" corner="5" border>
+              <RevealImage
+                src={TOURISM_IMAGES[locale]}
+                alt={t("imageAlt")}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </Paper>
+            <div className="home-care-badge">
+              <span className="home-care-badge__icon" aria-hidden="true">
+                <Verified width={18} strokeWidth={1.6} />
+              </span>
+              <span className="home-care-badge__text">{t("badge")}</span>
+            </div>
+          </div>
+        </Grid>
+
+        <Grid
+          cols={{ default: "1fr", sm: "1fr 1fr", md: "repeat(3, 1fr)" }}
+          gap="4"
+          className="delivery-features"
+        >
+          {FEATURES.map(({ slug, ...rest }, i) => (
+            <Reveal key={slug} variant="item" index={i}>
+              <Box {...rest} />
+            </Reveal>
+          ))}
         </Grid>
       </Paper>
     </Reveal>

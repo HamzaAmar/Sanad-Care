@@ -1,0 +1,151 @@
+// Shared shell for the three home "care" sections — medical tourism, family and
+// patient. Copy stays first in the DOM so phones read text → photo → proof
+// cards; only the desktop grid order alternates (image first for family).
+
+.home-care-section {
+  position: relative;
+  z-index: 0;
+}
+
+.section.home-care-section--tourism {
+  background: linear-gradient(180deg, var(--B2), var(--B1));
+}
+
+// Faint Moroccan star lattice, token-coloured so both themes stay coherent.
+.home-care-section--family::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--P11);
+  opacity: 0.05;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.4'%3E%3Crect x='14' y='14' width='28' height='28'/%3E%3Crect x='14' y='14' width='28' height='28' transform='rotate(45 28 28)'/%3E%3C/g%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.4'%3E%3Crect x='14' y='14' width='28' height='28'/%3E%3Crect x='14' y='14' width='28' height='28' transform='rotate(45 28 28)'/%3E%3C/g%3E%3C/svg%3E");
+  mask-size: 56px 56px;
+}
+
+.section.home-care-section--patient {
+  background:
+    radial-gradient(
+      90% 120% at 100% 0%,
+      color-mix(in srgb, var(--P9) 6%, transparent),
+      transparent 60%
+    ),
+    var(--B2);
+}
+
+.home-care-grid {
+  min-width: 0;
+}
+
+.home-care-media {
+  position: relative;
+  min-width: 0;
+}
+
+.home-care-media__frame {
+  overflow: hidden;
+  max-block-size: 530px;
+  background: var(--B3);
+}
+
+// Floating glass proof card overlapping the photo corner.
+.home-care-badge {
+  --care-shadow-ink: var(--B12);
+
+  position: absolute;
+  inset-block-end: clamp(0.85rem, 2vw, 1.25rem);
+  inset-inline-start: -1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  max-inline-size: 16rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--B1) 24%, transparent);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--B1) 84%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  color: var(--B12);
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--care-shadow-ink) 12%, transparent),
+    0 12px 28px -14px color-mix(in srgb, var(--care-shadow-ink) 40%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--B1) 60%, transparent);
+}
+
+.dark .home-care-badge {
+  --care-shadow-ink: var(--B1);
+
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--care-shadow-ink) 30%, transparent),
+    0 12px 28px -14px color-mix(in srgb, var(--care-shadow-ink) 48%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--B12) 12%, transparent);
+}
+
+.home-care-badge__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 1.9rem;
+  block-size: 1.9rem;
+  border-radius: 0.55rem;
+  color: var(--P11);
+  background: color-mix(in srgb, var(--P9) 14%, transparent);
+}
+
+.home-care-badge__text {
+  font-size: var(--F3);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.home-care-cta {
+  font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-care-copy .bu- {
+    transition:
+      transform 200ms var(--ease-out),
+      background-color 200ms var(--ease-out);
+  }
+
+  .home-care-copy .bu-:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Family: photo moves to the reading-start side from tablet up; phones keep
+// the copy-first order, so the image stays at the bottom.
+@media (min-width: 768px) {
+  .home-care-section--family .home-care-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  }
+
+  .home-care-section--family .home-care-grid > .home-care-media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .home-care-section--family .home-care-grid > .home-care-copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-care-badge {
+    inset-inline-start: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-care-copy .bu- {
+    transition: none;
+  }
+
+  .home-care-copy .bu-:hover {
+    transform: none;
+  }
+}

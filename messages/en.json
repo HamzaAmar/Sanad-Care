@@ -302,13 +302,15 @@
     },
     "emergencyCta": {
       "eyebrow": "Need Help Today?",
-      "title": "24/7 Home Nursing Care Available Across Marrakech",
+      "titleLead": "24/7 Home Nursing Care Available",
+      "titleAccent": "Across Marrakech",
       "description": "A licensed nurse can be at your home, hotel, or riad today — for urgent elderly care, post-surgery support, or chronic care.",
-      "benefits": [
-        "Same-day urgent dispatch",
-        "Licensed, multilingual nurses",
-        "Home · Hotel · Riad"
+      "stats": [
+        { "value": "24/7", "label": "Availability" },
+        { "value": "100%", "label": "Licensed nurses" },
+        { "value": "EN · FR · AR", "label": "Languages spoken" }
       ],
+      "imageAlt": "A Sanad Care nurse assisting a patient at home in Marrakech",
       "primaryCta": "Call Now",
       "secondaryCta": "Chat on WhatsApp",
       "status": "Available now · 7 days a week"
@@ -723,6 +725,7 @@
     "subheading": "Your Trusted Medical Partner in Morocco. For Travelers and Medical Tourists.",
     "description": "Whether you are already in Marrakech and need urgent care at your hotel, or you are planning a medical trip from abroad, our team is here for you. We offer the same high-quality standards you expect at home, at a fraction of the price. Our multilingual team (English, French, Arabic) ensures you are understood and cared for at every step.",
     "cta": "Get Help at Your Hotel",
+    "badge": "Licensed nurses, 5+ years experience",
     "imageAlt": "Sanadcare nurse providing professional home nursing service in Marrakech",
     "features": {
       "urgentTravelers": {
@@ -1056,6 +1059,7 @@
     "subheading": "Home Nursing & Elderly Care for Your Parents in Marrakech",
     "description": "Whether you live in Marrakech or thousands of kilometers away, your parents deserve safe, professional care. Our licensed nurses provide elderly care, medication management, and daily support at home — with regular updates that keep the whole family informed and in control, even from abroad.",
     "cta": "Discover Family Care",
+    "badge": "Family updates sent daily",
     "imageAlt": "Sanadcare nurse providing elderly care and home nursing for a senior with family in Marrakech",
     "page": {
       "section1": {
@@ -1252,6 +1256,8 @@
     "heading": "Your Safety Comes First",
     "subheading": "Safe, Patient-Centered Home Nursing in Marrakech",
     "description": "Every patient deserves care that feels safe, private, and dignified. Our licensed nurses follow strict hygiene protocols and build a personalized care plan around your health, your comfort, and your home — so you can focus on recovery, not worry.",
+    "cta": "Discover Patient Care",
+    "badge": "Personalized care plan, reviewed daily",
     "imageAlt": "Sanadcare nurse following hygiene protocol for patient-centered home care in Marrakech",
     "page": {
       "struggle": {

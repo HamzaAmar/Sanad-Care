@@ -630,6 +630,7 @@
     "subheading": "Votre Partenaire Médical de Confiance au Maroc. Pour les Voyageurs et les Touristes Médicaux.",
     "description": "Que vous soyez déjà à Marrakech et ayez besoin de soins urgents à votre hôtel, ou que vous planifiiez un voyage médical depuis l'étranger, notre équipe est là pour vous. Nous offrons les mêmes standards de qualité que chez vous, à une fraction du prix. Notre équipe multilingue (anglais, français, arabe) veille à ce que vous soyez compris et pris en charge à chaque étape.",
     "cta": "Obtenez de l'Aide à Votre Hôtel",
+    "badge": "Infirmiers diplômés, 5+ ans d'expérience",
     "imageAlt": "Infirmière Sanadcare prodiguant des soins infirmiers à domicile à Marrakech",
     "features": {
       "urgentTravelers": {
@@ -958,6 +959,7 @@
     "subheading": "Soins Infirmiers à Domicile pour Vos Parents Âgés à Marrakech",
     "description": "Que vous viviez à Marrakech ou à des milliers de kilomètres, vos parents méritent des soins sûrs et professionnels. Nos infirmiers diplômés assurent la prise en charge des personnes âgées, la gestion des médicaments et l'assistance quotidienne à domicile — avec des mises à jour régulières qui rassurent toute la famille, même depuis l'étranger.",
     "cta": "Découvrir les Soins pour Familles",
+    "badge": "Mises à jour quotidiennes pour la famille",
     "imageAlt": "Infirmière Sanadcare prodiguant des soins à domicile à une personne âgée entourée de sa famille à Marrakech",
     "page": {
       "section1": {
@@ -1147,6 +1149,8 @@
     "heading": "Votre Sécurité Avant Tout",
     "subheading": "Soins Infirmiers à Domicile Sûrs et Centrés sur le Patient à Marrakech",
     "description": "Chaque patient mérite des soins sûrs, discrets et dignes. Nos infirmiers diplômés appliquent des protocoles d'hygiène stricts et construisent un plan de soins personnalisé autour de votre santé, de votre confort et de votre domicile — pour que vous puissiez vous concentrer sur votre rétablissement.",
+    "cta": "Découvrir les Soins aux Patients",
+    "badge": "Plan de soins personnalisé, revu chaque jour",
     "imageAlt": "Infirmière Sanadcare appliquant le protocole d'hygiène pour des soins à domicile centrés sur le patient à Marrakech",
     "page": {
       "struggle": {
@@ -1491,13 +1495,15 @@
     },
     "emergencyCta": {
       "eyebrow": "Besoin d'aide aujourd'hui ?",
-      "title": "Soins infirmiers à domicile disponibles 24h/24 et 7j/7 à Marrakech",
+      "titleLead": "Soins infirmiers à domicile 24h/24 et 7j/7",
+      "titleAccent": "partout à Marrakech",
       "description": "Un infirmier diplômé peut être chez vous, à votre hôtel ou riad dès aujourd'hui — soins urgents aux personnes âgées, suivi post-opératoire ou maladies chroniques.",
-      "benefits": [
-        "Intervention urgente le jour même",
-        "Infirmiers diplômés et multilingues",
-        "Domicile · Hôtel · Riad"
+      "stats": [
+        { "value": "24h/24", "label": "Disponibilité" },
+        { "value": "100%", "label": "Infirmiers diplômés" },
+        { "value": "EN · FR · AR", "label": "Langues parlées" }
       ],
+      "imageAlt": "Une infirmière Sanad Care auprès d'une patiente à domicile à Marrakech",
       "primaryCta": "Appeler maintenant",
       "secondaryCta": "Discuter sur WhatsApp",
       "status": "Disponible maintenant · 7j/7"

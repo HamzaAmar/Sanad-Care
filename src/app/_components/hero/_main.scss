@@ -224,7 +224,9 @@
 /* --- Entrance motion ---------------------------------------------------- */
 
 .hero__anim {
-  animation: hero-rise 620ms var(--ease-out) both;
+  /* `backwards` (not `both`): once the entrance finishes it must stop owning
+     `transform`, otherwise it would override card hover lifts. */
+  animation: hero-rise 620ms var(--ease-out) backwards;
   animation-delay: calc(var(--hero-step, 0) * 90ms);
 }
 
@@ -488,8 +490,10 @@
   box-shadow: 0 14px 36px -14px rgba(0, 0, 0, 0.45);
   color: var(--B12);
   transition: transform 260ms var(--ease-out);
+}
 
-  &:hover {
+@media (hover: hover) and (pointer: fine) {
+  .hero__card:hover {
     transform: translateY(-4px);
   }
 }
@@ -534,17 +538,17 @@
   color: rgba(255, 255, 255, 0.66);
 }
 
-.hero__card--enroute {
+.hero__card--response {
   inset-block-start: 6%;
   inset-inline-start: -5%;
 }
 
-.hero__card--recovery {
+.hero__card--nurse {
   inset-block-end: 25%;
   inset-inline-end: -6%;
 }
 
-.hero__card--rating {
+.hero__card--report {
   inset-block-end: 3%;
   inset-inline-start: -3%;
 }
@@ -681,5 +685,9 @@
 
   .hero__card {
     transition: none;
+  }
+
+  .hero__card:hover {
+    transform: none;
   }
 }
